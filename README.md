@@ -35,7 +35,20 @@
 | [`regexExtraireTout.gs`](regexExtraireTout.gs) | Data | Extrait toutes les correspondances d'une Regex |
 | [`parserAdresseFR.gs`](parserAdresseFR.gs) | Data | Découpe une adresse (Num, Voie, CP, Ville) en colonnes |
 | [`frequenceMots.gs`](frequenceMots.gs) | Data | Top des mots les plus fréquents d'une plage |
-
+| [`soldeConges.gs`](soldeConges.gs) | RH | Calcule le solde de congés payés au prorata |
+| [`anciennetePro.gs`](anciennetePro.gs) | RH | Retourne l'ancienneté sous forme textuelle |
+| [`isBusinessHour.gs`](isBusinessHour.gs) | RH | Vérifie si une date correspond aux horaires de bureau |
+| [`constructeurUTM.gs`](constructeurUTM.gs) | Marketing | Génère proprement une URL taguée UTM |
+| [`cleanLinkedinURL.gs`](cleanLinkedinURL.gs) | Marketing | Nettoie les URLs LinkedIn du tracking |
+| [`estimerLecture.gs`](estimerLecture.gs) | Marketing | Calcule le temps de lecture estimé d'un texte |
+| [`scoreLead.gs`](scoreLead.gs) | Vente | Attribue un score et une qualification à un prospect |
+| [`extraireTel.gs`](extraireTel.gs) | Vente | Isole et normalise un numéro de tel français |
+| [`slaStatus.gs`](slaStatus.gs) | Vente | Statut visuel SLA selon un délai de réponse |
+| [`calculVolumetrie.gs`](calculVolumetrie.gs) | Logistique | Calcule le volume ou poids volumétrique |
+| [`estimerLivraison.gs`](estimerLivraison.gs) | Logistique | Estime la date de livraison selon le code postal |
+| [`alerteStock.gs`](alerteStock.gs) | Logistique | Retourne un statut de réapprovisionnement |
+| [`ventilationTVA.gs`](ventilationTVA.gs) | Finance | Ventile TVA et HT depuis un TTC et une catégorie |
+| [`amortissementLineaire.gs`](amortissementLineaire.gs) | Finance | Calcule l'annuité d'amortissement prorata temporis |
 ---
 
 ## 🚀 Installation
