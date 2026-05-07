@@ -58,6 +58,15 @@
 | [`entropyScore.gs`](entropyScore.gs) | Data Sec | Calcule le score d'entropie (complexité) d'un mot de passe |
 | [`calculAgios.gs`](calculAgios.gs) | Finance | Calcule le coût d'un découvert ou retard de paiement |
 | [`seuilRentabilite.gs`](seuilRentabilite.gs) | Finance | Calcule le point mort (Break-even point) |
+| [`analyseSentiment.gs`](analyseSentiment.gs) | IA | Évalue la tonalité (Positif/Négatif) d'un texte |
+| [`censureMots.gs`](censureMots.gs) | IA | Censure les mots indésirables ou vulgaires par des *** |
+| [`detectOutlier.gs`](detectOutlier.gs) | Stats | Détecte les anomalies (Z-Score) dans une plage de valeurs |
+| [`previsionLissage.gs`](previsionLissage.gs) | Stats | Prévoit la prochaine valeur via lissage exponentiel |
+| [`prixPsychologique.gs`](prixPsychologique.gs) | Retail | Arrondit vers le prix psychologique (ex: .99, .90) |
+| [`cleEAN13.gs`](cleEAN13.gs) | Retail | Calcule la clé de contrôle d'un code-barres |
+| [`extractTitleTag.gs`](extractTitleTag.gs) | Web | Extrait le <title> d'une URL (Scraping SEO) |
+| [`cleanHTML.gs`](cleanHTML.gs) | Web | Nettoie les balises HTML d'un bloc de texte |
+| [`estimationBrutNet.gs`](estimationBrutNet.gs) | RH | Convertisseur indicatif Brut/Net selon le statut (FR) |
 
 ---
 
