@@ -67,6 +67,8 @@
 | [`extractTitleTag.gs`](extractTitleTag.gs) | Web | Extrait le <title> d'une URL (Scraping SEO) |
 | [`cleanHTML.gs`](cleanHTML.gs) | Web | Nettoie les balises HTML d'un bloc de texte |
 | [`estimationBrutNet.gs`](estimationBrutNet.gs) | RH | Convertisseur indicatif Brut/Net selon le statut (FR) |
+| [`qrCodeWifi.gs`](qrCodeWifi.gs) | Utilitaires | Génère l'URL d'un QR code pour se connecter au Wi-Fi |
+| [`nomFichierPropre.gs`](nomFichierPropre.gs) | Utilitaires | Nettoie une chaîne pour en faire un nom de fichier valide |
 
 ---
 
