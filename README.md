@@ -1,83 +1,84 @@
-# Various-functions
+# Various-functions (Google Sheets Library)
 
-🇫🇷 Diverses fonctions pratiques pour Google Sheets  
-🇬🇧 Various handy features for Google Sheets
+🇫🇷 **Boîte à outils de 65 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
+
+🇬🇧 **A toolkit of 65 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
 
 ---
 
 ## 📋 Contenu / Contents
 
-| Fichier | Catégorie | Description |
-|---------|-----------|-------------|
-| [`ageExact.gs`](ageExact.gs) | Dates | Calcule l'âge exact (années, mois, jours) |
-| [`alerteStock.gs`](alerteStock.gs) | Logistique | Retourne un statut de réapprovisionnement |
-| [`amortissementLineaire.gs`](amortissementLineaire.gs) | Finance | Calcule l'annuité d'amortissement prorata temporis |
-| [`analyseSentiment.gs`](analyseSentiment.gs) | IA | Évalue la tonalité (Positif/Négatif) d'un texte |
-| [`anciennetePro.gs`](anciennetePro.gs) | RH | Retourne l'ancienneté sous forme textuelle |
-| [`arrondiComptable.gs`](arrondiComptable.gs) | Finance | Arrondi bancaire (au pair le plus proche) |
-| [`calculAgios.gs`](calculAgios.gs) | Finance | Calcule le coût d'un découvert ou retard de paiement |
-| [`calculVolumetrie.gs`](calculVolumetrie.gs) | Logistique | Calcule le volume ou poids volumétrique |
-| [`capitaliser.gs`](capitaliser.gs) | Texte | Capitalise les mots en gérant les particules (de, du, le...) |
-| [`censureMots.gs`](censureMots.gs) | IA | Censure les mots indésirables ou vulgaires par des *** |
-| [`cleanHTML.gs`](cleanHTML.gs) | Web | Nettoie les balises HTML d'un bloc de texte |
-| [`cleanLinkedinURL.gs`](cleanLinkedinURL.gs) | Marketing | Nettoie les URLs LinkedIn du tracking |
-| [`cleEAN13.gs`](cleEAN13.gs) | Retail | Calcule la clé de contrôle d'un code-barres |
-| [`co2Transport.gs`](co2Transport.gs) | RSE | Calcule l'empreinte carbone d'un trajet (kgCO2e) |
-| [`constructeurUTM.gs`](constructeurUTM.gs) | Marketing | Génère proprement une URL taguée UTM |
-| [`couleurCellule.gs`](couleurCellule.gs) | Utilitaires | Retourne le code HEX de la couleur de fond d'une cellule |
-| [`coutEmployeur.gs`](coutEmployeur.gs) | RH | Estime le coût total employeur (Super Brut) à partir du salaire brut |
-| [`deadlineStatus.gs`](deadlineStatus.gs) | Projet | Statut d'échéance basé sur les jours ouvrés restants |
-| [`debutFinMois.gs`](debutFinMois.gs) | Dates | Premier et dernier jour du mois d'une date |
-| [`decodeSafeUrl.gs`](decodeSafeUrl.gs) | IT/Sec | Nettoie les liens de sécurité (SafeLinks, Proofpoint) |
-| [`detectOutlier.gs`](detectOutlier.gs) | Stats | Détecte les anomalies (Z-Score) dans une plage de valeurs |
-| [`detectPII.gs`](detectPII.gs) | Data Sec | Détecte la présence de données personnelles sensibles |
-| [`entropyScore.gs`](entropyScore.gs) | Data Sec | Calcule le score d'entropie (complexité) d'un mot de passe |
-| [`estimationBrutNet.gs`](estimationBrutNet.gs) | RH | Convertisseur indicatif Brut/Net selon le statut (FR) |
-| [`estimerLecture.gs`](estimerLecture.gs) | Marketing | Calcule le temps de lecture estimé d'un texte |
-| [`estimerLivraison.gs`](estimerLivraison.gs) | Logistique | Estime la date de livraison selon le code postal |
-| [`extractTitleTag.gs`](extractTitleTag.gs) | Web | Extrait le <title> d'une URL (Scraping SEO) |
-| [`extraireDomaine.gs`](extraireDomaine.gs) | Utilitaires | Extrait le domaine principal d'une URL |
-| [`extraireInitiales.gs`](extraireInitiales.gs) | Texte | Extrait les initiales d'un nom ("Jean-Pierre" → "JP") |
-| [`extraireJSON.gs`](extraireJSON.gs) | Data | Extrait une valeur d'un JSON via notation pointée |
-| [`extraireTel.gs`](extraireTel.gs) | Vente | Isole et normalise un numéro de tel français |
-| [`finPeriodeEssai.gs`](finPeriodeEssai.gs) | Compliance | Calcule la date exacte de fin de période d'essai (FR) |
-| [`formuleWilson.gs`](formuleWilson.gs) | Logistique | Calcule la quantité économique de commande (EOQ) |
-| [`frequenceMots.gs`](frequenceMots.gs) | Data | Top des mots les plus fréquents d'une plage |
-| [`genererMotDePasse.gs`](genererMotDePasse.gs) | Utilitaires | Génère un mot de passe aléatoire sécurisé |
-| [`htToTTC.gs`](htToTTC.gs) | Finance | Conversion HT ↔ TTC avec taux de TVA paramétrable |
-| [`iban.gs`](iban.gs) | Finance | Vérification et formatage d'IBAN (ISO 13616) |
-| [`isBusinessHour.gs`](isBusinessHour.gs) | RH | Vérifie si une date correspond aux horaires de bureau |
-| [`joursOuvres.gs`](joursOuvres.gs) | Dates | Jours ouvrés entre 2 dates (hors week-ends et fériés FR) |
-| [`montantEnLettres.gs`](montantEnLettres.gs) | Finance | Convertit un nombre en toutes lettres ("mille euros") |
-| [`nomFichierPropre.gs`](nomFichierPropre.gs) | Utilitaires | Nettoie une chaîne pour en faire un nom de fichier valide |
-| [`normaliser.gs`](normaliser.gs) | Texte | Supprime accents, espaces multiples, met en majuscules |
-| [`parserAdresseFR.gs`](parserAdresseFR.gs) | Data | Découpe une adresse (Num, Voie, CP, Ville) en colonnes |
-| [`penalitesRetard.gs`](penalitesRetard.gs) | Finance | Calcule les pénalités de retard légales (B2B) selon le taux BCE |
-| [`previsionLissage.gs`](previsionLissage.gs) | Stats | Prévoit la prochaine valeur via lissage exponentiel |
-| [`prixPsychologique.gs`](prixPsychologique.gs) | Retail | Arrondit vers le prix psychologique (ex: .99, .90) |
-| [`prochainFerie.gs`](prochainFerie.gs) | Dates | Retourne le prochain jour férié français |
-| [`projectSPI.gs`](projectSPI.gs) | Projet | Calcule le Schedule Performance Index d'un projet |
-| [`qrCodeURL.gs`](qrCodeURL.gs) | Utilitaires | Génère l'URL d'un QR code affichable via `=IMAGE(...)` |
-| [`qrCodeWifi.gs`](qrCodeWifi.gs) | Utilitaires | Génère l'URL d'un QR code pour se connecter au Wi-Fi |
-| [`rechercheVFloue.gs`](rechercheVFloue.gs) | Data | Recherche V avec tolérance aux fautes (Levenshtein) |
-| [`rechercheVMulti.gs`](rechercheVMulti.gs) | Data | Retourne toutes les correspondances d'une recherche, séparées par un caractère |
-| [`regexExtraireTout.gs`](regexExtraireTout.gs) | Data | Extrait toutes les correspondances d'une Regex |
-| [`scoreLead.gs`](scoreLead.gs) | Vente | Attribue un score et une qualification à un prospect |
-| [`seuilRentabilite.gs`](seuilRentabilite.gs) | Finance | Calcule le point mort (Break-even point) |
-| [`slaStatus.gs`](slaStatus.gs) | Vente | Statut visuel SLA selon un délai de réponse |
-| [`slugify.gs`](slugify.gs) | Texte | Génère un slug d'URL depuis un texte ("Café" → "cafe") |
-| [`soldeConges.gs`](soldeConges.gs) | RH | Calcule le solde de congés payés au prorata |
-| [`ventilationTVA.gs`](ventilationTVA.gs) | Finance | Ventile TVA et HT depuis un TTC et une catégorie |
-| [`verifCB.gs`](verifCB.gs) | Validation | Valide un n° de carte bancaire et détecte le réseau |
-| [`verifEmail.gs`](verifEmail.gs) | Validation | Vérifie le format d'une adresse email (regex robuste) |
-| [`verifGdprRetention.gs`](verifGdprRetention.gs) | Compliance | Vérifie la durée de conservation RGPD d'une donnée |
-| [`verifNIR.gs`](verifNIR.gs) | Validation | Valide un n° de Sécurité Sociale français (clé modulo 97) |
-| [`verifSIRET.gs`](verifSIRET.gs) | Validation | Valide un n° SIRET/SIREN français (algorithme de Luhn) |
-| [`verifTVA.gs`](verifTVA.gs) | Validation | Valide un n° de TVA intracommunautaire |
+| Fichier / File | Catégorie / Category | Description (FR) | Description (EN) |
+|----------------|----------------------|------------------|------------------|
+| [`ageExact.gs`](ageExact.gs) | Dates / Dates | Calcule l'âge exact (années, mois, jours) | Calculates exact age (years, months, days) |
+| [`alerteStock.gs`](alerteStock.gs) | Logistique / Logistics | Retourne un statut de réapprovisionnement | Returns a restock status |
+| [`amortissementLineaire.gs`](amortissementLineaire.gs) | Finance / Finance | Calcule l'annuité d'amortissement prorata temporis | Calculates linear depreciation prorata temporis |
+| [`analyseSentiment.gs`](analyseSentiment.gs) | IA / AI | Évalue la tonalité (Positif/Négatif) d'un texte | Evaluates text sentiment (Positive/Negative) |
+| [`anciennetePro.gs`](anciennetePro.gs) | RH / HR | Retourne l'ancienneté sous forme textuelle | Returns professional tenure as text |
+| [`arrondiComptable.gs`](arrondiComptable.gs) | Finance / Finance | Arrondi bancaire (au pair le plus proche) | Banker's rounding (round half to even) |
+| [`calculAgios.gs`](calculAgios.gs) | Finance / Finance | Calcule le coût d'un découvert ou retard de paiement | Calculates overdraft or late payment costs |
+| [`calculVolumetrie.gs`](calculVolumetrie.gs) | Logistique / Logistics | Calcule le volume ou poids volumétrique | Calculates volume or volumetric weight |
+| [`capitaliser.gs`](capitaliser.gs) | Texte / Text | Capitalise les mots en gérant les particules (de, du, le...) | Capitalizes words handling French particles |
+| [`censureMots.gs`](censureMots.gs) | IA / AI | Censure les mots indésirables ou vulgaires par des *** | Censors unwanted or vulgar words with *** |
+| [`cleanHTML.gs`](cleanHTML.gs) | Web / Web | Nettoie les balises HTML d'un bloc de texte | Cleans HTML tags from a text block |
+| [`cleanLinkedinURL.gs`](cleanLinkedinURL.gs) | Marketing / Marketing | Nettoie les URLs LinkedIn du tracking | Cleans tracking from LinkedIn URLs |
+| [`cleEAN13.gs`](cleEAN13.gs) | Retail / Retail | Calcule la clé de contrôle d'un code-barres | Calculates the check digit of a barcode |
+| [`co2Transport.gs`](co2Transport.gs) | RSE / CSR | Calcule l'empreinte carbone d'un trajet (kgCO2e) | Calculates carbon footprint of a trip (kgCO2e) |
+| [`constructeurUTM.gs`](constructeurUTM.gs) | Marketing / Marketing | Génère proprement une URL taguée UTM | Generates a clean UTM tagged URL |
+| [`couleurCellule.gs`](couleurCellule.gs) | Utilitaires / Utilities | Retourne le code HEX de la couleur de fond d'une cellule | Returns the HEX background color of a cell |
+| [`coutEmployeur.gs`](coutEmployeur.gs) | RH / HR | Estime le coût total employeur (Super Brut) à partir du salaire brut | Estimates total employer cost from gross salary |
+| [`deadlineStatus.gs`](deadlineStatus.gs) | Projet / Project | Statut d'échéance basé sur les jours ouvrés restants | Deadline status based on remaining business days |
+| [`debutFinMois.gs`](debutFinMois.gs) | Dates / Dates | Premier et dernier jour du mois d'une date | First and last day of the month for a date |
+| [`decodeSafeUrl.gs`](decodeSafeUrl.gs) | IT/Sec / IT/Sec | Nettoie les liens de sécurité (SafeLinks, Proofpoint) | Cleans security links (SafeLinks, Proofpoint) |
+| [`detectOutlier.gs`](detectOutlier.gs) | Stats / Stats | Détecte les anomalies (Z-Score) dans une plage de valeurs | Detects outliers (Z-Score) in a range of values |
+| [`detectPII.gs`](detectPII.gs) | Data Sec / Data Sec | Détecte la présence de données personnelles sensibles | Detects the presence of sensitive personal data (PII) |
+| [`entropyScore.gs`](entropyScore.gs) | Data Sec / Data Sec | Calcule le score d'entropie (complexité) d'un mot de passe | Calculates the entropy score (complexity) of a password |
+| [`estimationBrutNet.gs`](estimationBrutNet.gs) | RH / HR | Convertisseur indicatif Brut/Net selon le statut (FR) | Indicative Gross/Net salary converter (FR) |
+| [`estimerLecture.gs`](estimerLecture.gs) | Marketing / Marketing | Calcule le temps de lecture estimé d'un texte | Calculates estimated reading time of a text |
+| [`estimerLivraison.gs`](estimerLivraison.gs) | Logistique / Logistics | Estime la date de livraison selon le code postal | Estimates delivery date based on postal code |
+| [`extractTitleTag.gs`](extractTitleTag.gs) | Web / Web | Extrait le <title> d'une URL (Scraping SEO) | Extracts the <title> from a URL (SEO Scraping) |
+| [`extraireDomaine.gs`](extraireDomaine.gs) | Utilitaires / Utilities | Extrait le domaine principal d'une URL | Extracts the main domain from a URL |
+| [`extraireInitiales.gs`](extraireInitiales.gs) | Texte / Text | Extrait les initiales d'un nom ("Jean-Pierre" → "JP") | Extracts initials from a name |
+| [`extraireJSON.gs`](extraireJSON.gs) | Data / Data | Extrait une valeur d'un JSON via notation pointée | Extracts a value from JSON via dot notation |
+| [`extraireTel.gs`](extraireTel.gs) | Vente / Sales | Isole et normalise un numéro de tel français | Isolates and normalizes a French phone number |
+| [`finPeriodeEssai.gs`](finPeriodeEssai.gs) | Compliance / Compliance | Calcule la date exacte de fin de période d'essai (FR) | Calculates exact end date of probation period (FR) |
+| [`formuleWilson.gs`](formuleWilson.gs) | Logistique / Logistics | Calcule la quantité économique de commande (EOQ) | Calculates Economic Order Quantity (EOQ / Wilson) |
+| [`frequenceMots.gs`](frequenceMots.gs) | Data / Data | Top des mots les plus fréquents d'une plage | Top most frequent words in a range |
+| [`genererMotDePasse.gs`](genererMotDePasse.gs) | Utilitaires / Utilities | Génère un mot de passe aléatoire sécurisé | Generates a secure random password |
+| [`htToTTC.gs`](htToTTC.gs) | Finance / Finance | Conversion HT ↔ TTC avec taux de TVA paramétrable | Pre-tax ↔ Post-tax conversion with custom VAT |
+| [`iban.gs`](iban.gs) | Finance / Finance | Vérification et formatage d'IBAN (ISO 13616) | IBAN verification and formatting (ISO 13616) |
+| [`isBusinessHour.gs`](isBusinessHour.gs) | RH / HR | Vérifie si une date correspond aux horaires de bureau | Checks if a date falls within business hours |
+| [`joursOuvres.gs`](joursOuvres.gs) | Dates / Dates | Jours ouvrés entre 2 dates (hors week-ends et fériés FR) | Business days between 2 dates (excl. FR holidays) |
+| [`montantEnLettres.gs`](montantEnLettres.gs) | Finance / Finance | Convertit un nombre en toutes lettres ("mille euros") | Converts a number to words (French) |
+| [`nomFichierPropre.gs`](nomFichierPropre.gs) | Utilitaires / Utilities | Nettoie une chaîne pour en faire un nom de fichier valide | Cleans a string to make it a valid filename |
+| [`normaliser.gs`](normaliser.gs) | Texte / Text | Supprime accents, espaces multiples, met en majuscules | Removes accents, extra spaces, converts to uppercase |
+| [`parserAdresseFR.gs`](parserAdresseFR.gs) | Data / Data | Découpe une adresse (Num, Voie, CP, Ville) en colonnes | Splits an address into columns (Num, Street, Zip, City) |
+| [`penalitesRetard.gs`](penalitesRetard.gs) | Finance / Finance | Calcule les pénalités de retard légales (B2B) selon le taux BCE | Calculates legal late payment penalties (B2B) |
+| [`previsionLissage.gs`](previsionLissage.gs) | Stats / Stats | Prévoit la prochaine valeur via lissage exponentiel | Forecasts the next value via exponential smoothing |
+| [`prixPsychologique.gs`](prixPsychologique.gs) | Retail / Retail | Arrondit vers le prix psychologique (ex: .99, .90) | Rounds to psychological pricing (e.g. .99, .90) |
+| [`prochainFerie.gs`](prochainFerie.gs) | Dates / Dates | Retourne le prochain jour férié français | Returns the next French public holiday |
+| [`projectSPI.gs`](projectSPI.gs) | Projet / Project | Calcule le Schedule Performance Index d'un projet | Calculates the Schedule Performance Index (SPI) |
+| [`qrCodeURL.gs`](qrCodeURL.gs) | Utilitaires / Utilities | Génère l'URL d'un QR code affichable via `=IMAGE(...)` | Generates a QR code URL for `=IMAGE(...)` |
+| [`qrCodeWifi.gs`](qrCodeWifi.gs) | Utilitaires / Utilities | Génère l'URL d'un QR code pour se connecter au Wi-Fi | Generates a Wi-Fi QR code URL |
+| [`rechercheVFloue.gs`](rechercheVFloue.gs) | Data / Data | Recherche V avec tolérance aux fautes (Levenshtein) | Fuzzy VLOOKUP (Levenshtein distance) |
+| [`rechercheVMulti.gs`](rechercheVMulti.gs) | Data / Data | Retourne toutes les correspondances d'une recherche, séparées par un caractère | Returns all VLOOKUP matches, separated by a char |
+| [`regexExtraireTout.gs`](regexExtraireTout.gs) | Data / Data | Extrait toutes les correspondances d'une Regex | Extracts all Regex matches |
+| [`scoreLead.gs`](scoreLead.gs) | Vente / Sales | Attribue un score et une qualification à un prospect | Assigns a score and qualification to a lead |
+| [`seuilRentabilite.gs`](seuilRentabilite.gs) | Finance / Finance | Calcule le point mort (Break-even point) | Calculates the Break-even point |
+| [`slaStatus.gs`](slaStatus.gs) | Vente / Sales | Statut visuel SLA selon un délai de réponse | Visual SLA status based on response time |
+| [`slugify.gs`](slugify.gs) | Texte / Text | Génère un slug d'URL depuis un texte ("Café" → "cafe") | Generates a URL slug from text |
+| [`soldeConges.gs`](soldeConges.gs) | RH / HR | Calcule le solde de congés payés au prorata | Calculates prorated paid leave balance |
+| [`ventilationTVA.gs`](ventilationTVA.gs) | Finance / Finance | Ventile TVA et HT depuis un TTC et une catégorie | Ventilates VAT and Pre-tax from Post-tax |
+| [`verifCB.gs`](verifCB.gs) | Validation / Validation | Valide un n° de carte bancaire et détecte le réseau | Validates a credit card number and detects network |
+| [`verifEmail.gs`](verifEmail.gs) | Validation / Validation | Vérifie le format d'une adresse email (regex robuste) | Verifies email address format (robust regex) |
+| [`verifGdprRetention.gs`](verifGdprRetention.gs) | Compliance / Compliance | Vérifie la durée de conservation RGPD d'une donnée | Checks GDPR data retention period |
+| [`verifNIR.gs`](verifNIR.gs) | Validation / Validation | Valide un n° de Sécurité Sociale français (clé modulo 97) | Validates a French Social Security number (NIR) |
+| [`verifSIRET.gs`](verifSIRET.gs) | Validation / Validation | Valide un n° SIRET/SIREN français (algorithme de Luhn) | Validates a French SIRET/SIREN (Luhn algorithm) |
+| [`verifTVA.gs`](verifTVA.gs) | Validation / Validation | Valide un n° de TVA intracommunautaire | Validates a European VAT number |
 
 ---
 
-## 🚀 Installation
+## 🚀 Installation (FR)
 
 1. Ouvrez un fichier Google Sheets
 2. Allez dans **Extensions** → **Apps Script**
@@ -87,19 +88,30 @@
 
 > **Note :** Le runtime V8 (ES6+) doit être activé dans Apps Script (activé par défaut depuis 2020).
 
----
+## 🚀 Installation (EN)
 
-## 🏦 Documentation détaillée
+1. Open a Google Sheets file
+2. Go to **Extensions** → **Apps Script**
+3. Copy and paste the content of the desired `.gs` file
+4. Click **Save** (💾)
+5. Use the functions directly in cells, e.g.: `=verifSIRET("12345678900000")`
 
-Chaque fichier contient des commentaires JSDoc détaillés avec des exemples d'utilisation et des descriptions de paramètres. 
-La plupart des fonctions renvoient un message d'erreur clair et explicite en cas de problème (ex: `"INVALIDE — aucun numéro fourni"`).
-
----
-
-## 📄 Licence
-
-Ce projet est sous licence [MIT](LICENSE).
+> **Note:** The V8 runtime (ES6+) must be enabled in Apps Script (enabled by default since 2020).
 
 ---
 
-*Auteur : [Fabrice Faucheux](https://github.com/FabriceFx)*
+## 🏦 Documentation détaillée / Detailed Documentation
+
+🇫🇷 Chaque fichier contient des commentaires JSDoc détaillés avec des exemples d'utilisation et des descriptions de paramètres. La plupart des fonctions renvoient un message d'erreur clair et explicite en cas de problème (ex: `"INVALIDE — aucun numéro fourni"`).
+
+🇬🇧 Each file contains detailed JSDoc comments with usage examples and parameter descriptions. Most functions return a clear and explicit error message in case of an issue (e.g.: `"ERROR — missing value"`).
+
+---
+
+## 📄 Licence / License
+
+Ce projet est sous licence / This project is licensed under [MIT](LICENSE).
+
+---
+
+*Auteur / Author : [Fabrice Faucheux](https://github.com/FabriceFx)*
