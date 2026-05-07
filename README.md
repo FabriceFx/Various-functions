@@ -7,68 +7,48 @@
 
 ## 📋 Contenu / Contents
 
-| Fichier | Description |
-|---------|-------------|
-| [`iban.gs`](iban.gs) | Vérification et formatage d'IBAN (ISO 13616) |
-
----
-
-## 🏦 iban.gs — Vérification & formatage d'IBAN
-
-Fonctions personnalisées pour **Google Sheets** permettant de valider un IBAN selon la norme **ISO 13616** (algorithme Modulo 97 — ISO 7064) et de le formater en groupes de 4 caractères.
-
-### Fonctions disponibles
-
-#### `=verifIBAN(iban)`
-
-Vérifie la validité d'un IBAN en 3 étapes :
-1. **Format** — L'IBAN ne contient que des caractères alphanumériques
-2. **Longueur** — L'IBAN a la longueur attendue pour son code pays
-3. **Clé de contrôle** — Validation par l'algorithme Modulo 97 (ISO 7064)
-
-**Retourne** un message explicite :
-
-| Résultat | Exemple |
-|----------|---------|
-| `VALIDE` | L'IBAN est correct |
-| `INVALIDE — aucun IBAN fourni` | Cellule vide |
-| `INVALIDE — format incorrect (…)` | Ne commence pas par 2 lettres + 2 chiffres |
-| `INVALIDE — code pays « XX » non reconnu` | Code pays absent de la table |
-| `INVALIDE — longueur incorrecte (25 car. au lieu de 27 pour FR)` | Trop court ou trop long |
-| `INVALIDE — clé de contrôle incorrecte` | Échec du Modulo 97 |
-
-**Exemples :**
-
-```
-=verifIBAN("FR76 3000 6000 0112 3456 7890 189")   → "VALIDE"
-=verifIBAN("FR76 3000 6000 0112 3456 7890 188")   → "INVALIDE — clé de contrôle incorrecte"
-=verifIBAN("XX12 3456")                            → "INVALIDE — code pays « XX » non reconnu"
-```
-
-#### `=formatIBAN(iban)`
-
-Formate un IBAN en groupes de 4 caractères séparés par des espaces.
-
-```
-=formatIBAN("FR7630006000011234567890189")
-→ "FR76 3000 6000 0112 3456 7890 189"
-```
-
-### 🌍 Pays supportés (70+)
-
-AD, AE, AL, AT, AZ, BA, BE, BG, BH, BI, BR, BY, CH, CR, CY, CZ, DE, DJ, DK, DO, EE, EG, ES, FI, FK, FO, FR, GB, GE, GI, GL, GR, GT, HR, HU, IE, IL, IQ, IS, IT, JO, KW, KZ, LB, LC, LI, LT, LU, LV, LY, MC, MD, ME, MK, MN, MR, MT, MU, NI, NL, NO, PK, PL, PS, PT, QA, RO, RS, RU, SA, SC, SD, SE, SI, SK, SM, SO, ST, SV, TL, TN, TR, UA, VA, VG, XK
+| Fichier | Catégorie | Description |
+|---------|-----------|-------------|
+| [`iban.gs`](iban.gs) | Finance | Vérification et formatage d'IBAN (ISO 13616) |
+| [`verifSIRET.gs`](verifSIRET.gs) | Validation | Valide un n° SIRET/SIREN français (algorithme de Luhn) |
+| [`verifEmail.gs`](verifEmail.gs) | Validation | Vérifie le format d'une adresse email (regex robuste) |
+| [`verifNIR.gs`](verifNIR.gs) | Validation | Valide un n° de Sécurité Sociale français (clé modulo 97) |
+| [`verifCB.gs`](verifCB.gs) | Validation | Valide un n° de carte bancaire et détecte le réseau |
+| [`verifTVA.gs`](verifTVA.gs) | Validation | Valide un n° de TVA intracommunautaire |
+| [`normaliser.gs`](normaliser.gs) | Texte | Supprime accents, espaces multiples, met en majuscules |
+| [`extraireInitiales.gs`](extraireInitiales.gs) | Texte | Extrait les initiales d'un nom ("Jean-Pierre" → "JP") |
+| [`slugify.gs`](slugify.gs) | Texte | Génère un slug d'URL depuis un texte ("Café" → "cafe") |
+| [`capitaliser.gs`](capitaliser.gs) | Texte | Capitalise les mots en gérant les particules (de, du, le...) |
+| [`joursOuvres.gs`](joursOuvres.gs) | Dates | Jours ouvrés entre 2 dates (hors week-ends et fériés FR) |
+| [`prochainFerie.gs`](prochainFerie.gs) | Dates | Retourne le prochain jour férié français |
+| [`ageExact.gs`](ageExact.gs) | Dates | Calcule l'âge exact (années, mois, jours) |
+| [`debutFinMois.gs`](debutFinMois.gs) | Dates | Premier et dernier jour du mois d'une date |
+| [`montantEnLettres.gs`](montantEnLettres.gs) | Finance | Convertit un nombre en toutes lettres ("mille euros") |
+| [`htToTTC.gs`](htToTTC.gs) | Finance | Conversion HT ↔ TTC avec taux de TVA paramétrable |
+| [`arrondiComptable.gs`](arrondiComptable.gs) | Finance | Arrondi bancaire (au pair le plus proche) |
+| [`genererMotDePasse.gs`](genererMotDePasse.gs) | Utilitaires | Génère un mot de passe aléatoire sécurisé |
+| [`extraireDomaine.gs`](extraireDomaine.gs) | Utilitaires | Extrait le domaine principal d'une URL |
+| [`couleurCellule.gs`](couleurCellule.gs) | Utilitaires | Retourne le code HEX de la couleur de fond d'une cellule |
+| [`qrCodeURL.gs`](qrCodeURL.gs) | Utilitaires | Génère l'URL d'un QR code affichable via `=IMAGE(...)` |
 
 ---
 
 ## 🚀 Installation
 
-1. Ouvrir un Google Sheets
-2. **Extensions** → **Apps Script**
-3. Copier-coller le contenu du fichier `.gs` souhaité
-4. **Enregistrer** (💾)
-5. Utiliser les fonctions directement dans les cellules
+1. Ouvrez un fichier Google Sheets
+2. Allez dans **Extensions** → **Apps Script**
+3. Copiez-collez le contenu du fichier `.gs` souhaité
+4. Cliquez sur **Enregistrer** (💾)
+5. Utilisez les fonctions directement dans les cellules, ex: `=verifSIRET("12345678900000")`
 
 > **Note :** Le runtime V8 (ES6+) doit être activé dans Apps Script (activé par défaut depuis 2020).
+
+---
+
+## 🏦 Documentation détaillée
+
+Chaque fichier contient des commentaires JSDoc détaillés avec des exemples d'utilisation et des descriptions de paramètres. 
+La plupart des fonctions renvoient un message d'erreur clair et explicite en cas de problème (ex: `"INVALIDE — aucun numéro fourni"`).
 
 ---
 
