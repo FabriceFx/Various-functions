@@ -30,6 +30,11 @@
 | [`extraireDomaine.gs`](extraireDomaine.gs) | Utilitaires | Extrait le domaine principal d'une URL |
 | [`couleurCellule.gs`](couleurCellule.gs) | Utilitaires | Retourne le code HEX de la couleur de fond d'une cellule |
 | [`qrCodeURL.gs`](qrCodeURL.gs) | Utilitaires | Génère l'URL d'un QR code affichable via `=IMAGE(...)` |
+| [`rechercheVFloue.gs`](rechercheVFloue.gs) | Data | Recherche V avec tolérance aux fautes (Levenshtein) |
+| [`extraireJSON.gs`](extraireJSON.gs) | Data | Extrait une valeur d'un JSON via notation pointée |
+| [`regexExtraireTout.gs`](regexExtraireTout.gs) | Data | Extrait toutes les correspondances d'une Regex |
+| [`parserAdresseFR.gs`](parserAdresseFR.gs) | Data | Découpe une adresse (Num, Voie, CP, Ville) en colonnes |
+| [`frequenceMots.gs`](frequenceMots.gs) | Data | Top des mots les plus fréquents d'une plage |
 
 ---
 
