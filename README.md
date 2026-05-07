@@ -49,6 +49,16 @@
 | [`alerteStock.gs`](alerteStock.gs) | Logistique | Retourne un statut de réapprovisionnement |
 | [`ventilationTVA.gs`](ventilationTVA.gs) | Finance | Ventile TVA et HT depuis un TTC et une catégorie |
 | [`amortissementLineaire.gs`](amortissementLineaire.gs) | Finance | Calcule l'annuité d'amortissement prorata temporis |
+| [`co2Transport.gs`](co2Transport.gs) | RSE | Calcule l'empreinte carbone d'un trajet (kgCO2e) |
+| [`projectSPI.gs`](projectSPI.gs) | Projet | Calcule le Schedule Performance Index d'un projet |
+| [`deadlineStatus.gs`](deadlineStatus.gs) | Projet | Statut d'échéance basé sur les jours ouvrés restants |
+| [`verifGdprRetention.gs`](verifGdprRetention.gs) | Compliance | Vérifie la durée de conservation RGPD d'une donnée |
+| [`finPeriodeEssai.gs`](finPeriodeEssai.gs) | Compliance | Calcule la date exacte de fin de période d'essai (FR) |
+| [`detectPII.gs`](detectPII.gs) | Data Sec | Détecte la présence de données personnelles sensibles |
+| [`entropyScore.gs`](entropyScore.gs) | Data Sec | Calcule le score d'entropie (complexité) d'un mot de passe |
+| [`calculAgios.gs`](calculAgios.gs) | Finance | Calcule le coût d'un découvert ou retard de paiement |
+| [`seuilRentabilite.gs`](seuilRentabilite.gs) | Finance | Calcule le point mort (Break-even point) |
+
 ---
 
 ## 🚀 Installation
