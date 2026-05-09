@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Material Symbols & Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <style>
+    :root {
+      --md-sys-color-primary: #0061A4;
+      --md-sys-color-on-primary: #FFFFFF;
+      --md-sys-color-surface: #F8F9FF;
+      --md-sys-color-on-surface: #191C1E;
+      --md-sys-color-surface-variant: #E0E2EC;
+      --md-sys-color-on-surface-variant: #44474E;
+      --md-sys-color-outline: #74777F;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      margin: 0;
+      padding: 16px;
+      line-height: 1.5;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .header .icon {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.2rem;
+      margin: 0;
+      color: var(--md-sys-color-primary);
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
+      border: 1px solid var(--md-sys-color-surface-variant);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .card h2 {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1rem;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .card h2 i {
+      font-size: 1.2rem;
+      margin-right: 8px;
+      color: var(--md-sys-color-primary);
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 24px;
+      border: 1px solid var(--md-sys-color-outline);
+      background-color: transparent;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: var(--md-sys-color-primary);
+      border-width: 2px;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background-color: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface-variant);
+      font-size: 12px;
+      margin-right: 4px;
+      margin-bottom: 8px;
+    }
+
+    .function-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--md-sys-color-surface-variant);
+    }
+
+    .function-item:last-child {
+      border-bottom: none;
+    }
+
+    .function-name {
+      font-weight: 500;
+      color: var(--md-sys-color-primary);
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    .function-desc {
+      font-size: 13px;
+      color: var(--md-sys-color-on-surface-variant);
+      margin-top: 4px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--md-sys-color-outline);
+      margin-top: 32px;
+      border-top: 1px solid var(--md-sys-color-surface-variant);
+      padding-top: 16px;
+    }
+
+    .btn-primary {
+      background-color: var(--md-sys-color-primary);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="icon"><i class="material-icons">auto_awesome</i></div>
+    <h1>Various Functions</h1>
+  </div>
+
+  <div class="card">
+    <h2><i class="material-icons">info</i> Bienvenue</h2>
+    <p style="font-size: 13px;">Votre bibliothèque de 70 fonctions professionnelles est prête. Utilisez le champ ci-dessous pour trouver une aide rapide.</p>
+  </div>
+
+  <input type="text" class="search-box" placeholder="Rechercher une fonction (ex: TVA, NIR...)" id="search">
+
+  <div id="results">
+    <div class="card">
+      <h2><i class="material-icons">star</i> Fonctions populaires</h2>
+      
+      <div class="function-item">
+        <div class="function-name">=FF_VERSION()</div>
+        <div class="function-desc">Vérifie votre version actuelle.</div>
+      </div>
+
+      <div class="function-item">
+        <div class="function-name">=MASK_PII(cellule)</div>
+        <div class="function-desc">Anonymise les données sensibles (Emails, CB...).</div>
+      </div>
+
+      <div class="function-item">
+        <div class="function-name">=SEO_LISIBILITE_FLESCH(texte)</div>
+        <div class="function-desc">Indice de lisibilité pour le français.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Propulsé par Fabrice Faucheux<br>
+    Version 2.1.0 — 2026
+  </div>
+
+  <script>
+    // Logique de recherche simple (Client-side)
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      // Ici on pourrait injecter une liste plus complète via GAS
+    });
+  </script>
+</body>
+</html>
