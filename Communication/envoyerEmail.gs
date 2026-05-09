@@ -31,6 +31,9 @@
  * @param {boolean} [options.noReply]  Si VRAI, utilise une adresse no-reply (si dispo).
  * @param {string} [options.type="INFO"] Type d'email : "INFO", "VIGILANCE", "ALERTE".
  * @param {string} [options.footer]    Texte personnalisé pour le pied de page.
+ * @param {Object} [options.button]    { text: string, url: string } - Bouton d'action.
+ * @param {string} [options.logoUrl]   URL de l'image du logo (Header).
+ * @param {Blob[]} [options.attachments] Liste des pièces jointes.
  * @return {string}                    Message de confirmation ou d'erreur.
  * @customfunction
  */
@@ -39,14 +42,15 @@ function ENVOYER_EMAIL(to, subject, body, options = {}) {
     const type = (options.type || "INFO").toUpperCase();
     const colors = CONFIG.COLORS_MD3[type] || CONFIG.COLORS_MD3.INFO;
     
-    const htmlBody = _buildMd3Template(subject, body, colors, options.footer);
+    const htmlBody = _buildMd3Template(subject, body, colors, options);
     
     const mailOptions = {
       name: "FF Library Studio",
       htmlBody: htmlBody,
       cc: options.cc || "",
       bcc: options.bcc || "",
-      noReply: options.noReply === true
+      noReply: options.noReply === true,
+      attachments: options.attachments || []
     };
 
     MailApp.sendEmail(to, subject, "", mailOptions);
@@ -61,9 +65,24 @@ function ENVOYER_EMAIL(to, subject, body, options = {}) {
  * Génère le template HTML Material Design 3.
  * @private
  */
-function _buildMd3Template(title, content, colors, footer) {
+function _buildMd3Template(title, content, colors, opts) {
   const currentYear = new Date().getFullYear();
-  const defaultFooter = footer || "Ce message automatique a été généré par FF Library Studio.";
+  const defaultFooter = opts.footer || "Ce message automatique a été généré par FF Library Studio.";
+  
+  // Gestion du Logo
+  const logoHtml = opts.logoUrl ? `<img src="${opts.logoUrl}" alt="Logo" style="max-height: 40px; margin-bottom: 16px;">` : "";
+  
+  // Gestion du Bouton CTA
+  let buttonHtml = "";
+  if (opts.button && opts.button.text && opts.button.url) {
+    buttonHtml = `
+      <div style="text-align: center; margin-top: 32px; margin-bottom: 16px;">
+        <a href="${opts.button.url}" style="background-color: ${colors.primary}; color: ${colors.onPrimary}; padding: 12px 24px; text-decoration: none; border-radius: 100px; font-weight: 500; font-size: 14px; display: inline-block; box-shadow: 0 1px 3px rgba(0,0,0,0.12);">
+          ${opts.button.text}
+        </a>
+      </div>
+    `;
+  }
 
   return `
     <!DOCTYPE html>
@@ -84,11 +103,13 @@ function _buildMd3Template(title, content, colors, footer) {
     <body>
       <div class="container">
         <div class="header">
+          ${logoHtml}
           <h1>${title}</h1>
         </div>
         <div class="content">
           <div class="badge">${colors.onContainer === "#001D36" ? "Information" : (colors.onContainer === "#291800" ? "Vigilance" : "Alerte Critique")}</div>
-          <div>${content.replace(/\n/g, '<br>')}</div>
+          <div style="color: #49454F;">${content.replace(/\n/g, '<br>')}</div>
+          ${buttonHtml}
         </div>
         <div class="divider"></div>
         <div class="footer">

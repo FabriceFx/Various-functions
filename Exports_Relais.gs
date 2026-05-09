@@ -1453,6 +1453,9 @@ function EXTRACT_TITLE_TAG(url, bypassCache) {
  * @param {boolean} [options.noReply]  Si VRAI, utilise une adresse no-reply (si dispo).
  * @param {string} [options.type="INFO"] Type d'email : "INFO", "VIGILANCE", "ALERTE".
  * @param {string} [options.footer]    Texte personnalisé pour le pied de page.
+ * @param {Object} [options.button]    { text: string, url: string } - Bouton d'action.
+ * @param {string} [options.logoUrl]   URL de l'image du logo (Header).
+ * @param {Blob[]} [options.attachments] Liste des pièces jointes.
  * @return {string}                    Message de confirmation ou d'erreur.
  * @customfunction
  */
