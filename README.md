@@ -1,8 +1,8 @@
 # Various-functions (Google Sheets Library)
 
-🇫🇷 **Boîte à outils de 69 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
+🇫🇷 **Boîte à outils de 70 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
 
-🇬🇧 **A toolkit of 69 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
+🇬🇧 **A toolkit of 70 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
 
 ---
 
@@ -13,7 +13,7 @@
 | [`ageExact.gs`](RH/ageExact.gs) | Dates / Dates | Calcule l'âge exact (années, mois, jours) | Calculates exact age (years, months, days) |
 | [`alerteStock.gs`](Logistique/alerteStock.gs) | Logistique / Logistics | Retourne un statut de réapprovisionnement | Returns a restock status |
 | [`amortissementLineaire.gs`](Finance/amortissementLineaire.gs) | Finance / Finance | Calcule l'annuité d'amortissement prorata temporis | Calculates linear depreciation prorata temporis |
-| [`analyseSEO.gs`](Marketing_Vente/analyseSEO.gs) | Marketing / Marketing | Analyse la densité de mots-clés et structure SEO | Analyzes keyword density and SEO structure |
+| [`analyseSEO.gs`](Marketing_Vente/analyseSEO.gs) | Marketing / Marketing | Densité de mots-clés et indice de lisibilité Flesch | Keyword density and Flesch readability index |
 | [`analyseSentiment.gs`](Marketing_Vente/analyseSentiment.gs) | IA / AI | Évalue la tonalité (Positif/Négatif) d'un texte | Evaluates text sentiment (Positive/Negative) |
 | [`anciennetePro.gs`](RH/anciennetePro.gs) | RH / HR | Retourne l'ancienneté sous forme textuelle | Returns professional tenure as text |
 | [`arrondiComptable.gs`](Finance/arrondiComptable.gs) | Finance / Finance | Arrondi bancaire (au pair le plus proche) | Banker's rounding (round half to even) |
