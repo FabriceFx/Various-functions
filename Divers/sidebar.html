@@ -12,11 +12,15 @@
     :root {
       --md-sys-color-primary: #0061A4;
       --md-sys-color-on-primary: #FFFFFF;
+      --md-sys-color-primary-container: #D1E4FF;
+      --md-sys-color-on-primary-container: #001D36;
+      --md-sys-color-secondary: #535F70;
       --md-sys-color-surface: #F8F9FF;
       --md-sys-color-on-surface: #191C1E;
       --md-sys-color-surface-variant: #E0E2EC;
       --md-sys-color-on-surface-variant: #44474E;
       --md-sys-color-outline: #74777F;
+      --md-sys-color-error: #BA1A1A;
     }
 
     body {
@@ -26,131 +30,186 @@
       margin: 0;
       padding: 16px;
       line-height: 1.5;
+      overflow-x: hidden;
     }
 
     .header {
       display: flex;
       align-items: center;
       margin-bottom: 24px;
+      padding: 8px 0;
     }
 
     .header .icon {
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-right: 12px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,97,164,0.2);
     }
 
     h1 {
       font-family: 'Google Sans', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       margin: 0;
       color: var(--md-sys-color-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .section-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 24px 0 12px 4px;
     }
 
     .card {
-      background-color: white;
-      border-radius: 16px;
+      background-color: #FFFFFF;
+      border-radius: 20px;
       padding: 16px;
       margin-bottom: 16px;
       border: 1px solid var(--md-sys-color-surface-variant);
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .card h2 {
       font-family: 'Google Sans', sans-serif;
       font-size: 1rem;
       margin-top: 0;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
+      color: var(--md-sys-color-on-surface);
     }
 
     .card h2 i {
       font-size: 1.2rem;
-      margin-right: 8px;
+      margin-right: 12px;
       color: var(--md-sys-color-primary);
+    }
+
+    /* MD3 Buttons */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    .btn-filled {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+    .btn-tonal {
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--md-sys-color-primary);
+      border: 1px solid var(--md-sys-color-outline);
+    }
+
+    .btn:hover:not(:disabled) {
+      filter: brightness(0.95);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn i {
+      font-size: 18px;
+      margin-right: 8px;
+    }
+
+    .search-container {
+      position: relative;
+      margin-bottom: 16px;
     }
 
     .search-box {
       width: 100%;
-      padding: 12px 16px;
-      border-radius: 24px;
+      padding: 14px 16px 14px 48px;
+      border-radius: 28px;
       border: 1px solid var(--md-sys-color-outline);
-      background-color: transparent;
+      background-color: #FFFFFF;
       box-sizing: border-box;
-      margin-bottom: 16px;
       font-size: 14px;
-      transition: border-color 0.2s;
     }
 
-    .search-box:focus {
-      outline: none;
-      border-color: var(--md-sys-color-primary);
-      border-width: 2px;
-    }
-
-    .chip {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background-color: var(--md-sys-color-surface-variant);
+    .search-container i {
+      position: absolute;
+      left: 16px;
+      top: 14px;
       color: var(--md-sys-color-on-surface-variant);
-      font-size: 12px;
-      margin-right: 4px;
-      margin-bottom: 8px;
     }
 
-    .function-item {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--md-sys-color-surface-variant);
-    }
-
-    .function-item:last-child {
-      border-bottom: none;
-    }
-
-    .function-name {
-      font-weight: 500;
-      color: var(--md-sys-color-primary);
-      font-family: monospace;
-      font-size: 14px;
-    }
-
-    .function-desc {
+    .status-msg {
       font-size: 13px;
-      color: var(--md-sys-color-on-surface-variant);
-      margin-top: 4px;
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .status-success {
+      background-color: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .status-info {
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      white-space: pre-line;
+    }
+
+    .loader {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid var(--md-sys-color-primary-container);
+      border-top: 3px solid var(--md-sys-color-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     .footer {
       text-align: center;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--md-sys-color-outline);
-      margin-top: 32px;
-      border-top: 1px solid var(--md-sys-color-surface-variant);
-      padding-top: 16px;
-    }
-
-    .btn-primary {
-      background-color: var(--md-sys-color-primary);
-      color: white;
-      border: none;
-      padding: 10px 24px;
-      border-radius: 20px;
-      font-weight: 500;
-      cursor: pointer;
-      width: 100%;
-      transition: opacity 0.2s;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
+      margin-top: 40px;
+      padding: 16px 0;
     }
   </style>
 </head>
@@ -160,45 +219,94 @@
     <h1>Various Functions</h1>
   </div>
 
-  <div class="card">
-    <h2><i class="material-icons">info</i> Bienvenue</h2>
-    <p style="font-size: 13px;">Votre bibliothèque de 70 fonctions professionnelles est prête. Utilisez le champ ci-dessous pour trouver une aide rapide.</p>
+  <!-- Recherche -->
+  <div class="search-container">
+    <i class="material-icons">search</i>
+    <input type="text" class="search-box" placeholder="Rechercher une fonction..." id="search">
   </div>
 
-  <input type="text" class="search-box" placeholder="Rechercher une fonction (ex: TVA, NIR...)" id="search">
+  <!-- Actions Rapides -->
+  <div class="section-title">Outils & Sécurité</div>
+  <div class="card">
+    <h2><i class="material-icons">security</i> Données Sensibles</h2>
+    <p style="font-size: 13px; margin-bottom: 16px;">Vérifiez la présence de PII (Emails, CB, IBAN) dans vos cellules sélectionnées.</p>
+    <button class="btn btn-tonal" id="btnPreviewPII">
+      <i class="material-icons">visibility</i> Scanner la sélection
+    </button>
+    <div id="piiResult" class="status-msg status-info"></div>
+  </div>
 
-  <div id="results">
-    <div class="card">
-      <h2><i class="material-icons">star</i> Fonctions populaires</h2>
-      
-      <div class="function-item">
-        <div class="function-name">=FF_VERSION()</div>
-        <div class="function-desc">Vérifie votre version actuelle.</div>
-      </div>
+  <div class="card">
+    <h2><i class="material-icons">cached</i> Performance</h2>
+    <p style="font-size: 13px; margin-bottom: 16px;">Videz le cache pour forcer la mise à jour des résultats externes (SEO, adresses).</p>
+    <button class="btn btn-outline" id="btnClearCache">
+      <i class="material-icons">delete_sweep</i> Vider le cache
+    </button>
+    <div id="cacheResult" class="status-msg status-success"></div>
+  </div>
 
-      <div class="function-item">
-        <div class="function-name">=MASK_PII(cellule)</div>
-        <div class="function-desc">Anonymise les données sensibles (Emails, CB...).</div>
-      </div>
-
-      <div class="function-item">
-        <div class="function-name">=SEO_LISIBILITE_FLESCH(texte)</div>
-        <div class="function-desc">Indice de lisibilité pour le français.</div>
-      </div>
+  <!-- Documentation Rapide -->
+  <div class="section-title">Aide Rapide</div>
+  <div class="card">
+    <div style="font-size: 13px;">
+      <div style="margin-bottom: 12px;"><strong>=FF_VERSION()</strong><br>Vérifie votre version actuelle.</div>
+      <div style="margin-bottom: 12px;"><strong>=MASK_PII(A1)</strong><br>Anonymise les données sensibles.</div>
+      <div><strong>=SEO_LISIBILITE_FLESCH(A1)</strong><br>Score de lisibilité française.</div>
     </div>
   </div>
 
+  <div class="loader" id="globalLoader"></div>
+
   <div class="footer">
-    Propulsé par Fabrice Faucheux<br>
-    Version 2.1.0 — 2026
+    Développé par Fabrice Faucheux<br>
+    Propulsé par Google Apps Script — v2.1.0
   </div>
 
   <script>
-    // Logique de recherche simple (Client-side)
-    const searchInput = document.getElementById('search');
-    searchInput.addEventListener('input', (e) => {
-      const term = e.target.value.toLowerCase();
-      // Ici on pourrait injecter une liste plus complète via GAS
+    const btnClearCache = document.getElementById('btnClearCache');
+    const btnPreviewPII = document.getElementById('btnPreviewPII');
+    const cacheResult = document.getElementById('cacheResult');
+    const piiResult = document.getElementById('piiResult');
+    const loader = document.getElementById('globalLoader');
+
+    function toggleLoading(isLoading) {
+      loader.style.display = isLoading ? 'block' : 'none';
+      btnClearCache.disabled = isLoading;
+      btnPreviewPII.disabled = isLoading;
+    }
+
+    // Vider le cache
+    btnClearCache.addEventListener('click', () => {
+      toggleLoading(true);
+      cacheResult.style.display = 'none';
+      
+      google.script.run
+        .withSuccessHandler((msg) => {
+          toggleLoading(false);
+          cacheResult.textContent = msg;
+          cacheResult.style.display = 'block';
+          setTimeout(() => { cacheResult.style.display = 'none'; }, 3000);
+        })
+        .clearCache();
+    });
+
+    // Scanner la sélection
+    btnPreviewPII.addEventListener('click', () => {
+      toggleLoading(true);
+      piiResult.style.display = 'none';
+      
+      google.script.run
+        .withSuccessHandler((msg) => {
+          toggleLoading(false);
+          piiResult.textContent = msg;
+          piiResult.style.display = 'block';
+        })
+        .previewPIISelection();
+    });
+
+    // Recherche (Placeholder pour évolution)
+    document.getElementById('search').addEventListener('input', (e) => {
+      // Filtrage futur des fonctions
     });
   </script>
 </body>
