@@ -241,9 +241,10 @@ const GUARD = {
 function _parseDate(val) {
   if (!val && val !== 0) return null;
 
-  // 1. Déjà un objet Date (on vérifie la méthode getTime pour être compatible avec les objets traversant les bibliothèques)
-  if (val && Object.prototype.toString.call(val) === '[object Date]') {
-    return isNaN(val.getTime()) ? null : val;
+  // 1. Déjà un objet Date (duck-typing pour compatibilité cross-script)
+  if (val && typeof val.getTime === 'function') {
+    const t = val.getTime();
+    return isNaN(t) ? null : val;
   }
 
   // 2. Nombre sériel Google Sheets / Excel (jours depuis 1899-12-30)
