@@ -32,28 +32,31 @@
  *   =genererMotDePasse(16; VRAI; VRAI; FAUX)
  */
 function genererMotDePasse(longueur = 12, majuscules = true, nombres = true, speciaux = true) {
-  let charSet = "abcdefghijklmnopqrstuvwxyz";
-  const numSet = "0123456789";
-  const upperSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const specSet = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+  return batchProcess(longueur, (val) => {
+    let charSet = "abcdefghijklmnopqrstuvwxyz";
+    const numSet = "0123456789";
+    const upperSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const specSet = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
 
-  if (majuscules) charSet += upperSet;
-  if (nombres) charSet += numSet;
-  if (speciaux) charSet += specSet;
+    if (majuscules) charSet += upperSet;
+    if (nombres) charSet += numSet;
+    if (speciaux) charSet += specSet;
 
-  let password = "";
-  
-  // Garantir au moins un caractère de chaque type demandé
-  if (majuscules) password += upperSet[Math.floor(Math.random() * upperSet.length)];
-  if (nombres) password += numSet[Math.floor(Math.random() * numSet.length)];
-  if (speciaux) password += specSet[Math.floor(Math.random() * specSet.length)];
-  
-  const resteLong = Math.max(0, parseInt(longueur, 10) - password.length);
-  
-  for (let i = 0; i < resteLong; i++) {
-    password += charSet[Math.floor(Math.random() * charSet.length)];
-  }
+    let password = "";
+    const len = parseInt(val, 10) || 12;
+    
+    // Garantir au moins un caractère de chaque type demandé
+    if (majuscules) password += upperSet[Math.floor(Math.random() * upperSet.length)];
+    if (nombres) password += numSet[Math.floor(Math.random() * numSet.length)];
+    if (speciaux) password += specSet[Math.floor(Math.random() * specSet.length)];
+    
+    const resteLong = Math.max(0, len - password.length);
+    
+    for (let i = 0; i < resteLong; i++) {
+      password += charSet[Math.floor(Math.random() * charSet.length)];
+    }
 
-  // Mélanger le mot de passe
-  return password.split('').sort(() => 0.5 - Math.random()).join('');
+    // Mélanger le mot de passe
+    return password.split('').sort(() => 0.5 - Math.random()).join('');
+  });
 }

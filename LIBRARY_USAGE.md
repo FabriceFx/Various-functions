@@ -42,18 +42,12 @@ function testerBibliotheque() {
 ```
 
 ### B. Directement dans les cellules Sheets
-Google Sheets ne détecte pas automatiquement les fonctions d'une bibliothèque. Pour les rendre disponibles dans vos formules, vous devez créer une petite **fonction relais** dans le script de votre classeur client :
+Google Sheets ne détecte pas automatiquement les fonctions d'une bibliothèque pour l'autocomplétion. 
 
-```javascript
-/**
- * Valide un numéro SIRET français.
- * @customfunction
- */
-function SIRET(input) {
-  return FF.verifSIRET(input);
-}
-```
-Vous pouvez ensuite utiliser `=SIRET(A2)` directement dans votre feuille.
+**Solution recommandée** : 
+Copiez le contenu du fichier **`Exports_Relais.gs`** (présent à la racine de ce dépôt) dans le script de votre classeur client. Ce fichier contient déjà tous les relais nécessaires avec leur documentation JSDoc pour activer l'aide à la saisie native dans les cellules.
+
+Vous pourrez ainsi utiliser n'importe quelle fonction (ex: `=verifSIRET(A2)`) comme s'il s'agissait d'une fonction native de Google Sheets.
 
 ---
 

@@ -86,6 +86,13 @@
 
 ---
 
+## 🚀 Installation & Utilisation rapide
+
+1.  **Ajouter la bibliothèque** : Dans votre script, ajoutez l'ID de script et utilisez l'identifiant **`FF`**.
+2.  **Autocomplétion native** : Pour que les fonctions apparaissent dans l'aide à la saisie de Google Sheets, copiez le contenu du fichier `Exports_Relais.gs` dans votre projet.
+
+Consultez le guide [LIBRARY_USAGE.md](LIBRARY_USAGE.md) pour plus de détails.
+
 ---
 
 ## 🚀 Installation (FR)
@@ -94,7 +101,9 @@
 2. Allez dans **Extensions** → **Apps Script**
 3. Copiez-collez le contenu du fichier `.gs` souhaité
 4. Cliquez sur **Enregistrer** (💾)
-5. Utilisez les fonctions directement dans les cellules, ex: `=verifSIRET("12345678900000")`
+5. Utilisez l'identifiant **`FF`**.
+6. **Astuce Autocomplétion** : Copiez le contenu de `Exports_Relais.gs` dans votre script pour activer l'aide à la saisie native dans les cellules.
+7. Utilisez les fonctions directement dans les cellules, ex: `=verifSIRET("12345678900000")`
 
 > **Note :** Le runtime V8 (ES6+) doit être activé dans Apps Script (activé par défaut depuis 2020).
 

@@ -31,18 +31,20 @@
  *   =TEXT_SIMILARITY("Google Sheets"; "Google Shet") → 0.92
  */
 function TEXT_SIMILARITY(texte1, texte2) {
-  if (texte1 == null || texte2 == null) return 0;
-  
-  const s1 = String(texte1).toLowerCase().trim();
-  const s2 = String(texte2).toLowerCase().trim();
-  
-  if (s1 === s2) return 1;
-  if (s1.length === 0 || s2.length === 0) return 0;
-  
-  const distance = _levenshteinDistance(s1, s2);
-  const maxLength = Math.max(s1.length, s2.length);
-  
-  return (maxLength - distance) / maxLength;
+  return batchProcess(texte1, (val) => {
+    if (val == null || texte2 == null) return 0;
+    
+    const s1 = String(val).toLowerCase().trim();
+    const s2 = String(texte2).toLowerCase().trim();
+    
+    if (s1 === s2) return 1;
+    if (s1.length === 0 || s2.length === 0) return 0;
+    
+    const distance = _levenshteinDistance(s1, s2);
+    const maxLength = Math.max(s1.length, s2.length);
+    
+    return (maxLength - distance) / maxLength;
+  });
 }
 
 /**
