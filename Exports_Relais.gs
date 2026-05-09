@@ -350,6 +350,15 @@ function DEADLINE_STATUS(dateEcheance, dateRef) {
 }
 
 /**
+ * Retourne la version actuelle de la bibliothèque.
+ * @return {string} Version (ex: "2.1.0").
+ * @customfunction
+ */
+function FF_VERSION() {
+  return FF.FF_VERSION();
+}
+
+/**
  * Censure les mots indésirables dans un texte.
  * Supporte le traitement par lot (plages de cellules).
  *
