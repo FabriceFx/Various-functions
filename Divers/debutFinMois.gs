@@ -11,7 +11,6 @@
  *    Utilitaires pour naviguer dans les mois d'une date Google Sheets :
  *    premier jour, dernier jour, nombre de jours, nom du mois.
  *
- *  Améliorations v2.0 :
  *    • Helper _parseDate centralisé (gère Date, serial number Sheets, string ISO)
  *    • Constante ERR_DATE pour des messages d'erreur cohérents
  *    • Nouvelles fonctions : NB_JOURS_MOIS, NOM_MOIS

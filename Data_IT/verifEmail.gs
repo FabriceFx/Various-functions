@@ -8,7 +8,6 @@
  *  Licence : MIT
  *
  *  Description :
- *    Vérifie le format d'une adresse email avec une regex robuste conforme
  *    aux standards RFC 5322 (simplifiée). Vérifie également la présence
  *    d'un TLD valide (au moins 2 caractères).
  *

@@ -11,14 +11,12 @@
  *    Calcule la date de fin et la durée de la période d'essai CDI selon
  *    le Code du Travail français (L.1221-19), en fonction du statut.
  *
- *  Améliorations v2.0 :
  *    • Parser de date sécurisé (_parseDate) — corrige le décalage UTC
  *    • Renouvellement traité comme un ajout (et non un doublement) : sémantique
  *      conforme à L.1221-21 ("renouvelée une fois pour une durée égale")
  *    • Plafonds légaux max documentés et stockés dans la table STATUTS
  *    • Table de règles STATUTS — extensible sans modifier la logique
  *    • Normalisation du statut plus tolérante (accents, abréviations)
- *    • Helper _addMonths pour un calcul de date robuste (gestion fin de mois)
  *    • Nouvelle fonction : DUREE_PERIODE_ESSAI(statut, renouvellement)
  *
  *  Fonctions exposées :

@@ -64,7 +64,6 @@ function parserAdresseFR(adresse) {
 
 /**
  * Normalise une adresse française via l'API officielle (adresse.data.gouv.fr).
- * Version "Premium" beaucoup plus robuste. Supporte le batching et le cache.
  *
  * @param {string|Array<Array<string>>} adresse L'adresse ou une plage de cellules.
  * @return {Array<Array<string>>}                Tableau de [Adresse complète, Score de confiance].
