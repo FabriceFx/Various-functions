@@ -1440,3 +1440,22 @@ function SCORE_LEAD(budget, secteur, source) {
 function EXTRACT_TITLE_TAG(url, bypassCache) {
   return FF_LIB.EXTRACT_TITLE_TAG(url, bypassCache);
 }
+
+/**
+ * Envoie un email stylisé Material Design 3.
+ *
+ * @param {string} to          Destinataire(s) (séparés par des virgules).
+ * @param {string} subject     Objet de l'email.
+ * @param {string} body        Corps du message (supporte le HTML simple).
+ * @param {Object} [options]   Options d'envoi.
+ * @param {string} [options.cc]        Destinataires en copie.
+ * @param {string} [options.bcc]       Destinataires en copie cachée.
+ * @param {boolean} [options.noReply]  Si VRAI, utilise une adresse no-reply (si dispo).
+ * @param {string} [options.type="INFO"] Type d'email : "INFO", "VIGILANCE", "ALERTE".
+ * @param {string} [options.footer]    Texte personnalisé pour le pied de page.
+ * @return {string}                    Message de confirmation ou d'erreur.
+ * @customfunction
+ */
+function ENVOYER_EMAIL(to, subject, body, options) {
+  return FF_LIB.ENVOYER_EMAIL(to, subject, body, options);
+}

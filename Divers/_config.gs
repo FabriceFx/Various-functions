@@ -58,6 +58,28 @@ const CONFIG = {
     "com.fr", "gouv.fr", "asso.fr"
   ]),
 
+  // Palettes de couleurs Material Design 3 (Emailing)
+  COLORS_MD3: {
+    INFO: {
+      primary: "#0061A4",
+      onPrimary: "#FFFFFF",
+      container: "#D1E4FF",
+      onContainer: "#001D36"
+    },
+    VIGILANCE: {
+      primary: "#825500",
+      onPrimary: "#FFFFFF",
+      container: "#FFDDB3",
+      onContainer: "#291800"
+    },
+    ALERTE: {
+      primary: "#BA1A1A",
+      onPrimary: "#FFFFFF",
+      container: "#FFDAD6",
+      onContainer: "#410002"
+    }
+  },
+
   // Taux indicatifs moyens des charges salariales (France)
   SALAIRE_TAUX: {
     cadre: 0.25,
