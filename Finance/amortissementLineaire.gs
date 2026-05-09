@@ -37,14 +37,19 @@
  */
 function AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice) {
   return batchProcess(valeur, (val) => {
+    // Clauses de garde systématiques
+    const errValeur = GUARD.isNumber(val, "Valeur");
+    const errDuree = GUARD.isNumber(dureeAnnees, "Durée");
+    const errAnnee = GUARD.isNumber(anneeExercice, "Année exercice");
+    const errDate = GUARD.isDate(dateAchat, "Date achat");
+    
+    const error = errValeur || errDuree || errAnnee || errDate;
+    if (error) return `Erreur: ${error}`;
+
     const v = parseFloat(val);
     const d = parseInt(dureeAnnees, 10);
     const anneeEx = parseInt(anneeExercice, 10);
-    
-    if (isNaN(v) || isNaN(d) || isNaN(anneeEx)) return "Erreur: paramètres invalides";
-
     const dateAcq = _parseDate(dateAchat);
-    if (!dateAcq) return "Erreur: date invalide";
 
     const anneeAcq = dateAcq.getFullYear();
     const anneeFin = anneeAcq + d;

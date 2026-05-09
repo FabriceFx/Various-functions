@@ -1,8 +1,8 @@
 # Various-functions (Google Sheets Library)
 
-🇫🇷 **Boîte à outils de 66 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
+🇫🇷 **Boîte à outils de 69 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
 
-🇬🇧 **A toolkit of 66 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
+🇬🇧 **A toolkit of 69 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
 
 ---
 
@@ -13,6 +13,7 @@
 | [`ageExact.gs`](RH/ageExact.gs) | Dates / Dates | Calcule l'âge exact (années, mois, jours) | Calculates exact age (years, months, days) |
 | [`alerteStock.gs`](Logistique/alerteStock.gs) | Logistique / Logistics | Retourne un statut de réapprovisionnement | Returns a restock status |
 | [`amortissementLineaire.gs`](Finance/amortissementLineaire.gs) | Finance / Finance | Calcule l'annuité d'amortissement prorata temporis | Calculates linear depreciation prorata temporis |
+| [`analyseSEO.gs`](Marketing_Vente/analyseSEO.gs) | Marketing / Marketing | Analyse la densité de mots-clés et structure SEO | Analyzes keyword density and SEO structure |
 | [`analyseSentiment.gs`](Marketing_Vente/analyseSentiment.gs) | IA / AI | Évalue la tonalité (Positif/Négatif) d'un texte | Evaluates text sentiment (Positive/Negative) |
 | [`anciennetePro.gs`](RH/anciennetePro.gs) | RH / HR | Retourne l'ancienneté sous forme textuelle | Returns professional tenure as text |
 | [`arrondiComptable.gs`](Finance/arrondiComptable.gs) | Finance / Finance | Arrondi bancaire (au pair le plus proche) | Banker's rounding (round half to even) |
@@ -36,7 +37,7 @@
 | [`estimationBrutNet.gs`](RH/estimationBrutNet.gs) | RH / HR | Convertisseur indicatif Brut/Net selon le statut (FR) | Indicative Gross/Net salary converter (FR) |
 | [`estimerLecture.gs`](Marketing_Vente/estimerLecture.gs) | Marketing / Marketing | Calcule le temps de lecture estimé d'un texte | Calculates estimated reading time of a text |
 | [`estimerLivraison.gs`](Logistique/estimerLivraison.gs) | Logistique / Logistics | Estime la date de livraison selon le code postal | Estimates delivery date based on postal code |
-| [`extractTitleTag.gs`](Marketing_Vente/extractTitleTag.gs) | Web / Web | Extrait le <title> d'une URL (Scraping SEO) | Extracts the <title> from a URL (SEO Scraping) |
+| [`extractTitleTag.gs`](Marketing_Vente/extractTitleTag.gs) | Web / Web | Extrait le <title> d'une URL (SEO Bot + Bypass Cache) | Extracts <title> from URL (SEO Bot + Bypass Cache) |
 | [`extraireDomaine.gs`](Divers/extraireDomaine.gs) | Utilitaires / Utilities | Extrait le domaine principal d'une URL | Extracts the main domain from a URL |
 | [`extraireJoursFeries.gs`](Divers/extraireJoursFeries.gs) | Dates / Dates | Liste les jours fériés français (fixes et mobiles) | Lists French public holidays (fixed and mobile) |
 | [`extraireInitiales.gs`](Divers/extraireInitiales.gs) | Texte / Text | Extrait les initiales d'un nom ("Jean-Pierre" → "JP") | Extracts initials from a name |
@@ -50,6 +51,7 @@
 | [`iban.gs`](Finance/iban.gs) | Finance / Finance | Vérification et formatage d'IBAN (ISO 13616) | IBAN verification and formatting (ISO 13616) |
 | [`isBusinessHour.gs`](RH/isBusinessHour.gs) | RH / HR | Vérifie si une date correspond aux horaires de bureau | Checks if a date falls within business hours |
 | [`joursOuvres.gs`](Divers/joursOuvres.gs) | Dates / Dates | Jours ouvrés entre 2 dates (hors week-ends et fériés FR) | Business days between 2 dates (excl. FR holidays) |
+| [`maskPII.gs`](Data_IT/maskPII.gs) | Compliance / Compliance | Anonymise les données sensibles (RGPD) | Anonymizes sensitive data (GDPR) |
 | [`montantEnLettres.gs`](Finance/montantEnLettres.gs) | Finance / Finance | Convertit un nombre en toutes lettres ("mille euros") | Converts a number to words (French) |
 | [`nomFichierPropre.gs`](Divers/nomFichierPropre.gs) | Utilitaires / Utilities | Nettoie une chaîne pour en faire un nom de fichier valide | Cleans a string to make it a valid filename |
 | [`normaliser.gs`](Divers/normaliser.gs) | Texte / Text | Supprime accents, espaces multiples, met en majuscules | Removes accents, extra spaces, converts to uppercase |
@@ -69,6 +71,7 @@
 | [`slaStatus.gs`](Marketing_Vente/slaStatus.gs) | Vente / Sales | Statut visuel SLA selon un délai de réponse | Visual SLA status based on response time |
 | [`slugify.gs`](Divers/slugify.gs) | Texte / Text | Génère un slug d'URL depuis un texte ("Café" → "cafe") | Generates a URL slug from text |
 | [`soldeConges.gs`](RH/soldeConges.gs) | RH / HR | Calcule le solde de congés payés au prorata | Calculates prorated paid leave balance |
+| [`textSimilarity.gs`](Divers/textSimilarity.gs) | Stats / Stats | Taux de similarité entre deux textes (%) | Similarity rate between two texts (%) |
 | [`ventilationTVA.gs`](Finance/ventilationTVA.gs) | Finance / Finance | Ventile TVA et HT depuis un TTC et une catégorie | Ventilates VAT and Pre-tax from Post-tax |
 | [`verifCB.gs`](Data_IT/verifCB.gs) | Validation / Validation | Valide un n° de carte bancaire et détecte le réseau | Validates a credit card number and detects network |
 | [`verifEmail.gs`](Data_IT/verifEmail.gs) | Validation / Validation | Vérifie le format d'une adresse email (regex robuste) | Verifies email address format (robust regex) |

@@ -88,18 +88,18 @@ function NORMALISER_ADRESSE_FR(adresse) {
 
     try {
       const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(clean)}&limit=1`;
-      const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+      const response = _fetchWithBackoff(url, { muteHttpExceptions: true });
       const data = JSON.parse(response.getContentText());
 
       if (data.features && data.features.length > 0) {
         const feat = data.features[0];
-        const res = [feat.properties.label, feat.properties.score];
+        const res = [feat.properties.label, Math.round(feat.properties.score * 100) / 100];
         cache.put(cacheKey, JSON.stringify(res), CONFIG.CACHE_TTL);
         return res;
       }
       return ["Adresse introuvable", 0];
     } catch (e) {
-      return ["Erreur API", 0];
+      return ["Erreur: Quota API atteint ou connexion impossible", 0];
     }
   });
 }

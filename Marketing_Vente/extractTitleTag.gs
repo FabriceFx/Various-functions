@@ -23,47 +23,53 @@
 
 /**
  * Récupère le titre SEO d'une URL.
- * Supporte le traitement par lot (plages de cellules) et utilise le cache.
+ * Supporte le traitement par lot, le cache et l'Exponential Backoff.
  *
- * @param {string|Array<Array<string>>} url  L'URL ou une plage d'URLs.
- * @return {string|Array<Array<string>>}     Le contenu de la balise <title> ou tableau de résultats.
+ * @param {string|Array<Array<string>>} url    L'URL ou une plage d'URLs.
+ * @param {boolean} [bypassCache=false]         Si vrai, ignore le cache et force un nouvel appel.
+ * @return {string|Array<Array<string>>}       Le contenu de la balise <title> ou tableau de résultats.
  * @customfunction
  *
  * @example
  *   =EXTRACT_TITLE_TAG("https://faucheux.bzh")
- *   =EXTRACT_TITLE_TAG(A2:A50)
+ *   =EXTRACT_TITLE_TAG(A2:A50; VRAI) // Force le rafraîchissement
  */
-function EXTRACT_TITLE_TAG(url) {
+function EXTRACT_TITLE_TAG(url, bypassCache = false) {
   const cache = CacheService.getScriptCache();
   
   return batchProcess(url, (val) => {
     if (!val || String(val).trim() === "") return "";
 
-    let chaineURL = String(val).trim().toLowerCase();
+    let chaineURL = String(val).trim();
     if (!/^https?:\/\//i.test(chaineURL)) {
       chaineURL = "https://" + chaineURL;
     }
 
-    // Vérifier le cache
-    const cached = cache.get(chaineURL);
-    if (cached) return cached;
+    // Vérifier le cache (sauf si bypass demandé)
+    if (!bypassCache) {
+      const cached = cache.get(chaineURL);
+      if (cached) return cached;
+    }
 
     try {
-      const response = UrlFetchApp.fetch(chaineURL, {
+      // Utilisation de l'utilitaire global avec Exponential Backoff
+      const response = _fetchWithBackoff(chaineURL, {
         muteHttpExceptions: true,
         followRedirects: true,
+        validateHttpsCertificates: false,
         headers: {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) GoogleAppsScript"
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) GoogleAppsScript-SEO-Bot"
         }
       });
 
       const html = response.getContentText("UTF-8");
-      const match = html.match(/<title[^>]*>([^<]+)<\/title>/i);
+      const match = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
       
       let title = "Aucune balise <title> trouvée";
       
       if (match && match[1]) {
         title = match[1]
+          .replace(/\s+/g, ' ') // Nettoie les retours à la ligne
           .replace(/&amp;/g, "&")
           .replace(/&lt;/g, "<")
           .replace(/&gt;/g, ">")
@@ -77,7 +83,7 @@ function EXTRACT_TITLE_TAG(url) {
       return title;
 
     } catch (e) {
-      return "Erreur de connexion à l'URL";
+      return "Erreur: connexion impossible ou quota atteint";
     }
   });
 }
