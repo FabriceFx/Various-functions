@@ -21,7 +21,7 @@
  *   =SLUGIFY(A2:A100)
  */
 function SLUGIFY(texte) {
-  return FF.SLUGIFY(texte);
+  return FF_LIB.SLUGIFY(texte);
 }
 
 /**
@@ -36,7 +36,7 @@ function SLUGIFY(texte) {
  *   =COULEUR_CELLULE(B2:B10)
  */
 function COULEUR_CELLULE(referenceCellule) {
-  return FF.COULEUR_CELLULE(referenceCellule);
+  return FF_LIB.COULEUR_CELLULE(referenceCellule);
 }
 
 /**
@@ -52,7 +52,7 @@ function COULEUR_CELLULE(referenceCellule) {
  *   =CAPITALISER(A2:A100)                       → [Tableau de résultats]
  */
 function CAPITALISER(texte) {
-  return FF.CAPITALISER(texte);
+  return FF_LIB.CAPITALISER(texte);
 }
 
 /**
@@ -68,7 +68,7 @@ function CAPITALISER(texte) {
  *   =PRIX_PSYCHOLOGIQUE(A2:A100; 95)
  */
 function PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison) {
-  return FF.PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison);
+  return FF_LIB.PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison);
 }
 
 /**
@@ -83,7 +83,7 @@ function PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison) {
  *   =DEBUT_MOIS(A2:A100)
  */
 function DEBUT_MOIS(date) {
-  return FF.DEBUT_MOIS(date);
+  return FF_LIB.DEBUT_MOIS(date);
 }
 
 /**
@@ -98,7 +98,7 @@ function DEBUT_MOIS(date) {
  *   =FIN_MOIS(A2:A100)
  */
 function FIN_MOIS(date) {
-  return FF.FIN_MOIS(date);
+  return FF_LIB.FIN_MOIS(date);
 }
 
 /**
@@ -113,7 +113,7 @@ function FIN_MOIS(date) {
  *   =NB_JOURS_MOIS(A2:A100)
  */
 function NB_JOURS_MOIS(date) {
-  return FF.NB_JOURS_MOIS(date);
+  return FF_LIB.NB_JOURS_MOIS(date);
 }
 
 /**
@@ -128,7 +128,7 @@ function NB_JOURS_MOIS(date) {
  *   =NOM_MOIS(A2:A100)
  */
 function NOM_MOIS(date) {
-  return FF.NOM_MOIS(date);
+  return FF_LIB.NOM_MOIS(date);
 }
 
 /**
@@ -144,7 +144,7 @@ function NOM_MOIS(date) {
  *   =EXTRAIRE_DOMAINE(A2:A50)                           → [Tableau de résultats]
  */
 function EXTRAIRE_DOMAINE(url) {
-  return FF.EXTRAIRE_DOMAINE(url);
+  return FF_LIB.EXTRAIRE_DOMAINE(url);
 }
 
 /**
@@ -162,7 +162,7 @@ function EXTRAIRE_DOMAINE(url) {
  *   =PROJECT_SPI(A2:A100; "2025-12-31"; 0.8)
  */
 function PROJECT_SPI(dateDebut, dateFin, progressionReelle, dateActuelle) {
-  return FF.PROJECT_SPI(dateDebut, dateFin, progressionReelle, dateActuelle);
+  return FF_LIB.PROJECT_SPI(dateDebut, dateFin, progressionReelle, dateActuelle);
 }
 
 /**
@@ -171,7 +171,7 @@ function PROJECT_SPI(dateDebut, dateFin, progressionReelle, dateActuelle) {
  * @customfunction
  */
 function CALENDAR_OOO_DRAFTER() {
-  return FF.CALENDAR_OOO_DRAFTER();
+  return FF_LIB.CALENDAR_OOO_DRAFTER();
 }
 
 /**
@@ -187,7 +187,7 @@ function CALENDAR_OOO_DRAFTER() {
  *   =NORMALISER(A2:A100)
  */
 function NORMALISER(texte) {
-  return FF.NORMALISER(texte);
+  return FF_LIB.NORMALISER(texte);
 }
 
 /**
@@ -202,7 +202,7 @@ function NORMALISER(texte) {
  *   =SUPPRIMER_ACCENTS(A2:A100)
  */
 function SUPPRIMER_ACCENTS(texte) {
-  return FF.SUPPRIMER_ACCENTS(texte);
+  return FF_LIB.SUPPRIMER_ACCENTS(texte);
 }
 
 /**
@@ -217,7 +217,7 @@ function SUPPRIMER_ACCENTS(texte) {
  *   =SUPPRIMER_ESPACES(A2:A100)
  */
 function SUPPRIMER_ESPACES(texte) {
-  return FF.SUPPRIMER_ESPACES(texte);
+  return FF_LIB.SUPPRIMER_ESPACES(texte);
 }
 
 /**
@@ -232,7 +232,7 @@ function SUPPRIMER_ESPACES(texte) {
  *   =TEXT_SIMILARITY("Google Sheets"; "Google Shet") → 0.92
  */
 function TEXT_SIMILARITY(texte1, texte2) {
-  return FF.TEXT_SIMILARITY(texte1, texte2);
+  return FF_LIB.TEXT_SIMILARITY(texte1, texte2);
 }
 
 /**
@@ -243,7 +243,7 @@ function TEXT_SIMILARITY(texte1, texte2) {
  * @customfunction
  */
 function JOURS_FERIES(annee) {
-  return FF.JOURS_FERIES(annee);
+  return FF_LIB.JOURS_FERIES(annee);
 }
 
 /**
@@ -254,7 +254,7 @@ function JOURS_FERIES(annee) {
  * @customfunction
  */
 function JOURS_FERIES_AVEC_JOUR(annee) {
-  return FF.JOURS_FERIES_AVEC_JOUR(annee);
+  return FF_LIB.JOURS_FERIES_AVEC_JOUR(annee);
 }
 
 /**
@@ -269,7 +269,7 @@ function JOURS_FERIES_AVEC_JOUR(annee) {
  *   =PREVISION_LISSAGE(B2:B12; 0.6)
  */
 function PREVISION_LISSAGE(plageHistorique, alpha) {
-  return FF.PREVISION_LISSAGE(plageHistorique, alpha);
+  return FF_LIB.PREVISION_LISSAGE(plageHistorique, alpha);
 }
 
 /**
@@ -286,7 +286,7 @@ function PREVISION_LISSAGE(plageHistorique, alpha) {
  *   =EXTRAIRE_INITIALES(A2:A50; FAUX)                        → [Tableau de résultats]
  */
 function EXTRAIRE_INITIALES(texte, avecParticules) {
-  return FF.EXTRAIRE_INITIALES(texte, avecParticules);
+  return FF_LIB.EXTRAIRE_INITIALES(texte, avecParticules);
 }
 
 /**
@@ -303,7 +303,7 @@ function EXTRAIRE_INITIALES(texte, avecParticules) {
  *   =IMAGE(QR_CODE_WIFI(A2:A100; "MotDePasseUnique"))
  */
 function QR_CODE_WIFI(ssid, motDePasse, securite) {
-  return FF.QR_CODE_WIFI(ssid, motDePasse, securite);
+  return FF_LIB.QR_CODE_WIFI(ssid, motDePasse, securite);
 }
 
 /**
@@ -319,7 +319,7 @@ function QR_CODE_WIFI(ssid, motDePasse, securite) {
  *   =JOURS_OUVRES(A2:A100; "2026-12-31")
  */
 function JOURS_OUVRES(dateDebut, dateFin) {
-  return FF.JOURS_OUVRES(dateDebut, dateFin);
+  return FF_LIB.JOURS_OUVRES(dateDebut, dateFin);
 }
 
 /**
@@ -330,7 +330,7 @@ function JOURS_OUVRES(dateDebut, dateFin) {
  * @customfunction
  */
 function EST_JOUR_FERIE_FR(date) {
-  return FF.EST_JOUR_FERIE_FR(date);
+  return FF_LIB.EST_JOUR_FERIE_FR(date);
 }
 
 /**
@@ -346,7 +346,7 @@ function EST_JOUR_FERIE_FR(date) {
  *   =DEADLINE_STATUS(A2:A100)
  */
 function DEADLINE_STATUS(dateEcheance, dateRef) {
-  return FF.DEADLINE_STATUS(dateEcheance, dateRef);
+  return FF_LIB.DEADLINE_STATUS(dateEcheance, dateRef);
 }
 
 /**
@@ -355,7 +355,7 @@ function DEADLINE_STATUS(dateEcheance, dateRef) {
  * @customfunction
  */
 function FF_VERSION() {
-  return FF.FF_VERSION();
+  return FF_LIB.FF_VERSION();
 }
 
 /**
@@ -371,7 +371,7 @@ function FF_VERSION() {
  *   =CENSURE_MOTS(A2:A100; "urgent")
  */
 function CENSURE_MOTS(texte, motsSupplementaires) {
-  return FF.CENSURE_MOTS(texte, motsSupplementaires);
+  return FF_LIB.CENSURE_MOTS(texte, motsSupplementaires);
 }
 
 /**
@@ -387,7 +387,7 @@ function CENSURE_MOTS(texte, motsSupplementaires) {
  *   =NOM_FICHIER_PROPRE(A2:A100)
  */
 function NOM_FICHIER_PROPRE(texte, remplacement) {
-  return FF.NOM_FICHIER_PROPRE(texte, remplacement);
+  return FF_LIB.NOM_FICHIER_PROPRE(texte, remplacement);
 }
 
 /**
@@ -402,7 +402,7 @@ function NOM_FICHIER_PROPRE(texte, remplacement) {
  *   =PROCHAIN_FERIE(A2:A100)
  */
 function PROCHAIN_FERIE(dateRef) {
-  return FF.PROCHAIN_FERIE(dateRef);
+  return FF_LIB.PROCHAIN_FERIE(dateRef);
 }
 
 /**
@@ -418,7 +418,7 @@ function PROCHAIN_FERIE(dateRef) {
  *   =FREQUENCE_MOTS(A2:A100; VRAI; 20)
  */
 function FREQUENCE_MOTS(plage, exclureLiaison, topN) {
-  return FF.FREQUENCE_MOTS(plage, exclureLiaison, topN);
+  return FF_LIB.FREQUENCE_MOTS(plage, exclureLiaison, topN);
 }
 
 /**
@@ -433,7 +433,7 @@ function FREQUENCE_MOTS(plage, exclureLiaison, topN) {
  *   =VERIF_EMAIL(A2:A100)                      → [Tableau de résultats]
  */
 function VERIF_EMAIL(email) {
-  return FF.VERIF_EMAIL(email);
+  return FF_LIB.VERIF_EMAIL(email);
 }
 
 /**
@@ -447,7 +447,7 @@ function VERIF_EMAIL(email) {
  *   =EXTRAIRE_EMAIL(B2:B50)                              → [Tableau de résultats]
  */
 function EXTRAIRE_EMAIL(texte) {
-  return FF.EXTRAIRE_EMAIL(texte);
+  return FF_LIB.EXTRAIRE_EMAIL(texte);
 }
 
 /**
@@ -463,7 +463,7 @@ function EXTRAIRE_EMAIL(texte) {
  *   =EXTRAIRE_JSON(A2:A100; "status")
  */
 function EXTRAIRE_JSON(chaineJSON, chemin) {
-  return FF.EXTRAIRE_JSON(chaineJSON, chemin);
+  return FF_LIB.EXTRAIRE_JSON(chaineJSON, chemin);
 }
 
 /**
@@ -479,7 +479,7 @@ function EXTRAIRE_JSON(chaineJSON, chemin) {
  *   =VERIF_GDPR_RETENTION(A2:A100; 12)
  */
 function VERIF_GDPR_RETENTION(dateDonnee, dureeMois) {
-  return FF.VERIF_GDPR_RETENTION(dateDonnee, dureeMois);
+  return FF_LIB.VERIF_GDPR_RETENTION(dateDonnee, dureeMois);
 }
 
 /**
@@ -492,7 +492,7 @@ function VERIF_GDPR_RETENTION(dateDonnee, dureeMois) {
  *
  */
 function MASK_PII(input) {
-  return FF.MASK_PII(input);
+  return FF_LIB.MASK_PII(input);
 }
 
 /**
@@ -508,7 +508,7 @@ function MASK_PII(input) {
  *   =GENERER_MOT_DE_PASSE(16; VRAI; VRAI; FAUX)
  */
 function GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux) {
-  return FF.GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux);
+  return FF_LIB.GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux);
 }
 
 /**
@@ -523,7 +523,7 @@ function GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux) {
  *   =VERIF_NIR(A2:A100)
  */
 function VERIF_NIR(nir) {
-  return FF.VERIF_NIR(nir);
+  return FF_LIB.VERIF_NIR(nir);
 }
 
 /**
@@ -541,7 +541,7 @@ function VERIF_NIR(nir) {
  *   =RECHERCHEV_MULTI(F2:F10; A2:B100; 2)
  */
 function RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur) {
-  return FF.RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur);
+  return FF_LIB.RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur);
 }
 
 /**
@@ -557,7 +557,7 @@ function RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur) {
  *   =CLEAN_HTML(A2:A100)
  */
 function CLEAN_HTML(texte) {
-  return FF.CLEAN_HTML(texte);
+  return FF_LIB.CLEAN_HTML(texte);
 }
 
 /**
@@ -574,7 +574,7 @@ function CLEAN_HTML(texte) {
  *   =REGEX_EXTRAIRE_TOUT(A2:A100; "#[a-zA-Z0-9]+")
  */
 function REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur) {
-  return FF.REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur);
+  return FF_LIB.REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur);
 }
 
 /**
@@ -590,7 +590,7 @@ function REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur) {
  *   =VERIF_SIRET(A2:A100)
  */
 function VERIF_SIRET(numero) {
-  return FF.VERIF_SIRET(numero);
+  return FF_LIB.VERIF_SIRET(numero);
 }
 
 /**
@@ -605,7 +605,7 @@ function VERIF_SIRET(numero) {
  *   =VERIF_SIREN(A2:A100)
  */
 function VERIF_SIREN(numero) {
-  return FF.VERIF_SIREN(numero);
+  return FF_LIB.VERIF_SIREN(numero);
 }
 
 /**
@@ -620,7 +620,7 @@ function VERIF_SIREN(numero) {
  *   =PARSER_ADRESSE_FR(A2:A100)
  */
 function PARSER_ADRESSE_FR(adresse) {
-  return FF.PARSER_ADRESSE_FR(adresse);
+  return FF_LIB.PARSER_ADRESSE_FR(adresse);
 }
 
 /**
@@ -633,7 +633,7 @@ function PARSER_ADRESSE_FR(adresse) {
  *   =NORMALISER_ADRESSE_FR("8 r de la paix pari") → "8 Rue de la Paix, 75002 Paris"
  */
 function NORMALISER_ADRESSE_FR(adresse) {
-  return FF.NORMALISER_ADRESSE_FR(adresse);
+  return FF_LIB.NORMALISER_ADRESSE_FR(adresse);
 }
 
 /**
@@ -644,7 +644,7 @@ function NORMALISER_ADRESSE_FR(adresse) {
  * @customfunction
  */
 function DRIVE_PERMISSION_AUDITOR(fileId) {
-  return FF.DRIVE_PERMISSION_AUDITOR(fileId);
+  return FF_LIB.DRIVE_PERMISSION_AUDITOR(fileId);
 }
 
 /**
@@ -655,7 +655,7 @@ function DRIVE_PERMISSION_AUDITOR(fileId) {
  * @customfunction
  */
 function WORKSPACE_USER_HEALTH(email) {
-  return FF.WORKSPACE_USER_HEALTH(email);
+  return FF_LIB.WORKSPACE_USER_HEALTH(email);
 }
 
 /**
@@ -673,7 +673,7 @@ function WORKSPACE_USER_HEALTH(email) {
  *   =RECHERCHE_V_FLOUE(D2:D100; A2:C100; 2)
  */
 function RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil) {
-  return FF.RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil);
+  return FF_LIB.RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil);
 }
 
 /**
@@ -688,7 +688,7 @@ function RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil) {
  *   =DECODE_SAFE_URL(A2:A100)
  */
 function DECODE_SAFE_URL(url) {
-  return FF.DECODE_SAFE_URL(url);
+  return FF_LIB.DECODE_SAFE_URL(url);
 }
 
 /**
@@ -703,7 +703,7 @@ function DECODE_SAFE_URL(url) {
  *   =VERIF_CB(A2:A100)
  */
 function VERIF_CB(numero) {
-  return FF.VERIF_CB(numero);
+  return FF_LIB.VERIF_CB(numero);
 }
 
 /**
@@ -714,7 +714,7 @@ function VERIF_CB(numero) {
  * @customfunction
  */
 function DETECT_RESEAU(numero) {
-  return FF.DETECT_RESEAU(numero);
+  return FF_LIB.DETECT_RESEAU(numero);
 }
 
 /**
@@ -725,7 +725,7 @@ function DETECT_RESEAU(numero) {
  * @customfunction
  */
 function DETECT_PII(input) {
-  return FF.DETECT_PII(input);
+  return FF_LIB.DETECT_PII(input);
 }
 
 /**
@@ -741,7 +741,7 @@ function DETECT_PII(input) {
  *   =ENTROPY_SCORE(A2:A100)
  */
 function ENTROPY_SCORE(texte) {
-  return FF.ENTROPY_SCORE(texte);
+  return FF_LIB.ENTROPY_SCORE(texte);
 }
 
 /**
@@ -758,7 +758,7 @@ function ENTROPY_SCORE(texte) {
  *   =DETECT_OUTLIER(C2:C10; C$2:C$100)
  */
 function DETECT_OUTLIER(valeur, plageDonnees, seuilZ) {
-  return FF.DETECT_OUTLIER(valeur, plageDonnees, seuilZ);
+  return FF_LIB.DETECT_OUTLIER(valeur, plageDonnees, seuilZ);
 }
 
 /**
@@ -776,7 +776,7 @@ function DETECT_OUTLIER(valeur, plageDonnees, seuilZ) {
  *   =PREAVIS_CONTRAT(A2:A100; ; "Employé"; "Licenciement")
  */
 function PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type) {
-  return FF.PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type);
+  return FF_LIB.PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type);
 }
 
 /**
@@ -793,7 +793,7 @@ function PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type) {
  *   =SOLDE_CONGES(A2:A100)
  */
 function SOLDE_CONGES(dateEntree, dateFin, joursParMois) {
-  return FF.SOLDE_CONGES(dateEntree, dateFin, joursParMois);
+  return FF_LIB.SOLDE_CONGES(dateEntree, dateFin, joursParMois);
 }
 
 /**
@@ -810,7 +810,7 @@ function SOLDE_CONGES(dateEntree, dateFin, joursParMois) {
  *   =FIN_PERIODE_ESSAI(A2:A100; "Ouvrier")
  */
 function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement) {
-  return FF.FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement);
+  return FF_LIB.FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement);
 }
 
 /**
@@ -827,7 +827,7 @@ function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement) {
  *   =DUREE_PERIODE_ESSAI("Ouvrier")      → "2 mois"
  */
 function DUREE_PERIODE_ESSAI(statut, renouvellement) {
-  return FF.DUREE_PERIODE_ESSAI(statut, renouvellement);
+  return FF_LIB.DUREE_PERIODE_ESSAI(statut, renouvellement);
 }
 
 /**
@@ -845,7 +845,7 @@ function DUREE_PERIODE_ESSAI(statut, renouvellement) {
  *   =ESTIMATION_BRUT_NET(A2:A50; "Non-Cadre")
  */
 function ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise) {
-  return FF.ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise);
+  return FF_LIB.ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise);
 }
 
 /**
@@ -861,7 +861,7 @@ function ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise) {
  *   =COUT_EMPLOYEUR(A2:A100)
  */
 function COUT_EMPLOYEUR(salaireBrut, statut) {
-  return FF.COUT_EMPLOYEUR(salaireBrut, statut);
+  return FF_LIB.COUT_EMPLOYEUR(salaireBrut, statut);
 }
 
 /**
@@ -874,7 +874,7 @@ function COUT_EMPLOYEUR(salaireBrut, statut) {
  * @customfunction
  */
 function AGE_EXACT(dateNaissance, dateRef) {
-  return FF.AGE_EXACT(dateNaissance, dateRef);
+  return FF_LIB.AGE_EXACT(dateNaissance, dateRef);
 }
 
 /**
@@ -891,7 +891,7 @@ function AGE_EXACT(dateNaissance, dateRef) {
  *   =IS_BUSINESS_HOUR(A2:A50)
  */
 function IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin) {
-  return FF.IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin);
+  return FF_LIB.IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin);
 }
 
 /**
@@ -907,7 +907,7 @@ function IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin) {
  *   =ANCIENNETE_PRO(A2:A100)
  */
 function ANCIENNETE_PRO(dateDebut, dateFin) {
-  return FF.ANCIENNETE_PRO(dateDebut, dateFin);
+  return FF_LIB.ANCIENNETE_PRO(dateDebut, dateFin);
 }
 
 /**
@@ -923,7 +923,7 @@ function ANCIENNETE_PRO(dateDebut, dateFin) {
  *   =PRORATA_SALAIRE(3000; "2026-05-12"; "2026-05-31")
  */
 function PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin) {
-  return FF.PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin);
+  return FF_LIB.PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin);
 }
 
 /**
@@ -940,7 +940,7 @@ function PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin) {
  *   =DELAI_PREVENANCE(A2:A100)
  */
 function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur) {
-  return FF.DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur);
+  return FF_LIB.DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur);
 }
 
 /**
@@ -956,7 +956,7 @@ function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur) {
  *   =HT_TO_TTC(A2:A100; 20)
  */
 function HT_TO_TTC(montantHT, tauxTVA) {
-  return FF.HT_TO_TTC(montantHT, tauxTVA);
+  return FF_LIB.HT_TO_TTC(montantHT, tauxTVA);
 }
 
 /**
@@ -972,7 +972,7 @@ function HT_TO_TTC(montantHT, tauxTVA) {
  *   =TTC_TO_HT(A2:A100; 20)
  */
 function TTC_TO_HT(montantTTC, tauxTVA) {
-  return FF.TTC_TO_HT(montantTTC, tauxTVA);
+  return FF_LIB.TTC_TO_HT(montantTTC, tauxTVA);
 }
 
 /**
@@ -987,7 +987,7 @@ function TTC_TO_HT(montantTTC, tauxTVA) {
  *   =VERIF_TVA(A2:A100)
  */
 function VERIF_TVA(numero) {
-  return FF.VERIF_TVA(numero);
+  return FF_LIB.VERIF_TVA(numero);
 }
 
 /**
@@ -1005,7 +1005,7 @@ function VERIF_TVA(numero) {
  *   =SEUIL_RENTABILITE(A2:A100; 50; 20)
  */
 function SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour) {
-  return FF.SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour);
+  return FF_LIB.SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour);
 }
 
 /**
@@ -1023,7 +1023,7 @@ function SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeReto
  *   =AMORTISSEMENT_LINEAIRE(A2:A100; 5; "2024-01-01"; 2025)
  */
 function AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice) {
-  return FF.AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice);
+  return FF_LIB.AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice);
 }
 
 /**
@@ -1041,7 +1041,7 @@ function AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice) {
  *   =MONTANT_EN_LETTRES(1234.56; "EN") → "one thousand two hundred thirty-four dollars and fifty-six cents"
  */
 function MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes) {
-  return FF.MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes);
+  return FF_LIB.MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes);
 }
 
 /**
@@ -1058,7 +1058,7 @@ function MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes) {
  *   =VENTILATION_TVA(A2:A100; "REDUIT")
  */
 function VENTILATION_TVA(montantTTC, categorie, retour) {
-  return FF.VENTILATION_TVA(montantTTC, categorie, retour);
+  return FF_LIB.VENTILATION_TVA(montantTTC, categorie, retour);
 }
 
 /**
@@ -1074,7 +1074,7 @@ function VENTILATION_TVA(montantTTC, categorie, retour) {
  *   =ARRONDI_COMPTABLE(A2:A100; 2)
  */
 function ARRONDI_COMPTABLE(nombre, decimales) {
-  return FF.ARRONDI_COMPTABLE(nombre, decimales);
+  return FF_LIB.ARRONDI_COMPTABLE(nombre, decimales);
 }
 
 /**
@@ -1092,7 +1092,7 @@ function ARRONDI_COMPTABLE(nombre, decimales) {
  *   =PENALITES_RETARD(A2:A100; "2024-01-01")
  */
 function PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge) {
-  return FF.PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge);
+  return FF_LIB.PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge);
 }
 
 /**
@@ -1110,7 +1110,7 @@ function PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge) {
  *   =CALCUL_AGIOS(A2:A100; 12; 15)
  */
 function CALCUL_AGIOS(montant, tauxAnnuel, nbJours) {
-  return FF.CALCUL_AGIOS(montant, tauxAnnuel, nbJours);
+  return FF_LIB.CALCUL_AGIOS(montant, tauxAnnuel, nbJours);
 }
 
 /**
@@ -1121,7 +1121,7 @@ function CALCUL_AGIOS(montant, tauxAnnuel, nbJours) {
  * @customfunction
  */
 function VERIF_IBAN(iban) {
-  return FF.VERIF_IBAN(iban);
+  return FF_LIB.VERIF_IBAN(iban);
 }
 
 /**
@@ -1132,7 +1132,7 @@ function VERIF_IBAN(iban) {
  * @customfunction
  */
 function FORMAT_IBAN(iban) {
-  return FF.FORMAT_IBAN(iban);
+  return FF_LIB.FORMAT_IBAN(iban);
 }
 
 /**
@@ -1148,7 +1148,7 @@ function FORMAT_IBAN(iban) {
  *   =ESTIMER_LIVRAISON(A2:A100; "75001")
  */
 function ESTIMER_LIVRAISON(dateDepart, codePostal) {
-  return FF.ESTIMER_LIVRAISON(dateDepart, codePostal);
+  return FF_LIB.ESTIMER_LIVRAISON(dateDepart, codePostal);
 }
 
 /**
@@ -1163,7 +1163,7 @@ function ESTIMER_LIVRAISON(dateDepart, codePostal) {
  *   =CLE_EAN13(A2:A100)
  */
 function CLE_EAN13(code12Chiffres) {
-  return FF.CLE_EAN13(code12Chiffres);
+  return FF_LIB.CLE_EAN13(code12Chiffres);
 }
 
 /**
@@ -1179,7 +1179,7 @@ function CLE_EAN13(code12Chiffres) {
  *   =CO2_TRANSPORT(A2:A100; "voiture")
  */
 function CO2_TRANSPORT(km, modeTransport) {
-  return FF.CO2_TRANSPORT(km, modeTransport);
+  return FF_LIB.CO2_TRANSPORT(km, modeTransport);
 }
 
 /**
@@ -1190,7 +1190,7 @@ function CO2_TRANSPORT(km, modeTransport) {
  * @customfunction
  */
 function CO2_FLIGHT_ESTIMATOR(codeDep, codeArr) {
-  return FF.CO2_FLIGHT_ESTIMATOR(codeDep, codeArr);
+  return FF_LIB.CO2_FLIGHT_ESTIMATOR(codeDep, codeArr);
 }
 
 /**
@@ -1209,7 +1209,7 @@ function CO2_FLIGHT_ESTIMATOR(codeDep, codeArr) {
  *   =CALCUL_VOLUMETRIE(A2:A100; 40; 30)
  */
 function CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol) {
-  return FF.CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol);
+  return FF_LIB.CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol);
 }
 
 /**
@@ -1226,7 +1226,7 @@ function CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol) {
  *   =ALERTE_STOCK(A2:A100; 10)
  */
 function ALERTE_STOCK(stockActuel, seuilMini, ventesParJour) {
-  return FF.ALERTE_STOCK(stockActuel, seuilMini, ventesParJour);
+  return FF_LIB.ALERTE_STOCK(stockActuel, seuilMini, ventesParJour);
 }
 
 /**
@@ -1243,7 +1243,7 @@ function ALERTE_STOCK(stockActuel, seuilMini, ventesParJour) {
  *   =QUANTITE_OPTIMALE(A2:A100; 50; 2)
  */
 function QUANTITE_OPTIMALE(demandeAnnuelle, coutCommande, coutStockageUnitaire) {
-  return FF.QUANTITE_OPTIMALE(demandeAnnuelle, coutCommande, coutStockageUnitaire);
+  return FF_LIB.QUANTITE_OPTIMALE(demandeAnnuelle, coutCommande, coutStockageUnitaire);
 }
 
 /**
@@ -1258,7 +1258,7 @@ function QUANTITE_OPTIMALE(demandeAnnuelle, coutCommande, coutStockageUnitaire) 
  *   =ANALYSE_SENTIMENT(A2:A100)
  */
 function ANALYSE_SENTIMENT(texte) {
-  return FF.ANALYSE_SENTIMENT(texte);
+  return FF_LIB.ANALYSE_SENTIMENT(texte);
 }
 
 /**
@@ -1275,7 +1275,7 @@ function ANALYSE_SENTIMENT(texte) {
  *   =EXTRAIRE_TEL(A2:A50)                    → [Tableau de résultats]
  */
 function EXTRAIRE_TEL(texte, pays) {
-  return FF.EXTRAIRE_TEL(texte, pays);
+  return FF_LIB.EXTRAIRE_TEL(texte, pays);
 }
 
 /**
@@ -1291,7 +1291,7 @@ function EXTRAIRE_TEL(texte, pays) {
  *   =ESTIMER_LECTURE(A2:A100)
  */
 function ESTIMER_LECTURE(texte, motsParMinute) {
-  return FF.ESTIMER_LECTURE(texte, motsParMinute);
+  return FF_LIB.ESTIMER_LECTURE(texte, motsParMinute);
 }
 
 /**
@@ -1307,7 +1307,7 @@ function ESTIMER_LECTURE(texte, motsParMinute) {
  *   =IMAGE(QR_CODE_URL(A2:A100))
  */
 function QR_CODE_URL(texte, taille) {
-  return FF.QR_CODE_URL(texte, taille);
+  return FF_LIB.QR_CODE_URL(texte, taille);
 }
 
 /**
@@ -1323,7 +1323,7 @@ function QR_CODE_URL(texte, taille) {
  *   =CLEAN_LINKEDIN_URL(A2:A100)
  */
 function CLEAN_LINKEDIN_URL(url) {
-  return FF.CLEAN_LINKEDIN_URL(url);
+  return FF_LIB.CLEAN_LINKEDIN_URL(url);
 }
 
 /**
@@ -1335,7 +1335,7 @@ function CLEAN_LINKEDIN_URL(url) {
  * @customfunction
  */
 function SEO_LISIBILITE_FLESCH(input) {
-  return FF.SEO_LISIBILITE_FLESCH(input);
+  return FF_LIB.SEO_LISIBILITE_FLESCH(input);
 }
 
 /**
@@ -1347,7 +1347,7 @@ function SEO_LISIBILITE_FLESCH(input) {
  * @customfunction
  */
 function SEO_MOTS_CLES_DENSITE(input, motCle) {
-  return FF.SEO_MOTS_CLES_DENSITE(input, motCle);
+  return FF_LIB.SEO_MOTS_CLES_DENSITE(input, motCle);
 }
 
 /**
@@ -1358,7 +1358,7 @@ function SEO_MOTS_CLES_DENSITE(input, motCle) {
  * @customfunction
  */
 function GEO_STRUCTURE_CHECK(urlOrHtml) {
-  return FF.GEO_STRUCTURE_CHECK(urlOrHtml);
+  return FF_LIB.GEO_STRUCTURE_CHECK(urlOrHtml);
 }
 
 /**
@@ -1369,7 +1369,7 @@ function GEO_STRUCTURE_CHECK(urlOrHtml) {
  * @customfunction
  */
 function GEO_SCHEMA_DETECTOR(url) {
-  return FF.GEO_SCHEMA_DETECTOR(url);
+  return FF_LIB.GEO_SCHEMA_DETECTOR(url);
 }
 
 /**
@@ -1389,7 +1389,7 @@ function GEO_SCHEMA_DETECTOR(url) {
  *   =CONSTRUCTEUR_UTM(A2:A100; "google"; "cpc"; "soldes")
  */
 function CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu) {
-  return FF.CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu);
+  return FF_LIB.CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu);
 }
 
 /**
@@ -1405,7 +1405,7 @@ function CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu) {
  *   =SLA_STATUS(A2:A100; 24)
  */
 function SLA_STATUS(dateReception, delaiMaxHeures) {
-  return FF.SLA_STATUS(dateReception, delaiMaxHeures);
+  return FF_LIB.SLA_STATUS(dateReception, delaiMaxHeures);
 }
 
 /**
@@ -1422,7 +1422,7 @@ function SLA_STATUS(dateReception, delaiMaxHeures) {
  *   =SCORE_LEAD(A2:A100; "IT"; "Direct")
  */
 function SCORE_LEAD(budget, secteur, source) {
-  return FF.SCORE_LEAD(budget, secteur, source);
+  return FF_LIB.SCORE_LEAD(budget, secteur, source);
 }
 
 /**
@@ -1438,5 +1438,5 @@ function SCORE_LEAD(budget, secteur, source) {
  *   =EXTRACT_TITLE_TAG(A2:A50; VRAI) // Force le rafraîchissement
  */
 function EXTRACT_TITLE_TAG(url, bypassCache) {
-  return FF.EXTRACT_TITLE_TAG(url, bypassCache);
+  return FF_LIB.EXTRACT_TITLE_TAG(url, bypassCache);
 }

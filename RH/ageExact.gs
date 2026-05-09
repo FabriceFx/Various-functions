@@ -30,14 +30,13 @@
  */
 function AGE_EXACT(dateNaissance, dateRef) {
   return BATCH_PROCESS(dateNaissance, (val) => {
-    if (!val) return "";
+    const errNaissance = GUARD.isDate(val, "Date de naissance");
+    const errRef = dateRef ? GUARD.isDate(dateRef, "Date de référence") : null;
+    
+    if (errNaissance || errRef) return `Erreur: ${errNaissance || errRef}`;
 
-    const d1 = new Date(val);
-    const d2 = dateRef ? new Date(dateRef) : new Date();
-
-    if (isNaN(d1.getTime()) || isNaN(d2.getTime())) {
-      return "Erreur: format de date invalide";
-    }
+    const d1 = _parseDate(val);
+    const d2 = dateRef ? _parseDate(dateRef) : new Date();
 
     if (d1 > d2) {
       return "Date de naissance dans le futur !";
