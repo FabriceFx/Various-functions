@@ -101,3 +101,11 @@ function _getOrCreateLogSheet() {
   
   return sheet;
 }
+
+/**
+ * Fonction de test pour forcer un bug et vérifier le système d'alerte.
+ * @customfunction
+ */
+function FORCE_BUG() {
+  throw new Error("Ceci est un bug de test généré volontairement par FORCE_BUG.");
+}

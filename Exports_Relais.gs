@@ -1267,6 +1267,19 @@ function LOG_ERREUR(message, contexte, gravite) {
 }
 
 /**
+ * Fonction de test pour forcer un bug et vérifier le système d'alerte.
+ * @customfunction
+ */
+function FORCE_BUG() {
+  try {
+    return FF_LIB.FORCE_BUG();
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: FORCE_BUG', 'ERROR');
+    throw e;
+  }
+}
+
+/**
  * Calcule le montant TTC à partir d'un montant HT et d'un taux de TVA.
  * Supporte le traitement par lot (plages de cellules).
  *
