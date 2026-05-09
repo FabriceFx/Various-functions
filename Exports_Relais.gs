@@ -944,6 +944,19 @@ function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur) {
 }
 
 /**
+ * Enregistre une erreur dans la feuille de logs et notifie l'admin si critique.
+ *
+ * @param {string} message   Message de l'erreur.
+ * @param {string} [contexte] Où l'erreur s'est produite (ex: "Calcul Paie").
+ * @param {string} [gravite="ERROR"] Niveau : "INFO", "WARN", "ERROR", "CRITICAL".
+ * @return {string}           Statut de l'enregistrement.
+ * @customfunction
+ */
+function LOG_ERREUR(message, contexte, gravite) {
+  return FF_LIB.LOG_ERREUR(message, contexte, gravite);
+}
+
+/**
  * Calcule le montant TTC à partir d'un montant HT et d'un taux de TVA.
  * Supporte le traitement par lot (plages de cellules).
  *
