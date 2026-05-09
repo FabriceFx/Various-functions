@@ -113,11 +113,11 @@ const CONFIG = {
 
 /**
  * Utilitaire pour gérer le traitement par lot (Batch Processing).
- * Si l'entrée est un tableau, applique le callback sur chaque cellule.
+ * Si l'entrée est un tableau 2D, applique le callback sur chaque cellule.
  * 
- * @param {any} input       Valeur unique ou tableau 2D (plage Sheets).
- * @param {Function} callback Fonction à appliquer sur chaque valeur simple.
- * @return {any}            Résultat unique ou tableau 2D de résultats.
+ * @param {string|number|Date|Array<Array<any>>} input  Valeur unique ou plage Sheets (tableau 2D).
+ * @param {function(any): any} callback                 Fonction à appliquer sur chaque valeur simple.
+ * @return {any|Array<Array<any>>}                      Résultat unique ou tableau 2D de résultats.
  */
 function batchProcess(input, callback) {
   if (Array.isArray(input)) {

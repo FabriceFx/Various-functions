@@ -328,8 +328,16 @@
       google.script.run
         .withSuccessHandler((msg) => {
           cacheResult.textContent = msg;
+          cacheResult.className = 'status-msg status-success';
           cacheResult.style.display = 'block';
           setTimeout(() => { cacheResult.style.display = 'none'; }, 3000);
+        })
+        .withFailureHandler((err) => {
+          cacheResult.textContent = "Erreur : " + err.message;
+          cacheResult.className = 'status-msg';
+          cacheResult.style.backgroundColor = '#FFEBEE';
+          cacheResult.style.color = '#B71C1C';
+          cacheResult.style.display = 'block';
         })
         .clearCache();
     });
@@ -340,6 +348,14 @@
       google.script.run
         .withSuccessHandler((msg) => {
           piiResult.textContent = msg;
+          piiResult.className = 'status-msg status-info';
+          piiResult.style.display = 'block';
+        })
+        .withFailureHandler((err) => {
+          piiResult.textContent = "Erreur : " + err.message;
+          piiResult.className = 'status-msg';
+          piiResult.style.backgroundColor = '#FFEBEE';
+          piiResult.style.color = '#B71C1C';
           piiResult.style.display = 'block';
         })
         .previewPIISelection();
@@ -354,6 +370,9 @@
       google.script.run
         .withSuccessHandler((msg) => {
           updateResult.textContent = msg;
+        })
+        .withFailureHandler((err) => {
+          updateResult.textContent = "Erreur GitHub : " + err.message;
         })
         .checkLibraryUpdate();
     });
