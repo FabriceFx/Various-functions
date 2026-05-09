@@ -228,8 +228,8 @@ const GUARD = {
 function _parseDate(val) {
   if (!val && val !== 0) return null;
 
-  // 1. Déjà un objet Date
-  if (val instanceof Date) {
+  // 1. Déjà un objet Date (on vérifie la méthode getTime pour être compatible avec les objets traversant les bibliothèques)
+  if (val && Object.prototype.toString.call(val) === '[object Date]') {
     return isNaN(val.getTime()) ? null : val;
   }
 
