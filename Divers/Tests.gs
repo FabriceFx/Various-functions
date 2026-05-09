@@ -18,7 +18,7 @@ function RUN_ALL_TESTS() {
   // Test _addMonths (Gestion RH cruciale)
   tests.it("doit ajouter des mois correctement (cas fin de mois)", () => {
     const d = new Date(2024, 0, 31); // 31 Janvier
-    const res = _addMonths(d, 1);
+    const res = UTIL.addMonths(d, 1);
     return res.getMonth() === 1 && res.getDate() === 29; // 29 Fév (bissextile)
   });
 
@@ -69,6 +69,12 @@ function RUN_ALL_TESTS() {
   tests.it("doit générer une formule Sparkline correcte", () => {
     const res = UI_PROGRESS_SPARKLINE(50, 100, "#FF0000");
     return res.includes("SPARKLINE") && res.includes("#FF0000");
+  });
+
+  // Test PROCHAIN_FERIE avec format français
+  tests.it("doit parser correctement une date FR texte pour PROCHAIN_FERIE", () => {
+    const res = PROCHAIN_FERIE("06/01/2026");
+    return res instanceof Date && res.getFullYear() === 2026 && res.getMonth() === 3 && res.getDate() === 6; // Lundi de Pâques 2026 = 6 avril
   });
 
   // Résumé
