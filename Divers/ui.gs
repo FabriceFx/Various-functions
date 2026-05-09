@@ -82,3 +82,41 @@ function previewPIISelection() {
     return "Erreur lors de l'analyse : " + e.message;
   }
 }
+
+/**
+ * Retourne la liste des fonctions documentées pour la recherche dans la sidebar.
+ */
+function getFunctionsDocs() {
+  return [
+    { name: "FF_VERSION", desc: "Version actuelle", cat: "Système" },
+    { name: "MASK_PII", desc: "Anonymisation RGPD", cat: "Compliance" },
+    { name: "SEO_LISIBILITE_FLESCH", desc: "Indice Flesch français", cat: "SEO" },
+    { name: "SOLDE_CONGES", desc: "Calcul prorata congés", cat: "RH" },
+    { name: "joursOuvres", desc: "Jours ouvrés entre 2 dates", cat: "Dates" },
+    { name: "AMORTISSEMENT_LINEAIRE", desc: "Calcul d'amortissement", cat: "Finance" },
+    { name: "NORMALISER_ADRESSE_FR", desc: "Normalisation via API Gouv", cat: "Data" },
+    { name: "TEXT_SIMILARITY", desc: "Taux de ressemblance (%)", cat: "Stats" }
+  ];
+}
+
+/**
+ * Vérifie si une nouvelle version est disponible sur GitHub.
+ */
+function checkLibraryUpdate() {
+  const GITHUB_API_URL = "https://api.github.com/repos/FabriceFx/Various-functions/releases/latest";
+  try {
+    const response = UrlFetchApp.fetch(GITHUB_API_URL, { muteHttpExceptions: true });
+    if (response.getResponseCode() !== 200) return "Impossible de joindre GitHub.";
+    
+    const latest = JSON.parse(response.getContentText());
+    const latestTag = latest.tag_name.replace('v', '');
+    const current = FF_VERSION();
+
+    if (latestTag !== current) {
+      return `📢 Nouvelle version disponible : v${latestTag} (Vous avez v${current}).`;
+    }
+    return "✅ Votre bibliothèque est à jour !";
+  } catch (e) {
+    return "Erreur lors de la vérification.";
+  }
+}

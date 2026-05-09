@@ -143,11 +143,12 @@ function _findStatut(statutNormalise) {
  */
 function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement = false) {
   return batchProcess(dateEmbauche, (val) => {
-    if (!val || !statut) return PE_ERR_PARAMS;
+    const errDate = GUARD.isDate(val, "Date d'embauche");
+    const errStatut = GUARD.isDefined(statut, "Statut");
+    
+    if (errDate || errStatut) return `Erreur: ${errDate || errStatut}`;
 
     const d = _parseDate(val);
-    if (!d) return PE_ERR_DATE;
-
     const rule = _findStatut(_normalise(statut));
     if (!rule) return PE_ERR_STATUT;
 

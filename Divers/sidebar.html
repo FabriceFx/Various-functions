@@ -188,6 +188,28 @@
       white-space: pre-line;
     }
 
+    .function-doc-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--md-sys-color-surface-variant);
+    }
+
+    .function-doc-item:last-child {
+      border-bottom: none;
+    }
+
+    .function-name {
+      font-weight: 500;
+      color: var(--md-sys-color-primary);
+      font-family: monospace;
+      font-size: 13px;
+    }
+
+    .function-desc {
+      font-size: 12px;
+      color: var(--md-sys-color-on-surface-variant);
+      margin-top: 2px;
+    }
+
     .loader {
       display: none;
       width: 20px;
@@ -196,7 +218,7 @@
       border-top: 3px solid var(--md-sys-color-primary);
       border-radius: 50%;
       animation: spin 1s linear infinite;
-      margin: 0 auto;
+      margin: 16px auto;
     }
 
     @keyframes spin {
@@ -225,64 +247,86 @@
     <input type="text" class="search-box" placeholder="Rechercher une fonction..." id="search">
   </div>
 
-  <!-- Actions Rapides -->
-  <div class="section-title">Outils & Sécurité</div>
+  <!-- Résultats Recherche / Aide Rapide -->
+  <div id="docSection">
+    <div class="section-title" id="docTitle">Aide Rapide</div>
+    <div class="card" id="docCard">
+      <div id="docList">
+        <div class="loader" style="display: block;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Outils -->
+  <div class="section-title">Outils & Maintenance</div>
   <div class="card">
-    <h2><i class="material-icons">security</i> Données Sensibles</h2>
-    <p style="font-size: 13px; margin-bottom: 16px;">Vérifiez la présence de PII (Emails, CB, IBAN) dans vos cellules sélectionnées.</p>
     <button class="btn btn-tonal" id="btnPreviewPII">
       <i class="material-icons">visibility</i> Scanner la sélection
     </button>
     <div id="piiResult" class="status-msg status-info"></div>
-  </div>
 
-  <div class="card">
-    <h2><i class="material-icons">cached</i> Performance</h2>
-    <p style="font-size: 13px; margin-bottom: 16px;">Videz le cache pour forcer la mise à jour des résultats externes (SEO, adresses).</p>
-    <button class="btn btn-outline" id="btnClearCache">
+    <button class="btn btn-outline" id="btnClearCache" style="margin-top: 8px;">
       <i class="material-icons">delete_sweep</i> Vider le cache
     </button>
     <div id="cacheResult" class="status-msg status-success"></div>
-  </div>
 
-  <!-- Documentation Rapide -->
-  <div class="section-title">Aide Rapide</div>
-  <div class="card">
-    <div style="font-size: 13px;">
-      <div style="margin-bottom: 12px;"><strong>=FF_VERSION()</strong><br>Vérifie votre version actuelle.</div>
-      <div style="margin-bottom: 12px;"><strong>=MASK_PII(A1)</strong><br>Anonymise les données sensibles.</div>
-      <div><strong>=SEO_LISIBILITE_FLESCH(A1)</strong><br>Score de lisibilité française.</div>
-    </div>
+    <button class="btn btn-outline" id="btnUpdateCheck" style="margin-top: 8px;">
+      <i class="material-icons">system_update</i> Vérifier les mises à jour
+    </button>
+    <div id="updateResult" class="status-msg status-info"></div>
   </div>
-
-  <div class="loader" id="globalLoader"></div>
 
   <div class="footer">
     Développé par Fabrice Faucheux<br>
-    Propulsé par Google Apps Script — v2.1.0
+    Version 2.1.0 — 2026
   </div>
 
   <script>
-    const btnClearCache = document.getElementById('btnClearCache');
-    const btnPreviewPII = document.getElementById('btnPreviewPII');
-    const cacheResult = document.getElementById('cacheResult');
+    let allFunctions = [];
+    const searchInput = document.getElementById('search');
+    const docList = document.getElementById('docList');
+    const docTitle = document.getElementById('docTitle');
     const piiResult = document.getElementById('piiResult');
-    const loader = document.getElementById('globalLoader');
+    const cacheResult = document.getElementById('cacheResult');
+    const updateResult = document.getElementById('updateResult');
 
-    function toggleLoading(isLoading) {
-      loader.style.display = isLoading ? 'block' : 'none';
-      btnClearCache.disabled = isLoading;
-      btnPreviewPII.disabled = isLoading;
+    // Charger les fonctions au démarrage
+    window.onload = () => {
+      google.script.run
+        .withSuccessHandler((docs) => {
+          allFunctions = docs;
+          renderDocs(docs);
+        })
+        .getFunctionsDocs();
+    };
+
+    function renderDocs(list) {
+      if (list.length === 0) {
+        docList.innerHTML = '<div style="font-size:12px; color:gray; text-align:center;">Aucun résultat trouvé.</div>';
+        return;
+      }
+      docList.innerHTML = list.map(f => `
+        <div class="function-doc-item">
+          <div class="function-name">${f.name}</div>
+          <div class="function-desc">${f.desc}</div>
+        </div>
+      `).join('');
     }
 
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      docTitle.textContent = term ? "Résultats de recherche" : "Aide Rapide";
+      const filtered = allFunctions.filter(f => 
+        f.name.toLowerCase().includes(term) || f.desc.toLowerCase().includes(term)
+      );
+      renderDocs(filtered);
+    });
+
     // Vider le cache
-    btnClearCache.addEventListener('click', () => {
-      toggleLoading(true);
+    document.getElementById('btnClearCache').addEventListener('click', () => {
       cacheResult.style.display = 'none';
-      
       google.script.run
         .withSuccessHandler((msg) => {
-          toggleLoading(false);
           cacheResult.textContent = msg;
           cacheResult.style.display = 'block';
           setTimeout(() => { cacheResult.style.display = 'none'; }, 3000);
@@ -290,23 +334,28 @@
         .clearCache();
     });
 
-    // Scanner la sélection
-    btnPreviewPII.addEventListener('click', () => {
-      toggleLoading(true);
+    // Scanner PII
+    document.getElementById('btnPreviewPII').addEventListener('click', () => {
       piiResult.style.display = 'none';
-      
       google.script.run
         .withSuccessHandler((msg) => {
-          toggleLoading(false);
           piiResult.textContent = msg;
           piiResult.style.display = 'block';
         })
         .previewPIISelection();
     });
 
-    // Recherche (Placeholder pour évolution)
-    document.getElementById('search').addEventListener('input', (e) => {
-      // Filtrage futur des fonctions
+    // Update Check
+    document.getElementById('btnUpdateCheck').addEventListener('click', () => {
+      updateResult.style.display = 'none';
+      updateResult.textContent = "Vérification...";
+      updateResult.style.display = 'block';
+      
+      google.script.run
+        .withSuccessHandler((msg) => {
+          updateResult.textContent = msg;
+        })
+        .checkLibraryUpdate();
     });
   </script>
 </body>

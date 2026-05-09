@@ -67,14 +67,15 @@ function SEO_LISIBILITE_FLESCH(input) {
  * @private
  */
 function _compterSyllabesFR(mot) {
-  let m = mot.toLowerCase().trim();
+  let m = mot.toLowerCase().replace(/[^a-zà-ÿ]/g, '').trim();
   if (m.length <= 3) return 1;
 
-  // Remplacer les groupes de voyelles par une seule voyelle
-  m = m.replace(/(?:eau|au|ai|ei|eu|oi|ou|ui|iou|ieu)/g, 'a');
+  // Remplacer les diphtongues complexes qui comptent généralement pour 1 syllabe
+  // ion, ieu, iou, ia, ie, io, ua, ue, ui, uo
+  m = m.replace(/(?:eau|au|ai|ei|eu|oi|ou|ui|iou|ieu|ion|ia|ie|io|ua|ue|uo)/g, 'a');
   
-  // Supprimer le 'e' muet final (sauf si mot très court)
-  if (m.endsWith('e')) m = m.slice(0, -1);
+  // Cas particulier du 'e' muet final (souvent non prononcé)
+  if (m.endsWith('e') && m.length > 2) m = m.slice(0, -1);
 
   // Compter les voyelles restantes (y compris accentuées)
   const voyelles = m.match(/[aeiouy\u00E0\u00E2\u00E9\u00E8\u00EA\u00EB\u00EE\u00EF\u00F4\u00FB\u00F9]/g);

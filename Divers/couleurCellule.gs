@@ -36,7 +36,7 @@
 function couleurCellule(referenceCellule) {
   return batchProcess(referenceCellule, (val) => {
     if (!val) return "Erreur: référence requise";
-    
+
     try {
       const activeSheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
       const cell = activeSheet.getRange(val);
