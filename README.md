@@ -1,8 +1,8 @@
 # Various-functions (Google Sheets Library)
 
-🇫🇷 **Boîte à outils de 70 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
+🇫🇷 **Boîte à outils de 78 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
 
-🇬🇧 **A toolkit of 70 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
+🇬🇧 **A toolkit of 78 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
 
 ---
 
@@ -13,10 +13,11 @@
 | [`ageExact.gs`](RH/ageExact.gs) | Dates / Dates | Calcule l'âge exact (années, mois, jours) | Calculates exact age (years, months, days) |
 | [`alerteStock.gs`](Logistique/alerteStock.gs) | Logistique / Logistics | Retourne un statut de réapprovisionnement | Returns a restock status |
 | [`amortissementLineaire.gs`](Finance/amortissementLineaire.gs) | Finance / Finance | Calcule l'annuité d'amortissement prorata temporis | Calculates linear depreciation prorata temporis |
-| [`analyseSEO.gs`](Marketing_Vente/analyseSEO.gs) | Marketing / Marketing | Densité de mots-clés et indice de lisibilité Flesch | Keyword density and Flesch readability index |
+| [`analyseSEO.gs`](Marketing_Vente/analyseSEO.gs) | Marketing / Marketing | Densité, lisibilité Flesch et structure GEO | Density, Flesch index and GEO structure |
 | [`analyseSentiment.gs`](Marketing_Vente/analyseSentiment.gs) | IA / AI | Évalue la tonalité (Positif/Négatif) d'un texte | Evaluates text sentiment (Positive/Negative) |
 | [`anciennetePro.gs`](RH/anciennetePro.gs) | RH / HR | Retourne l'ancienneté sous forme textuelle | Returns professional tenure as text |
 | [`arrondiComptable.gs`](Finance/arrondiComptable.gs) | Finance / Finance | Arrondi bancaire (au pair le plus proche) | Banker's rounding (round half to even) |
+| [`auditWorkspace.gs`](Data_IT/auditWorkspace.gs) | IT Admin / Sec | Audit permissions Drive et santé utilisateur | Drive permissions and user health audit |
 | [`calculAgios.gs`](Finance/calculAgios.gs) | Finance / Finance | Calcule le coût d'un découvert ou retard de paiement | Calculates overdraft or late payment costs |
 | [`calculVolumetrie.gs`](Logistique/calculVolumetrie.gs) | Logistique / Logistics | Calcule le volume ou poids volumétrique | Calculates volume or volumetric weight |
 | [`capitaliser.gs`](Divers/capitaliser.gs) | Texte / Text | Capitalise les mots en gérant les particules (de, du, le...) | Capitalizes words handling French particles |
@@ -24,7 +25,7 @@
 | [`cleanHTML.gs`](Data_IT/cleanHTML.gs) | Web / Web | Nettoie les balises HTML d'un bloc de texte | Cleans HTML tags from a text block |
 | [`cleanLinkedinURL.gs`](Marketing_Vente/cleanLinkedinURL.gs) | Marketing / Marketing | Nettoie les URLs LinkedIn du tracking | Cleans tracking from LinkedIn URLs |
 | [`cleEAN13.gs`](Logistique/cleEAN13.gs) | Retail / Retail | Calcule la clé de contrôle d'un code-barres | Calculates the check digit of a barcode |
-| [`co2Transport.gs`](Logistique/co2Transport.gs) | RSE / CSR | Calcule l'empreinte carbone d'un trajet (kgCO2e) | Calculates carbon footprint of a trip (kgCO2e) |
+| [`co2Transport.gs`](Logistique/co2Transport.gs) | RSE / CSR | CO2 trajet (km) et vol (codes IATA) | Trip CO2 (km) and flight (IATA codes) |
 | [`constructeurUTM.gs`](Marketing_Vente/constructeurUTM.gs) | Marketing / Marketing | Génère proprement une URL taguée UTM | Generates a clean UTM tagged URL |
 | [`couleurCellule.gs`](Divers/couleurCellule.gs) | Utilitaires / Utilities | Retourne le code HEX de la couleur de fond d'une cellule | Returns the HEX background color of a cell |
 | [`coutEmployeur.gs`](RH/coutEmployeur.gs) | RH / HR | Estime le coût total employeur (Super Brut) à partir du salaire brut | Estimates total employer cost from gross salary |
@@ -55,12 +56,14 @@
 | [`montantEnLettres.gs`](Finance/montantEnLettres.gs) | Finance / Finance | Convertit un nombre en toutes lettres ("mille euros") | Converts a number to words (French) |
 | [`nomFichierPropre.gs`](Divers/nomFichierPropre.gs) | Utilitaires / Utilities | Nettoie une chaîne pour en faire un nom de fichier valide | Cleans a string to make it a valid filename |
 | [`normaliser.gs`](Divers/normaliser.gs) | Texte / Text | Supprime accents, espaces multiples, met en majuscules | Removes accents, extra spaces, converts to uppercase |
+| [`oooDrafter.gs`](Divers/oooDrafter.gs) | Productivité | Génère un message d'absence via calendrier | Calendar-based OOO message generator |
 | [`parserAdresseFR.gs`](Data_IT/parserAdresseFR.gs) | Data / Data | Découpe une adresse (Num, Voie, CP, Ville) en colonnes | Splits an address into columns (Num, Street, Zip, City) |
 | [`penalitesRetard.gs`](Finance/penalitesRetard.gs) | Finance / Finance | Calcule les pénalités de retard légales (B2B) selon le taux BCE | Calculates legal late payment penalties (B2B) |
 | [`previsionLissage.gs`](Divers/previsionLissage.gs) | Stats / Stats | Prévoit la prochaine valeur via lissage exponentiel | Forecasts the next value via exponential smoothing |
 | [`prixPsychologique.gs`](Divers/prixPsychologique.gs) | Retail / Retail | Arrondit vers le prix psychologique (ex: .99, .90) | Rounds to psychological pricing (e.g. .99, .90) |
 | [`prochainFerie.gs`](Divers/prochainFerie.gs) | Dates / Dates | Retourne le prochain jour férié français | Returns the next French public holiday |
 | [`projectSPI.gs`](Divers/projectSPI.gs) | Projet / Project | Calcule le Schedule Performance Index d'un projet | Calculates the Schedule Performance Index (SPI) |
+| [`purgeGDPR.gs`](Data_IT/purgeGDPR.gs) | Compliance | Automatise le nettoyage des données obsolètes | Automates purging of obsolete data |
 | [`qrCodeURL.gs`](Marketing_Vente/qrCodeURL.gs) | Utilitaires / Utilities | Génère l'URL d'un QR code affichable via `=IMAGE(...)` | Generates a QR code URL for `=IMAGE(...)` |
 | [`qrCodeWifi.gs`](Divers/qrCodeWifi.gs) | Utilitaires / Utilities | Génère l'URL d'un QR code pour se connecter au Wi-Fi | Generates a Wi-Fi QR code URL |
 | [`rechercheVFloue.gs`](Data_IT/rechercheVFloue.gs) | Data / Data | Recherche V avec tolérance aux fautes (Levenshtein) | Fuzzy VLOOKUP (Levenshtein distance) |
@@ -72,6 +75,7 @@
 | [`slugify.gs`](Divers/slugify.gs) | Texte / Text | Génère un slug d'URL depuis un texte ("Café" → "cafe") | Generates a URL slug from text |
 | [`soldeConges.gs`](RH/soldeConges.gs) | RH / HR | Calcule le solde de congés payés au prorata | Calculates prorated paid leave balance |
 | [`textSimilarity.gs`](Divers/textSimilarity.gs) | Stats / Stats | Taux de similarité entre deux textes (%) | Similarity rate between two texts (%) |
+| [`ui.gs`](Divers/ui.gs) | UX / UI | Menu, Sidebar Material 3 et Sparklines MD3 | Custom menu, MD3 Sidebar and Sparklines |
 | [`ventilationTVA.gs`](Finance/ventilationTVA.gs) | Finance / Finance | Ventile TVA et HT depuis un TTC et une catégorie | Ventilates VAT and Pre-tax from Post-tax |
 | [`verifCB.gs`](Data_IT/verifCB.gs) | Validation / Validation | Valide un n° de carte bancaire et détecte le réseau | Validates a credit card number and detects network |
 | [`verifEmail.gs`](Data_IT/verifEmail.gs) | Validation / Validation | Vérifie le format d'une adresse email (regex robuste) | Verifies email address format (robust regex) |
@@ -79,6 +83,8 @@
 | [`verifNIR.gs`](Data_IT/verifNIR.gs) | Validation / Validation | Valide un n° de Sécurité Sociale français (clé modulo 97) | Validates a French Social Security number (NIR) |
 | [`verifSIRET.gs`](Data_IT/verifSIRET.gs) | Validation / Validation | Valide un n° SIRET/SIREN français (algorithme de Luhn) | Validates a French SIRET/SIREN (Luhn algorithm) |
 | [`verifTVA.gs`](Finance/verifTVA.gs) | Validation / Validation | Valide un n° de TVA intracommunautaire | Validates a European VAT number |
+
+---
 
 ---
 

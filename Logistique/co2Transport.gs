@@ -63,3 +63,42 @@ function CO2_TRANSPORT(km, modeTransport) {
     return Math.round(co2 * 100) / 100;
   });
 }
+
+/**
+ * Estime le CO2 pour un vol entre deux aéroports (codes IATA).
+ * @param {string} codeDep Code IATA de départ (ex: "CDG").
+ * @param {string} codeArr Code IATA d'arrivée (ex: "JFK").
+ * @return {number} Estimation en kgCO2e.
+ * @customfunction
+ */
+function CO2_FLIGHT_ESTIMATOR(codeDep, codeArr) {
+  const airports = {
+    "CDG": {lat: 49.0097, lon: 2.5479},
+    "JFK": {lat: 40.6413, lon: -73.7781},
+    "LHR": {lat: 51.4700, lon: -0.4543},
+    "DXB": {lat: 25.2532, lon: 55.3657},
+    "SIN": {lat: 1.3644, lon: 103.9915},
+    "SFO": {lat: 37.6213, lon: -122.3790},
+    "HND": {lat: 35.5494, lon: 139.7798},
+    "SYD": {lat: -33.9399, lon: 151.1753}
+  };
+
+  const a1 = airports[String(codeDep).toUpperCase().trim()];
+  const a2 = airports[String(codeArr).toUpperCase().trim()];
+
+  if (!a1 || !a2) return "⚠️ Codes IATA inconnus (Exemples supportés: CDG, JFK, LHR, DXB, SIN, SFO, HND, SYD)";
+
+  // Distance Haversine
+  const R = 6371; // Rayon terre
+  const dLat = (a2.lat - a1.lat) * Math.PI / 180;
+  const dLon = (a2.lon - a1.lon) * Math.PI / 180;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(a1.lat * Math.PI / 180) * Math.cos(a2.lat * Math.PI / 180) * 
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  const distance = R * c;
+
+  // Facteur moyen avion (kgCO2/km)
+  const facteur = distance < 1000 ? 0.259 : 0.187; // Court-courrier vs Long-courrier
+  return Math.round(distance * facteur);
+}

@@ -3,7 +3,7 @@
  *  Configuration Globale — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
  *  Auteur  : Fabrice Faucheux
- *  Version : 2.1.0
+ *  Version : 2.2.0
  *  Date    : 2026-05-09
  *
  *  Description :

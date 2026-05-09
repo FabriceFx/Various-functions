@@ -84,6 +84,22 @@ function previewPIISelection() {
 }
 
 /**
+ * Génère une barre de progression visuelle via SPARKLINE (Design Material 3).
+ * @param {number} valeur Valeur actuelle.
+ * @param {number} [max=100] Valeur maximale.
+ * @param {string} [color="#0061A4"] Couleur (HEX).
+ * @return {string} Formule SPARKLINE à copier.
+ * @customfunction
+ */
+function UI_PROGRESS_SPARKLINE(valeur, max = 100, color = "#0061A4") {
+  const v = parseFloat(valeur) || 0;
+  const m = parseFloat(max) || 100;
+  // On retourne une formule que Sheets peut interpréter s'il était possible de l'injecter, 
+  // mais ici on retourne le texte de la formule pour l'utilisateur.
+  return `=SPARKLINE(${v}; {"charttype"\\"bar"; "max"\\${m}; "color1"\\"${color}"})`;
+}
+
+/**
  * Retourne la liste des fonctions documentées pour la recherche dans la sidebar.
  */
 function getFunctionsDocs() {

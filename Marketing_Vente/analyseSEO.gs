@@ -16,6 +16,8 @@
  *  Fonctions exposées :
  *    • SEO_MOTS_CLES_DENSITE(texte, motCle)
  *    • SEO_LISIBILITE_FLESCH(texte)
+ *    • GEO_STRUCTURE_CHECK(url_ou_html)
+ *    • GEO_SCHEMA_DETECTOR(url)
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -114,4 +116,62 @@ function SEO_MOTS_CLES_DENSITE(input, motCle) {
     // Densité = (Occurrences / Nombre de mots)
     return Math.round((matches.length / words.length) * 1000) / 1000;
   });
+}
+
+/**
+ * Vérifie la structure sémantique d'une page (H1-H3, listes, densité) pour le GEO.
+ * @param {string} urlOrHtml URL ou contenu HTML brut.
+ * @return {string} Résumé de l'analyse structurelle.
+ * @customfunction
+ */
+function GEO_STRUCTURE_CHECK(urlOrHtml) {
+  let html = urlOrHtml;
+  if (urlOrHtml.toLowerCase().startsWith('http')) {
+    try {
+      html = _fetchWithBackoff(urlOrHtml).getContentText();
+    } catch (e) { return "⚠️ Erreur de chargement URL"; }
+  }
+
+  const h1 = (html.match(/<h1/gi) || []).length;
+  const h2 = (html.match(/<h2/gi) || []).length;
+  const h3 = (html.match(/<h3/gi) || []).length;
+  const lists = (html.match(/<(ul|ol)/gi) || []).length;
+  
+  let score = "✅ Structure OK";
+  if (h1 !== 1) score = "⚠️ H1 unique manquant";
+  if (h2 === 0) score = "❌ Absence de sous-titres (H2)";
+  if (lists === 0) score = "💡 Ajoutez des listes pour le GEO";
+
+  return `H1: ${h1} | H2: ${h2} | H3: ${h3} | Listes: ${lists} | [${score}]`;
+}
+
+/**
+ * Détecte la présence de schémas JSON-LD (Schema.org) dans une page.
+ * @param {string} url URL de la page à analyser.
+ * @return {string} Liste des types de schémas détectés.
+ * @customfunction
+ */
+function GEO_SCHEMA_DETECTOR(url) {
+  if (!url || !url.startsWith('http')) return "⚠️ URL invalide";
+  
+  try {
+    const html = _fetchWithBackoff(url).getContentText();
+    const regex = /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+    let match;
+    const schemas = [];
+
+    while ((match = regex.exec(html)) !== null) {
+      try {
+        const json = JSON.parse(match[1]);
+        const types = Array.isArray(json) ? json.map(j => j["@type"]) : [json["@type"]];
+        schemas.push(...types.filter(t => t));
+      } catch (e) { /* Ignorer JSON mal formé */ }
+    }
+
+    return schemas.length > 0 
+      ? "Schemas: " + [...new Set(schemas)].join(", ") 
+      : "❌ Aucun JSON-LD détecté";
+  } catch (e) {
+    return "⚠️ Erreur d'accès";
+  }
 }
