@@ -29,54 +29,9 @@
  * @OnlyCurrentDoc
  */
 
-// ─── Helpers privés ───────────────────────────────────────────────────────────
+// ─── Logique Interne (Privée) ──────────────────────────────────────────────────
 
-// ─── Helpers privés ───────────────────────────────────────────────────────────
-
-/**
- * Normalise une chaîne pour la comparaison de statut :
- * minuscules + suppression des accents.
- *
- * @param  {string} s
- * @return {string}
- */
-function _normalise(s) {
-  return String(s)
-    .toLowerCase()
-    .normalize("NFD")                // décompose les caractères accentués
-    .replace(/[\u0300-\u036f]/g, "") // supprime les diacritiques
-    .trim();
-}
-
-/**
- * Ajoute un nombre entier de mois à une date, en restant dans le bon mois
- * (ex : 31 jan + 1 mois → 28/29 fév, pas 3 mars).
- *
- * @param  {Date}   date
- * @param  {number} mois
- * @return {Date}
- */
-function _addMonths(date, mois) {
-  const result = new Date(date);
-  const targetMonth = result.getMonth() + mois;
-
-  result.setMonth(targetMonth);
-
-  // Correction de débordement de mois (ex : 31 jan + 1 = 3 mars → ramen à 28 fév)
-  // Si setMonth a "débordé", getMonth() ne correspond plus au mois attendu
-  if (result.getMonth() !== ((targetMonth % 12) + 12) % 12) {
-    result.setDate(0); // recule au dernier jour du mois précédent
-  }
-
-  return result;
-}
-
-/**
- * Recherche la règle de statut correspondant à une chaîne normalisée.
- *
- * @param  {string} statutNormalise
- * @return {object|null}  Entrée de STATUTS_PE, ou null si non trouvé.
- */
+/** Recherche le statut dans la table. */
 function _findStatut(statutNormalise) {
   return CONFIG.STATUTS_PE.find(
     rule => rule.aliases.some(alias => statutNormalise.includes(alias))
@@ -106,14 +61,14 @@ function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement = false) {
     if (errDate || errStatut) return `Erreur: ${errDate || errStatut}`;
 
     const d = _parseDate(val);
-    const rule = _findStatut(_normalise(statut));
+    const rule = _findStatut(UTIL.normalise(statut));
     if (!rule) return CONFIG.PE_ERR_STATUT;
 
     const dureeTotal = renouvellement
       ? rule.initial + rule.renouvellement
       : rule.initial;
 
-    const dateFin = _addMonths(d, dureeTotal);
+    const dateFin = UTIL.addMonths(d, dureeTotal);
     dateFin.setDate(dateFin.getDate() - 1);
 
     return dateFin;
@@ -136,7 +91,7 @@ function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement = false) {
 function DUREE_PERIODE_ESSAI(statut, renouvellement = false) {
   if (!statut) return CONFIG.PE_ERR_PARAMS;
 
-  const rule = _findStatut(_normalise(statut));
+  const rule = _findStatut(UTIL.normalise(statut));
   if (!rule) return CONFIG.PE_ERR_STATUT;
 
   const duree = renouvellement

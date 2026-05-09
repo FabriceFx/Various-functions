@@ -884,6 +884,23 @@ function ANCIENNETE_PRO(dateDebut, dateFin) {
 }
 
 /**
+ * Calcule le délai de prévenance légal pour une rupture de période d'essai.
+ * Supporte le traitement par lot (plages de cellules).
+ *
+ * @param {Date|number|string|Array<Array<any>>} dateDebut   Date d'entrée.
+ * @param {Date|number|string}                   [dateRupture] Date de notification (aujourd'hui par défaut).
+ * @param {boolean}                              [coteEmployeur=true] VRAI si rupture par l'employeur.
+ * @return {string|Array<Array<string>>}          Le délai (ex: "48 heures", "2 semaines").
+ * @customfunction
+ *
+ *   =DELAI_PREVENANCE("2026-01-01"; "2026-02-15")  → "2 semaines"
+ *   =DELAI_PREVENANCE(A2:A100)
+ */
+function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur) {
+  return FF.DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur);
+}
+
+/**
  * Calcule le montant TTC à partir d'un montant HT et d'un taux de TVA.
  * Supporte le traitement par lot (plages de cellules).
  *

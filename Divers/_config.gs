@@ -266,3 +266,22 @@ function _parseDate(val) {
 
   return null;
 }
+
+/**
+ * Utilitaires partagés.
+ */
+const UTIL = {
+  /** Normalise le texte pour comparaison (minuscules, sans accents). */
+  normalise: (s) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim(),
+  
+  /** Ajoute des mois à une date en gérant le débordement de fin de mois. */
+  addMonths: (date, mois) => {
+    const result = new Date(date);
+    const targetMonth = result.getMonth() + mois;
+    result.setMonth(targetMonth);
+    if (result.getMonth() !== ((targetMonth % 12) + 12) % 12) {
+      result.setDate(0);
+    }
+    return result;
+  }
+};
