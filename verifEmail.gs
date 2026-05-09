@@ -28,87 +28,92 @@ const REGEX_EMAIL_ = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9
 
 /**
  * Vérifie le format d'une adresse email.
+ * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string} email  L'adresse email à vérifier.
- * @return {string}       "VALIDE" ou message d'erreur explicite.
+ * @param {string|Array<Array<string>>} email  L'adresse email ou une plage de cellules.
+ * @return {string|Array<Array<string>>}       "VALIDE", message d'erreur ou tableau de résultats.
  * @customfunction
  *
  * @example
  *   =verifEmail("fabrice@faucheux.bzh")       → "VALIDE"
- *   =verifEmail("fabrice@faucheux")           → "INVALIDE — TLD manquant ou trop court"
- *   =verifEmail("fabrice@@faucheux.bzh")      → "INVALIDE — format incorrect"
+ *   =verifEmail(A2:A100)                      → [Tableau de résultats]
  */
 function verifEmail(email) {
-  if (email == null || String(email).trim() === "") {
-    return "INVALIDE — aucune adresse fournie";
-  }
+  return batchProcess(email, (val) => {
+    if (val == null || String(val).trim() === "") {
+      return "INVALIDE — aucune adresse fournie";
+    }
 
-  const clean = String(email).trim();
+    const clean = String(val).trim();
 
-  // Vérifications de base
-  if (!clean.includes("@")) {
-    return "INVALIDE — le caractère « @ » est manquant";
-  }
+    // Vérifications de base
+    if (!clean.includes("@")) {
+      return "INVALIDE — le caractère « @ » est manquant";
+    }
 
-  const parties = clean.split("@");
-  if (parties.length !== 2) {
-    return "INVALIDE — plusieurs caractères « @ » détectés";
-  }
+    const parties = clean.split("@");
+    if (parties.length !== 2) {
+      return "INVALIDE — plusieurs caractères « @ » détectés";
+    }
 
-  const [local, domaine] = parties;
+    const [local, domaine] = parties;
 
-  if (local.length === 0) {
-    return "INVALIDE — partie locale vide (avant le @)";
-  }
+    if (local.length === 0) {
+      return "INVALIDE — partie locale vide (avant le @)";
+    }
 
-  if (local.length > 64) {
-    return "INVALIDE — partie locale trop longue (max 64 caractères)";
-  }
+    if (local.length > 64) {
+      return "INVALIDE — partie locale trop longue (max 64 caractères)";
+    }
 
-  if (domaine.length === 0) {
-    return "INVALIDE — domaine vide (après le @)";
-  }
+    if (domaine.length === 0) {
+      return "INVALIDE — domaine vide (après le @)";
+    }
 
-  if (domaine.length > 253) {
-    return "INVALIDE — domaine trop long (max 253 caractères)";
-  }
+    if (domaine.length > 253) {
+      return "INVALIDE — domaine trop long (max 253 caractères)";
+    }
 
-  if (!domaine.includes(".")) {
-    return "INVALIDE — TLD manquant (pas de point dans le domaine)";
-  }
+    if (!domaine.includes(".")) {
+      return "INVALIDE — TLD manquant (pas de point dans le domaine)";
+    }
 
-  const tld = domaine.split(".").pop();
-  if (tld.length < 2) {
-    return "INVALIDE — TLD trop court (min 2 caractères)";
-  }
+    const tld = domaine.split(".").pop();
+    if (tld.length < 2) {
+      return "INVALIDE — TLD trop court (min 2 caractères)";
+    }
 
-  // Vérification finale par regex
-  if (!REGEX_EMAIL_.test(clean)) {
-    return "INVALIDE — format incorrect";
-  }
+    // Vérification finale par regex
+    if (!REGEX_EMAIL_.test(clean)) {
+      return "INVALIDE — format incorrect";
+    }
 
-  return "VALIDE";
+    return "VALIDE";
+  });
 }
 
 
 /**
  * Extrait la première adresse email trouvée dans un texte.
+ * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string} texte  Le texte contenant potentiellement une adresse email.
- * @return {string}       L'adresse email trouvée, ou "" si aucune.
+ * @param {string|Array<Array<string>>} texte  Le texte ou une plage de cellules.
+ * @return {string|Array<Array<string>>}       L'adresse email trouvée ou tableau de résultats.
  * @customfunction
  *
  * @example
- *   =extraireEmail("Contactez-nous à info@example.com pour plus d'infos")
- *   → "info@example.com"
+ *   =extraireEmail("Contactez-nous à info@example.com") → "info@example.com"
+ *   =extraireEmail(B2:B50)                              → [Tableau de résultats]
  */
 function extraireEmail(texte) {
-  if (texte == null || String(texte).trim() === "") {
-    return "";
-  }
+  return batchProcess(texte, (val) => {
+    if (val == null || String(val).trim() === "") {
+      return "";
+    }
 
-  const regex = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}/;
-  const match = String(texte).match(regex);
+    const regex = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}/;
+    const match = String(val).match(regex);
 
-  return match ? match[0] : "";
+    return match ? match[0] : "";
+  });
 }

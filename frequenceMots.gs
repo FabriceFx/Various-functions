@@ -20,16 +20,6 @@
  * ════════════════════════════════════════════════════════════════════════════
  */
 
-const MOTS_LIAISON_FR_ = new Set([
-  "le", "la", "les", "l", "un", "une", "des", "d", "du", "de",
-  "et", "ou", "mais", "donc", "or", "ni", "car",
-  "a", "à", "au", "aux", "en", "par", "pour", "avec", "sans", "sous", "sur", "vers", "dans",
-  "je", "tu", "il", "elle", "on", "nous", "vous", "ils", "elles",
-  "me", "te", "se", "y", "qui", "que", "quoi", "dont", "où",
-  "ce", "cet", "cette", "ces", "mon", "ton", "son", "ma", "ta", "sa", "mes", "tes", "ses",
-  "est", "sont", "c", "qu", "n", "ne", "pas", "plus"
-]);
-
 /**
  * Extrait les mots les plus utilisés d'une plage de texte.
  * Renvoie un tableau à deux colonnes : [Mot, Occurrences].
@@ -75,7 +65,7 @@ function frequenceMots(plage, exclureLiaison = true, topN = 10) {
   // Compter les occurrences
   const compte = {};
   for (const mot of mots) {
-    if (exclureLiaison && MOTS_LIAISON_FR_.has(mot)) continue;
+    if (exclureLiaison && CONFIG.STOP_WORDS_FR.has(mot)) continue;
     
     // Ignorer les nombres
     if (/^\d+$/.test(mot)) continue;

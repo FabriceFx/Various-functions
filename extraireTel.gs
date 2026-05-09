@@ -21,39 +21,47 @@
  */
 
 /**
- * Extrait et normalise un numéro de téléphone français.
+ * Extrait et normalise un numéro de téléphone.
+ * Supporte les formats français par défaut et internationaux (E.164).
+ * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string} texte  Le texte contenant potentiellement un numéro.
- * @return {string}       Le numéro formaté (ex: "06 12 34 56 78") ou vide.
+ * @param {string|Array<Array<string>>} texte  Le texte ou une plage de cellules.
+ * @param {string} [pays='FR']                 Code pays pour le formatage (ex: 'FR', 'US').
+ * @return {string|Array<Array<string>>}       Le numéro formaté ou tableau de résultats.
  * @customfunction
  *
  * @example
- *   =EXTRAIRE_TEL("Contactez moi au 06.12.34.56.78 ce soir.")
- *   → "06 12 34 56 78"
+ *   =EXTRAIRE_TEL("Call +33612345678"; "FR") → "06 12 34 56 78"
+ *   =EXTRAIRE_TEL(A2:A50)                    → [Tableau de résultats]
  */
-function EXTRAIRE_TEL(texte) {
-  if (!texte || String(texte).trim() === "") return "";
+function EXTRAIRE_TEL(texte, pays = 'FR') {
+  return batchProcess(texte, (val) => {
+    if (!val || String(val).trim() === "") return "";
 
-  // Regex qui cherche un format français : 0 ou +33, suivi de 1 à 9, suivi de 4 blocs de 2 chiffres (séparés ou non par espace, point, tiret)
-  const regex = /(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}/;
-  const match = String(texte).match(regex);
+    // Regex générique pour détecter un numéro (simplifiée)
+    // Cherche une suite de chiffres potentiellement précédée de +
+    const regex = /(?:\+|00)?(?:\d[\s.-]*){8,15}/;
+    const match = String(val).match(regex);
 
-  if (!match) return "";
+    if (!match) return "";
 
-  // Nettoyage: on garde que les chiffres et le +
-  let clean = match[0].replace(/[^\d+]/g, "");
+    // Nettoyage: on garde que les chiffres et le + initial
+    let clean = match[0].trim().replace(/[^\d+]/g, "");
+    if (clean.startsWith("00")) clean = "+" + clean.substring(2);
 
-  // Si ça commence par +33 ou 0033, on transforme en 0
-  if (clean.startsWith("+33")) {
-    clean = "0" + clean.substring(3);
-  } else if (clean.startsWith("0033")) {
-    clean = "0" + clean.substring(4);
-  }
+    // Formatage spécifique France
+    if (pays.toUpperCase() === 'FR') {
+      if (clean.startsWith("+33")) {
+        clean = "0" + clean.substring(3);
+      } else if (!clean.startsWith("+") && clean.length === 9) {
+        clean = "0" + clean;
+      }
+      
+      if (clean.length === 10 && clean.startsWith("0")) {
+        return clean.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
+      }
+    }
 
-  // Si le numéro fait bien 10 chiffres
-  if (clean.length === 10) {
-    return clean.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
-  }
-
-  return clean; // Retourne le numéro brut s'il est étrange
+    return clean;
+  });
 }

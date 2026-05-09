@@ -51,80 +51,70 @@ const LONGUEUR_PAR_PAYS = Object.freeze({
 
 /**
  * Vérifie la validité d'un IBAN (International Bank Account Number).
+ * Supporte le traitement par lot (plages de cellules).
  *
- * Effectue 3 niveaux de vérification :
- *   1. Format : l'IBAN ne contient que des caractères alphanumériques
- *   2. Longueur : l'IBAN a la longueur attendue pour son code pays
- *   3. Clé de contrôle : validation par l'algorithme Modulo 97 (ISO 7064)
- *
- * @param {string} iban  L'IBAN à vérifier (espaces et tirets tolérés).
- * @return {string}      "VALIDE" si l'IBAN est correct, sinon un message d'erreur explicite.
+ * @param {string|Array<Array<string>>} iban  L'IBAN ou une plage de cellules.
+ * @return {string|Array<Array<string>>}      "VALIDE", message d'erreur ou tableau de résultats.
  * @customfunction
  *
  * @example
  *   =verifIBAN("FR76 3000 6000 0112 3456 7890 189")   → "VALIDE"
- *   =verifIBAN("FR76 3000 6000 0112 3456 7890 188")   → "INVALIDE — clé de contrôle incorrecte"
- *   =verifIBAN("XX12 3456")                            → "INVALIDE — code pays « XX » non reconnu"
+ *   =verifIBAN(A2:A50)                                → [Tableau de résultats]
  */
 function verifIBAN(iban) {
+  return batchProcess(iban, (val) => {
+    if (val == null || String(val).trim() === "") {
+      return "INVALIDE — aucun IBAN fourni";
+    }
 
-  // ── 0. Vérification de l'entrée ──────────────────────────────────────────
-  if (iban == null || String(iban).trim() === "") {
-    return "INVALIDE — aucun IBAN fourni";
-  }
+    const ibanClean = String(val).toUpperCase().replace(/[^A-Z0-9]/g, "");
+    const match = ibanClean.match(/^([A-Z]{2})(\d{2})([A-Z0-9]+)$/);
+    if (!match) {
+      return "INVALIDE — format incorrect (doit commencer par 2 lettres + 2 chiffres)";
+    }
 
-  // Nettoyage : majuscules, suppression de tout sauf A-Z et 0-9
-  const ibanClean = String(iban).toUpperCase().replace(/[^A-Z0-9]/g, "");
+    const [, codePays, cleControle, corps] = match;
 
-  // ── 1. Vérification du format global ─────────────────────────────────────
-  // Un IBAN valide = 2 lettres (pays) + 2 chiffres (clé) + corps alphanumérique
-  const match = ibanClean.match(/^([A-Z]{2})(\d{2})([A-Z0-9]+)$/);
-  if (!match) {
-    return "INVALIDE — format incorrect (doit commencer par 2 lettres + 2 chiffres)";
-  }
+    if (!(codePays in LONGUEUR_PAR_PAYS)) {
+      return `INVALIDE — code pays « ${codePays} » non reconnu`;
+    }
 
-  const [, codePays, cleControle, corps] = match;
+    const longueurAttendue = LONGUEUR_PAR_PAYS[codePays];
+    if (ibanClean.length !== longueurAttendue) {
+      return `INVALIDE — longueur incorrecte (${ibanClean.length} car. au lieu de ${longueurAttendue} pour ${codePays})`;
+    }
 
-  // ── 2. Vérification du code pays ─────────────────────────────────────────
-  if (!(codePays in LONGUEUR_PAR_PAYS)) {
-    return `INVALIDE — code pays « ${codePays} » non reconnu`;
-  }
+    const chaineNumerique = (corps + codePays + cleControle)
+      .replace(/[A-Z]/g, lettre => lettre.charCodeAt(0) - 55);
 
-  // ── 3. Vérification de la longueur ───────────────────────────────────────
-  const longueurAttendue = LONGUEUR_PAR_PAYS[codePays];
-  if (ibanClean.length !== longueurAttendue) {
-    return `INVALIDE — longueur incorrecte (${ibanClean.length} car. au lieu de ${longueurAttendue} pour ${codePays})`;
-  }
+    if (mod97_(chaineNumerique) !== 1) {
+      return "INVALIDE — clé de contrôle incorrecte";
+    }
 
-  // ── 4. Vérification de la clé de contrôle (Modulo 97-1, ISO 7064) ───────
-  const chaineNumerique = (corps + codePays + cleControle)
-    .replace(/[A-Z]/g, lettre => lettre.charCodeAt(0) - 55);
-
-  if (mod97_(chaineNumerique) !== 1) {
-    return "INVALIDE — clé de contrôle incorrecte";
-  }
-
-  return "VALIDE";
+    return "VALIDE";
+  });
 }
 
 
 /**
  * Formate un IBAN en groupes de 4 caractères séparés par des espaces.
+ * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string} iban  L'IBAN brut ou déjà partiellement formaté.
- * @return {string}      L'IBAN formaté (ex. "FR76 3000 6000 0112 3456 7890 189").
+ * @param {string|Array<Array<string>>} iban  L'IBAN ou une plage de cellules.
+ * @return {string|Array<Array<string>>}      L'IBAN formaté ou tableau de résultats.
  * @customfunction
  *
  * @example
  *   =formatIBAN("FR7630006000011234567890189")
- *   → "FR76 3000 6000 0112 3456 7890 189"
  */
 function formatIBAN(iban) {
-  if (iban == null || String(iban).trim() === "") {
-    return "";
-  }
-  const clean = String(iban).toUpperCase().replace(/[^A-Z0-9]/g, "");
-  return clean.replace(/(.{4})(?=.)/g, "$1 ");
+  return batchProcess(iban, (val) => {
+    if (val == null || String(val).trim() === "") {
+      return "";
+    }
+    const clean = String(val).toUpperCase().replace(/[^A-Z0-9]/g, "");
+    return clean.replace(/(.{4})(?=.)/g, "$1 ");
+  });
 }
 
 

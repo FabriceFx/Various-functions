@@ -23,46 +23,52 @@
 
 /**
  * Extrait le domaine principal d'une URL.
+ * Gère les sous-domaines (www) et les TLDs complexes (ex: .co.uk).
+ * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string} url  L'URL complète (ex: "https://www.faucheux.bzh/contact").
- * @return {string}     Le domaine extrait (ex: "faucheux.bzh").
+ * @param {string|Array<Array<string>>} url  L'URL ou une plage d'URLs.
+ * @return {string|Array<Array<string>>}     Le domaine extrait ou tableau de résultats.
  * @customfunction
  *
  * @example
- *   =extraireDomaine("https://www.google.fr/search?q=test")  → "google.fr"
+ *   =extraireDomaine("https://www.google.co.uk/search") → "google.co.uk"
+ *   =extraireDomaine(A2:A50)                           → [Tableau de résultats]
  */
 function extraireDomaine(url) {
-  if (url == null || String(url).trim() === "") return "";
+  return batchProcess(url, (val) => {
+    if (val == null || String(val).trim() === "") return "";
 
-  let domaine = String(url).trim();
-  
-  // Ajouter un protocole temporaire si manquant pour que la regex fonctionne bien
-  if (!/^https?:\/\//i.test(domaine)) {
-    domaine = "http://" + domaine;
-  }
-
-  try {
-    // Utilisation d'une regex pour extraire le hostname
-    const match = domaine.match(/^https?:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
-    if (!match || !match[1]) return "";
+    let domaine = String(val).trim();
     
-    let hostname = match[1];
-    
-    // Supprimer le port éventuel
-    hostname = hostname.split(':')[0];
-    
-    // Supprimer "www." ou autres sous-domaines si besoin
-    // Attention: cette approche simplifiée enlève juste le premier sous-domaine
-    // si l'URL a plus de 2 parties. Ce n'est pas parfait pour les TLD complexes (.co.uk).
-    // Une version robuste nécessiterait une librairie de suffixes publics.
-    const parts = hostname.split('.');
-    
-    if (parts[0].toLowerCase() === 'www') {
-      parts.shift();
+    if (!/^https?:\/\//i.test(domaine)) {
+      domaine = "http://" + domaine;
     }
-    
-    return parts.join('.');
-  } catch(e) {
-    return "Erreur d'extraction";
-  }
+
+    try {
+      const match = domaine.match(/^https?:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+      if (!match || !match[1]) return "";
+      
+      let hostname = match[1].toLowerCase();
+      hostname = hostname.split(':')[0]; // Supprimer port
+      
+      const parts = hostname.split('.');
+      if (parts.length <= 2) return hostname;
+
+      // Gestion des TLDs complexes (ex: co.uk)
+      const lastTwo = parts.slice(-2).join('.');
+      const isDoubleTLD = CONFIG.DOUBLE_TLDS.has(lastTwo);
+
+      // Si c'est un double TLD, on garde 3 parties si elles existent (ex: domain.co.uk)
+      // Sinon on garde 2 parties (ex: domain.com)
+      const partsToKeep = isDoubleTLD ? 3 : 2;
+      
+      if (parts.length >= partsToKeep) {
+        return parts.slice(-partsToKeep).join('.');
+      }
+      
+      return hostname;
+    } catch(e) {
+      return "Erreur d'extraction";
+    }
+  });
 }

@@ -23,50 +23,61 @@
 
 /**
  * Récupère le titre SEO d'une URL.
+ * Supporte le traitement par lot (plages de cellules) et utilise le cache.
  *
- * @param {string} url  L'URL de la page web.
- * @return {string}     Le contenu de la balise <title>.
+ * @param {string|Array<Array<string>>} url  L'URL ou une plage d'URLs.
+ * @return {string|Array<Array<string>>}     Le contenu de la balise <title> ou tableau de résultats.
  * @customfunction
  *
  * @example
  *   =EXTRACT_TITLE_TAG("https://faucheux.bzh")
+ *   =EXTRACT_TITLE_TAG(A2:A50)
  */
 function EXTRACT_TITLE_TAG(url) {
-  if (!url || String(url).trim() === "") return "";
+  const cache = CacheService.getScriptCache();
+  
+  return batchProcess(url, (val) => {
+    if (!val || String(val).trim() === "") return "";
 
-  let chaineURL = String(url).trim();
-  if (!/^https?:\/\//i.test(chaineURL)) {
-    chaineURL = "https://" + chaineURL;
-  }
-
-  try {
-    const response = UrlFetchApp.fetch(chaineURL, {
-      muteHttpExceptions: true,
-      followRedirects: true,
-      headers: {
-        // Ajout d'un faux User-Agent pour éviter certains blocages anti-bot basiques
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) GoogleAppsScript"
-      }
-    });
-
-    const html = response.getContentText("UTF-8");
-
-    // Recherche de la balise <title>...</title>
-    const match = html.match(/<title[^>]*>([^<]+)<\/title>/i);
-    
-    if (match && match[1]) {
-      // Nettoyage des entités HTML de base (ex: &amp;)
-      return match[1]
-        .replace(/&amp;/g, "&")
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&quot;/g, '"')
-        .replace(/&#039;/g, "'")
-        .trim();
+    let chaineURL = String(val).trim().toLowerCase();
+    if (!/^https?:\/\//i.test(chaineURL)) {
+      chaineURL = "https://" + chaineURL;
     }
-    
-    return "Aucune balise <title> trouvée";
-  } catch (e) {
-    return "Erreur de connexion à l'URL";
-  }
+
+    // Vérifier le cache
+    const cached = cache.get(chaineURL);
+    if (cached) return cached;
+
+    try {
+      const response = UrlFetchApp.fetch(chaineURL, {
+        muteHttpExceptions: true,
+        followRedirects: true,
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) GoogleAppsScript"
+        }
+      });
+
+      const html = response.getContentText("UTF-8");
+      const match = html.match(/<title[^>]*>([^<]+)<\/title>/i);
+      
+      let title = "Aucune balise <title> trouvée";
+      
+      if (match && match[1]) {
+        title = match[1]
+          .replace(/&amp;/g, "&")
+          .replace(/&lt;/g, "<")
+          .replace(/&gt;/g, ">")
+          .replace(/&quot;/g, '"')
+          .replace(/&#039;/g, "'")
+          .trim();
+      }
+      
+      // Stocker en cache pour 6 heures
+      cache.put(chaineURL, title, CONFIG.CACHE_TTL);
+      return title;
+
+    } catch (e) {
+      return "Erreur de connexion à l'URL";
+    }
+  });
 }

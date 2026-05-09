@@ -23,58 +23,77 @@
 
 /**
  * Découpe une adresse française en Numéro, Voie, Code Postal et Ville.
- * Renvoie un tableau qui s'étendra sur 4 colonnes adjacentes.
+ * Approche locale basée sur Regex (Rapide mais moins précis).
  *
- * @param {string} adresse  L'adresse complète (ex: "12 bis rue de la Paix 75002 Paris").
- * @return {Array<string>}  [Numéro, Voie, Code Postal, Ville]
+ * @param {string} adresse  L'adresse complète.
+ * @return {Array<Array<string>>}  [[Numéro, Voie, Code Postal, Ville]]
  * @customfunction
- *
- * @example
- *   =parserAdresseFR("12 rue de la Paix 75002 Paris")
- *   // Déploiera: | 12 | rue de la Paix | 75002 | Paris |
  */
 function parserAdresseFR(adresse) {
   if (!adresse || String(adresse).trim() === "") return [["", "", "", ""]];
 
   let chaine = String(adresse).trim();
-  
-  let numero = "";
-  let voie = "";
-  let codePostal = "";
-  let ville = "";
+  let numero = "", voie = "", codePostal = "", ville = "";
 
-  // 1. Extraire le code postal (5 chiffres)
-  // On cherche la première occurrence de 5 chiffres (avec ou sans espace au milieu pour les coquilles)
   const regexCP = /\b(?:2[A|B]|0[1-9]|[1-8]\d|9[0-5]|9[7-8])\d{3}\b/;
   const matchCP = chaine.match(regexCP);
 
   if (matchCP) {
     codePostal = matchCP[0];
-    
-    // Découper la chaîne autour du code postal
     const indexCP = chaine.indexOf(codePostal);
     ville = chaine.substring(indexCP + codePostal.length).replace(/^[,\s-]+/, "").trim();
     chaine = chaine.substring(0, indexCP).trim();
   }
 
-  // 2. Chercher le numéro au début de ce qu'il reste
-  // Numéro + extension possible (bis, ter, a, b...)
   const regexNum = /^\s*(\d+)(?:\s*(bis|ter|quater|quinquies|[A-Z]))?\b/i;
   const matchNum = chaine.match(regexNum);
 
   if (matchNum) {
     numero = matchNum[0].trim();
-    // La voie est ce qu'il reste
     voie = chaine.substring(matchNum[0].length).replace(/^[,\s-]+/, "").trim();
   } else {
-    // S'il n'y a pas de numéro clair, tout est considéré comme la voie
     voie = chaine.replace(/^[,\s-]+/, "").trim();
   }
 
-  // Nettoyage final
-  ville = ville.replace(/[,\-\s]+$/, "").trim(); // Enlever les virgules finales
-  voie = voie.replace(/[,\-\s]+$/, "").trim();
-
-  // Renvoi sous forme de tableau horizontal (1 ligne, 4 colonnes)
   return [[numero, voie, codePostal, ville]];
+}
+
+/**
+ * Normalise une adresse française via l'API officielle (adresse.data.gouv.fr).
+ * Version "Premium" beaucoup plus robuste. Supporte le batching et le cache.
+ *
+ * @param {string|Array<Array<string>>} adresse  L'adresse ou une plage de cellules.
+ * @return {Array<Array<string>>}                Tableau de [Adresse complète, Score de confiance].
+ * @customfunction
+ *
+ * @example
+ *   =NORMALISER_ADRESSE_FR("8 r de la paix pari") → "8 Rue de la Paix, 75002 Paris"
+ */
+function NORMALISER_ADRESSE_FR(adresse) {
+  const cache = CacheService.getScriptCache();
+
+  return batchProcess(adresse, (val) => {
+    if (!val || String(val).trim() === "") return ["", 0];
+
+    const clean = String(val).trim();
+    const cacheKey = "addr_" + Utilities.base64Encode(clean).substring(0, 200);
+    const cached = cache.get(cacheKey);
+    if (cached) return JSON.parse(cached);
+
+    try {
+      const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(clean)}&limit=1`;
+      const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+      const data = JSON.parse(response.getContentText());
+
+      if (data.features && data.features.length > 0) {
+        const feat = data.features[0];
+        const res = [feat.properties.label, feat.properties.score];
+        cache.put(cacheKey, JSON.stringify(res), CONFIG.CACHE_TTL);
+        return res;
+      }
+      return ["Adresse introuvable", 0];
+    } catch (e) {
+      return ["Erreur API", 0];
+    }
+  });
 }

@@ -1,8 +1,8 @@
 # Various-functions (Google Sheets Library)
 
-🇫🇷 **Boîte à outils de 65 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
+🇫🇷 **Boîte à outils de 66 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
 
-🇬🇧 **A toolkit of 65 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
+🇬🇧 **A toolkit of 66 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
 
 ---
 
@@ -38,6 +38,7 @@
 | [`estimerLivraison.gs`](estimerLivraison.gs) | Logistique / Logistics | Estime la date de livraison selon le code postal | Estimates delivery date based on postal code |
 | [`extractTitleTag.gs`](extractTitleTag.gs) | Web / Web | Extrait le <title> d'une URL (Scraping SEO) | Extracts the <title> from a URL (SEO Scraping) |
 | [`extraireDomaine.gs`](extraireDomaine.gs) | Utilitaires / Utilities | Extrait le domaine principal d'une URL | Extracts the main domain from a URL |
+| [`extraireJoursFeries.gs`](extraireJoursFeries.gs) | Dates / Dates | Liste les jours fériés français (fixes et mobiles) | Lists French public holidays (fixed and mobile) |
 | [`extraireInitiales.gs`](extraireInitiales.gs) | Texte / Text | Extrait les initiales d'un nom ("Jean-Pierre" → "JP") | Extracts initials from a name |
 | [`extraireJSON.gs`](extraireJSON.gs) | Data / Data | Extrait une valeur d'un JSON via notation pointée | Extracts a value from JSON via dot notation |
 | [`extraireTel.gs`](extraireTel.gs) | Vente / Sales | Isole et normalise un numéro de tel français | Isolates and normalizes a French phone number |
