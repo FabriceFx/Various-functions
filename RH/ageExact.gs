@@ -1,6 +1,6 @@
 /** @OnlyCurrentDoc */
 
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Calcul de l'âge exact — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -24,14 +24,10 @@
  * Calcule l'âge exact en années, mois et jours.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|string|Array<Array<any>>} dateNaissance  Date de naissance ou plage.
- * @param {Date|string} [dateRef]                       Date de référence (Aujourd'hui si omis).
- * @return {string|Array<Array<string>>}                Âge formaté ou tableau de résultats.
+ * @param {Date|string|Array<Array<any>>} dateNaissance Date de naissance ou plage.
+ * @param {Date|string} [dateRef] Date de référence (Aujourd'hui si omis).
+ * @return {string|Array<Array<string>>} Âge formaté ou tableau de résultats.
  * @customfunction
- *
- * @example
- *   =ageExact("1990-05-15")
- *   =ageExact(A2:A100)
  */
 function ageExact(dateNaissance, dateRef) {
   return batchProcess(dateNaissance, (val) => {

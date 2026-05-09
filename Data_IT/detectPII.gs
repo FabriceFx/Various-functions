@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Détection de Données Personnelles (PII) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -14,25 +12,20 @@
  *    personnelles (PII) : Email, IBAN, Téléphone FR, Carte Bancaire,
  *    Numéro de Sécurité Sociale, IPv4, Passeport FR.
  *
- *
  *  Fonctions exposées :
  *    • DETECT_PII(texte)
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Détecte la présence de données sensibles (PII) dans un texte ou une plage.
- * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<any>>} input  Le texte à analyser, ou une plage.
- * @return {string|Array<Array<string>>}     "🟢 Clean" ou "🔴 PII Détectée : <types>".
+ * @param {string|Array<Array<any>>} input Le texte à analyser, ou une plage.
+ * @return {string|Array<Array<string>>} "🟢 Clean" ou "🔴 PII Détectée : <types>".
  * @customfunction
- *
- * @example
- *   =DETECT_PII("Contacter alice@example.com") → "🔴 PII Détectée : Email"
- *   =DETECT_PII(A2:A100)
  */
 function DETECT_PII(input) {
   return batchProcess(input, (val) => {

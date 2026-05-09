@@ -68,7 +68,7 @@ function verifNIR(nir) {
     if (deptStr === "2A") nirPourCalcul = nirPourCalcul.replace("2A", "19");
     else if (deptStr === "2B") nirPourCalcul = nirPourCalcul.replace("2B", "18");
 
-    const cleCalculee = 97 - Number(BigInt(nirPourCalcul) % 97n);
+    const cleCalculee = 97 - Number(BigInt(nirPourCalcul) % BigInt(97));
 
     if (cleIndiquee !== cleCalculee) {
       return `INVALIDE — clé (${cleIndiquee} vs ${cleCalculee})`;

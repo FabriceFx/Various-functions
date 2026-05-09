@@ -1,4 +1,4 @@
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Audit Workspace & Sécurité — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -13,6 +13,7 @@
 
 /**
  * Analyse le niveau de partage d'un fichier Drive.
+ *
  * @param {string|Array<Array<string>>} fileId ID du fichier ou URL.
  * @return {string|Array<Array<string>>} Résumé des permissions.
  * @customfunction

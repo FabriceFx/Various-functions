@@ -1,0 +1,10 @@
+**/**
+!**/*.gs
+!**/*.html
+!appsscript.json
+.git/**
+node_modules/**
+README.md
+LIBRARY_USAGE.md
+LICENSE
+.claspignore
