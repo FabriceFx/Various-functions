@@ -146,7 +146,20 @@ const CONFIG = {
       maxLegal: 8,
       label: "Cadre",
     }
-  ]
+  ],
+
+  // Préavis (RH) - Durées standards (légales ou usages communs)
+  PREAVIS_RULES: {
+    demission: {
+      cadre: 3,     // mois
+      non_cadre: 1  // mois
+    },
+    licenciement: {
+      moins_6m: "Usage/Contrat",
+      entre_6m_2ans: 1, // mois
+      plus_2ans: 2      // mois
+    }
+  }
 };
 
 /**

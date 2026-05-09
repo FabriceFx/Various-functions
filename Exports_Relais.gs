@@ -753,6 +753,24 @@ function DETECT_OUTLIER(valeur, plageDonnees, seuilZ) {
 }
 
 /**
+ * Calcule la durée du préavis de fin de contrat CDI (France).
+ * Supporte le traitement par lot (plages de cellules).
+ *
+ * @param {Date|number|string|Array<Array<any>>} dateDebut   Date d'entrée.
+ * @param {Date|number|string}                   [dateRupture] Date de notification (aujourd'hui par défaut).
+ * @param {string}                               [statut="Cadre"] "Cadre" ou "Ouvrier"/"Employé".
+ * @param {string}                               [type="Démission"] "Démission" ou "Licenciement".
+ * @return {string|Array<Array<string>>}          Durée estimée (ex: "3 mois").
+ * @customfunction
+ *
+ *   =PREAVIS_CONTRAT("2020-01-01"; "2026-05-09"; "Cadre"; "Démission") → "3 mois"
+ *   =PREAVIS_CONTRAT(A2:A100; ; "Employé"; "Licenciement")
+ */
+function PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type) {
+  return FF.PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type);
+}
+
+/**
  * Calcule le nombre de jours de congés acquis au prorata.
  * Supporte le traitement par lot (plages de cellules).
  *
