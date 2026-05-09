@@ -54,7 +54,7 @@ function RUN_ALL_TESTS() {
 
   // Test verifNIR (NIR fictif valide pour le calcul de clé)
   tests.it("doit valider un NIR (n° sécu) correct", () => {
-    const res = verifNIR("1 85 01 78 006 084 19");
+    const res = verifNIR("1 85 01 78 006 084 27");
     return String(res) === "VALIDE";
   });
 
