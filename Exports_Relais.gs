@@ -5,7 +5,7 @@
  *  Description :
  *    Copiez ce fichier dans votre script de classeur pour exposer les
  *    fonctions de la bibliothèque FF directement dans Google Sheets.
- *    Identifiant de bibliothèque requis : FF
+ *    Identifiant de bibliothèque requis : FF_LIB
  * ════════════════════════════════════════════════════════════════════════════
  */
 
