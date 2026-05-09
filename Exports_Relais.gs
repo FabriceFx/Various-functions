@@ -601,8 +601,8 @@ function verifNIR(nir) {
  *   =RECHERCHEV_MULTI("123"; A2:B100; 2)
  *   =RECHERCHEV_MULTI(F2:F10; A2:B100; 2)
  */
-function RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur, ") {
-  return FF.RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur, ");
+function RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur) {
+  return FF.RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur);
 }
 
 /**
@@ -634,8 +634,8 @@ function CLEAN_HTML(texte) {
  *   =regexExtraireTout(A2; "\d+ €")
  *   =regexExtraireTout(A2:A100; "#[a-zA-Z0-9]+")
  */
-function regexExtraireTout(texte, expressionReguliere, separateur, ") {
-  return FF.regexExtraireTout(texte, expressionReguliere, separateur, ");
+function regexExtraireTout(texte, expressionReguliere, separateur) {
+  return FF.regexExtraireTout(texte, expressionReguliere, separateur);
 }
 
 /**
