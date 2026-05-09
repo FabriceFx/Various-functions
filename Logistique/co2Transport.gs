@@ -32,7 +32,7 @@
  *   =CO2_TRANSPORT(A2:A100; "voiture")
  */
 function CO2_TRANSPORT(km, modeTransport) {
-  return batchProcess(km, (val) => {
+  return BATCH_PROCESS(km, (val) => {
     const distance = parseFloat(val);
     if (isNaN(distance) || distance < 0) return "Erreur: distance invalide";
 

@@ -32,7 +32,7 @@
  *   =SLA_STATUS(A2:A100; 24)
  */
 function SLA_STATUS(dateReception, delaiMaxHeures) {
-  return batchProcess(dateReception, (val) => {
+  return BATCH_PROCESS(dateReception, (val) => {
     if (!val || !delaiMaxHeures) return "Erreur: paramètres manquants";
 
     const d = _parseDate(val);

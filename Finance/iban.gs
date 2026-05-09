@@ -13,8 +13,8 @@
  *    et de le formater en groupes de 4 caractères.
  *
  *  Fonctions exposées :
- *    • verifIBAN(iban)   → "VALIDE" ou message d'erreur explicite
- *    • formatIBAN(iban)  → IBAN formaté (ex. "FR76 3000 6000 …")
+ *    • VERIF_IBAN(iban)   → "VALIDE" ou message d'erreur explicite
+ *    • FORMAT_IBAN(iban)  → IBAN formaté (ex. "FR76 3000 6000 …")
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -54,8 +54,8 @@ const LONGUEUR_PAR_PAYS = Object.freeze({
  * @return {string|Array<Array<string>>} "VALIDE", message d'erreur ou tableau de résultats.
  * @customfunction
  */
-function verifIBAN(iban) {
-  return batchProcess(iban, (val) => {
+function VERIF_IBAN(iban) {
+  return BATCH_PROCESS(iban, (val) => {
     if (val == null || String(val).trim() === "") {
       return "INVALIDE — aucun IBAN fourni";
     }
@@ -95,8 +95,8 @@ function verifIBAN(iban) {
  * @return {string|Array<Array<string>>} L'IBAN formaté ou tableau de résultats.
  * @customfunction
  */
-function formatIBAN(iban) {
-  return batchProcess(iban, (val) => {
+function FORMAT_IBAN(iban) {
+  return BATCH_PROCESS(iban, (val) => {
     if (val == null || String(val).trim() === "") {
       return "";
     }

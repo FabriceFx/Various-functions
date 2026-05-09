@@ -34,7 +34,7 @@
  *   =AMORTISSEMENT_LINEAIRE(A2:A100; 5; "2024-01-01"; 2025)
  */
 function AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice) {
-  return batchProcess(valeur, (val) => {
+  return BATCH_PROCESS(valeur, (val) => {
     // Clauses de garde systématiques
     const errValeur = GUARD.isNumber(val, "Valeur");
     const errDuree = GUARD.isNumber(dureeAnnees, "Durée");

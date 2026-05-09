@@ -17,11 +17,11 @@
  * @return {string|Array<Array<string>>}       Le slug généré ou tableau de résultats.
  * @customfunction
  *
- *   =slugify("Café Crème à l'Hôtel !")  → "cafe-creme-a-l-hotel"
- *   =slugify(A2:A100)
+ *   =SLUGIFY("Café Crème à l'Hôtel !")  → "cafe-creme-a-l-hotel"
+ *   =SLUGIFY(A2:A100)
  */
-function slugify(texte) {
-  return FF.slugify(texte);
+function SLUGIFY(texte) {
+  return FF.SLUGIFY(texte);
 }
 
 /**
@@ -32,11 +32,11 @@ function slugify(texte) {
  * @return {string|Array<Array<string>>}                  Le code hexadécimal ou tableau.
  * @customfunction
  *
- *   =couleurCellule("A1")
- *   =couleurCellule(B2:B10)
+ *   =COULEUR_CELLULE("A1")
+ *   =COULEUR_CELLULE(B2:B10)
  */
-function couleurCellule(referenceCellule) {
-  return FF.couleurCellule(referenceCellule);
+function COULEUR_CELLULE(referenceCellule) {
+  return FF.COULEUR_CELLULE(referenceCellule);
 }
 
 /**
@@ -48,11 +48,11 @@ function couleurCellule(referenceCellule) {
  * @return {string|Array<Array<string>>}       Le texte capitalisé ou tableau de résultats.
  * @customfunction
  *
- *   =capitaliser("jean-pierre de la fontaine")  → "Jean-Pierre de la Fontaine"
- *   =capitaliser(A2:A100)                       → [Tableau de résultats]
+ *   =CAPITALISER("jean-pierre de la fontaine")  → "Jean-Pierre de la Fontaine"
+ *   =CAPITALISER(A2:A100)                       → [Tableau de résultats]
  */
-function capitaliser(texte) {
-  return FF.capitaliser(texte);
+function CAPITALISER(texte) {
+  return FF.CAPITALISER(texte);
 }
 
 /**
@@ -140,11 +140,11 @@ function NOM_MOIS(date) {
  * @return {string|Array<Array<string>>}     Le domaine extrait ou tableau de résultats.
  * @customfunction
  *
- *   =extraireDomaine("https://www.google.co.uk/search") → "google.co.uk"
- *   =extraireDomaine(A2:A50)                           → [Tableau de résultats]
+ *   =EXTRAIRE_DOMAINE("https://www.google.co.uk/search") → "google.co.uk"
+ *   =EXTRAIRE_DOMAINE(A2:A50)                           → [Tableau de résultats]
  */
-function extraireDomaine(url) {
-  return FF.extraireDomaine(url);
+function EXTRAIRE_DOMAINE(url) {
+  return FF.EXTRAIRE_DOMAINE(url);
 }
 
 /**
@@ -179,15 +179,15 @@ function CALENDAR_OOO_DRAFTER() {
  * et convertit en majuscules. Idéal pour dédoublonner.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte Le texte ou plage à normaliser.
+ * @param {string|Array<Array<string>>} texte Le texte ou plage à NORMALISER.
  * @return {string|Array<Array<string>>}       Le texte normalisé ou tableau de résultats.
  * @customfunction
  *
- *   =normaliser("  Café   Crème  à  l'Hôtel ")  → "CAFE CREME A L'HOTEL"
- *   =normaliser(A2:A100)
+ *   =NORMALISER("  Café   Crème  à  l'Hôtel ")  → "CAFE CREME A L'HOTEL"
+ *   =NORMALISER(A2:A100)
  */
-function normaliser(texte) {
-  return FF.normaliser(texte);
+function NORMALISER(texte) {
+  return FF.NORMALISER(texte);
 }
 
 /**
@@ -198,11 +198,11 @@ function normaliser(texte) {
  * @return {string|Array<Array<string>>}       Le texte sans accents ou tableau de résultats.
  * @customfunction
  *
- *   =supprimerAccents("Crème brûlée")  → "Creme brulee"
- *   =supprimerAccents(A2:A100)
+ *   =SUPPRIMER_ACCENTS("Crème brûlée")  → "Creme brulee"
+ *   =SUPPRIMER_ACCENTS(A2:A100)
  */
-function supprimerAccents(texte) {
-  return FF.supprimerAccents(texte);
+function SUPPRIMER_ACCENTS(texte) {
+  return FF.SUPPRIMER_ACCENTS(texte);
 }
 
 /**
@@ -213,11 +213,11 @@ function supprimerAccents(texte) {
  * @return {string|Array<Array<string>>}       Le texte nettoyé ou tableau de résultats.
  * @customfunction
  *
- *   =supprimerEspaces("  Hello    World  ")  → "Hello World"
- *   =supprimerEspaces(A2:A100)
+ *   =SUPPRIMER_ESPACES("  Hello    World  ")  → "Hello World"
+ *   =SUPPRIMER_ESPACES(A2:A100)
  */
-function supprimerEspaces(texte) {
-  return FF.supprimerEspaces(texte);
+function SUPPRIMER_ESPACES(texte) {
+  return FF.SUPPRIMER_ESPACES(texte);
 }
 
 /**
@@ -282,11 +282,11 @@ function PREVISION_LISSAGE(plageHistorique, alpha) {
  * @return {string|Array<Array<string>>}                Les initiales en majuscules ou tableau de résultats.
  * @customfunction
  *
- *   =extraireInitiales("Jean-Pierre Dupont")                → "JPD"
- *   =extraireInitiales(A2:A50; FAUX)                        → [Tableau de résultats]
+ *   =EXTRAIRE_INITIALES("Jean-Pierre Dupont")                → "JPD"
+ *   =EXTRAIRE_INITIALES(A2:A50; FAUX)                        → [Tableau de résultats]
  */
-function extraireInitiales(texte, avecParticules) {
-  return FF.extraireInitiales(texte, avecParticules);
+function EXTRAIRE_INITIALES(texte, avecParticules) {
+  return FF.EXTRAIRE_INITIALES(texte, avecParticules);
 }
 
 /**
@@ -315,11 +315,11 @@ function QR_CODE_WIFI(ssid, motDePasse, securite) {
  * @return {number|Array<Array<number>>}             Nombre de jours ouvrés ou tableau.
  * @customfunction
  *
- *   =joursOuvres("2026-05-01"; "2026-05-31")
- *   =joursOuvres(A2:A100; "2026-12-31")
+ *   =JOURS_OUVRES("2026-05-01"; "2026-05-31")
+ *   =JOURS_OUVRES(A2:A100; "2026-12-31")
  */
-function joursOuvres(dateDebut, dateFin) {
-  return FF.joursOuvres(dateDebut, dateFin);
+function JOURS_OUVRES(dateDebut, dateFin) {
+  return FF.JOURS_OUVRES(dateDebut, dateFin);
 }
 
 /**
@@ -329,8 +329,8 @@ function joursOuvres(dateDebut, dateFin) {
  * @return {boolean|string}   VRAI si c'est un jour férié, ou message d'erreur.
  * @customfunction
  */
-function estJourFerieFR(date) {
-  return FF.estJourFerieFR(date);
+function EST_JOUR_FERIE_FR(date) {
+  return FF.EST_JOUR_FERIE_FR(date);
 }
 
 /**
@@ -389,11 +389,11 @@ function NOM_FICHIER_PROPRE(texte, remplacement) {
  * @return {Date|Array<Array<Date>>}                La date du prochain jour férié.
  * @customfunction
  *
- *   =prochainFerie(AUJOURDHUI())
- *   =prochainFerie(A2:A100)
+ *   =PROCHAIN_FERIE(AUJOURDHUI())
+ *   =PROCHAIN_FERIE(A2:A100)
  */
-function prochainFerie(dateRef) {
-  return FF.prochainFerie(dateRef);
+function PROCHAIN_FERIE(dateRef) {
+  return FF.PROCHAIN_FERIE(dateRef);
 }
 
 /**
@@ -406,10 +406,10 @@ function prochainFerie(dateRef) {
  * @return {Array<Array<any>>}                 Tableau [Mot, Nombre].
  * @customfunction
  *
- *   =frequenceMots(A2:A100; VRAI; 20)
+ *   =FREQUENCE_MOTS(A2:A100; VRAI; 20)
  */
-function frequenceMots(plage, exclureLiaison, topN) {
-  return FF.frequenceMots(plage, exclureLiaison, topN);
+function FREQUENCE_MOTS(plage, exclureLiaison, topN) {
+  return FF.FREQUENCE_MOTS(plage, exclureLiaison, topN);
 }
 
 /**
@@ -420,11 +420,11 @@ function frequenceMots(plage, exclureLiaison, topN) {
  * @return {string|Array<Array<string>>}       "VALIDE", message d'erreur ou tableau de résultats.
  * @customfunction
  *
- *   =verifEmail("fabrice@faucheux.bzh")       → "VALIDE"
- *   =verifEmail(A2:A100)                      → [Tableau de résultats]
+ *   =VERIF_EMAIL("fabrice@faucheux.bzh")       → "VALIDE"
+ *   =VERIF_EMAIL(A2:A100)                      → [Tableau de résultats]
  */
-function verifEmail(email) {
-  return FF.verifEmail(email);
+function VERIF_EMAIL(email) {
+  return FF.VERIF_EMAIL(email);
 }
 
 /**
@@ -435,10 +435,10 @@ function verifEmail(email) {
  * @return {string|Array<Array<string>>}       L'adresse email trouvée ou tableau de résultats.
  * @customfunction
  *
- *   =extraireEmail(B2:B50)                              → [Tableau de résultats]
+ *   =EXTRAIRE_EMAIL(B2:B50)                              → [Tableau de résultats]
  */
-function extraireEmail(texte) {
-  return FF.extraireEmail(texte);
+function EXTRAIRE_EMAIL(texte) {
+  return FF.EXTRAIRE_EMAIL(texte);
 }
 
 /**
@@ -450,11 +450,11 @@ function extraireEmail(texte) {
  * @return {any|Array<Array<any>>}                  La valeur extraite ou tableau de résultats.
  * @customfunction
  *
- *   =extraireJSON(A2; "client.adresse.ville")
- *   =extraireJSON(A2:A100; "status")
+ *   =EXTRAIRE_JSON(A2; "client.adresse.ville")
+ *   =EXTRAIRE_JSON(A2:A100; "status")
  */
-function extraireJSON(chaineJSON, chemin) {
-  return FF.extraireJSON(chaineJSON, chemin);
+function EXTRAIRE_JSON(chaineJSON, chemin) {
+  return FF.EXTRAIRE_JSON(chaineJSON, chemin);
 }
 
 /**
@@ -496,10 +496,10 @@ function MASK_PII(input) {
  * @return {string}                 Le mot de passe généré.
  * @customfunction
  *
- *   =genererMotDePasse(16; VRAI; VRAI; FAUX)
+ *   =GENERER_MOT_DE_PASSE(16; VRAI; VRAI; FAUX)
  */
-function genererMotDePasse(longueur, majuscules, nombres, speciaux) {
-  return FF.genererMotDePasse(longueur, majuscules, nombres, speciaux);
+function GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux) {
+  return FF.GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux);
 }
 
 /**
@@ -510,11 +510,11 @@ function genererMotDePasse(longueur, majuscules, nombres, speciaux) {
  * @return {string|Array<Array<string>>}        "VALIDE" ou message d'erreur.
  * @customfunction
  *
- *   =verifNIR("2 85 01 78 006 084 19")  → "VALIDE"
- *   =verifNIR(A2:A100)
+ *   =VERIF_NIR("2 85 01 78 006 084 19")  → "VALIDE"
+ *   =VERIF_NIR(A2:A100)
  */
-function verifNIR(nir) {
-  return FF.verifNIR(nir);
+function VERIF_NIR(nir) {
+  return FF.VERIF_NIR(nir);
 }
 
 /**
@@ -561,11 +561,11 @@ function CLEAN_HTML(texte) {
  * @return {string|Array<Array<any>>}            Les éléments trouvés ou tableau.
  * @customfunction
  *
- *   =regexExtraireTout(A2; "\d+ €")
- *   =regexExtraireTout(A2:A100; "#[a-zA-Z0-9]+")
+ *   =REGEX_EXTRAIRE_TOUT(A2; "\d+ €")
+ *   =REGEX_EXTRAIRE_TOUT(A2:A100; "#[a-zA-Z0-9]+")
  */
-function regexExtraireTout(texte, expressionReguliere, separateur) {
-  return FF.regexExtraireTout(texte, expressionReguliere, separateur);
+function REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur) {
+  return FF.REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur);
 }
 
 /**
@@ -577,11 +577,11 @@ function regexExtraireTout(texte, expressionReguliere, separateur) {
  * @return {string|Array<Array<string>>}           "VALIDE" ou message d'erreur.
  * @customfunction
  *
- *   =verifSIRET("732 829 320 00074")  → "VALIDE"
- *   =verifSIRET(A2:A100)
+ *   =VERIF_SIRET("732 829 320 00074")  → "VALIDE"
+ *   =VERIF_SIRET(A2:A100)
  */
-function verifSIRET(numero) {
-  return FF.verifSIRET(numero);
+function VERIF_SIRET(numero) {
+  return FF.VERIF_SIRET(numero);
 }
 
 /**
@@ -592,11 +592,11 @@ function verifSIRET(numero) {
  * @return {string|Array<Array<string>>}           "VALIDE" ou message d'erreur.
  * @customfunction
  *
- *   =verifSIREN("732 829 320")  → "VALIDE"
- *   =verifSIREN(A2:A100)
+ *   =VERIF_SIREN("732 829 320")  → "VALIDE"
+ *   =VERIF_SIREN(A2:A100)
  */
-function verifSIREN(numero) {
-  return FF.verifSIREN(numero);
+function VERIF_SIREN(numero) {
+  return FF.VERIF_SIREN(numero);
 }
 
 /**
@@ -607,11 +607,11 @@ function verifSIREN(numero) {
  * @return {Array<Array<string>>}                Tableau [Numéro, Voie, Code Postal, Ville].
  * @customfunction
  *
- *   =parserAdresseFR("8 rue de la paix 75002 Paris")
- *   =parserAdresseFR(A2:A100)
+ *   =PARSER_ADRESSE_FR("8 rue de la paix 75002 Paris")
+ *   =PARSER_ADRESSE_FR(A2:A100)
  */
-function parserAdresseFR(adresse) {
-  return FF.parserAdresseFR(adresse);
+function PARSER_ADRESSE_FR(adresse) {
+  return FF.PARSER_ADRESSE_FR(adresse);
 }
 
 /**
@@ -660,11 +660,11 @@ function WORKSPACE_USER_HEALTH(email) {
  * @return {any|Array<Array<any>>}                       La valeur trouvée ou tableau de résultats.
  * @customfunction
  *
- *   =rechercheVFloue("Societe Generale"; A2:C100; 3)
- *   =rechercheVFloue(D2:D100; A2:C100; 2)
+ *   =RECHERCHE_V_FLOUE("Societe Generale"; A2:C100; 3)
+ *   =RECHERCHE_V_FLOUE(D2:D100; A2:C100; 2)
  */
-function rechercheVFloue(valeurRecherchee, plage, indexColonne, seuil) {
-  return FF.rechercheVFloue(valeurRecherchee, plage, indexColonne, seuil);
+function RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil) {
+  return FF.RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil);
 }
 
 /**
@@ -690,11 +690,11 @@ function DECODE_SAFE_URL(url) {
  * @return {string|Array<Array<string>>}           "VALIDE (réseau)" ou message d'erreur.
  * @customfunction
  *
- *   =verifCB("4539 1488 0343 6467")  → "VALIDE (Visa)"
- *   =verifCB(A2:A100)
+ *   =VERIF_CB("4539 1488 0343 6467")  → "VALIDE (Visa)"
+ *   =VERIF_CB(A2:A100)
  */
-function verifCB(numero) {
-  return FF.verifCB(numero);
+function VERIF_CB(numero) {
+  return FF.VERIF_CB(numero);
 }
 
 /**
@@ -704,8 +704,8 @@ function verifCB(numero) {
  * @return {string}        Nom du réseau ou "Inconnu".
  * @customfunction
  */
-function detectReseau(numero) {
-  return FF.detectReseau(numero);
+function DETECT_RESEAU(numero) {
+  return FF.DETECT_RESEAU(numero);
 }
 
 /**
@@ -864,8 +864,8 @@ function COUT_EMPLOYEUR(salaireBrut, statut) {
  * @return {string|Array<Array<string>>} Âge formaté ou tableau de résultats.
  * @customfunction
  */
-function ageExact(dateNaissance, dateRef) {
-  return FF.ageExact(dateNaissance, dateRef);
+function AGE_EXACT(dateNaissance, dateRef) {
+  return FF.AGE_EXACT(dateNaissance, dateRef);
 }
 
 /**
@@ -927,11 +927,11 @@ function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur) {
  * @return {number|Array<Array<number>>}           Le montant TTC ou tableau de résultats.
  * @customfunction
  *
- *   =htToTTC(100; 20)  → 120
- *   =htToTTC(A2:A100; 20)
+ *   =HT_TO_TTC(100; 20)  → 120
+ *   =HT_TO_TTC(A2:A100; 20)
  */
-function htToTTC(montantHT, tauxTVA) {
-  return FF.htToTTC(montantHT, tauxTVA);
+function HT_TO_TTC(montantHT, tauxTVA) {
+  return FF.HT_TO_TTC(montantHT, tauxTVA);
 }
 
 /**
@@ -943,11 +943,11 @@ function htToTTC(montantHT, tauxTVA) {
  * @return {number|Array<Array<number>>}           Le montant HT ou tableau de résultats.
  * @customfunction
  *
- *   =ttcToHT(120; 20)  → 100
- *   =ttcToHT(A2:A100; 20)
+ *   =TTC_TO_HT(120; 20)  → 100
+ *   =TTC_TO_HT(A2:A100; 20)
  */
-function ttcToHT(montantTTC, tauxTVA) {
-  return FF.ttcToHT(montantTTC, tauxTVA);
+function TTC_TO_HT(montantTTC, tauxTVA) {
+  return FF.TTC_TO_HT(montantTTC, tauxTVA);
 }
 
 /**
@@ -958,11 +958,11 @@ function ttcToHT(montantTTC, tauxTVA) {
  * @return {string|Array<Array<string>>}        "VALIDE" ou message d'erreur.
  * @customfunction
  *
- *   =verifTVA("FR 40 303656847")  → "VALIDE"
- *   =verifTVA(A2:A100)
+ *   =VERIF_TVA("FR 40 303656847")  → "VALIDE"
+ *   =VERIF_TVA(A2:A100)
  */
-function verifTVA(numero) {
-  return FF.verifTVA(numero);
+function VERIF_TVA(numero) {
+  return FF.VERIF_TVA(numero);
 }
 
 /**
@@ -1012,11 +1012,11 @@ function AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice) {
  * @return {string|Array<Array<string>>}             Le montant en toutes lettres ou tableau de résultats.
  * @customfunction
  *
- *   =montantEnLettres(1234.56; "FR") → "mille deux cent trente-quatre euros et cinquante-six centimes"
- *   =montantEnLettres(1234.56; "EN") → "one thousand two hundred thirty-four dollars and fifty-six cents"
+ *   =MONTANT_EN_LETTRES(1234.56; "FR") → "mille deux cent trente-quatre euros et cinquante-six centimes"
+ *   =MONTANT_EN_LETTRES(1234.56; "EN") → "one thousand two hundred thirty-four dollars and fifty-six cents"
  */
-function montantEnLettres(nombre, langue, devise, nomCentimes) {
-  return FF.montantEnLettres(nombre, langue, devise, nomCentimes);
+function MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes) {
+  return FF.MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes);
 }
 
 /**
@@ -1045,11 +1045,11 @@ function VENTILATION_TVA(montantTTC, categorie, retour) {
  * @return {number|Array<Array<number>>}           Le nombre arrondi ou tableau de résultats.
  * @customfunction
  *
- *   =arrondiComptable(2.5; 0)  → 2
- *   =arrondiComptable(A2:A100; 2)
+ *   =ARRONDI_COMPTABLE(2.5; 0)  → 2
+ *   =ARRONDI_COMPTABLE(A2:A100; 2)
  */
-function arrondiComptable(nombre, decimales) {
-  return FF.arrondiComptable(nombre, decimales);
+function ARRONDI_COMPTABLE(nombre, decimales) {
+  return FF.ARRONDI_COMPTABLE(nombre, decimales);
 }
 
 /**
@@ -1095,8 +1095,8 @@ function CALCUL_AGIOS(montant, tauxAnnuel, nbJours) {
  * @return {string|Array<Array<string>>} "VALIDE", message d'erreur ou tableau de résultats.
  * @customfunction
  */
-function verifIBAN(iban) {
-  return FF.verifIBAN(iban);
+function VERIF_IBAN(iban) {
+  return FF.VERIF_IBAN(iban);
 }
 
 /**
@@ -1106,8 +1106,8 @@ function verifIBAN(iban) {
  * @return {string|Array<Array<string>>} L'IBAN formaté ou tableau de résultats.
  * @customfunction
  */
-function formatIBAN(iban) {
-  return FF.formatIBAN(iban);
+function FORMAT_IBAN(iban) {
+  return FF.FORMAT_IBAN(iban);
 }
 
 /**
@@ -1278,11 +1278,11 @@ function ESTIMER_LECTURE(texte, motsParMinute) {
  * @return {string|Array<Array<string>>}        L'URL de l'image ou tableau.
  * @customfunction
  *
- *   =IMAGE(qrCodeURL("https://faucheux.bzh"))
- *   =IMAGE(qrCodeURL(A2:A100))
+ *   =IMAGE(QR_CODE_URL("https://faucheux.bzh"))
+ *   =IMAGE(QR_CODE_URL(A2:A100))
  */
-function qrCodeURL(texte, taille) {
-  return FF.qrCodeURL(texte, taille);
+function QR_CODE_URL(texte, taille) {
+  return FF.QR_CODE_URL(texte, taille);
 }
 
 /**

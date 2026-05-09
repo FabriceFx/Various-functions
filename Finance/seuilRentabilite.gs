@@ -34,7 +34,7 @@
  *   =SEUIL_RENTABILITE(A2:A100; 50; 20)
  */
 function SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour = "UNITE") {
-  return batchProcess(chargesFixes, (val) => {
+  return BATCH_PROCESS(chargesFixes, (val) => {
     const cf = parseFloat(val);
     const pv = parseFloat(prixVenteUnit);
     const cv = parseFloat(chargesVarUnit);

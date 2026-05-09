@@ -35,7 +35,7 @@
  *   =RECHERCHEV_MULTI(F2:F10; A2:B100; 2)
  */
 function RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur = ", ") {
-  return batchProcess(valeurRecherchee, (val) => {
+  return BATCH_PROCESS(valeurRecherchee, (val) => {
     if (val == null || !plage || !indexColonne) return "Erreur: paramètres";
 
     const recherche = String(val).trim().toLowerCase();

@@ -32,7 +32,7 @@
  *   =COUT_EMPLOYEUR(A2:A100)
  */
 function COUT_EMPLOYEUR(salaireBrut, statut = "Non-Cadre") {
-  return batchProcess(salaireBrut, (val) => {
+  return BATCH_PROCESS(salaireBrut, (val) => {
     const brut = parseFloat(val);
     if (isNaN(brut) || brut <= 0) return 0;
 

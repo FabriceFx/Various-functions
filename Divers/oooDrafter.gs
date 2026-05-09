@@ -34,9 +34,9 @@ function CALENDAR_OOO_DRAFTER() {
     const retour = new Date(fin);
     retour.setDate(retour.getDate() + 1);
     
-    // On boucle jusqu'au prochain jour ouvré (via notre utilitaire joursOuvres s'il était accessible ici, 
+    // On boucle jusqu'au prochain jour ouvré (via notre utilitaire JOURS_OUVRES s'il était accessible ici, 
     // ou on implémente une version simplifiée)
-    while (retour.getDay() === 0 || retour.getDay() === 6 || estJourFerieFR(retour) === true) {
+    while (retour.getDay() === 0 || retour.getDay() === 6 || EST_JOUR_FERIE_FR(retour) === true) {
       retour.setDate(retour.getDate() + 1);
     }
 

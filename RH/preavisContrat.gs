@@ -34,7 +34,7 @@
  *   =PREAVIS_CONTRAT(A2:A100; ; "Employé"; "Licenciement")
  */
 function PREAVIS_CONTRAT(dateDebut, dateRupture, statut = "Cadre", type = "Démission") {
-  return batchProcess(dateDebut, (debutVal) => {
+  return BATCH_PROCESS(dateDebut, (debutVal) => {
     const errDebut = GUARD.isDate(debutVal, "Date de début");
     if (errDebut) return `Erreur: ${errDebut}`;
 

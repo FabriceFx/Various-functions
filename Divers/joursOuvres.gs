@@ -12,8 +12,8 @@
  *    des week-ends et des jours fériés français (fixes et mobiles comme Pâques).
  *
  *  Fonctions exposées :
- *    • joursOuvres(debut, fin)    → nombre de jours ouvrés
- *    • estJourFerieFR(date)       → VRAI/FAUX
+ *    • JOURS_OUVRES(debut, fin)    → nombre de jours ouvrés
+ *    • EST_JOUR_FERIE_FR(date)       → VRAI/FAUX
  *    • listerFeriesFR(annee)      → liste des jours fériés de l'année
  *
  *  Runtime : V8 (ES6+)
@@ -30,11 +30,11 @@
  * @return {number|Array<Array<number>>}             Nombre de jours ouvrés ou tableau.
  * @customfunction
  *
- *   =joursOuvres("2026-05-01"; "2026-05-31")
- *   =joursOuvres(A2:A100; "2026-12-31")
+ *   =JOURS_OUVRES("2026-05-01"; "2026-05-31")
+ *   =JOURS_OUVRES(A2:A100; "2026-12-31")
  */
-function joursOuvres(dateDebut, dateFin) {
-  return batchProcess(dateDebut, (val) => {
+function JOURS_OUVRES(dateDebut, dateFin) {
+  return BATCH_PROCESS(dateDebut, (val) => {
     // Clauses de garde systématiques
     const errDebut = GUARD.isDate(val, "Date de début");
     const errFin = GUARD.isDate(dateFin, "Date de fin");
@@ -82,7 +82,7 @@ function joursOuvres(dateDebut, dateFin) {
  * @return {boolean|string}   VRAI si c'est un jour férié, ou message d'erreur.
  * @customfunction
  */
-function estJourFerieFR(date) {
+function EST_JOUR_FERIE_FR(date) {
   const error = GUARD.isDate(date, "La date");
   if (error) return `Erreur: ${error}`;
 

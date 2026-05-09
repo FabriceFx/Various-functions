@@ -53,8 +53,8 @@ function DETECT_OUTLIER(valeur, plageDonnees, seuilZ = 2.5) {
   const sommeEcartsCarres = donnees.reduce((acc, curr) => acc + Math.pow(curr - moyenne, 2), 0);
   const ecartType = Math.sqrt(sommeEcartsCarres / donnees.length);
 
-  // Appliquer le batchProcess sur la valeur à tester
-  return batchProcess(valeur, (valRaw) => {
+  // Appliquer le BATCH_PROCESS sur la valeur à tester
+  return BATCH_PROCESS(valeur, (valRaw) => {
     const val = parseFloat(valRaw);
     if (isNaN(val)) return "Erreur: valeur invalide";
 

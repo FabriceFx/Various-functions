@@ -12,9 +12,9 @@
  *    suppression des accents, des espaces multiples, mise en majuscules.
  *
  *  Fonctions exposées :
- *    • normaliser(texte)           → texte normalisé
- *    • supprimerAccents(texte)     → texte sans accents
- *    • supprimerEspaces(texte)     → texte sans espaces multiples
+ *    • NORMALISER(texte)           → texte normalisé
+ *    • SUPPRIMER_ACCENTS(texte)     → texte sans accents
+ *    • SUPPRIMER_ESPACES(texte)     → texte sans espaces multiples
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -26,15 +26,15 @@
  * et convertit en majuscules. Idéal pour dédoublonner.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte Le texte ou plage à normaliser.
+ * @param {string|Array<Array<string>>} texte Le texte ou plage à NORMALISER.
  * @return {string|Array<Array<string>>}       Le texte normalisé ou tableau de résultats.
  * @customfunction
  *
- *   =normaliser("  Café   Crème  à  l'Hôtel ")  → "CAFE CREME A L'HOTEL"
- *   =normaliser(A2:A100)
+ *   =NORMALISER("  Café   Crème  à  l'Hôtel ")  → "CAFE CREME A L'HOTEL"
+ *   =NORMALISER(A2:A100)
  */
-function normaliser(texte) {
-  return batchProcess(texte, (val) => {
+function NORMALISER(texte) {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null || String(val).trim() === "") return "";
 
     return String(val)
@@ -56,11 +56,11 @@ function normaliser(texte) {
  * @return {string|Array<Array<string>>}       Le texte sans accents ou tableau de résultats.
  * @customfunction
  *
- *   =supprimerAccents("Crème brûlée")  → "Creme brulee"
- *   =supprimerAccents(A2:A100)
+ *   =SUPPRIMER_ACCENTS("Crème brûlée")  → "Creme brulee"
+ *   =SUPPRIMER_ACCENTS(A2:A100)
  */
-function supprimerAccents(texte) {
-  return batchProcess(texte, (val) => {
+function SUPPRIMER_ACCENTS(texte) {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null || String(val).trim() === "") return "";
 
     return String(val)
@@ -79,11 +79,11 @@ function supprimerAccents(texte) {
  * @return {string|Array<Array<string>>}       Le texte nettoyé ou tableau de résultats.
  * @customfunction
  *
- *   =supprimerEspaces("  Hello    World  ")  → "Hello World"
- *   =supprimerEspaces(A2:A100)
+ *   =SUPPRIMER_ESPACES("  Hello    World  ")  → "Hello World"
+ *   =SUPPRIMER_ESPACES(A2:A100)
  */
-function supprimerEspaces(texte) {
-  return batchProcess(texte, (val) => {
+function SUPPRIMER_ESPACES(texte) {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null) return "";
     return String(val).replace(/\s+/g, " ").trim();
   });

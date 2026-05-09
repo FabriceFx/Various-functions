@@ -35,7 +35,7 @@
  *   =PROJECT_SPI(A2:A100; "2025-12-31"; 0.8)
  */
 function PROJECT_SPI(dateDebut, dateFin, progressionReelle, dateActuelle) {
-  return batchProcess(dateDebut, (val) => {
+  return BATCH_PROCESS(dateDebut, (val) => {
     const dStart = _parseDate(val);
     const dEnd = _parseDate(dateFin);
     const dNow = dateActuelle ? _parseDate(dateActuelle) : new Date();

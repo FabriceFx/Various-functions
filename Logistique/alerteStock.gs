@@ -33,7 +33,7 @@
  *   =ALERTE_STOCK(A2:A100; 10)
  */
 function ALERTE_STOCK(stockActuel, seuilMini, ventesParJour = 0) {
-  return batchProcess(stockActuel, (val) => {
+  return BATCH_PROCESS(stockActuel, (val) => {
     const stock = parseInt(val, 10);
     const seuil = parseInt(seuilMini, 10);
     const ventes = parseFloat(ventesParJour);

@@ -170,7 +170,7 @@ const CONFIG = {
  * @param {function(any): any} callback Fonction à appliquer sur chaque valeur simple.
  * @return {any|Array<Array<any>>}                      Résultat unique ou tableau 2D de résultats.
  */
-function batchProcess(input, callback) {
+function BATCH_PROCESS(input, callback) {
   if (Array.isArray(input)) {
     return input.map(row => {
       if (Array.isArray(row)) {

@@ -13,7 +13,7 @@
  *    Parfait pour l'édition de factures ou de chèques.
  *
  *  Fonctions exposées :
- *    • montantEnLettres(nombre, [devise], [centimes])  → montant en toutes lettres
+ *    • MONTANT_EN_LETTRES(nombre, [devise], [centimes])  → montant en toutes lettres
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -48,11 +48,11 @@ const LOCALES_CONFIG_ = {
  * @return {string|Array<Array<string>>}             Le montant en toutes lettres ou tableau de résultats.
  * @customfunction
  *
- *   =montantEnLettres(1234.56; "FR") → "mille deux cent trente-quatre euros et cinquante-six centimes"
- *   =montantEnLettres(1234.56; "EN") → "one thousand two hundred thirty-four dollars and fifty-six cents"
+ *   =MONTANT_EN_LETTRES(1234.56; "FR") → "mille deux cent trente-quatre euros et cinquante-six centimes"
+ *   =MONTANT_EN_LETTRES(1234.56; "EN") → "one thousand two hundred thirty-four dollars and fifty-six cents"
  */
-function montantEnLettres(nombre, langue = "FR", devise, nomCentimes) {
-  return batchProcess(nombre, (val) => {
+function MONTANT_EN_LETTRES(nombre, langue = "FR", devise, nomCentimes) {
+  return BATCH_PROCESS(nombre, (val) => {
     if (val == null || val === "") return "";
 
     const lang = langue.toUpperCase() === "EN" ? "EN" : "FR";

@@ -31,7 +31,7 @@
  *   =DECODE_SAFE_URL(A2:A100)
  */
 function DECODE_SAFE_URL(url) {
-  return batchProcess(url, (val) => {
+  return BATCH_PROCESS(url, (val) => {
     if (!val) return "";
 
     const chaine = String(val).trim();

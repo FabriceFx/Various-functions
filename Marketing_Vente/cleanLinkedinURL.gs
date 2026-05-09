@@ -32,7 +32,7 @@
  *   =CLEAN_LINKEDIN_URL(A2:A100)
  */
 function CLEAN_LINKEDIN_URL(url) {
-  return batchProcess(url, (val) => {
+  return BATCH_PROCESS(url, (val) => {
     if (!val || String(val).trim() === "") return "";
 
     const chaine = String(val).trim();

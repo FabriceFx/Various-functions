@@ -33,7 +33,7 @@
  *   =SOLDE_CONGES(A2:A100)
  */
 function SOLDE_CONGES(dateEntree, dateFin, joursParMois = 2.08) {
-  return batchProcess(dateEntree, (val) => {
+  return BATCH_PROCESS(dateEntree, (val) => {
     // Clauses de garde systématiques
     const errDateEntree = GUARD.isDate(val, "Date d'entrée");
     const errDateFin = dateFin ? GUARD.isDate(dateFin, "Date de fin") : null;

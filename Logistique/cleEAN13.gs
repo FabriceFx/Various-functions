@@ -31,7 +31,7 @@
  *   =CLE_EAN13(A2:A100)
  */
 function CLE_EAN13(code12Chiffres) {
-  return batchProcess(code12Chiffres, (val) => {
+  return BATCH_PROCESS(code12Chiffres, (val) => {
     if (!val) return "Erreur: code manquant";
 
     const chaine = String(val).trim();

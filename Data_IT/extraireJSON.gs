@@ -13,7 +13,7 @@
  *    Idéal pour traiter des webhooks ou des payloads API dans Sheets.
  *
  *  Fonctions exposées :
- *    • extraireJSON(json, chemin)
+ *    • EXTRAIRE_JSON(json, chemin)
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,11 +29,11 @@
  * @return {any|Array<Array<any>>}                  La valeur extraite ou tableau de résultats.
  * @customfunction
  *
- *   =extraireJSON(A2; "client.adresse.ville")
- *   =extraireJSON(A2:A100; "status")
+ *   =EXTRAIRE_JSON(A2; "client.adresse.ville")
+ *   =EXTRAIRE_JSON(A2:A100; "status")
  */
-function extraireJSON(chaineJSON, chemin) {
-  return batchProcess(chaineJSON, (val) => {
+function EXTRAIRE_JSON(chaineJSON, chemin) {
+  return BATCH_PROCESS(chaineJSON, (val) => {
     if (!val || !chemin) return "Erreur: paramètres manquants";
 
     let objet;

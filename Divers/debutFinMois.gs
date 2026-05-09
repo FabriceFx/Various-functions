@@ -41,7 +41,7 @@
  *   =DEBUT_MOIS(A2:A100)
  */
 function DEBUT_MOIS(date) {
-  return batchProcess(date, (val) => {
+  return BATCH_PROCESS(date, (val) => {
     const d = _parseDate(val);
     if (!d) return CONFIG.ERR_DATE;
     return new Date(d.getFullYear(), d.getMonth(), 1);
@@ -60,7 +60,7 @@ function DEBUT_MOIS(date) {
  *   =FIN_MOIS(A2:A100)
  */
 function FIN_MOIS(date) {
-  return batchProcess(date, (val) => {
+  return BATCH_PROCESS(date, (val) => {
     const d = _parseDate(val);
     if (!d) return CONFIG.ERR_DATE;
     return new Date(d.getFullYear(), d.getMonth() + 1, 0);
@@ -79,7 +79,7 @@ function FIN_MOIS(date) {
  *   =NB_JOURS_MOIS(A2:A100)
  */
 function NB_JOURS_MOIS(date) {
-  return batchProcess(date, (val) => {
+  return BATCH_PROCESS(date, (val) => {
     const d = _parseDate(val);
     if (!d) return CONFIG.ERR_DATE;
     return new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
@@ -98,7 +98,7 @@ function NB_JOURS_MOIS(date) {
  *   =NOM_MOIS(A2:A100)
  */
 function NOM_MOIS(date) {
-  return batchProcess(date, (val) => {
+  return BATCH_PROCESS(date, (val) => {
     const d = _parseDate(val);
     if (!d) return CONFIG.ERR_DATE;
     return CONFIG.NOMS_MOIS_FR[d.getMonth()];

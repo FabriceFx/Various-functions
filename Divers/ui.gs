@@ -109,7 +109,7 @@ function getFunctionsDocs() {
     { name: "MASK_PII", desc: "Anonymisation RGPD", cat: "Compliance" },
     { name: "SEO_LISIBILITE_FLESCH", desc: "Indice Flesch français", cat: "SEO" },
     { name: "SOLDE_CONGES", desc: "Calcul prorata congés", cat: "RH" },
-    { name: "joursOuvres", desc: "Jours ouvrés entre 2 dates", cat: "Dates" },
+    { name: "JOURS_OUVRES", desc: "Jours ouvrés entre 2 dates", cat: "Dates" },
     { name: "AMORTISSEMENT_LINEAIRE", desc: "Calcul d'amortissement", cat: "Finance" },
     { name: "NORMALISER_ADRESSE_FR", desc: "Normalisation via API Gouv", cat: "Data" },
     { name: "TEXT_SIMILARITY", desc: "Taux de ressemblance (%)", cat: "Stats" }

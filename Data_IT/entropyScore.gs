@@ -32,7 +32,7 @@
  *   =ENTROPY_SCORE(A2:A100)
  */
 function ENTROPY_SCORE(texte) {
-  return batchProcess(texte, (val) => {
+  return BATCH_PROCESS(texte, (val) => {
     if (!val || String(val).length === 0) return 0;
 
     const chaine = String(val);

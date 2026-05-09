@@ -12,8 +12,8 @@
  *    Détecte le réseau (Visa, Mastercard, Amex, CB).
  *
  *  Fonctions exposées :
- *    • verifCB(numero)    → "VALIDE (Visa)" ou message d'erreur
- *    • detectReseau(num)  → "Visa", "Mastercard", etc.
+ *    • VERIF_CB(numero)    → "VALIDE (Visa)" ou message d'erreur
+ *    • DETECT_RESEAU(num)  → "Visa", "Mastercard", etc.
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -28,11 +28,11 @@
  * @return {string|Array<Array<string>>}           "VALIDE (réseau)" ou message d'erreur.
  * @customfunction
  *
- *   =verifCB("4539 1488 0343 6467")  → "VALIDE (Visa)"
- *   =verifCB(A2:A100)
+ *   =VERIF_CB("4539 1488 0343 6467")  → "VALIDE (Visa)"
+ *   =VERIF_CB(A2:A100)
  */
-function verifCB(numero) {
-  return batchProcess(numero, (val) => {
+function VERIF_CB(numero) {
+  return BATCH_PROCESS(numero, (val) => {
     if (val == null || String(val).trim() === "") {
       return "INVALIDE — aucun numéro fourni";
     }
@@ -63,7 +63,7 @@ function verifCB(numero) {
       return "INVALIDE — clé de Luhn incorrecte";
     }
 
-    const reseau = detectReseau(clean);
+    const reseau = DETECT_RESEAU(clean);
     return `VALIDE (${reseau})`;
   });
 }
@@ -75,7 +75,7 @@ function verifCB(numero) {
  * @return {string}        Nom du réseau ou "Inconnu".
  * @customfunction
  */
-function detectReseau(numero) {
+function DETECT_RESEAU(numero) {
   const clean = String(numero).replace(/[\s\-\.]/g, "");
   const n = clean.length;
 

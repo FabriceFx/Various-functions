@@ -31,7 +31,7 @@
  *   =TEXT_SIMILARITY("Google Sheets"; "Google Shet") → 0.92
  */
 function TEXT_SIMILARITY(texte1, texte2) {
-  return batchProcess(texte1, (val) => {
+  return BATCH_PROCESS(texte1, (val) => {
     if (val == null || texte2 == null) return 0;
     
     const s1 = String(val).toLowerCase().trim();

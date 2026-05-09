@@ -12,8 +12,8 @@
  *    taux de TVA paramétrable.
  *
  *  Fonctions exposées :
- *    • htToTTC(montantHT, tauxTVA)  → Montant TTC
- *    • ttcToHT(montantTTC, tauxTVA) → Montant HT
+ *    • HT_TO_TTC(montantHT, tauxTVA)  → Montant TTC
+ *    • TTC_TO_HT(montantTTC, tauxTVA) → Montant HT
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,11 +29,11 @@
  * @return {number|Array<Array<number>>}           Le montant TTC ou tableau de résultats.
  * @customfunction
  *
- *   =htToTTC(100; 20)  → 120
- *   =htToTTC(A2:A100; 20)
+ *   =HT_TO_TTC(100; 20)  → 120
+ *   =HT_TO_TTC(A2:A100; 20)
  */
-function htToTTC(montantHT, tauxTVA) {
-  return batchProcess(montantHT, (val) => {
+function HT_TO_TTC(montantHT, tauxTVA) {
+  return BATCH_PROCESS(montantHT, (val) => {
     const ht = parseFloat(val);
     const tva = parseFloat(tauxTVA);
     
@@ -53,11 +53,11 @@ function htToTTC(montantHT, tauxTVA) {
  * @return {number|Array<Array<number>>}           Le montant HT ou tableau de résultats.
  * @customfunction
  *
- *   =ttcToHT(120; 20)  → 100
- *   =ttcToHT(A2:A100; 20)
+ *   =TTC_TO_HT(120; 20)  → 100
+ *   =TTC_TO_HT(A2:A100; 20)
  */
-function ttcToHT(montantTTC, tauxTVA) {
-  return batchProcess(montantTTC, (val) => {
+function TTC_TO_HT(montantTTC, tauxTVA) {
+  return BATCH_PROCESS(montantTTC, (val) => {
     const ttc = parseFloat(val);
     const tva = parseFloat(tauxTVA);
     

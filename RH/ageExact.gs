@@ -12,7 +12,7 @@
  *    date de naissance et d'une date de référence (aujourd'hui par défaut).
  *
  *  Fonctions exposées :
- *    • ageExact(dateNaissance, [dateReference])  → "X ans, Y mois, Z jours"
+ *    • AGE_EXACT(dateNaissance, [dateReference])  → "X ans, Y mois, Z jours"
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -28,8 +28,8 @@
  * @return {string|Array<Array<string>>} Âge formaté ou tableau de résultats.
  * @customfunction
  */
-function ageExact(dateNaissance, dateRef) {
-  return batchProcess(dateNaissance, (val) => {
+function AGE_EXACT(dateNaissance, dateRef) {
+  return BATCH_PROCESS(dateNaissance, (val) => {
     if (!val) return "";
 
     const d1 = new Date(val);

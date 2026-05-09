@@ -19,7 +19,7 @@
  * @customfunction
  */
 function DRIVE_PERMISSION_AUDITOR(fileId) {
-  return batchProcess(fileId, (val) => {
+  return BATCH_PROCESS(fileId, (val) => {
     if (!val) return "⚠️ ID Manquant";
     
     // Extraire l'ID si c'est une URL

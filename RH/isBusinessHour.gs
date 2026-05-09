@@ -33,7 +33,7 @@
  *   =IS_BUSINESS_HOUR(A2:A50)
  */
 function IS_BUSINESS_HOUR(dateTime, heureDebut = 9, heureFin = 18) {
-  return batchProcess(dateTime, (val) => {
+  return BATCH_PROCESS(dateTime, (val) => {
     if (!val) return false;
 
     const d = new Date(val);
@@ -42,8 +42,8 @@ function IS_BUSINESS_HOUR(dateTime, heureDebut = 9, heureFin = 18) {
     const jour = d.getDay(); // 0 = Dimanche, 6 = Samedi
     if (jour === 0 || jour === 6) return false;
 
-    // Vérification des jours fériés (si la fonction estJourFerieFR est disponible)
-    if (typeof estJourFerieFR === 'function' && estJourFerieFR(d)) {
+    // Vérification des jours fériés (si la fonction EST_JOUR_FERIE_FR est disponible)
+    if (typeof EST_JOUR_FERIE_FR === 'function' && EST_JOUR_FERIE_FR(d)) {
       return false;
     }
 

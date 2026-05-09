@@ -12,8 +12,8 @@
  *    l'algorithme de Luhn. Gère le cas particulier de La Poste.
  *
  *  Fonctions exposées :
- *    • verifSIRET(numero)  → "VALIDE" ou message d'erreur explicite
- *    • verifSIREN(numero)  → "VALIDE" ou message d'erreur explicite
+ *    • VERIF_SIRET(numero)  → "VALIDE" ou message d'erreur explicite
+ *    • VERIF_SIREN(numero)  → "VALIDE" ou message d'erreur explicite
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,11 +29,11 @@
  * @return {string|Array<Array<string>>}           "VALIDE" ou message d'erreur.
  * @customfunction
  *
- *   =verifSIRET("732 829 320 00074")  → "VALIDE"
- *   =verifSIRET(A2:A100)
+ *   =VERIF_SIRET("732 829 320 00074")  → "VALIDE"
+ *   =VERIF_SIRET(A2:A100)
  */
-function verifSIRET(numero) {
-  return batchProcess(numero, (val) => {
+function VERIF_SIRET(numero) {
+  return BATCH_PROCESS(numero, (val) => {
     if (val == null || String(val).trim() === "") {
       return "INVALIDE — aucun numéro fourni";
     }
@@ -73,11 +73,11 @@ function verifSIRET(numero) {
  * @return {string|Array<Array<string>>}           "VALIDE" ou message d'erreur.
  * @customfunction
  *
- *   =verifSIREN("732 829 320")  → "VALIDE"
- *   =verifSIREN(A2:A100)
+ *   =VERIF_SIREN("732 829 320")  → "VALIDE"
+ *   =VERIF_SIREN(A2:A100)
  */
-function verifSIREN(numero) {
-  return batchProcess(numero, (val) => {
+function VERIF_SIREN(numero) {
+  return BATCH_PROCESS(numero, (val) => {
     if (val == null || String(val).trim() === "") {
       return "INVALIDE — aucun numéro fourni";
     }

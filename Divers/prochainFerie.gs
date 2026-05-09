@@ -11,7 +11,7 @@
  *    Retourne la date du prochain jour férié en France à partir d'une date.
  *
  *  Fonctions exposées :
- *    • prochainFerie(date)  → Date du prochain jour férié
+ *    • PROCHAIN_FERIE(date)  → Date du prochain jour férié
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -26,11 +26,11 @@
  * @return {Date|Array<Array<Date>>}                La date du prochain jour férié.
  * @customfunction
  *
- *   =prochainFerie(AUJOURDHUI())
- *   =prochainFerie(A2:A100)
+ *   =PROCHAIN_FERIE(AUJOURDHUI())
+ *   =PROCHAIN_FERIE(A2:A100)
  */
-function prochainFerie(dateRef) {
-  return batchProcess(dateRef, (val) => {
+function PROCHAIN_FERIE(dateRef) {
+  return BATCH_PROCESS(dateRef, (val) => {
     const reference = val ? _parseDate(val) : new Date();
     if (!reference) return "Erreur: format de date invalide";
     

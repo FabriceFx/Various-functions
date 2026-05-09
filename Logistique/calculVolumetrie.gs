@@ -35,7 +35,7 @@
  *   =CALCUL_VOLUMETRIE(A2:A100; 40; 30)
  */
 function CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite = "cm", calculPoidsVol = false) {
-  return batchProcess(longueur, (val) => {
+  return BATCH_PROCESS(longueur, (val) => {
     const l = parseFloat(val);
     const w = parseFloat(largeur);
     const h = parseFloat(hauteur);

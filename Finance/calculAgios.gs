@@ -34,7 +34,7 @@
  *   =CALCUL_AGIOS(A2:A100; 12; 15)
  */
 function CALCUL_AGIOS(montant, tauxAnnuel, nbJours) {
-  return batchProcess(montant, (val) => {
+  return BATCH_PROCESS(montant, (val) => {
     const m = parseFloat(val);
     const t = parseFloat(tauxAnnuel);
     const j = parseInt(nbJours, 10);

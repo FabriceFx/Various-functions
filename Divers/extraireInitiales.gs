@@ -12,7 +12,7 @@
  *    composés avec tirets et les particules françaises.
  *
  *  Fonctions exposées :
- *    • extraireInitiales(texte)  → initiales en majuscules
+ *    • EXTRAIRE_INITIALES(texte)  → initiales en majuscules
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,11 +29,11 @@
  * @return {string|Array<Array<string>>}                Les initiales en majuscules ou tableau de résultats.
  * @customfunction
  *
- *   =extraireInitiales("Jean-Pierre Dupont")                → "JPD"
- *   =extraireInitiales(A2:A50; FAUX)                        → [Tableau de résultats]
+ *   =EXTRAIRE_INITIALES("Jean-Pierre Dupont")                → "JPD"
+ *   =EXTRAIRE_INITIALES(A2:A50; FAUX)                        → [Tableau de résultats]
  */
-function extraireInitiales(texte, avecParticules = false) {
-  return batchProcess(texte, (val) => {
+function EXTRAIRE_INITIALES(texte, avecParticules = false) {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null || String(val).trim() === "") return "";
 
     const mots = String(val).trim().split(/[\s]+/);

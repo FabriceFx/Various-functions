@@ -13,7 +13,7 @@
  *    Ex: 2.5 -> 2 | 3.5 -> 4
  *
  *  Fonctions exposées :
- *    • arrondiComptable(nombre, [decimales])  → Nombre arrondi
+ *    • ARRONDI_COMPTABLE(nombre, [decimales])  → Nombre arrondi
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,11 +29,11 @@
  * @return {number|Array<Array<number>>}           Le nombre arrondi ou tableau de résultats.
  * @customfunction
  *
- *   =arrondiComptable(2.5; 0)  → 2
- *   =arrondiComptable(A2:A100; 2)
+ *   =ARRONDI_COMPTABLE(2.5; 0)  → 2
+ *   =ARRONDI_COMPTABLE(A2:A100; 2)
  */
-function arrondiComptable(nombre, decimales = 2) {
-  return batchProcess(nombre, (val) => {
+function ARRONDI_COMPTABLE(nombre, decimales = 2) {
+  return BATCH_PROCESS(nombre, (val) => {
     const num = parseFloat(val);
     const dec = parseInt(decimales, 10);
     

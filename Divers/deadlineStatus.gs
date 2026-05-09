@@ -32,7 +32,7 @@
  *   =DEADLINE_STATUS(A2:A100)
  */
 function DEADLINE_STATUS(dateEcheance, dateRef) {
-  return batchProcess(dateEcheance, (val) => {
+  return BATCH_PROCESS(dateEcheance, (val) => {
     if (!val) return "";
 
     const dEnd = _parseDate(val);

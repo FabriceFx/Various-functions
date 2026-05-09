@@ -32,7 +32,7 @@
  *   =VERIF_GDPR_RETENTION(A2:A100; 12)
  */
 function VERIF_GDPR_RETENTION(dateDonnee, dureeMois) {
-  return batchProcess(dateDonnee, (val) => {
+  return BATCH_PROCESS(dateDonnee, (val) => {
     if (!val || !dureeMois) return "Erreur: paramètres manquants";
 
     const dCollecte = _parseDate(val);

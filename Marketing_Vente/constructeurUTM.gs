@@ -36,7 +36,7 @@
  *   =CONSTRUCTEUR_UTM(A2:A100; "google"; "cpc"; "soldes")
  */
 function CONSTRUCTEUR_UTM(url, source, support, campagne, terme = "", contenu = "") {
-  return batchProcess(url, (val) => {
+  return BATCH_PROCESS(url, (val) => {
     if (!val || !source || !support || !campagne) return "Erreur: paramètres manquants";
 
     let finalUrl = String(val).trim();

@@ -13,7 +13,7 @@
  *    Gère les départements corses (2A, 2B).
  *
  *  Fonctions exposées :
- *    • verifNIR(nir)  → "VALIDE" ou message d'erreur explicite
+ *    • VERIF_NIR(nir)  → "VALIDE" ou message d'erreur explicite
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -28,11 +28,11 @@
  * @return {string|Array<Array<string>>}        "VALIDE" ou message d'erreur.
  * @customfunction
  *
- *   =verifNIR("2 85 01 78 006 084 19")  → "VALIDE"
- *   =verifNIR(A2:A100)
+ *   =VERIF_NIR("2 85 01 78 006 084 19")  → "VALIDE"
+ *   =VERIF_NIR(A2:A100)
  */
-function verifNIR(nir) {
-  return batchProcess(nir, (val) => {
+function VERIF_NIR(nir) {
+  return BATCH_PROCESS(nir, (val) => {
     if (val == null || String(val).trim() === "") {
       return "INVALIDE — aucun numéro fourni";
     }

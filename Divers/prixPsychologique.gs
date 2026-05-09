@@ -32,7 +32,7 @@
  *   =PRIX_PSYCHOLOGIQUE(A2:A100; 95)
  */
 function PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison = 99) {
-  return batchProcess(prixCalcule, (val) => {
+  return BATCH_PROCESS(prixCalcule, (val) => {
     const p = parseFloat(val);
     const term = parseInt(terminaison, 10);
 

@@ -35,7 +35,7 @@
  *   =ESTIMATION_BRUT_NET(A2:A50; "Non-Cadre")
  */
 function ESTIMATION_BRUT_NET(montant, statut, sens = "B2N", tauxPersonnalise) {
-  return batchProcess(montant, (val) => {
+  return BATCH_PROCESS(montant, (val) => {
     const m = parseFloat(String(val).replace(",", "."));
     if (isNaN(m) || m <= 0) return 0;
 

@@ -31,7 +31,7 @@
  * @customfunction
  */
 function SEO_LISIBILITE_FLESCH(input) {
-  return batchProcess(input, (val) => {
+  return BATCH_PROCESS(input, (val) => {
     if (!val || String(val).trim() === "") return 0;
 
     const texte = String(val).trim();
@@ -89,7 +89,7 @@ function _compterSyllabesFR(mot) {
  * @customfunction
  */
 function SEO_MOTS_CLES_DENSITE(input, motCle) {
-  return batchProcess(input, (val) => {
+  return BATCH_PROCESS(input, (val) => {
     if (!val || !motCle) return 0;
 
     const t = String(val).toLowerCase();

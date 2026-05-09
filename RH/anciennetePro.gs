@@ -32,7 +32,7 @@
  *   =ANCIENNETE_PRO(A2:A100)
  */
 function ANCIENNETE_PRO(dateDebut, dateFin) {
-  return batchProcess(dateDebut, (val) => {
+  return BATCH_PROCESS(dateDebut, (val) => {
     if (!val) return "";
 
     const d1 = _parseDate(val);

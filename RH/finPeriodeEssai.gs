@@ -54,7 +54,7 @@ function _findStatut(statutNormalise) {
  *   =FIN_PERIODE_ESSAI(A2:A100; "Ouvrier")
  */
 function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement = false) {
-  return batchProcess(dateEmbauche, (val) => {
+  return BATCH_PROCESS(dateEmbauche, (val) => {
     const errDate = GUARD.isDate(val, "Date d'embauche");
     const errStatut = GUARD.isDefined(statut, "Statut");
     

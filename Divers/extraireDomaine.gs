@@ -13,7 +13,7 @@
  *    et le chemin d'accès.
  *
  *  Fonctions exposées :
- *    • extraireDomaine(url)  → Nom de domaine
+ *    • EXTRAIRE_DOMAINE(url)  → Nom de domaine
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,11 +29,11 @@
  * @return {string|Array<Array<string>>}     Le domaine extrait ou tableau de résultats.
  * @customfunction
  *
- *   =extraireDomaine("https://www.google.co.uk/search") → "google.co.uk"
- *   =extraireDomaine(A2:A50)                           → [Tableau de résultats]
+ *   =EXTRAIRE_DOMAINE("https://www.google.co.uk/search") → "google.co.uk"
+ *   =EXTRAIRE_DOMAINE(A2:A50)                           → [Tableau de résultats]
  */
-function extraireDomaine(url) {
-  return batchProcess(url, (val) => {
+function EXTRAIRE_DOMAINE(url) {
+  return BATCH_PROCESS(url, (val) => {
     if (val == null || String(val).trim() === "") return "";
 
     let domaine = String(val).trim();

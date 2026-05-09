@@ -12,7 +12,7 @@
  *    les occurrences d'un motif dans un texte, et non pas seulement la première.
  *
  *  Fonctions exposées :
- *    • regexExtraireTout(texte, regex, [separateur])
+ *    • REGEX_EXTRAIRE_TOUT(texte, regex, [separateur])
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,11 +29,11 @@
  * @return {string|Array<Array<any>>}            Les éléments trouvés ou tableau.
  * @customfunction
  *
- *   =regexExtraireTout(A2; "\d+ €")
- *   =regexExtraireTout(A2:A100; "#[a-zA-Z0-9]+")
+ *   =REGEX_EXTRAIRE_TOUT(A2; "\d+ €")
+ *   =REGEX_EXTRAIRE_TOUT(A2:A100; "#[a-zA-Z0-9]+")
  */
-function regexExtraireTout(texte, expressionReguliere, separateur = ", ") {
-  return batchProcess(texte, (val) => {
+function REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur = ", ") {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null || val === "" || !expressionReguliere) return "";
 
     try {

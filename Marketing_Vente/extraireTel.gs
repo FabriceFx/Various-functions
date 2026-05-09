@@ -33,7 +33,7 @@
  *   =EXTRAIRE_TEL(A2:A50)                    → [Tableau de résultats]
  */
 function EXTRAIRE_TEL(texte, pays = 'FR') {
-  return batchProcess(texte, (val) => {
+  return BATCH_PROCESS(texte, (val) => {
     if (!val || String(val).trim() === "") return "";
 
     // Regex générique pour détecter un numéro (simplifiée)

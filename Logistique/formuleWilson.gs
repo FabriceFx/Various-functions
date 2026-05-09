@@ -34,7 +34,7 @@
  *   =QUANTITE_OPTIMALE(A2:A100; 50; 2)
  */
 function QUANTITE_OPTIMALE(demandeAnnuelle, coutCommande, coutStockageUnitaire) {
-  return batchProcess(demandeAnnuelle, (val) => {
+  return BATCH_PROCESS(demandeAnnuelle, (val) => {
     const d = parseFloat(val);
     const s = parseFloat(coutCommande);
     const h = parseFloat(coutStockageUnitaire);

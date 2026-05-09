@@ -34,7 +34,7 @@
  *   =DELAI_PREVENANCE(A2:A100)
  */
 function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur = true) {
-  return batchProcess(dateDebut, (debutVal) => {
+  return BATCH_PROCESS(dateDebut, (debutVal) => {
     const errDebut = GUARD.isDate(debutVal, "Date de début");
     if (errDebut) return `Erreur: ${errDebut}`;
 

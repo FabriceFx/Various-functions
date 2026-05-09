@@ -12,7 +12,7 @@
  *    pays et, pour les numéros français (FR), la clé de contrôle.
  *
  *  Fonctions exposées :
- *    • verifTVA(numero)  → "VALIDE" ou message d'erreur explicite
+ *    • VERIF_TVA(numero)  → "VALIDE" ou message d'erreur explicite
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -59,11 +59,11 @@ const FORMATS_TVA_ = Object.freeze({
  * @return {string|Array<Array<string>>}        "VALIDE" ou message d'erreur.
  * @customfunction
  *
- *   =verifTVA("FR 40 303656847")  → "VALIDE"
- *   =verifTVA(A2:A100)
+ *   =VERIF_TVA("FR 40 303656847")  → "VALIDE"
+ *   =VERIF_TVA(A2:A100)
  */
-function verifTVA(numero) {
-  return batchProcess(numero, (val) => {
+function VERIF_TVA(numero) {
+  return BATCH_PROCESS(numero, (val) => {
     if (val == null || String(val).trim() === "") {
       return "INVALIDE — aucun numéro fourni";
     }

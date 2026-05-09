@@ -12,7 +12,7 @@
  *    Peut être utilisé avec la fonction native =IMAGE() de Google Sheets.
  *
  *  Fonctions exposées :
- *    • qrCodeURL(texte, [taille])  → URL de l'image du QR Code
+ *    • QR_CODE_URL(texte, [taille])  → URL de l'image du QR Code
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -28,11 +28,11 @@
  * @return {string|Array<Array<string>>}        L'URL de l'image ou tableau.
  * @customfunction
  *
- *   =IMAGE(qrCodeURL("https://faucheux.bzh"))
- *   =IMAGE(qrCodeURL(A2:A100))
+ *   =IMAGE(QR_CODE_URL("https://faucheux.bzh"))
+ *   =IMAGE(QR_CODE_URL(A2:A100))
  */
-function qrCodeURL(texte, taille = 200) {
-  return batchProcess(texte, (val) => {
+function QR_CODE_URL(texte, taille = 200) {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null || String(val).trim() === "") return "";
     
     const textEncoded = encodeURIComponent(String(val));

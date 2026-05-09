@@ -29,7 +29,7 @@
  *
  */
 function MASK_PII(input) {
-  return batchProcess(input, (val) => {
+  return BATCH_PROCESS(input, (val) => {
     let t = String(val ?? "");
     if (!t.trim()) return t;
 

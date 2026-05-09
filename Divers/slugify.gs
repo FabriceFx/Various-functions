@@ -13,7 +13,7 @@
  *    et caractères spéciaux par des tirets.
  *
  *  Fonctions exposées :
- *    • slugify(texte)  → texte formaté en slug
+ *    • SLUGIFY(texte)  → texte formaté en slug
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -28,11 +28,11 @@
  * @return {string|Array<Array<string>>}       Le slug généré ou tableau de résultats.
  * @customfunction
  *
- *   =slugify("Café Crème à l'Hôtel !")  → "cafe-creme-a-l-hotel"
- *   =slugify(A2:A100)
+ *   =SLUGIFY("Café Crème à l'Hôtel !")  → "cafe-creme-a-l-hotel"
+ *   =SLUGIFY(A2:A100)
  */
-function slugify(texte) {
-  return batchProcess(texte, (val) => {
+function SLUGIFY(texte) {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null || String(val).trim() === "") return "";
 
     return String(val)

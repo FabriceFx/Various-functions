@@ -12,7 +12,7 @@
  *    des mots les plus fréquents, en ignorant les mots de liaison (stop words).
  *
  *  Fonctions exposées :
- *    • frequenceMots(plage, exclureLiaison, topN)
+ *    • FREQUENCE_MOTS(plage, exclureLiaison, topN)
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,9 +29,9 @@
  * @return {Array<Array<any>>}                 Tableau [Mot, Nombre].
  * @customfunction
  *
- *   =frequenceMots(A2:A100; VRAI; 20)
+ *   =FREQUENCE_MOTS(A2:A100; VRAI; 20)
  */
-function frequenceMots(plage, exclureLiaison = true, topN = 10) {
+function FREQUENCE_MOTS(plage, exclureLiaison = true, topN = 10) {
   if (!plage) return [["Erreur", "Aucune donnée"]];
 
   const limite = parseInt(topN, 10) || 10;

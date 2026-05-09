@@ -13,7 +13,7 @@
  *    Renvoie un tableau qui se déploie sur plusieurs colonnes.
  *
  *  Fonctions exposées :
- *    • parserAdresseFR(adresse)
+ *    • PARSER_ADRESSE_FR(adresse)
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -28,11 +28,11 @@
  * @return {Array<Array<string>>}                Tableau [Numéro, Voie, Code Postal, Ville].
  * @customfunction
  *
- *   =parserAdresseFR("8 rue de la paix 75002 Paris")
- *   =parserAdresseFR(A2:A100)
+ *   =PARSER_ADRESSE_FR("8 rue de la paix 75002 Paris")
+ *   =PARSER_ADRESSE_FR(A2:A100)
  */
-function parserAdresseFR(adresse) {
-  return batchProcess(adresse, (val) => {
+function PARSER_ADRESSE_FR(adresse) {
+  return BATCH_PROCESS(adresse, (val) => {
     if (!val || String(val).trim() === "") return ["", "", "", ""];
 
     let chaine = String(val).trim();
@@ -74,7 +74,7 @@ function parserAdresseFR(adresse) {
 function NORMALISER_ADRESSE_FR(adresse) {
   const cache = CacheService.getScriptCache();
 
-  return batchProcess(adresse, (val) => {
+  return BATCH_PROCESS(adresse, (val) => {
     if (!val || String(val).trim() === "") return ["", 0];
 
     const clean = String(val).trim();

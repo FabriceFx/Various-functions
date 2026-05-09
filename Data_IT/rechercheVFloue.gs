@@ -14,7 +14,7 @@
  *    (ex: "Soc. Gen." vs "Société Générale").
  *
  *  Fonctions exposées :
- *    • rechercheVFloue(valeurRecherchee, plage, indexColonne, seuil)
+ *    • RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil)
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -32,11 +32,11 @@
  * @return {any|Array<Array<any>>}                       La valeur trouvée ou tableau de résultats.
  * @customfunction
  *
- *   =rechercheVFloue("Societe Generale"; A2:C100; 3)
- *   =rechercheVFloue(D2:D100; A2:C100; 2)
+ *   =RECHERCHE_V_FLOUE("Societe Generale"; A2:C100; 3)
+ *   =RECHERCHE_V_FLOUE(D2:D100; A2:C100; 2)
  */
-function rechercheVFloue(valeurRecherchee, plage, indexColonne = 2, seuil = 0.7) {
-  return batchProcess(valeurRecherchee, (val) => {
+function RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne = 2, seuil = 0.7) {
+  return BATCH_PROCESS(valeurRecherchee, (val) => {
     if (!val || !plage || !plage.length) return "Erreur: paramètres manquants";
     
     const recherche = String(val).trim().toLowerCase();

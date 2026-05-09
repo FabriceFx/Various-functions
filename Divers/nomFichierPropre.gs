@@ -33,7 +33,7 @@
  *   =NOM_FICHIER_PROPRE(A2:A100)
  */
 function NOM_FICHIER_PROPRE(texte, remplacement = "-") {
-  return batchProcess(texte, (val) => {
+  return BATCH_PROCESS(texte, (val) => {
     if (!val || String(val).trim() === "") return "fichier_sans_nom";
 
     let nom = String(val).trim();

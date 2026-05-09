@@ -31,7 +31,7 @@
  *   =ANALYSE_SENTIMENT(A2:A100)
  */
 function ANALYSE_SENTIMENT(texte) {
-  return batchProcess(texte, (val) => {
+  return BATCH_PROCESS(texte, (val) => {
     if (!val || String(val).trim() === "") return "⚪ Neutre";
 
     const chaine = String(val).toLowerCase()

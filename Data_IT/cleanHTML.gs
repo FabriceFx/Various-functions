@@ -32,7 +32,7 @@
  *   =CLEAN_HTML(A2:A100)
  */
 function CLEAN_HTML(texte) {
-  return batchProcess(texte, (val) => {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null || String(val).trim() === "") return "";
 
     let chaine = String(val);

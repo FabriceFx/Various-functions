@@ -34,7 +34,7 @@
  *   =PENALITES_RETARD(A2:A100; "2024-01-01")
  */
 function PENALITES_RETARD(montant, dateEcheance, tauxBCE = 4.5, marge = 10) {
-  return batchProcess(montant, (val) => {
+  return BATCH_PROCESS(montant, (val) => {
     const m = parseFloat(val);
     if (isNaN(m) || m <= 0) return 0;
 

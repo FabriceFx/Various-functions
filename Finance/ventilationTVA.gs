@@ -33,7 +33,7 @@
  *   =VENTILATION_TVA(A2:A100; "REDUIT")
  */
 function VENTILATION_TVA(montantTTC, categorie, retour = "TVA") {
-  return batchProcess(montantTTC, (val) => {
+  return BATCH_PROCESS(montantTTC, (val) => {
     const ttc = parseFloat(val);
     if (isNaN(ttc)) return "Erreur: montant invalide";
 

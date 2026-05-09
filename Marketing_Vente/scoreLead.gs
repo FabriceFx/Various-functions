@@ -34,7 +34,7 @@
  *   =SCORE_LEAD(A2:A100; "IT"; "Direct")
  */
 function SCORE_LEAD(budget, secteur, source) {
-  return batchProcess(budget, (val) => {
+  return BATCH_PROCESS(budget, (val) => {
     let score = 0;
 
     // 1. Critère Budget (max 40 pts)

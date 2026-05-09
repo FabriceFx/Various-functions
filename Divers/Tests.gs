@@ -46,15 +46,15 @@ function RUN_ALL_TESTS() {
     return typeof res === "number" && res > 1000; // ~1090 kg
   });
 
-  // Test verifIBAN
+  // Test VERIF_IBAN
   tests.it("doit valider un IBAN français correct", () => {
-    const res = verifIBAN("FR76 3000 6000 0112 3456 7890 189");
+    const res = VERIF_IBAN("FR76 3000 6000 0112 3456 7890 189");
     return String(res) === "VALIDE";
   });
 
-  // Test verifNIR (NIR fictif valide pour le calcul de clé)
+  // Test VERIF_NIR (NIR fictif valide pour le calcul de clé)
   tests.it("doit valider un NIR (n° sécu) correct", () => {
-    const res = verifNIR("1 85 01 78 006 084 27");
+    const res = VERIF_NIR("1 85 01 78 006 084 27");
     return String(res) === "VALIDE";
   });
 

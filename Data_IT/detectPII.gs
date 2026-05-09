@@ -28,7 +28,7 @@
  * @customfunction
  */
 function DETECT_PII(input) {
-  return batchProcess(input, (val) => {
+  return BATCH_PROCESS(input, (val) => {
     const t = String(val ?? "").trim();
     if (!t) return "🟢 Clean";
 

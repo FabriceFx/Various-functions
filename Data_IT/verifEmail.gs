@@ -12,8 +12,8 @@
  *    d'un TLD valide (au moins 2 caractères).
  *
  *  Fonctions exposées :
- *    • verifEmail(email)     → "VALIDE" ou message d'erreur explicite
- *    • extraireEmail(texte)  → Extrait la première adresse email d'un texte
+ *    • VERIF_EMAIL(email)     → "VALIDE" ou message d'erreur explicite
+ *    • EXTRAIRE_EMAIL(texte)  → Extrait la première adresse email d'un texte
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -31,11 +31,11 @@ const REGEX_EMAIL_ = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9
  * @return {string|Array<Array<string>>}       "VALIDE", message d'erreur ou tableau de résultats.
  * @customfunction
  *
- *   =verifEmail("fabrice@faucheux.bzh")       → "VALIDE"
- *   =verifEmail(A2:A100)                      → [Tableau de résultats]
+ *   =VERIF_EMAIL("fabrice@faucheux.bzh")       → "VALIDE"
+ *   =VERIF_EMAIL(A2:A100)                      → [Tableau de résultats]
  */
-function verifEmail(email) {
-  return batchProcess(email, (val) => {
+function VERIF_EMAIL(email) {
+  return BATCH_PROCESS(email, (val) => {
     if (val == null || String(val).trim() === "") {
       return "INVALIDE — aucune adresse fournie";
     }
@@ -96,10 +96,10 @@ function verifEmail(email) {
  * @return {string|Array<Array<string>>}       L'adresse email trouvée ou tableau de résultats.
  * @customfunction
  *
- *   =extraireEmail(B2:B50)                              → [Tableau de résultats]
+ *   =EXTRAIRE_EMAIL(B2:B50)                              → [Tableau de résultats]
  */
-function extraireEmail(texte) {
-  return batchProcess(texte, (val) => {
+function EXTRAIRE_EMAIL(texte) {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null || String(val).trim() === "") {
       return "";
     }

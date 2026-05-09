@@ -13,7 +13,7 @@
  *    qui doivent rester en minuscules au milieu d'un nom.
  *
  *  Fonctions exposées :
- *    • capitaliser(texte)  → texte capitalisé
+ *    • CAPITALISER(texte)  → texte capitalisé
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,11 +29,11 @@
  * @return {string|Array<Array<string>>}       Le texte capitalisé ou tableau de résultats.
  * @customfunction
  *
- *   =capitaliser("jean-pierre de la fontaine")  → "Jean-Pierre de la Fontaine"
- *   =capitaliser(A2:A100)                       → [Tableau de résultats]
+ *   =CAPITALISER("jean-pierre de la fontaine")  → "Jean-Pierre de la Fontaine"
+ *   =CAPITALISER(A2:A100)                       → [Tableau de résultats]
  */
-function capitaliser(texte) {
-  return batchProcess(texte, (val) => {
+function CAPITALISER(texte) {
+  return BATCH_PROCESS(texte, (val) => {
     if (val == null || String(val).trim() === "") return "";
 
     // On passe tout en minuscules pour commencer

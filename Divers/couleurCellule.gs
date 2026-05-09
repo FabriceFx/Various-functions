@@ -13,7 +13,7 @@
  *    doit être passée sous forme de chaîne de caractères, ex: "A1".
  *
  *  Fonctions exposées :
- *    • couleurCellule(referenceCellule)  → Code couleur HEX
+ *    • COULEUR_CELLULE(referenceCellule)  → Code couleur HEX
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -28,11 +28,11 @@
  * @return {string|Array<Array<string>>}                  Le code hexadécimal ou tableau.
  * @customfunction
  *
- *   =couleurCellule("A1")
- *   =couleurCellule(B2:B10)
+ *   =COULEUR_CELLULE("A1")
+ *   =COULEUR_CELLULE(B2:B10)
  */
-function couleurCellule(referenceCellule) {
-  return batchProcess(referenceCellule, (val) => {
+function COULEUR_CELLULE(referenceCellule) {
+  return BATCH_PROCESS(referenceCellule, (val) => {
     if (!val) return "Erreur: référence requise";
 
     try {

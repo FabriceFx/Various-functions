@@ -33,7 +33,7 @@
  *   =IMAGE(QR_CODE_WIFI(A2:A100; "MotDePasseUnique"))
  */
 function QR_CODE_WIFI(ssid, motDePasse, securite = "WPA") {
-  return batchProcess(ssid, (val) => {
+  return BATCH_PROCESS(ssid, (val) => {
     if (!val) return "Erreur: SSID requis";
 
     const s = String(val);

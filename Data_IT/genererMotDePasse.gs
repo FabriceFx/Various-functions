@@ -12,7 +12,7 @@
  *    des options pour inclure des majuscules, nombres et caractères spéciaux.
  *
  *  Fonctions exposées :
- *    • genererMotDePasse(longueur, majuscules, nombres, speciaux)
+ *    • GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux)
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
@@ -29,10 +29,10 @@
  * @return {string}                 Le mot de passe généré.
  * @customfunction
  *
- *   =genererMotDePasse(16; VRAI; VRAI; FAUX)
+ *   =GENERER_MOT_DE_PASSE(16; VRAI; VRAI; FAUX)
  */
-function genererMotDePasse(longueur = 12, majuscules = true, nombres = true, speciaux = true) {
-  return batchProcess(longueur, (val) => {
+function GENERER_MOT_DE_PASSE(longueur = 12, majuscules = true, nombres = true, speciaux = true) {
+  return BATCH_PROCESS(longueur, (val) => {
     let charSet = "abcdefghijklmnopqrstuvwxyz";
     const numSet = "0123456789";
     const upperSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

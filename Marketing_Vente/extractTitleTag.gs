@@ -35,7 +35,7 @@
 function EXTRACT_TITLE_TAG(url, bypassCache = false) {
   const cache = CacheService.getScriptCache();
   
-  return batchProcess(url, (val) => {
+  return BATCH_PROCESS(url, (val) => {
     if (!val || String(val).trim() === "") return "";
 
     let chaineURL = String(val).trim();

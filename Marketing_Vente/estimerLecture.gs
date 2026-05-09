@@ -32,7 +32,7 @@
  *   =ESTIMER_LECTURE(A2:A100)
  */
 function ESTIMER_LECTURE(texte, motsParMinute = 250) {
-  return batchProcess(texte, (val) => {
+  return BATCH_PROCESS(texte, (val) => {
     if (!val || String(val).trim() === "") return "0 min";
 
     const chaine = String(val).trim();

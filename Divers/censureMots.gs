@@ -31,7 +31,7 @@
  *   =CENSURE_MOTS(A2:A100; "urgent")
  */
 function CENSURE_MOTS(texte, motsSupplementaires = "") {
-  return batchProcess(texte, (val) => {
+  return BATCH_PROCESS(texte, (val) => {
     if (!val || String(val).trim() === "") return "";
 
     let chaine = String(val);

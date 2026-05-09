@@ -33,7 +33,7 @@
  *   =ESTIMER_LIVRAISON(A2:A100; "75001")
  */
 function ESTIMER_LIVRAISON(dateDepart, codePostal) {
-  return batchProcess(dateDepart, (val) => {
+  return BATCH_PROCESS(dateDepart, (val) => {
     if (!val || !codePostal) return "Erreur: paramètres manquants";
 
     const depart = _parseDate(val);
