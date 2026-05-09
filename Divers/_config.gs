@@ -58,6 +58,9 @@ const CONFIG = {
     "com.fr", "gouv.fr", "asso.fr"
   ]),
 
+  // Configuration par défaut pour les emails
+  DEFAULT_LOGO_URL: "https://www.gstatic.com/images/branding/product/2x/apps_script_64dp.png",
+
   // Palettes de couleurs Material Design 3 (Emailing)
   COLORS_MD3: {
     INFO: {

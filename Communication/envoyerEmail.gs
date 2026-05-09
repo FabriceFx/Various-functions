@@ -69,8 +69,11 @@ function _buildMd3Template(title, content, colors, opts) {
   const currentYear = new Date().getFullYear();
   const defaultFooter = opts.footer || "Ce message automatique a été généré par FF Library Studio.";
   
-  // Gestion du Logo
-  const logoHtml = opts.logoUrl ? `<img src="${opts.logoUrl}" alt="Logo" style="max-height: 40px; margin-bottom: 16px;">` : "";
+  // Gestion du Logo (Priorité: Option > Config par défaut)
+  let logoUrl = opts.logoUrl;
+  if (logoUrl === undefined) logoUrl = CONFIG.DEFAULT_LOGO_URL;
+  
+  const logoHtml = (logoUrl && logoUrl !== null) ? `<img src="${logoUrl}" alt="Logo" style="max-height: 40px; margin-bottom: 16px;">` : "";
   
   // Gestion du Bouton CTA
   let buttonHtml = "";
