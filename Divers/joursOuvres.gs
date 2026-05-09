@@ -37,14 +37,15 @@
  */
 function joursOuvres(dateDebut, dateFin) {
   return batchProcess(dateDebut, (val) => {
-    if (!val || !dateFin) return "Erreur: dates manquantes";
+    // Clauses de garde systématiques
+    const errDebut = GUARD.isDate(val, "Date de début");
+    const errFin = GUARD.isDate(dateFin, "Date de fin");
+    
+    const error = errDebut || errFin;
+    if (error) return `Erreur: ${error}`;
 
     const start = _parseDate(val);
     const end = _parseDate(dateFin);
-
-    if (!start || !end) {
-      return "Erreur: format de date invalide";
-    }
 
     const d1 = start <= end ? start : end;
     const d2 = start <= end ? end : start;
@@ -80,15 +81,16 @@ function joursOuvres(dateDebut, dateFin) {
  * Indique si une date est un jour férié en France.
  *
  * @param {Date|string} date  Date à vérifier.
- * @return {boolean}          VRAI si c'est un jour férié.
+ * @return {boolean|string}   VRAI si c'est un jour férié, ou message d'erreur.
  * @customfunction
  */
 function estJourFerieFR(date) {
-  if (!date) return false;
-  const d = new Date(date);
-  if (isNaN(d.getTime())) return false;
-  
+  const error = GUARD.isDate(date, "La date");
+  if (error) return `Erreur: ${error}`;
+
+  const d = _parseDate(date);
   d.setHours(0, 0, 0, 0);
+  
   const feries = listerFeriesFR_(d.getFullYear()).map(f => f.getTime());
   return feries.includes(d.getTime());
 }

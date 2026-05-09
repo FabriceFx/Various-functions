@@ -36,14 +36,16 @@
  */
 function SOLDE_CONGES(dateEntree, dateFin, joursParMois = 2.08) {
   return batchProcess(dateEntree, (val) => {
-    if (!val) return "Erreur: Date d'entrée requise";
+    // Clauses de garde systématiques
+    const errDateEntree = GUARD.isDate(val, "Date d'entrée");
+    const errDateFin = dateFin ? GUARD.isDate(dateFin, "Date de fin") : null;
+    const errJours = GUARD.isNumber(joursParMois, "Nombre de jours");
+
+    const error = errDateEntree || errDateFin || errJours;
+    if (error) return `Erreur: ${error}`;
 
     const d1 = _parseDate(val);
     const d2 = dateFin ? _parseDate(dateFin) : new Date();
-
-    if (!d1 || !d2) {
-      return "Erreur: format de date invalide";
-    }
 
     if (d1 > d2) return 0;
 
