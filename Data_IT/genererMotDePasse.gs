@@ -30,7 +30,6 @@
  * @return {string}                 Le mot de passe généré.
  * @customfunction
  *
- * @example
  *   =genererMotDePasse(16; VRAI; VRAI; FAUX)
  */
 function genererMotDePasse(longueur = 12, majuscules = true, nombres = true, speciaux = true) {

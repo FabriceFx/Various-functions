@@ -28,7 +28,6 @@
  * @return {string|Array<Array<string>>}       Le texte censuré ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =CENSURE_MOTS("C'est vraiment un gros connard."; "gros,moche")
  *   =CENSURE_MOTS(A2:A100; "urgent")
  */

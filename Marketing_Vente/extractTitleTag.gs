@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}       Le contenu de la balise <title> ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =EXTRACT_TITLE_TAG("https://faucheux.bzh")
  *   =EXTRACT_TITLE_TAG(A2:A50; VRAI) // Force le rafraîchissement
  */

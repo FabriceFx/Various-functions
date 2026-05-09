@@ -31,7 +31,6 @@
  * @return {number|Array<Array<number>>}                La quantité optimale ou tableau.
  * @customfunction
  *
- * @example
  *   =QUANTITE_OPTIMALE(10000; 50; 2)
  *   =QUANTITE_OPTIMALE(A2:A100; 50; 2)
  */

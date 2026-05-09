@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}           "VALIDE" ou message d'erreur.
  * @customfunction
  *
- * @example
  *   =verifSIRET("732 829 320 00074")  → "VALIDE"
  *   =verifSIRET(A2:A100)
  */
@@ -67,7 +66,6 @@ function verifSIRET(numero) {
   });
 }
 
-
 /**
  * Vérifie la validité d'un numéro SIREN (9 chiffres) via l'algorithme de Luhn.
  * Supporte le traitement par lot (plages de cellules).
@@ -76,7 +74,6 @@ function verifSIRET(numero) {
  * @return {string|Array<Array<string>>}           "VALIDE" ou message d'erreur.
  * @customfunction
  *
- * @example
  *   =verifSIREN("732 829 320")  → "VALIDE"
  *   =verifSIREN(A2:A100)
  */
@@ -103,7 +100,6 @@ function verifSIREN(numero) {
     return "VALIDE";
   });
 }
-
 
 /**
  * Vérifie une chaîne de chiffres selon l'algorithme de Luhn.

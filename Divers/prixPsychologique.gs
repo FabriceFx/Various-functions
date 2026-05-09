@@ -29,7 +29,6 @@
  * @return {number|Array<Array<number>>}            Le prix formaté ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =PRIX_PSYCHOLOGIQUE(14.12; 99) → 14.99
  *   =PRIX_PSYCHOLOGIQUE(A2:A100; 95)
  */

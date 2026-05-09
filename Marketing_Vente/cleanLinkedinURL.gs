@@ -28,7 +28,6 @@
  * @return {string|Array<Array<string>>}     L'URL propre ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =CLEAN_LINKEDIN_URL("https://www.linkedin.com/in/jean-dupont-1234/?miniProfileUrn=urn:li:fs_miniProfile:123&trk=public_profile")
  *   → "https://www.linkedin.com/in/jean-dupont-1234"
  *   =CLEAN_LINKEDIN_URL(A2:A100)

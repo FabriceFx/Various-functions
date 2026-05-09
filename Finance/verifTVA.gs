@@ -52,7 +52,6 @@ const FORMATS_TVA_ = Object.freeze({
   SK: /^SK\d{10}$/,
 });
 
-
 /**
  * Vérifie la validité d'un numéro de TVA intracommunautaire.
  * Supporte le traitement par lot (plages de cellules).
@@ -61,7 +60,6 @@ const FORMATS_TVA_ = Object.freeze({
  * @return {string|Array<Array<string>>}        "VALIDE" ou message d'erreur.
  * @customfunction
  *
- * @example
  *   =verifTVA("FR 40 303656847")  → "VALIDE"
  *   =verifTVA(A2:A100)
  */

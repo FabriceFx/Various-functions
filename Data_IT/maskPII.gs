@@ -28,9 +28,6 @@
  * @return {string|Array<Array<string>>}     Le texte masqué ou tableau de résultats.
  * @customfunction
  *
- * @example
- *   =MASK_PII("Mon email est fabrice@example.com") 
- *   → "Mon email est f****@example.com"
  */
 function MASK_PII(input) {
   return batchProcess(input, (val) => {

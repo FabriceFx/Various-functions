@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}     Le domaine extrait ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =extraireDomaine("https://www.google.co.uk/search") → "google.co.uk"
  *   =extraireDomaine(A2:A50)                           → [Tableau de résultats]
  */

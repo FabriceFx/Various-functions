@@ -29,7 +29,6 @@
  * @return {number|Array<Array<number>>}       Le score d'entropie ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =ENTROPY_SCORE("P@ssw0rd123!")
  *   =ENTROPY_SCORE(A2:A100)
  */

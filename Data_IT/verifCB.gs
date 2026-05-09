@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}           "VALIDE (réseau)" ou message d'erreur.
  * @customfunction
  *
- * @example
  *   =verifCB("4539 1488 0343 6467")  → "VALIDE (Visa)"
  *   =verifCB(A2:A100)
  */
@@ -69,7 +68,6 @@ function verifCB(numero) {
     return `VALIDE (${reseau})`;
   });
 }
-
 
 /**
  * Détecte le réseau d'une carte bancaire à partir de son numéro.

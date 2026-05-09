@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}        Le nom de fichier propre ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =NOM_FICHIER_PROPRE("Facture_N°123/2026") → "Facture_N-123-2026"
  *   =NOM_FICHIER_PROPRE(A2:A100)
  */

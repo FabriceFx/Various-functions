@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}        "VALIDE" ou message d'erreur.
  * @customfunction
  *
- * @example
  *   =verifNIR("2 85 01 78 006 084 19")  → "VALIDE"
  *   =verifNIR(A2:A100)
  */

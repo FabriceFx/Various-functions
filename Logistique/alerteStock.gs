@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}               Statut ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =ALERTE_STOCK(15; 20; 2)
  *   =ALERTE_STOCK(A2:A100; 10)
  */

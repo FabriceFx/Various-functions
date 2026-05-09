@@ -30,7 +30,6 @@
  * @return {number|Array<Array<any>>}               Le montant calculé ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =VENTILATION_TVA(120; "STANDARD")
  *   =VENTILATION_TVA(A2:A100; "REDUIT")
  */

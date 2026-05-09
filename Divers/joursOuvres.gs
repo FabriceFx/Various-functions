@@ -31,7 +31,6 @@
  * @return {number|Array<Array<number>>}             Nombre de jours ouvrés ou tableau.
  * @customfunction
  *
- * @example
  *   =joursOuvres("2026-05-01"; "2026-05-31")
  *   =joursOuvres(A2:A100; "2026-12-31")
  */

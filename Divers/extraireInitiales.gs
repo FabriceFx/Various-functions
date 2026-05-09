@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}                Les initiales en majuscules ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =extraireInitiales("Jean-Pierre Dupont")                → "JPD"
  *   =extraireInitiales(A2:A50; FAUX)                        → [Tableau de résultats]
  */

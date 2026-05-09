@@ -31,7 +31,6 @@
  * @return {number|Array<Array<number>>}                Le seuil de rentabilité ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =SEUIL_RENTABILITE(10000; 50; 20)
  *   =SEUIL_RENTABILITE(A2:A100; 50; 20)
  */

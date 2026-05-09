@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}        L'URL de l'image ou tableau.
  * @customfunction
  *
- * @example
  *   =IMAGE(qrCodeURL("https://faucheux.bzh"))
  *   =IMAGE(qrCodeURL(A2:A100))
  */

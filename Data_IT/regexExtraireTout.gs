@@ -30,7 +30,6 @@
  * @return {string|Array<Array<any>>}            Les éléments trouvés ou tableau.
  * @customfunction
  *
- * @example
  *   =regexExtraireTout(A2; "\d+ €")
  *   =regexExtraireTout(A2:A100; "#[a-zA-Z0-9]+")
  */

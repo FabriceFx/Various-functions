@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}             L'ancienneté ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =ANCIENNETE_PRO("2015-09-01")
  *   =ANCIENNETE_PRO(A2:A100)
  */

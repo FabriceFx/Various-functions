@@ -33,7 +33,6 @@
  * @return {string|Array<Array<string>>}     URL complète ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =CONSTRUCTEUR_UTM("https://faucheux.bzh"; "linkedin"; "social"; "lancement")
  *   =CONSTRUCTEUR_UTM(A2:A100; "google"; "cpc"; "soldes")
  */

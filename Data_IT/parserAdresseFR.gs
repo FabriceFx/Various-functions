@@ -29,7 +29,6 @@
  * @return {Array<Array<string>>}                Tableau [Numéro, Voie, Code Postal, Ville].
  * @customfunction
  *
- * @example
  *   =parserAdresseFR("8 rue de la paix 75002 Paris")
  *   =parserAdresseFR(A2:A100)
  */
@@ -72,7 +71,6 @@ function parserAdresseFR(adresse) {
  * @return {Array<Array<string>>}                Tableau de [Adresse complète, Score de confiance].
  * @customfunction
  *
- * @example
  *   =NORMALISER_ADRESSE_FR("8 r de la paix pari") → "8 Rue de la Paix, 75002 Paris"
  */
 function NORMALISER_ADRESSE_FR(adresse) {

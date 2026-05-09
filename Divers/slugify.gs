@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}       Le slug généré ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =slugify("Café Crème à l'Hôtel !")  → "cafe-creme-a-l-hotel"
  *   =slugify(A2:A100)
  */

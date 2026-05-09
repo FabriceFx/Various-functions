@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}              Statut ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =VERIF_GDPR_RETENTION("2021-01-15"; 36)
  *   =VERIF_GDPR_RETENTION(A2:A100; 12)
  */

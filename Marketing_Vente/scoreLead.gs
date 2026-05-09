@@ -31,7 +31,6 @@
  * @return {string|Array<Array<string>>}         Score et qualification ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =SCORE_LEAD(15000; "IT"; "Inbound")
  *   =SCORE_LEAD(A2:A100; "IT"; "Direct")
  */

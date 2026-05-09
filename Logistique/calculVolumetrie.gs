@@ -32,7 +32,6 @@
  * @return {number|Array<Array<number>>}           Le résultat arrondi ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =CALCUL_VOLUMETRIE(50; 40; 30; "cm"; FAUX)  → 0.06 (m3)
  *   =CALCUL_VOLUMETRIE(A2:A100; 40; 30)
  */

@@ -28,7 +28,6 @@
  * @return {string|Array<Array<string>>}                 Le code-barres complet ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =CLE_EAN13("304692002260") → "3046920022605"
  *   =CLE_EAN13(A2:A100)
  */

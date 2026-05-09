@@ -30,7 +30,6 @@
  * @return {Date|string|Array<Array<Date|string>>}    Date estimée ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =ESTIMER_LIVRAISON(AUJOURDHUI(); "75001")
  *   =ESTIMER_LIVRAISON(A2:A100; "75001")
  */

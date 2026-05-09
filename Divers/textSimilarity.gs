@@ -29,7 +29,6 @@
  * @return {number}                 Taux de similarité (entre 0 et 1).
  * @customfunction
  *
- * @example
  *   =TEXT_SIMILARITY("Google Sheets"; "Google Shet") → 0.92
  */
 function TEXT_SIMILARITY(texte1, texte2) {

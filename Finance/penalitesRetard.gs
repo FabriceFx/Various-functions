@@ -31,7 +31,6 @@
  * @return {number|Array<Array<number>>}          Le montant des pénalités ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =PENALITES_RETARD(5000; "2024-01-01"; 4.5; 10)
  *   =PENALITES_RETARD(A2:A100; "2024-01-01")
  */

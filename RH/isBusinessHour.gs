@@ -30,7 +30,6 @@
  * @return {boolean|Array<Array<boolean>>} VRAI si c'est pendant les heures d'ouverture.
  * @customfunction
  *
- * @example
  *   =IS_BUSINESS_HOUR(A2; 9; 18)
  *   =IS_BUSINESS_HOUR(A2:A50)
  */

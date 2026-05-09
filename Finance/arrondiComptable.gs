@@ -30,7 +30,6 @@
  * @return {number|Array<Array<number>>}           Le nombre arrondi ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =arrondiComptable(2.5; 0)  → 2
  *   =arrondiComptable(A2:A100; 2)
  */

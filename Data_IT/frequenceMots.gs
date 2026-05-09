@@ -30,7 +30,6 @@
  * @return {Array<Array<any>>}                 Tableau [Mot, Nombre].
  * @customfunction
  *
- * @example
  *   =frequenceMots(A2:A100; VRAI; 20)
  */
 function frequenceMots(plage, exclureLiaison = true, topN = 10) {

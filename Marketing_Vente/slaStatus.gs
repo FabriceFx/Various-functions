@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}                Statut ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =SLA_STATUS(A2; 48)
  *   =SLA_STATUS(A2:A100; 24)
  */

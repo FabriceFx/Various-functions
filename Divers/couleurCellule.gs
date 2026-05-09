@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}                  Le code hexadécimal ou tableau.
  * @customfunction
  *
- * @example
  *   =couleurCellule("A1")
  *   =couleurCellule(B2:B10)
  */

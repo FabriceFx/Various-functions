@@ -28,7 +28,6 @@
  * @return {string|Array<Array<string>>}    L'URL propre ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =DECODE_SAFE_URL(A2)
  *   =DECODE_SAFE_URL(A2:A100)
  */

@@ -25,7 +25,6 @@
 // Regex robuste pour validation email (RFC 5322 simplifiée)
 const REGEX_EMAIL_ = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
 
-
 /**
  * Vérifie le format d'une adresse email.
  * Supporte le traitement par lot (plages de cellules).
@@ -34,7 +33,6 @@ const REGEX_EMAIL_ = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9
  * @return {string|Array<Array<string>>}       "VALIDE", message d'erreur ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =verifEmail("fabrice@faucheux.bzh")       → "VALIDE"
  *   =verifEmail(A2:A100)                      → [Tableau de résultats]
  */
@@ -92,7 +90,6 @@ function verifEmail(email) {
   });
 }
 
-
 /**
  * Extrait la première adresse email trouvée dans un texte.
  * Supporte le traitement par lot (plages de cellules).
@@ -101,8 +98,6 @@ function verifEmail(email) {
  * @return {string|Array<Array<string>>}       L'adresse email trouvée ou tableau de résultats.
  * @customfunction
  *
- * @example
- *   =extraireEmail("Contactez-nous à info@example.com") → "info@example.com"
  *   =extraireEmail(B2:B50)                              → [Tableau de résultats]
  */
 function extraireEmail(texte) {

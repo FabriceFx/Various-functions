@@ -30,7 +30,6 @@
  * @return {any|Array<Array<any>>}                  La valeur extraite ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =extraireJSON(A2; "client.adresse.ville")
  *   =extraireJSON(A2:A100; "status")
  */

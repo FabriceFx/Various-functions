@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}       Le texte capitalisé ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =capitaliser("jean-pierre de la fontaine")  → "Jean-Pierre de la Fontaine"
  *   =capitaliser(A2:A100)                       → [Tableau de résultats]
  */

@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}                Statut ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =DEADLINE_STATUS(A2)
  *   =DEADLINE_STATUS(A2:A100)
  */

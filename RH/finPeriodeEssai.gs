@@ -74,7 +74,6 @@ const STATUTS_PE = [
 
 // ─── Helpers privés ───────────────────────────────────────────────────────────
 
-
 /**
  * Normalise une chaîne pour la comparaison de statut :
  * minuscules + suppression des accents.
@@ -137,7 +136,6 @@ function _findStatut(statutNormalise) {
  * @return {Date|string|Array<Array<any>>}    Date de fin ou tableau.
  * @customfunction
  *
- * @example
  *   =FIN_PERIODE_ESSAI("2026-01-01"; "Cadre")
  *   =FIN_PERIODE_ESSAI(A2:A100; "Ouvrier")
  */
@@ -172,7 +170,6 @@ function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement = false) {
  * @return {string}  Durée formatée (ex : "4 mois" ou "8 mois (renouvelée)").
  * @customfunction
  *
- * @example
  *   =DUREE_PERIODE_ESSAI("Cadre"; FAUX)  → "4 mois"
  *   =DUREE_PERIODE_ESSAI("Cadre"; VRAI)  → "8 mois (renouvelée)"
  *   =DUREE_PERIODE_ESSAI("Ouvrier")      → "2 mois"

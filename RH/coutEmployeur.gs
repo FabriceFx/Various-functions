@@ -29,7 +29,6 @@
  * @return {number|Array<Array<number>>}            Le coût employeur ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =COUT_EMPLOYEUR(3000; "Cadre")
  *   =COUT_EMPLOYEUR(A2:A100)
  */

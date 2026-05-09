@@ -28,7 +28,6 @@
  * @return {string|Array<Array<string>>}       Statut ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =ANALYSE_SENTIMENT("C'est super !")
  *   =ANALYSE_SENTIMENT(A2:A100)
  */

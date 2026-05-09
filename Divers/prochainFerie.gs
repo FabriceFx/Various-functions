@@ -27,7 +27,6 @@
  * @return {Date|Array<Array<Date>>}                La date du prochain jour férié.
  * @customfunction
  *
- * @example
  *   =prochainFerie(AUJOURDHUI())
  *   =prochainFerie(A2:A100)
  */

@@ -28,7 +28,6 @@
  * @return {string|Array<Array<string>>}       Le texte brut nettoyé ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =CLEAN_HTML("<p>Bonjour <strong>le monde</strong> !</p>")
  *   → "Bonjour le monde !"
  *   =CLEAN_HTML(A2:A100)

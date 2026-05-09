@@ -1,4 +1,4 @@
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Configuration Globale — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -10,6 +10,7 @@
  *    Centralise les constantes, les listes de mots et les utilitaires partagés
  *    pour l'ensemble de la bibliothèque.
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**

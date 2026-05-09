@@ -31,7 +31,6 @@
  * @return {string|Array<Array<string>>}       Le texte normalisé ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =normaliser("  Café   Crème  à  l'Hôtel ")  → "CAFE CREME A L'HOTEL"
  *   =normaliser(A2:A100)
  */
@@ -50,7 +49,6 @@ function normaliser(texte) {
   });
 }
 
-
 /**
  * Supprime les accents et diacritiques d'un texte sans changer la casse.
  * Supporte le traitement par lot (plages de cellules).
@@ -59,7 +57,6 @@ function normaliser(texte) {
  * @return {string|Array<Array<string>>}       Le texte sans accents ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =supprimerAccents("Crème brûlée")  → "Creme brulee"
  *   =supprimerAccents(A2:A100)
  */
@@ -75,7 +72,6 @@ function supprimerAccents(texte) {
   });
 }
 
-
 /**
  * Supprime les espaces multiples et trim le texte.
  * Supporte le traitement par lot (plages de cellules).
@@ -84,7 +80,6 @@ function supprimerAccents(texte) {
  * @return {string|Array<Array<string>>}       Le texte nettoyé ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =supprimerEspaces("  Hello    World  ")  → "Hello World"
  *   =supprimerEspaces(A2:A100)
  */

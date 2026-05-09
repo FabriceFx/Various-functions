@@ -49,7 +49,6 @@ const LOCALES_CONFIG_ = {
  * @return {string|Array<Array<string>>}             Le montant en toutes lettres ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =montantEnLettres(1234.56; "FR") → "mille deux cent trente-quatre euros et cinquante-six centimes"
  *   =montantEnLettres(1234.56; "EN") → "one thousand two hundred thirty-four dollars and fifty-six cents"
  */

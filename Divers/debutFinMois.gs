@@ -53,7 +53,6 @@ const NOMS_MOIS_FR = [
  * @return {Date|string|Array<Array<Date|string>>}      Date du 1er jour ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =DEBUT_MOIS("2026-05-15")  → 01/05/2026
  *   =DEBUT_MOIS(A2:A100)
  */
@@ -73,7 +72,6 @@ function DEBUT_MOIS(date) {
  * @return {Date|string|Array<Array<Date|string>>}      Date du dernier jour ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =FIN_MOIS("2026-02-10")  → 28/02/2026
  *   =FIN_MOIS(A2:A100)
  */
@@ -93,7 +91,6 @@ function FIN_MOIS(date) {
  * @return {number|string|Array<Array<number|string>>}   Nombre de jours ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =NB_JOURS_MOIS("2026-02-01")  → 28
  *   =NB_JOURS_MOIS(A2:A100)
  */
@@ -113,7 +110,6 @@ function NB_JOURS_MOIS(date) {
  * @return {string|Array<Array<string>>}                Nom du mois ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =NOM_MOIS("2026-05-08")  → "Mai"
  *   =NOM_MOIS(A2:A100)
  */

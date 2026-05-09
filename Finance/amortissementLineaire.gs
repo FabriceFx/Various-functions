@@ -31,7 +31,6 @@
  * @return {number|Array<Array<number>>}        Dotation ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =AMORTISSEMENT_LINEAIRE(10000; 5; "2024-07-01"; 2024)
  *   =AMORTISSEMENT_LINEAIRE(A2:A100; 5; "2024-01-01"; 2025)
  */

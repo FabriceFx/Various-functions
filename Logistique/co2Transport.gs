@@ -29,7 +29,6 @@
  * @return {number|Array<Array<number>>}     Le poids en kg de CO2 équivalent ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =CO2_TRANSPORT(500; "avion")
  *   =CO2_TRANSPORT(A2:A100; "voiture")
  */

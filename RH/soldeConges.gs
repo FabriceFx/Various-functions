@@ -30,7 +30,6 @@
  * @return {number|string|Array<Array<number|string>>} Nombre de jours ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =SOLDE_CONGES("2025-01-01"; "2025-06-30"; 2.5)
  *   =SOLDE_CONGES(A2:A100)
  */

@@ -32,7 +32,6 @@
  * @return {string|Array<Array<any>>}               Résultats concaténés ou tableau.
  * @customfunction
  *
- * @example
  *   =RECHERCHEV_MULTI("123"; A2:B100; 2)
  *   =RECHERCHEV_MULTI(F2:F10; A2:B100; 2)
  */

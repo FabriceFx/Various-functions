@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}        URL du QR Code ou tableau.
  * @customfunction
  *
- * @example
  *   =IMAGE(QR_CODE_WIFI("Livebox-1234"; "MonMotDePasse"))
  *   =IMAGE(QR_CODE_WIFI(A2:A100; "MotDePasseUnique"))
  */

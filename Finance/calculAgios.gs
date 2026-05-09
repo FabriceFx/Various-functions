@@ -31,7 +31,6 @@
  * @return {number|Array<Array<number>>}            Montant des agios ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =CALCUL_AGIOS(5000; 12; 15)
  *   =CALCUL_AGIOS(A2:A100; 12; 15)
  */

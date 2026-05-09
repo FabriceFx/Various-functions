@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}       Le numéro formaté ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =EXTRAIRE_TEL("Call +33612345678"; "FR") → "06 12 34 56 78"
  *   =EXTRAIRE_TEL(A2:A50)                    → [Tableau de résultats]
  */

@@ -30,7 +30,6 @@
  * @return {string|Array<Array<string>>}               "Anomalie" ou "Normal" (ou tableau de résultats).
  * @customfunction
  *
- * @example
  *   =DETECT_OUTLIER(C2; C$2:C$100)
  *   =DETECT_OUTLIER(C2:C10; C$2:C$100)
  */

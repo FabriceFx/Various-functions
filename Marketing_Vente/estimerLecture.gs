@@ -29,7 +29,6 @@
  * @return {string|Array<Array<string>>}       Temps estimé ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =ESTIMER_LECTURE(A2)
  *   =ESTIMER_LECTURE(A2:A100)
  */

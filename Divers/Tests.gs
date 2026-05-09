@@ -1,4 +1,4 @@
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Tests Unitaires — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -6,6 +6,7 @@
  *    Valide les fonctions critiques de la bibliothèque avant déploiement.
  *    Peut être exécuté manuellement depuis l'éditeur de script.
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**

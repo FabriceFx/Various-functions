@@ -29,7 +29,6 @@
  * @return {number}            La prévision pour la période N+1.
  * @customfunction
  *
- * @example
  *   =PREVISION_LISSAGE(B2:B12; 0.6)
  */
 function PREVISION_LISSAGE(plageHistorique, alpha = 0.5) {

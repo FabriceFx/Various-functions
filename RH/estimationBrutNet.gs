@@ -32,7 +32,6 @@
  * @return {number|Array<Array<number>>}           Le salaire estimé ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =ESTIMATION_BRUT_NET(3000; "Cadre"; "B2N")
  *   =ESTIMATION_BRUT_NET(A2:A50; "Non-Cadre")
  */

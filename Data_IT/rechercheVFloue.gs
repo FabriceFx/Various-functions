@@ -33,7 +33,6 @@
  * @return {any|Array<Array<any>>}                       La valeur trouvée ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =rechercheVFloue("Societe Generale"; A2:C100; 3)
  *   =rechercheVFloue(D2:D100; A2:C100; 2)
  */

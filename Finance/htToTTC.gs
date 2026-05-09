@@ -30,7 +30,6 @@
  * @return {number|Array<Array<number>>}           Le montant TTC ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =htToTTC(100; 20)  → 120
  *   =htToTTC(A2:A100; 20)
  */
@@ -55,7 +54,6 @@ function htToTTC(montantHT, tauxTVA) {
  * @return {number|Array<Array<number>>}           Le montant HT ou tableau de résultats.
  * @customfunction
  *
- * @example
  *   =ttcToHT(120; 20)  → 100
  *   =ttcToHT(A2:A100; 20)
  */
