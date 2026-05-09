@@ -21,7 +21,12 @@
  *   =SLUGIFY(A2:A100)
  */
 function SLUGIFY(texte) {
-  return FF_LIB.SLUGIFY(texte);
+  try {
+    return FF_LIB.SLUGIFY(texte);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: SLUGIFY', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -36,7 +41,12 @@ function SLUGIFY(texte) {
  *   =COULEUR_CELLULE(B2:B10)
  */
 function COULEUR_CELLULE(referenceCellule) {
-  return FF_LIB.COULEUR_CELLULE(referenceCellule);
+  try {
+    return FF_LIB.COULEUR_CELLULE(referenceCellule);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: COULEUR_CELLULE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -52,7 +62,12 @@ function COULEUR_CELLULE(referenceCellule) {
  *   =CAPITALISER(A2:A100)                       → [Tableau de résultats]
  */
 function CAPITALISER(texte) {
-  return FF_LIB.CAPITALISER(texte);
+  try {
+    return FF_LIB.CAPITALISER(texte);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CAPITALISER', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -68,7 +83,12 @@ function CAPITALISER(texte) {
  *   =PRIX_PSYCHOLOGIQUE(A2:A100; 95)
  */
 function PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison) {
-  return FF_LIB.PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison);
+  try {
+    return FF_LIB.PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: PRIX_PSYCHOLOGIQUE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -83,7 +103,12 @@ function PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison) {
  *   =DEBUT_MOIS(A2:A100)
  */
 function DEBUT_MOIS(date) {
-  return FF_LIB.DEBUT_MOIS(date);
+  try {
+    return FF_LIB.DEBUT_MOIS(date);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DEBUT_MOIS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -98,7 +123,12 @@ function DEBUT_MOIS(date) {
  *   =FIN_MOIS(A2:A100)
  */
 function FIN_MOIS(date) {
-  return FF_LIB.FIN_MOIS(date);
+  try {
+    return FF_LIB.FIN_MOIS(date);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: FIN_MOIS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -113,7 +143,12 @@ function FIN_MOIS(date) {
  *   =NB_JOURS_MOIS(A2:A100)
  */
 function NB_JOURS_MOIS(date) {
-  return FF_LIB.NB_JOURS_MOIS(date);
+  try {
+    return FF_LIB.NB_JOURS_MOIS(date);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: NB_JOURS_MOIS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -128,7 +163,12 @@ function NB_JOURS_MOIS(date) {
  *   =NOM_MOIS(A2:A100)
  */
 function NOM_MOIS(date) {
-  return FF_LIB.NOM_MOIS(date);
+  try {
+    return FF_LIB.NOM_MOIS(date);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: NOM_MOIS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -144,7 +184,12 @@ function NOM_MOIS(date) {
  *   =EXTRAIRE_DOMAINE(A2:A50)                           → [Tableau de résultats]
  */
 function EXTRAIRE_DOMAINE(url) {
-  return FF_LIB.EXTRAIRE_DOMAINE(url);
+  try {
+    return FF_LIB.EXTRAIRE_DOMAINE(url);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: EXTRAIRE_DOMAINE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -162,7 +207,12 @@ function EXTRAIRE_DOMAINE(url) {
  *   =PROJECT_SPI(A2:A100; "2025-12-31"; 0.8)
  */
 function PROJECT_SPI(dateDebut, dateFin, progressionReelle, dateActuelle) {
-  return FF_LIB.PROJECT_SPI(dateDebut, dateFin, progressionReelle, dateActuelle);
+  try {
+    return FF_LIB.PROJECT_SPI(dateDebut, dateFin, progressionReelle, dateActuelle);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: PROJECT_SPI', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -171,7 +221,12 @@ function PROJECT_SPI(dateDebut, dateFin, progressionReelle, dateActuelle) {
  * @customfunction
  */
 function CALENDAR_OOO_DRAFTER() {
-  return FF_LIB.CALENDAR_OOO_DRAFTER();
+  try {
+    return FF_LIB.CALENDAR_OOO_DRAFTER();
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CALENDAR_OOO_DRAFTER', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -187,7 +242,12 @@ function CALENDAR_OOO_DRAFTER() {
  *   =NORMALISER(A2:A100)
  */
 function NORMALISER(texte) {
-  return FF_LIB.NORMALISER(texte);
+  try {
+    return FF_LIB.NORMALISER(texte);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: NORMALISER', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -202,7 +262,12 @@ function NORMALISER(texte) {
  *   =SUPPRIMER_ACCENTS(A2:A100)
  */
 function SUPPRIMER_ACCENTS(texte) {
-  return FF_LIB.SUPPRIMER_ACCENTS(texte);
+  try {
+    return FF_LIB.SUPPRIMER_ACCENTS(texte);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: SUPPRIMER_ACCENTS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -217,7 +282,12 @@ function SUPPRIMER_ACCENTS(texte) {
  *   =SUPPRIMER_ESPACES(A2:A100)
  */
 function SUPPRIMER_ESPACES(texte) {
-  return FF_LIB.SUPPRIMER_ESPACES(texte);
+  try {
+    return FF_LIB.SUPPRIMER_ESPACES(texte);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: SUPPRIMER_ESPACES', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -232,7 +302,12 @@ function SUPPRIMER_ESPACES(texte) {
  *   =TEXT_SIMILARITY("Google Sheets"; "Google Shet") → 0.92
  */
 function TEXT_SIMILARITY(texte1, texte2) {
-  return FF_LIB.TEXT_SIMILARITY(texte1, texte2);
+  try {
+    return FF_LIB.TEXT_SIMILARITY(texte1, texte2);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: TEXT_SIMILARITY', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -243,7 +318,12 @@ function TEXT_SIMILARITY(texte1, texte2) {
  * @customfunction
  */
 function JOURS_FERIES(annee) {
-  return FF_LIB.JOURS_FERIES(annee);
+  try {
+    return FF_LIB.JOURS_FERIES(annee);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: JOURS_FERIES', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -254,7 +334,12 @@ function JOURS_FERIES(annee) {
  * @customfunction
  */
 function JOURS_FERIES_AVEC_JOUR(annee) {
-  return FF_LIB.JOURS_FERIES_AVEC_JOUR(annee);
+  try {
+    return FF_LIB.JOURS_FERIES_AVEC_JOUR(annee);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: JOURS_FERIES_AVEC_JOUR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -269,7 +354,12 @@ function JOURS_FERIES_AVEC_JOUR(annee) {
  *   =PREVISION_LISSAGE(B2:B12; 0.6)
  */
 function PREVISION_LISSAGE(plageHistorique, alpha) {
-  return FF_LIB.PREVISION_LISSAGE(plageHistorique, alpha);
+  try {
+    return FF_LIB.PREVISION_LISSAGE(plageHistorique, alpha);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: PREVISION_LISSAGE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -286,7 +376,12 @@ function PREVISION_LISSAGE(plageHistorique, alpha) {
  *   =EXTRAIRE_INITIALES(A2:A50; FAUX)                        → [Tableau de résultats]
  */
 function EXTRAIRE_INITIALES(texte, avecParticules) {
-  return FF_LIB.EXTRAIRE_INITIALES(texte, avecParticules);
+  try {
+    return FF_LIB.EXTRAIRE_INITIALES(texte, avecParticules);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: EXTRAIRE_INITIALES', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -303,7 +398,12 @@ function EXTRAIRE_INITIALES(texte, avecParticules) {
  *   =IMAGE(QR_CODE_WIFI(A2:A100; "MotDePasseUnique"))
  */
 function QR_CODE_WIFI(ssid, motDePasse, securite) {
-  return FF_LIB.QR_CODE_WIFI(ssid, motDePasse, securite);
+  try {
+    return FF_LIB.QR_CODE_WIFI(ssid, motDePasse, securite);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: QR_CODE_WIFI', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -319,7 +419,12 @@ function QR_CODE_WIFI(ssid, motDePasse, securite) {
  *   =JOURS_OUVRES(A2:A100; "2026-12-31")
  */
 function JOURS_OUVRES(dateDebut, dateFin) {
-  return FF_LIB.JOURS_OUVRES(dateDebut, dateFin);
+  try {
+    return FF_LIB.JOURS_OUVRES(dateDebut, dateFin);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: JOURS_OUVRES', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -330,7 +435,12 @@ function JOURS_OUVRES(dateDebut, dateFin) {
  * @customfunction
  */
 function EST_JOUR_FERIE_FR(date) {
-  return FF_LIB.EST_JOUR_FERIE_FR(date);
+  try {
+    return FF_LIB.EST_JOUR_FERIE_FR(date);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: EST_JOUR_FERIE_FR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -346,7 +456,12 @@ function EST_JOUR_FERIE_FR(date) {
  *   =DEADLINE_STATUS(A2:A100)
  */
 function DEADLINE_STATUS(dateEcheance, dateRef) {
-  return FF_LIB.DEADLINE_STATUS(dateEcheance, dateRef);
+  try {
+    return FF_LIB.DEADLINE_STATUS(dateEcheance, dateRef);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DEADLINE_STATUS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -355,7 +470,12 @@ function DEADLINE_STATUS(dateEcheance, dateRef) {
  * @customfunction
  */
 function FF_VERSION() {
-  return FF_LIB.FF_VERSION();
+  try {
+    return FF_LIB.FF_VERSION();
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: FF_VERSION', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -371,7 +491,12 @@ function FF_VERSION() {
  *   =CENSURE_MOTS(A2:A100; "urgent")
  */
 function CENSURE_MOTS(texte, motsSupplementaires) {
-  return FF_LIB.CENSURE_MOTS(texte, motsSupplementaires);
+  try {
+    return FF_LIB.CENSURE_MOTS(texte, motsSupplementaires);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CENSURE_MOTS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -387,7 +512,12 @@ function CENSURE_MOTS(texte, motsSupplementaires) {
  *   =NOM_FICHIER_PROPRE(A2:A100)
  */
 function NOM_FICHIER_PROPRE(texte, remplacement) {
-  return FF_LIB.NOM_FICHIER_PROPRE(texte, remplacement);
+  try {
+    return FF_LIB.NOM_FICHIER_PROPRE(texte, remplacement);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: NOM_FICHIER_PROPRE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -402,7 +532,12 @@ function NOM_FICHIER_PROPRE(texte, remplacement) {
  *   =PROCHAIN_FERIE(A2:A100)
  */
 function PROCHAIN_FERIE(dateRef) {
-  return FF_LIB.PROCHAIN_FERIE(dateRef);
+  try {
+    return FF_LIB.PROCHAIN_FERIE(dateRef);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: PROCHAIN_FERIE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -418,7 +553,12 @@ function PROCHAIN_FERIE(dateRef) {
  *   =FREQUENCE_MOTS(A2:A100; VRAI; 20)
  */
 function FREQUENCE_MOTS(plage, exclureLiaison, topN) {
-  return FF_LIB.FREQUENCE_MOTS(plage, exclureLiaison, topN);
+  try {
+    return FF_LIB.FREQUENCE_MOTS(plage, exclureLiaison, topN);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: FREQUENCE_MOTS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -433,7 +573,12 @@ function FREQUENCE_MOTS(plage, exclureLiaison, topN) {
  *   =VERIF_EMAIL(A2:A100)                      → [Tableau de résultats]
  */
 function VERIF_EMAIL(email) {
-  return FF_LIB.VERIF_EMAIL(email);
+  try {
+    return FF_LIB.VERIF_EMAIL(email);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VERIF_EMAIL', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -447,7 +592,12 @@ function VERIF_EMAIL(email) {
  *   =EXTRAIRE_EMAIL(B2:B50)                              → [Tableau de résultats]
  */
 function EXTRAIRE_EMAIL(texte) {
-  return FF_LIB.EXTRAIRE_EMAIL(texte);
+  try {
+    return FF_LIB.EXTRAIRE_EMAIL(texte);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: EXTRAIRE_EMAIL', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -463,7 +613,12 @@ function EXTRAIRE_EMAIL(texte) {
  *   =EXTRAIRE_JSON(A2:A100; "status")
  */
 function EXTRAIRE_JSON(chaineJSON, chemin) {
-  return FF_LIB.EXTRAIRE_JSON(chaineJSON, chemin);
+  try {
+    return FF_LIB.EXTRAIRE_JSON(chaineJSON, chemin);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: EXTRAIRE_JSON', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -479,7 +634,12 @@ function EXTRAIRE_JSON(chaineJSON, chemin) {
  *   =VERIF_GDPR_RETENTION(A2:A100; 12)
  */
 function VERIF_GDPR_RETENTION(dateDonnee, dureeMois) {
-  return FF_LIB.VERIF_GDPR_RETENTION(dateDonnee, dureeMois);
+  try {
+    return FF_LIB.VERIF_GDPR_RETENTION(dateDonnee, dureeMois);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VERIF_GDPR_RETENTION', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -492,7 +652,12 @@ function VERIF_GDPR_RETENTION(dateDonnee, dureeMois) {
  *
  */
 function MASK_PII(input) {
-  return FF_LIB.MASK_PII(input);
+  try {
+    return FF_LIB.MASK_PII(input);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: MASK_PII', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -508,7 +673,12 @@ function MASK_PII(input) {
  *   =GENERER_MOT_DE_PASSE(16; VRAI; VRAI; FAUX)
  */
 function GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux) {
-  return FF_LIB.GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux);
+  try {
+    return FF_LIB.GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: GENERER_MOT_DE_PASSE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -523,7 +693,12 @@ function GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux) {
  *   =VERIF_NIR(A2:A100)
  */
 function VERIF_NIR(nir) {
-  return FF_LIB.VERIF_NIR(nir);
+  try {
+    return FF_LIB.VERIF_NIR(nir);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VERIF_NIR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -541,7 +716,12 @@ function VERIF_NIR(nir) {
  *   =RECHERCHEV_MULTI(F2:F10; A2:B100; 2)
  */
 function RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur) {
-  return FF_LIB.RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur);
+  try {
+    return FF_LIB.RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: RECHERCHEV_MULTI', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -557,7 +737,12 @@ function RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur) {
  *   =CLEAN_HTML(A2:A100)
  */
 function CLEAN_HTML(texte) {
-  return FF_LIB.CLEAN_HTML(texte);
+  try {
+    return FF_LIB.CLEAN_HTML(texte);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CLEAN_HTML', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -574,7 +759,12 @@ function CLEAN_HTML(texte) {
  *   =REGEX_EXTRAIRE_TOUT(A2:A100; "#[a-zA-Z0-9]+")
  */
 function REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur) {
-  return FF_LIB.REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur);
+  try {
+    return FF_LIB.REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: REGEX_EXTRAIRE_TOUT', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -590,7 +780,12 @@ function REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur) {
  *   =VERIF_SIRET(A2:A100)
  */
 function VERIF_SIRET(numero) {
-  return FF_LIB.VERIF_SIRET(numero);
+  try {
+    return FF_LIB.VERIF_SIRET(numero);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VERIF_SIRET', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -605,7 +800,12 @@ function VERIF_SIRET(numero) {
  *   =VERIF_SIREN(A2:A100)
  */
 function VERIF_SIREN(numero) {
-  return FF_LIB.VERIF_SIREN(numero);
+  try {
+    return FF_LIB.VERIF_SIREN(numero);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VERIF_SIREN', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -620,7 +820,12 @@ function VERIF_SIREN(numero) {
  *   =PARSER_ADRESSE_FR(A2:A100)
  */
 function PARSER_ADRESSE_FR(adresse) {
-  return FF_LIB.PARSER_ADRESSE_FR(adresse);
+  try {
+    return FF_LIB.PARSER_ADRESSE_FR(adresse);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: PARSER_ADRESSE_FR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -633,7 +838,12 @@ function PARSER_ADRESSE_FR(adresse) {
  *   =NORMALISER_ADRESSE_FR("8 r de la paix pari") → "8 Rue de la Paix, 75002 Paris"
  */
 function NORMALISER_ADRESSE_FR(adresse) {
-  return FF_LIB.NORMALISER_ADRESSE_FR(adresse);
+  try {
+    return FF_LIB.NORMALISER_ADRESSE_FR(adresse);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: NORMALISER_ADRESSE_FR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -644,7 +854,12 @@ function NORMALISER_ADRESSE_FR(adresse) {
  * @customfunction
  */
 function DRIVE_PERMISSION_AUDITOR(fileId) {
-  return FF_LIB.DRIVE_PERMISSION_AUDITOR(fileId);
+  try {
+    return FF_LIB.DRIVE_PERMISSION_AUDITOR(fileId);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DRIVE_PERMISSION_AUDITOR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -655,7 +870,12 @@ function DRIVE_PERMISSION_AUDITOR(fileId) {
  * @customfunction
  */
 function WORKSPACE_USER_HEALTH(email) {
-  return FF_LIB.WORKSPACE_USER_HEALTH(email);
+  try {
+    return FF_LIB.WORKSPACE_USER_HEALTH(email);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: WORKSPACE_USER_HEALTH', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -673,7 +893,12 @@ function WORKSPACE_USER_HEALTH(email) {
  *   =RECHERCHE_V_FLOUE(D2:D100; A2:C100; 2)
  */
 function RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil) {
-  return FF_LIB.RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil);
+  try {
+    return FF_LIB.RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: RECHERCHE_V_FLOUE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -688,7 +913,12 @@ function RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil) {
  *   =DECODE_SAFE_URL(A2:A100)
  */
 function DECODE_SAFE_URL(url) {
-  return FF_LIB.DECODE_SAFE_URL(url);
+  try {
+    return FF_LIB.DECODE_SAFE_URL(url);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DECODE_SAFE_URL', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -703,7 +933,12 @@ function DECODE_SAFE_URL(url) {
  *   =VERIF_CB(A2:A100)
  */
 function VERIF_CB(numero) {
-  return FF_LIB.VERIF_CB(numero);
+  try {
+    return FF_LIB.VERIF_CB(numero);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VERIF_CB', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -714,7 +949,12 @@ function VERIF_CB(numero) {
  * @customfunction
  */
 function DETECT_RESEAU(numero) {
-  return FF_LIB.DETECT_RESEAU(numero);
+  try {
+    return FF_LIB.DETECT_RESEAU(numero);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DETECT_RESEAU', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -725,7 +965,12 @@ function DETECT_RESEAU(numero) {
  * @customfunction
  */
 function DETECT_PII(input) {
-  return FF_LIB.DETECT_PII(input);
+  try {
+    return FF_LIB.DETECT_PII(input);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DETECT_PII', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -741,7 +986,12 @@ function DETECT_PII(input) {
  *   =ENTROPY_SCORE(A2:A100)
  */
 function ENTROPY_SCORE(texte) {
-  return FF_LIB.ENTROPY_SCORE(texte);
+  try {
+    return FF_LIB.ENTROPY_SCORE(texte);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: ENTROPY_SCORE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -758,7 +1008,12 @@ function ENTROPY_SCORE(texte) {
  *   =DETECT_OUTLIER(C2:C10; C$2:C$100)
  */
 function DETECT_OUTLIER(valeur, plageDonnees, seuilZ) {
-  return FF_LIB.DETECT_OUTLIER(valeur, plageDonnees, seuilZ);
+  try {
+    return FF_LIB.DETECT_OUTLIER(valeur, plageDonnees, seuilZ);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DETECT_OUTLIER', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -776,7 +1031,12 @@ function DETECT_OUTLIER(valeur, plageDonnees, seuilZ) {
  *   =PREAVIS_CONTRAT(A2:A100; ; "Employé"; "Licenciement")
  */
 function PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type) {
-  return FF_LIB.PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type);
+  try {
+    return FF_LIB.PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: PREAVIS_CONTRAT', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -793,7 +1053,12 @@ function PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type) {
  *   =SOLDE_CONGES(A2:A100)
  */
 function SOLDE_CONGES(dateEntree, dateFin, joursParMois) {
-  return FF_LIB.SOLDE_CONGES(dateEntree, dateFin, joursParMois);
+  try {
+    return FF_LIB.SOLDE_CONGES(dateEntree, dateFin, joursParMois);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: SOLDE_CONGES', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -810,7 +1075,12 @@ function SOLDE_CONGES(dateEntree, dateFin, joursParMois) {
  *   =FIN_PERIODE_ESSAI(A2:A100; "Ouvrier")
  */
 function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement) {
-  return FF_LIB.FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement);
+  try {
+    return FF_LIB.FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: FIN_PERIODE_ESSAI', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -827,7 +1097,12 @@ function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement) {
  *   =DUREE_PERIODE_ESSAI("Ouvrier")      → "2 mois"
  */
 function DUREE_PERIODE_ESSAI(statut, renouvellement) {
-  return FF_LIB.DUREE_PERIODE_ESSAI(statut, renouvellement);
+  try {
+    return FF_LIB.DUREE_PERIODE_ESSAI(statut, renouvellement);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DUREE_PERIODE_ESSAI', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -845,7 +1120,12 @@ function DUREE_PERIODE_ESSAI(statut, renouvellement) {
  *   =ESTIMATION_BRUT_NET(A2:A50; "Non-Cadre")
  */
 function ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise) {
-  return FF_LIB.ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise);
+  try {
+    return FF_LIB.ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: ESTIMATION_BRUT_NET', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -861,7 +1141,12 @@ function ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise) {
  *   =COUT_EMPLOYEUR(A2:A100)
  */
 function COUT_EMPLOYEUR(salaireBrut, statut) {
-  return FF_LIB.COUT_EMPLOYEUR(salaireBrut, statut);
+  try {
+    return FF_LIB.COUT_EMPLOYEUR(salaireBrut, statut);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: COUT_EMPLOYEUR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -874,7 +1159,12 @@ function COUT_EMPLOYEUR(salaireBrut, statut) {
  * @customfunction
  */
 function AGE_EXACT(dateNaissance, dateRef) {
-  return FF_LIB.AGE_EXACT(dateNaissance, dateRef);
+  try {
+    return FF_LIB.AGE_EXACT(dateNaissance, dateRef);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: AGE_EXACT', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -891,7 +1181,12 @@ function AGE_EXACT(dateNaissance, dateRef) {
  *   =IS_BUSINESS_HOUR(A2:A50)
  */
 function IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin) {
-  return FF_LIB.IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin);
+  try {
+    return FF_LIB.IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: IS_BUSINESS_HOUR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -907,7 +1202,12 @@ function IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin) {
  *   =ANCIENNETE_PRO(A2:A100)
  */
 function ANCIENNETE_PRO(dateDebut, dateFin) {
-  return FF_LIB.ANCIENNETE_PRO(dateDebut, dateFin);
+  try {
+    return FF_LIB.ANCIENNETE_PRO(dateDebut, dateFin);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: ANCIENNETE_PRO', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -923,7 +1223,12 @@ function ANCIENNETE_PRO(dateDebut, dateFin) {
  *   =PRORATA_SALAIRE(3000; "2026-05-12"; "2026-05-31")
  */
 function PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin) {
-  return FF_LIB.PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin);
+  try {
+    return FF_LIB.PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: PRORATA_SALAIRE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -940,7 +1245,12 @@ function PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin) {
  *   =DELAI_PREVENANCE(A2:A100)
  */
 function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur) {
-  return FF_LIB.DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur);
+  try {
+    return FF_LIB.DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DELAI_PREVENANCE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -969,7 +1279,12 @@ function LOG_ERREUR(message, contexte, gravite) {
  *   =HT_TO_TTC(A2:A100; 20)
  */
 function HT_TO_TTC(montantHT, tauxTVA) {
-  return FF_LIB.HT_TO_TTC(montantHT, tauxTVA);
+  try {
+    return FF_LIB.HT_TO_TTC(montantHT, tauxTVA);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: HT_TO_TTC', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -985,7 +1300,12 @@ function HT_TO_TTC(montantHT, tauxTVA) {
  *   =TTC_TO_HT(A2:A100; 20)
  */
 function TTC_TO_HT(montantTTC, tauxTVA) {
-  return FF_LIB.TTC_TO_HT(montantTTC, tauxTVA);
+  try {
+    return FF_LIB.TTC_TO_HT(montantTTC, tauxTVA);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: TTC_TO_HT', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1000,7 +1320,12 @@ function TTC_TO_HT(montantTTC, tauxTVA) {
  *   =VERIF_TVA(A2:A100)
  */
 function VERIF_TVA(numero) {
-  return FF_LIB.VERIF_TVA(numero);
+  try {
+    return FF_LIB.VERIF_TVA(numero);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VERIF_TVA', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1018,7 +1343,12 @@ function VERIF_TVA(numero) {
  *   =SEUIL_RENTABILITE(A2:A100; 50; 20)
  */
 function SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour) {
-  return FF_LIB.SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour);
+  try {
+    return FF_LIB.SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: SEUIL_RENTABILITE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1036,7 +1366,12 @@ function SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeReto
  *   =AMORTISSEMENT_LINEAIRE(A2:A100; 5; "2024-01-01"; 2025)
  */
 function AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice) {
-  return FF_LIB.AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice);
+  try {
+    return FF_LIB.AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: AMORTISSEMENT_LINEAIRE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1054,7 +1389,12 @@ function AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice) {
  *   =MONTANT_EN_LETTRES(1234.56; "EN") → "one thousand two hundred thirty-four dollars and fifty-six cents"
  */
 function MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes) {
-  return FF_LIB.MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes);
+  try {
+    return FF_LIB.MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: MONTANT_EN_LETTRES', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1071,7 +1411,12 @@ function MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes) {
  *   =VENTILATION_TVA(A2:A100; "REDUIT")
  */
 function VENTILATION_TVA(montantTTC, categorie, retour) {
-  return FF_LIB.VENTILATION_TVA(montantTTC, categorie, retour);
+  try {
+    return FF_LIB.VENTILATION_TVA(montantTTC, categorie, retour);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VENTILATION_TVA', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1087,7 +1432,12 @@ function VENTILATION_TVA(montantTTC, categorie, retour) {
  *   =ARRONDI_COMPTABLE(A2:A100; 2)
  */
 function ARRONDI_COMPTABLE(nombre, decimales) {
-  return FF_LIB.ARRONDI_COMPTABLE(nombre, decimales);
+  try {
+    return FF_LIB.ARRONDI_COMPTABLE(nombre, decimales);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: ARRONDI_COMPTABLE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1105,7 +1455,12 @@ function ARRONDI_COMPTABLE(nombre, decimales) {
  *   =PENALITES_RETARD(A2:A100; "2024-01-01")
  */
 function PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge) {
-  return FF_LIB.PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge);
+  try {
+    return FF_LIB.PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: PENALITES_RETARD', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1123,7 +1478,12 @@ function PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge) {
  *   =CALCUL_AGIOS(A2:A100; 12; 15)
  */
 function CALCUL_AGIOS(montant, tauxAnnuel, nbJours) {
-  return FF_LIB.CALCUL_AGIOS(montant, tauxAnnuel, nbJours);
+  try {
+    return FF_LIB.CALCUL_AGIOS(montant, tauxAnnuel, nbJours);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CALCUL_AGIOS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1134,7 +1494,12 @@ function CALCUL_AGIOS(montant, tauxAnnuel, nbJours) {
  * @customfunction
  */
 function VERIF_IBAN(iban) {
-  return FF_LIB.VERIF_IBAN(iban);
+  try {
+    return FF_LIB.VERIF_IBAN(iban);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VERIF_IBAN', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1145,7 +1510,12 @@ function VERIF_IBAN(iban) {
  * @customfunction
  */
 function FORMAT_IBAN(iban) {
-  return FF_LIB.FORMAT_IBAN(iban);
+  try {
+    return FF_LIB.FORMAT_IBAN(iban);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: FORMAT_IBAN', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1161,7 +1531,12 @@ function FORMAT_IBAN(iban) {
  *   =ESTIMER_LIVRAISON(A2:A100; "75001")
  */
 function ESTIMER_LIVRAISON(dateDepart, codePostal) {
-  return FF_LIB.ESTIMER_LIVRAISON(dateDepart, codePostal);
+  try {
+    return FF_LIB.ESTIMER_LIVRAISON(dateDepart, codePostal);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: ESTIMER_LIVRAISON', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1176,7 +1551,12 @@ function ESTIMER_LIVRAISON(dateDepart, codePostal) {
  *   =CLE_EAN13(A2:A100)
  */
 function CLE_EAN13(code12Chiffres) {
-  return FF_LIB.CLE_EAN13(code12Chiffres);
+  try {
+    return FF_LIB.CLE_EAN13(code12Chiffres);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CLE_EAN13', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1192,7 +1572,12 @@ function CLE_EAN13(code12Chiffres) {
  *   =CO2_TRANSPORT(A2:A100; "voiture")
  */
 function CO2_TRANSPORT(km, modeTransport) {
-  return FF_LIB.CO2_TRANSPORT(km, modeTransport);
+  try {
+    return FF_LIB.CO2_TRANSPORT(km, modeTransport);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CO2_TRANSPORT', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1203,7 +1588,12 @@ function CO2_TRANSPORT(km, modeTransport) {
  * @customfunction
  */
 function CO2_FLIGHT_ESTIMATOR(codeDep, codeArr) {
-  return FF_LIB.CO2_FLIGHT_ESTIMATOR(codeDep, codeArr);
+  try {
+    return FF_LIB.CO2_FLIGHT_ESTIMATOR(codeDep, codeArr);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CO2_FLIGHT_ESTIMATOR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1222,7 +1612,12 @@ function CO2_FLIGHT_ESTIMATOR(codeDep, codeArr) {
  *   =CALCUL_VOLUMETRIE(A2:A100; 40; 30)
  */
 function CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol) {
-  return FF_LIB.CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol);
+  try {
+    return FF_LIB.CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CALCUL_VOLUMETRIE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1239,7 +1634,12 @@ function CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol) {
  *   =ALERTE_STOCK(A2:A100; 10)
  */
 function ALERTE_STOCK(stockActuel, seuilMini, ventesParJour) {
-  return FF_LIB.ALERTE_STOCK(stockActuel, seuilMini, ventesParJour);
+  try {
+    return FF_LIB.ALERTE_STOCK(stockActuel, seuilMini, ventesParJour);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: ALERTE_STOCK', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1256,7 +1656,12 @@ function ALERTE_STOCK(stockActuel, seuilMini, ventesParJour) {
  *   =QUANTITE_OPTIMALE(A2:A100; 50; 2)
  */
 function QUANTITE_OPTIMALE(demandeAnnuelle, coutCommande, coutStockageUnitaire) {
-  return FF_LIB.QUANTITE_OPTIMALE(demandeAnnuelle, coutCommande, coutStockageUnitaire);
+  try {
+    return FF_LIB.QUANTITE_OPTIMALE(demandeAnnuelle, coutCommande, coutStockageUnitaire);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: QUANTITE_OPTIMALE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1271,7 +1676,12 @@ function QUANTITE_OPTIMALE(demandeAnnuelle, coutCommande, coutStockageUnitaire) 
  *   =ANALYSE_SENTIMENT(A2:A100)
  */
 function ANALYSE_SENTIMENT(texte) {
-  return FF_LIB.ANALYSE_SENTIMENT(texte);
+  try {
+    return FF_LIB.ANALYSE_SENTIMENT(texte);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: ANALYSE_SENTIMENT', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1288,7 +1698,12 @@ function ANALYSE_SENTIMENT(texte) {
  *   =EXTRAIRE_TEL(A2:A50)                    → [Tableau de résultats]
  */
 function EXTRAIRE_TEL(texte, pays) {
-  return FF_LIB.EXTRAIRE_TEL(texte, pays);
+  try {
+    return FF_LIB.EXTRAIRE_TEL(texte, pays);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: EXTRAIRE_TEL', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1304,7 +1719,12 @@ function EXTRAIRE_TEL(texte, pays) {
  *   =ESTIMER_LECTURE(A2:A100)
  */
 function ESTIMER_LECTURE(texte, motsParMinute) {
-  return FF_LIB.ESTIMER_LECTURE(texte, motsParMinute);
+  try {
+    return FF_LIB.ESTIMER_LECTURE(texte, motsParMinute);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: ESTIMER_LECTURE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1320,7 +1740,12 @@ function ESTIMER_LECTURE(texte, motsParMinute) {
  *   =IMAGE(QR_CODE_URL(A2:A100))
  */
 function QR_CODE_URL(texte, taille) {
-  return FF_LIB.QR_CODE_URL(texte, taille);
+  try {
+    return FF_LIB.QR_CODE_URL(texte, taille);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: QR_CODE_URL', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1336,7 +1761,12 @@ function QR_CODE_URL(texte, taille) {
  *   =CLEAN_LINKEDIN_URL(A2:A100)
  */
 function CLEAN_LINKEDIN_URL(url) {
-  return FF_LIB.CLEAN_LINKEDIN_URL(url);
+  try {
+    return FF_LIB.CLEAN_LINKEDIN_URL(url);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CLEAN_LINKEDIN_URL', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1348,7 +1778,12 @@ function CLEAN_LINKEDIN_URL(url) {
  * @customfunction
  */
 function SEO_LISIBILITE_FLESCH(input) {
-  return FF_LIB.SEO_LISIBILITE_FLESCH(input);
+  try {
+    return FF_LIB.SEO_LISIBILITE_FLESCH(input);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: SEO_LISIBILITE_FLESCH', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1360,7 +1795,12 @@ function SEO_LISIBILITE_FLESCH(input) {
  * @customfunction
  */
 function SEO_MOTS_CLES_DENSITE(input, motCle) {
-  return FF_LIB.SEO_MOTS_CLES_DENSITE(input, motCle);
+  try {
+    return FF_LIB.SEO_MOTS_CLES_DENSITE(input, motCle);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: SEO_MOTS_CLES_DENSITE', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1371,7 +1811,12 @@ function SEO_MOTS_CLES_DENSITE(input, motCle) {
  * @customfunction
  */
 function GEO_STRUCTURE_CHECK(urlOrHtml) {
-  return FF_LIB.GEO_STRUCTURE_CHECK(urlOrHtml);
+  try {
+    return FF_LIB.GEO_STRUCTURE_CHECK(urlOrHtml);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: GEO_STRUCTURE_CHECK', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1382,7 +1827,12 @@ function GEO_STRUCTURE_CHECK(urlOrHtml) {
  * @customfunction
  */
 function GEO_SCHEMA_DETECTOR(url) {
-  return FF_LIB.GEO_SCHEMA_DETECTOR(url);
+  try {
+    return FF_LIB.GEO_SCHEMA_DETECTOR(url);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: GEO_SCHEMA_DETECTOR', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1402,7 +1852,12 @@ function GEO_SCHEMA_DETECTOR(url) {
  *   =CONSTRUCTEUR_UTM(A2:A100; "google"; "cpc"; "soldes")
  */
 function CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu) {
-  return FF_LIB.CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu);
+  try {
+    return FF_LIB.CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CONSTRUCTEUR_UTM', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1418,7 +1873,12 @@ function CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu) {
  *   =SLA_STATUS(A2:A100; 24)
  */
 function SLA_STATUS(dateReception, delaiMaxHeures) {
-  return FF_LIB.SLA_STATUS(dateReception, delaiMaxHeures);
+  try {
+    return FF_LIB.SLA_STATUS(dateReception, delaiMaxHeures);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: SLA_STATUS', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1435,7 +1895,12 @@ function SLA_STATUS(dateReception, delaiMaxHeures) {
  *   =SCORE_LEAD(A2:A100; "IT"; "Direct")
  */
 function SCORE_LEAD(budget, secteur, source) {
-  return FF_LIB.SCORE_LEAD(budget, secteur, source);
+  try {
+    return FF_LIB.SCORE_LEAD(budget, secteur, source);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: SCORE_LEAD', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1451,7 +1916,12 @@ function SCORE_LEAD(budget, secteur, source) {
  *   =EXTRACT_TITLE_TAG(A2:A50; VRAI) // Force le rafraîchissement
  */
 function EXTRACT_TITLE_TAG(url, bypassCache) {
-  return FF_LIB.EXTRACT_TITLE_TAG(url, bypassCache);
+  try {
+    return FF_LIB.EXTRACT_TITLE_TAG(url, bypassCache);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: EXTRACT_TITLE_TAG', 'ERROR');
+    throw e;
+  }
 }
 
 /**
@@ -1473,5 +1943,10 @@ function EXTRACT_TITLE_TAG(url, bypassCache) {
  * @customfunction
  */
 function ENVOYER_EMAIL(to, subject, body, options) {
-  return FF_LIB.ENVOYER_EMAIL(to, subject, body, options);
+  try {
+    return FF_LIB.ENVOYER_EMAIL(to, subject, body, options);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: ENVOYER_EMAIL', 'ERROR');
+    throw e;
+  }
 }
