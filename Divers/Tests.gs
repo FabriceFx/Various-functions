@@ -40,6 +40,37 @@ function RUN_ALL_TESTS() {
     return res > 100;
   });
 
+  // Test CO2_FLIGHT_ESTIMATOR (CDG -> JFK ~ 5800km)
+  tests.it("doit estimer le CO2 d'un vol long-courrier", () => {
+    const res = CO2_FLIGHT_ESTIMATOR("CDG", "JFK");
+    return res.includes("58") && res.includes("kg"); // Distance ~5800km
+  });
+
+  // Test verifIBAN
+  tests.it("doit valider un IBAN français correct", () => {
+    const res = verifIBAN("FR76 3000 6000 0112 3456 7890 189");
+    return res === "VALIDE";
+  });
+
+  // Test verifNIR (NIR fictif valide pour le calcul de clé)
+  tests.it("doit valider un NIR (n° sécu) correct", () => {
+    const res = verifNIR("1 85 01 78 006 084 19");
+    return res === "VALIDE";
+  });
+
+  // Test GEO_STRUCTURE_CHECK
+  tests.it("doit détecter une structure H1 unique", () => {
+    const html = "<html><h1>Titre</h1><p>Texte</p></html>";
+    const res = GEO_STRUCTURE_CHECK(html);
+    return res.includes("H1: 1") && res.includes("Structure OK");
+  });
+
+  // Test UI_PROGRESS_SPARKLINE
+  tests.it("doit générer une formule Sparkline correcte", () => {
+    const res = UI_PROGRESS_SPARKLINE(50, 100, "#FF0000");
+    return res.includes("SPARKLINE") && res.includes("#FF0000");
+  });
+
   // Résumé
   tests.summary();
 }
