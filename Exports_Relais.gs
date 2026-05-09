@@ -911,6 +911,22 @@ function ANCIENNETE_PRO(dateDebut, dateFin) {
 }
 
 /**
+ * Calcule le prorata de salaire mensuel selon les jours ouvrés réels.
+ * Formule : Salaire * (Jours ouvrés travaillés / Jours ouvrés totaux du mois)
+ *
+ * @param {number|Array<Array<number>>} salaireMensuel Salaire brut mensuel.
+ * @param {Date|string}                dateDebut      Date de début de présence dans le mois.
+ * @param {Date|string}                dateFin        Date de fin de présence dans le mois.
+ * @return {number|Array<Array<number>>}               Salaire proratisé.
+ * @customfunction
+ *
+ *   =PRORATA_SALAIRE(3000; "2026-05-12"; "2026-05-31")
+ */
+function PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin) {
+  return FF.PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin);
+}
+
+/**
  * Calcule le délai de prévenance légal pour une rupture de période d'essai.
  * Supporte le traitement par lot (plages de cellules).
  *
