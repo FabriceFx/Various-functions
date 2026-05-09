@@ -3,8 +3,8 @@
  *  Configuration Globale — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
  *  Auteur  : Fabrice Faucheux
- *  Version : 1.1
- *  Date    : 2026-05-08
+ *  Version : 2.1.0
+ *  Date    : 2026-05-09
  *
  *  Description :
  *    Centralise les constantes, les listes de mots et les utilitaires partagés
@@ -12,7 +12,17 @@
  * ════════════════════════════════════════════════════════════════════════════
  */
 
+/**
+ * Retourne la version actuelle de la bibliothèque.
+ * @return {string} Version (ex: "2.1.0").
+ * @customfunction
+ */
+function FF_VERSION() {
+  return CONFIG.LIBRARY_VERSION;
+}
+
 const CONFIG = {
+  LIBRARY_VERSION: "2.1.0",
   // Particules et mots de liaison pour les fonctions de texte
   PARTICULES_FR: new Set([
     "de", "du", "des", "le", "la", "les", "l", "d", 
