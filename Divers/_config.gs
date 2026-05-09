@@ -247,19 +247,20 @@ function _parseDate(val) {
 
   // 3. Chaîne — on tente d'abord les formats courants
   if (typeof val === "string") {
+    const s = val.trim();
     // Format ISO : YYYY-MM-DD
-    const isoMatch = val.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    const isoMatch = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
     if (isoMatch) {
       const d = new Date(+isoMatch[1], +isoMatch[2] - 1, +isoMatch[3]);
       return isNaN(d.getTime()) ? null : d;
     }
     // Format Français : DD/MM/YYYY
-    const frMatch = val.match(/^(\d{2})[/-](\d{2})[/-](\d{4})/);
+    const frMatch = s.match(/^(\d{2})[/-](\d{2})[/-](\d{4})/);
     if (frMatch) {
       const d = new Date(+frMatch[3], +frMatch[2] - 1, +frMatch[1]);
       return isNaN(d.getTime()) ? null : d;
     }
-    const d = new Date(val);
+    const d = new Date(s);
     return isNaN(d.getTime()) ? null : d;
   }
 
