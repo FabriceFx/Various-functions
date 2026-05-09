@@ -8,3 +8,5 @@ README.md
 LIBRARY_USAGE.md
 LICENSE
 .claspignore
+Exports_Relais.gs
+scratch/**
