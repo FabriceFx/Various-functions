@@ -63,8 +63,8 @@ const CONFIG = {
 
   // Paramètres de Surveillance et Alertes
   MONITORING: {
-    ADMIN_EMAIL: Session.getEffectiveUser().getEmail(),
-    ALERT_THRESHOLD: "ERROR", // INFO, WARN, ERROR, CRITICAL
+    ADMIN_EMAIL: "", // Sera récupéré dynamiquement si vide
+    ALERT_THRESHOLD: "ERROR",
     LOG_SHEET_NAME: "LOGS_FF_LIBRARY",
     AUTO_NOTIFY: true
   },

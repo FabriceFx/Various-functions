@@ -32,8 +32,11 @@
 function LOG_ERREUR(message, contexte = "Général", gravite = "ERROR") {
   try {
     const timestamp = new Date();
-    const user = Session.getEffectiveUser().getEmail();
+    let user = "Système";
+    try { user = Session.getEffectiveUser().getEmail(); } catch(e) {}
+    
     const sheet = _getOrCreateLogSheet();
+    if (!sheet) return "❌ Pas d'accès à la feuille de logs";
     
     sheet.appendRow([timestamp, gravite.toUpperCase(), contexte, message, user]);
     
@@ -62,8 +65,12 @@ function LOG_ERREUR(message, contexte = "Général", gravite = "ERROR") {
  * @param {string} [type="ALERTE"] Type visuel : "INFO", "VIGILANCE", "ALERTE".
  */
 function NOTIFIER_ADMIN(sujet, message, type = "ALERTE") {
-  const adminEmail = CONFIG.MONITORING.ADMIN_EMAIL;
-  if (!adminEmail) return;
+  let adminEmail = CONFIG.MONITORING.ADMIN_EMAIL;
+  
+  // Récupération dynamique sécurisée
+  if (!adminEmail) {
+    try { adminEmail = Session.getEffectiveUser().getEmail(); } catch(e) { return; }
+  }
 
   const options = {
     type: type,
