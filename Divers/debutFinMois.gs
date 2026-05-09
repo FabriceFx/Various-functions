@@ -27,20 +27,6 @@
  * @OnlyCurrentDoc
  */
 
-// ─── Constantes ───────────────────────────────────────────────────────────────
-
-/** Message retourné à la cellule en cas de date invalide. */
-const ERR_DATE = "⚠️ Date invalide";
-
-/**
- * Noms des mois en français (index 0 = janvier).
- * Déclaré une seule fois, partagé par NOM_MOIS.
- */
-const NOMS_MOIS_FR = [
-  "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-  "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre",
-];
-
 // ─── Fonctions exposées ───────────────────────────────────────────────────────
 
 /**
@@ -57,7 +43,7 @@ const NOMS_MOIS_FR = [
 function DEBUT_MOIS(date) {
   return batchProcess(date, (val) => {
     const d = _parseDate(val);
-    if (!d) return ERR_DATE;
+    if (!d) return CONFIG.ERR_DATE;
     return new Date(d.getFullYear(), d.getMonth(), 1);
   });
 }
@@ -76,7 +62,7 @@ function DEBUT_MOIS(date) {
 function FIN_MOIS(date) {
   return batchProcess(date, (val) => {
     const d = _parseDate(val);
-    if (!d) return ERR_DATE;
+    if (!d) return CONFIG.ERR_DATE;
     return new Date(d.getFullYear(), d.getMonth() + 1, 0);
   });
 }
@@ -95,7 +81,7 @@ function FIN_MOIS(date) {
 function NB_JOURS_MOIS(date) {
   return batchProcess(date, (val) => {
     const d = _parseDate(val);
-    if (!d) return ERR_DATE;
+    if (!d) return CONFIG.ERR_DATE;
     return new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
   });
 }
@@ -114,7 +100,7 @@ function NB_JOURS_MOIS(date) {
 function NOM_MOIS(date) {
   return batchProcess(date, (val) => {
     const d = _parseDate(val);
-    if (!d) return ERR_DATE;
-    return NOMS_MOIS_FR[d.getMonth()];
+    if (!d) return CONFIG.ERR_DATE;
+    return CONFIG.NOMS_MOIS_FR[d.getMonth()];
   });
 }

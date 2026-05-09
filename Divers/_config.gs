@@ -109,6 +109,43 @@ const CONFIG = {
       regex: /(?:(?:\+|00)33|0)\s*[1-9](?:[\s.\-]?\d{2}){4}/,
       mask: (val) => val.substring(0, 3) + " ** ** ** " + val.slice(-2)
     }
+  ],
+  
+  // Messages d'erreur standards
+  ERR_DATE: "⚠️ Date invalide",
+  
+  // Localisation
+  NOMS_MOIS_FR: [
+    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+  ],
+
+  // Période d'essai (RH)
+  PE_ERR_PARAMS: "⚠️ Paramètres manquants",
+  PE_ERR_DATE: "⚠️ Date invalide",
+  PE_ERR_STATUT: "⚠️ Statut inconnu — utilisez : Ouvrier/Employé, Maitrise/Technicien, Cadre",
+  STATUTS_PE: [
+    {
+      aliases: ["ouvrier", "ouvriere", "employe", "employee"],
+      initial: 2,
+      renouvellement: 2,
+      maxLegal: 4,
+      label: "Ouvrier / Employé",
+    },
+    {
+      aliases: ["maitrise", "agent de maitrise", "technicien", "am"],
+      initial: 3,
+      renouvellement: 3,
+      maxLegal: 6,
+      label: "Agent de maîtrise / Technicien",
+    },
+    {
+      aliases: ["cadre", "cadres"],
+      initial: 4,
+      renouvellement: 4,
+      maxLegal: 8,
+      label: "Cadre",
+    }
   ]
 };
 

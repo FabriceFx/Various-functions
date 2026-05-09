@@ -29,45 +29,7 @@
  * @OnlyCurrentDoc
  */
 
-// ─── Constantes ───────────────────────────────────────────────────────────────
-
-const PE_ERR_PARAMS  = "⚠️ Paramètres manquants";
-const PE_ERR_DATE    = "⚠️ Date invalide";
-const PE_ERR_STATUT  = "⚠️ Statut inconnu — utilisez : Ouvrier/Employé, Maitrise/Technicien, Cadre";
-
-/**
- * Table des durées légales par statut (Art. L.1221-19 Code du Travail).
- *
- * Chaque entrée :
- *   • aliases  : termes acceptés (après normalisation minuscules sans accents)
- *   • initial  : durée initiale en mois
- *   • renouvellement : durée du renouvellement en mois (= durée initiale, L.1221-21)
- *   • maxLegal : plafond total légal en mois (initial + renouvellement)
- *   • label    : libellé canonique pour les messages
- */
-const STATUTS_PE = [
-  {
-    aliases     : ["ouvrier", "ouvriere", "employe", "employee"],
-    initial     : 2,
-    renouvellement: 2,
-    maxLegal    : 4,
-    label       : "Ouvrier / Employé",
-  },
-  {
-    aliases     : ["maitrise", "agent de maitrise", "technicien", "am"],
-    initial     : 3,
-    renouvellement: 3,
-    maxLegal    : 6,
-    label       : "Agent de maîtrise / Technicien",
-  },
-  {
-    aliases     : ["cadre", "c"],
-    initial     : 4,
-    renouvellement: 4,
-    maxLegal    : 8,
-    label       : "Cadre",
-  },
-];
+// ─── Helpers privés ───────────────────────────────────────────────────────────
 
 // ─── Helpers privés ───────────────────────────────────────────────────────────
 
@@ -116,7 +78,7 @@ function _addMonths(date, mois) {
  * @return {object|null}  Entrée de STATUTS_PE, ou null si non trouvé.
  */
 function _findStatut(statutNormalise) {
-  return STATUTS_PE.find(
+  return CONFIG.STATUTS_PE.find(
     rule => rule.aliases.some(alias => statutNormalise.includes(alias))
   ) ?? null;
 }
@@ -145,7 +107,7 @@ function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement = false) {
 
     const d = _parseDate(val);
     const rule = _findStatut(_normalise(statut));
-    if (!rule) return PE_ERR_STATUT;
+    if (!rule) return CONFIG.PE_ERR_STATUT;
 
     const dureeTotal = renouvellement
       ? rule.initial + rule.renouvellement
@@ -172,10 +134,10 @@ function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement = false) {
  *   =DUREE_PERIODE_ESSAI("Ouvrier")      → "2 mois"
  */
 function DUREE_PERIODE_ESSAI(statut, renouvellement = false) {
-  if (!statut) return PE_ERR_PARAMS;
+  if (!statut) return CONFIG.PE_ERR_PARAMS;
 
   const rule = _findStatut(_normalise(statut));
-  if (!rule) return PE_ERR_STATUT;
+  if (!rule) return CONFIG.PE_ERR_STATUT;
 
   const duree = renouvellement
     ? rule.initial + rule.renouvellement
