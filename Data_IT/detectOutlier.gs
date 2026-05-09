@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Détection d'Outliers (Anomalies) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,15 +16,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Détecte si une valeur est un outlier mathématique.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} valeur         La valeur ou plage à tester.
- * @param {Array<Array<number>>} plageDonnees         L'historique des valeurs (ex: B2:B100).
- * @param {number} [seuilZ=2.5]                       Le seuil du Z-score.
+ * @param {number|Array<Array<number>>} valeur La valeur ou plage à tester.
+ * @param {Array<Array<number>>} plageDonnees L'historique des valeurs (ex: B2:B100).
+ * @param {number} [seuilZ=2.5] Le seuil du Z-score.
  * @return {string|Array<Array<string>>}               "Anomalie" ou "Normal" (ou tableau de résultats).
  * @customfunction
  *

@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Estimateur de Temps de Lecture — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,13 +16,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Estime le temps de lecture d'un texte.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le contenu ou plage.
+ * @param {string|Array<Array<string>>} texte Le contenu ou plage.
  * @param {number} [motsParMinute=250] Vitesse de lecture (250 mpm en moyenne).
  * @return {string|Array<Array<string>>}       Temps estimé ou tableau de résultats.
  * @customfunction

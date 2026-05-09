@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Vérification de TVA intracommunautaire — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,6 +16,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 // Formats de TVA par pays (regex)
@@ -56,7 +55,7 @@ const FORMATS_TVA_ = Object.freeze({
  * Vérifie la validité d'un numéro de TVA intracommunautaire.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} numero  Le numéro ou plage.
+ * @param {string|Array<Array<string>>} numero Le numéro ou plage.
  * @return {string|Array<Array<string>>}        "VALIDE" ou message d'erreur.
  * @customfunction
  *

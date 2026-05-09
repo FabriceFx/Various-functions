@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Compteur de Fréquence de Mots — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,15 +16,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Extrait les mots les plus utilisés d'une plage de texte.
  * Renvoie un tableau à deux colonnes : [Mot, Occurrences].
  *
- * @param {Array<Array<string>>|string} plage  Plage de cellules ou texte.
- * @param {boolean} [exclureLiaison=true]      Ignorer les "stop words" français (le, la, et...).
- * @param {number} [topN=10]                   Nombre de mots à retourner (Top 10 par défaut).
+ * @param {Array<Array<string>>|string} plage Plage de cellules ou texte.
+ * @param {boolean} [exclureLiaison=true] Ignorer les "stop words" français (le, la, et...).
+ * @param {number} [topN=10] Nombre de mots à retourner (Top 10 par défaut).
  * @return {Array<Array<any>>}                 Tableau [Mot, Nombre].
  * @customfunction
  *

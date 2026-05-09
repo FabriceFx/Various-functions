@@ -116,8 +116,8 @@ const CONFIG = {
  * Utilitaire pour gérer le traitement par lot (Batch Processing).
  * Si l'entrée est un tableau 2D, applique le callback sur chaque cellule.
  * 
- * @param {string|number|Date|Array<Array<any>>} input  Valeur unique ou plage Sheets (tableau 2D).
- * @param {function(any): any} callback                 Fonction à appliquer sur chaque valeur simple.
+ * @param {string|number|Date|Array<Array<any>>} input Valeur unique ou plage Sheets (tableau 2D).
+ * @param {function(any): any} callback Fonction à appliquer sur chaque valeur simple.
  * @return {any|Array<Array<any>>}                      Résultat unique ou tableau 2D de résultats.
  */
 function batchProcess(input, callback) {
@@ -185,7 +185,7 @@ const GUARD = {
  * Tente de convertir n'importe quelle valeur Sheets en objet Date local valide.
  * Gère les décalages de fuseaux horaires via Session.getScriptTimeZone().
  * 
- * @param  {Date|number|string} val  Valeur brute issue de la cellule Sheets.
+ * @param  {Date|number|string} val Valeur brute issue de la cellule Sheets.
  * @return {Date|null}               Objet Date local valide, ou null si invalide.
  */
 function _parseDate(val) {

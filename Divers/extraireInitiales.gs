@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Extraction d'initiales — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,6 +16,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -25,8 +24,8 @@
  * Gère les noms composés (tirets) et ignore les particules françaises.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte           Le texte ou une plage de cellules.
- * @param {boolean} [avecParticules=false]  Si true, inclut les particules.
+ * @param {string|Array<Array<string>>} texte Le texte ou une plage de cellules.
+ * @param {boolean} [avecParticules=false] Si true, inclut les particules.
  * @return {string|Array<Array<string>>}                Les initiales en majuscules ou tableau de résultats.
  * @customfunction
  *

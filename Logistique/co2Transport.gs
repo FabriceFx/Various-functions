@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Calcul de l'Empreinte Carbone Transport — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,14 +16,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule l'empreinte carbone d'un trajet en kgCO2e.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} km   La distance ou plage.
- * @param {string} modeTransport             Le mode ("voiture", "avion", "tgv", "bus", "velo").
+ * @param {number|Array<Array<number>>} km La distance ou plage.
+ * @param {string} modeTransport Le mode ("voiture", "avion", "tgv", "bus", "velo").
  * @return {number|Array<Array<number>>}     Le poids en kg de CO2 équivalent ou tableau de résultats.
  * @customfunction
  *

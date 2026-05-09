@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Prochain Jour Férié (France) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -17,13 +15,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Retourne la date du prochain jour férié en France à partir d'une date donnée.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|string|Array<Array<any>>} dateRef  Date de référence ou plage.
+ * @param {Date|string|Array<Array<any>>} dateRef Date de référence ou plage.
  * @return {Date|Array<Array<Date>>}                La date du prochain jour férié.
  * @customfunction
  *

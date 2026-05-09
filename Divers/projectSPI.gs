@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Schedule Performance Index (SPI) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,16 +17,17 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule l'indice de performance calendaire (SPI).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|string|Array<Array<any>>} dateDebut     Date début ou plage.
- * @param {Date|string} dateFin                        Date livraison.
- * @param {number} progressionReelle                  Avancement (ex: 0.45).
- * @param {Date|string} [dateActuelle]                 Date évaluation.
+ * @param {Date|string|Array<Array<any>>} dateDebut Date début ou plage.
+ * @param {Date|string} dateFin Date livraison.
+ * @param {number} progressionReelle Avancement (ex: 0.45).
+ * @param {Date|string} [dateActuelle] Date évaluation.
  * @return {number|Array<Array<number>>}               Le SPI ou tableau de résultats.
  * @customfunction
  *

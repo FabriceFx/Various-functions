@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Extraction Meta Title (SEO) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,14 +17,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Récupère le titre SEO d'une URL.
  * Supporte le traitement par lot, le cache et l'Exponential Backoff.
  *
- * @param {string|Array<Array<string>>} url    L'URL ou une plage d'URLs.
- * @param {boolean} [bypassCache=false]         Si vrai, ignore le cache et force un nouvel appel.
+ * @param {string|Array<Array<string>>} url L'URL ou une plage d'URLs.
+ * @param {boolean} [bypassCache=false] Si vrai, ignore le cache et force un nouvel appel.
  * @return {string|Array<Array<string>>}       Le contenu de la balise <title> ou tableau de résultats.
  * @customfunction
  *

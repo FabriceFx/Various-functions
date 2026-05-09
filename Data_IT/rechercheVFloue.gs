@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Recherche V Floue (Fuzzy Match) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -20,6 +18,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -27,9 +26,9 @@
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {string|Array<Array<string>>} valeurRecherchee La valeur ou plage à chercher.
- * @param {Array<Array<any>>} plage                      La plage de référence (ex: A2:C100).
- * @param {number} [indexColonne=2]                      Colonne à renvoyer (1-indexé).
- * @param {number} [seuil=0.7]                           Similarité (0 à 1).
+ * @param {Array<Array<any>>} plage La plage de référence (ex: A2:C100).
+ * @param {number} [indexColonne=2] Colonne à renvoyer (1-indexé).
+ * @param {number} [seuil=0.7] Similarité (0 à 1).
  * @return {any|Array<Array<any>>}                       La valeur trouvée ou tableau de résultats.
  * @customfunction
  *

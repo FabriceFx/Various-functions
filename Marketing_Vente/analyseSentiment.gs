@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Analyse de Sentiment Lexicale — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,13 +16,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Analyse la tonalité d'un texte français.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte ou plage.
+ * @param {string|Array<Array<string>>} texte Le texte ou plage.
  * @return {string|Array<Array<string>>}       Statut ou tableau de résultats.
  * @customfunction
  *

@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Utilitaires Date — Début / Fin / Infos de mois — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -27,6 +25,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 // ─── Constantes ───────────────────────────────────────────────────────────────
@@ -49,7 +48,7 @@ const NOMS_MOIS_FR = [
  * Retourne le premier jour du mois correspondant à la date fournie.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|number|string|Array<Array<any>>} date  Date de référence ou plage.
+ * @param {Date|number|string|Array<Array<any>>} date Date de référence ou plage.
  * @return {Date|string|Array<Array<Date|string>>}      Date du 1er jour ou tableau de résultats.
  * @customfunction
  *
@@ -68,7 +67,7 @@ function DEBUT_MOIS(date) {
  * Retourne le dernier jour du mois correspondant à la date fournie.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|number|string|Array<Array<any>>} date  Date de référence ou plage.
+ * @param {Date|number|string|Array<Array<any>>} date Date de référence ou plage.
  * @return {Date|string|Array<Array<Date|string>>}      Date du dernier jour ou tableau de résultats.
  * @customfunction
  *
@@ -87,7 +86,7 @@ function FIN_MOIS(date) {
  * Retourne le nombre de jours dans le mois de la date fournie.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|number|string|Array<Array<any>>} date  Date de référence ou plage.
+ * @param {Date|number|string|Array<Array<any>>} date Date de référence ou plage.
  * @return {number|string|Array<Array<number|string>>}   Nombre de jours ou tableau de résultats.
  * @customfunction
  *
@@ -106,7 +105,7 @@ function NB_JOURS_MOIS(date) {
  * Retourne le nom du mois en français pour la date fournie.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|number|string|Array<Array<any>>} date  Date de référence ou plage.
+ * @param {Date|number|string|Array<Array<any>>} date Date de référence ou plage.
  * @return {string|Array<Array<string>>}                Nom du mois ou tableau de résultats.
  * @customfunction
  *

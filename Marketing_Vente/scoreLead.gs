@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Lead Scoring — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,15 +17,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule le score d'un lead (sur 100) selon 3 critères.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} budget  Le budget ou plage.
- * @param {string} secteur                      Le secteur d'activité.
- * @param {string} source                       La source d'acquisition.
+ * @param {number|Array<Array<number>>} budget Le budget ou plage.
+ * @param {string} secteur Le secteur d'activité.
+ * @param {string} source La source d'acquisition.
  * @return {string|Array<Array<string>>}         Score et qualification ou tableau de résultats.
  * @customfunction
  *

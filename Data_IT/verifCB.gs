@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Vérification de carte bancaire — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,13 +17,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Vérifie la validité d'un numéro de carte bancaire (algorithme de Luhn).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|number|Array<Array<any>>} numero  Numéro ou plage.
+ * @param {string|number|Array<Array<any>>} numero Numéro ou plage.
  * @return {string|Array<Array<string>>}           "VALIDE (réseau)" ou message d'erreur.
  * @customfunction
  *
@@ -72,7 +71,7 @@ function verifCB(numero) {
 /**
  * Détecte le réseau d'une carte bancaire à partir de son numéro.
  *
- * @param {string} numero  Numéro de CB (chiffres uniquement).
+ * @param {string} numero Numéro de CB (chiffres uniquement).
  * @return {string}        Nom du réseau ou "Inconnu".
  * @customfunction
  */

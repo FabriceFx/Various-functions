@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Recherche V Multiple — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,15 +17,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Recherche toutes les occurrences et concatène les résultats.
  * Supporte le traitement par lot (plages de valeurs recherchées).
  *
- * @param {any|Array<Array<any>>} valeurRecherchee  La valeur ou plage à chercher.
- * @param {Array<Array<any>>} plage                La plage de recherche (ex: A2:D100).
- * @param {number} indexColonne                    Index colonne à renvoyer (1-indexé).
+ * @param {any|Array<Array<any>>} valeurRecherchee La valeur ou plage à chercher.
+ * @param {Array<Array<any>>} plage La plage de recherche (ex: A2:D100).
+ * @param {number} indexColonne Index colonne à renvoyer (1-indexé).
  * @param {string} [separateur=", "]               Le séparateur.
  * @return {string|Array<Array<any>>}               Résultats concaténés ou tableau.
  * @customfunction

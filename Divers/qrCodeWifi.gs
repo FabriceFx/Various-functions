@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  QR Code Wi-Fi — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,15 +16,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Génère un QR Code de connexion Wi-Fi (via api.qrserver.com).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} ssid   Nom du réseau (SSID) ou plage.
- * @param {string} motDePasse                  Mot de passe du Wi-Fi.
- * @param {string} [securite="WPA"]             Sécurité ("WPA", "WEP", "nopass").
+ * @param {string|Array<Array<string>>} ssid Nom du réseau (SSID) ou plage.
+ * @param {string} motDePasse Mot de passe du Wi-Fi.
+ * @param {string} [securite="WPA"] Sécurité ("WPA", "WEP", "nopass").
  * @return {string|Array<Array<string>>}        URL du QR Code ou tableau.
  * @customfunction
  *

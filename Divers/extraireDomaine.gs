@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Extraction de domaine — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,6 +17,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -26,7 +25,7 @@
  * Gère les sous-domaines (www) et les TLDs complexes (ex: .co.uk).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} url  L'URL ou une plage d'URLs.
+ * @param {string|Array<Array<string>>} url L'URL ou une plage d'URLs.
  * @return {string|Array<Array<string>>}     Le domaine extrait ou tableau de résultats.
  * @customfunction
  *

@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Génération d'URL QR Code — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,14 +16,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Génère l'URL d'un QR code pour un texte donné (via api.qrserver.com).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte ou plage.
- * @param {number} [taille=200]                 Taille en pixels.
+ * @param {string|Array<Array<string>>} texte Le texte ou plage.
+ * @param {number} [taille=200] Taille en pixels.
  * @return {string|Array<Array<string>>}        L'URL de l'image ou tableau.
  * @customfunction
  *

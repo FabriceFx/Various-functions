@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Censure de Mots — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -17,13 +15,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Censure les mots indésirables dans un texte.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte source ou plage.
+ * @param {string|Array<Array<string>>} texte Le texte source ou plage.
  * @param {string} [motsSupplementaires=""] Mots à ajouter à la liste noire (séparés par des virgules).
  * @return {string|Array<Array<string>>}       Le texte censuré ou tableau de résultats.
  * @customfunction

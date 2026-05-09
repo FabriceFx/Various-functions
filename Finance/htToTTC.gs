@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Conversion HT / TTC — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,14 +17,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule le montant TTC à partir d'un montant HT et d'un taux de TVA.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} montantHT  Le montant Hors Taxes ou plage.
- * @param {number} tauxTVA                        Le taux de TVA (ex: 20 pour 20%, ou 0.2).
+ * @param {number|Array<Array<number>>} montantHT Le montant Hors Taxes ou plage.
+ * @param {number} tauxTVA Le taux de TVA (ex: 20 pour 20%, ou 0.2).
  * @return {number|Array<Array<number>>}           Le montant TTC ou tableau de résultats.
  * @customfunction
  *
@@ -50,7 +49,7 @@ function htToTTC(montantHT, tauxTVA) {
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {number|Array<Array<number>>} montantTTC Le montant TTC ou plage.
- * @param {number} tauxTVA                        Le taux de TVA (ex: 20 pour 20%, ou 0.2).
+ * @param {number} tauxTVA Le taux de TVA (ex: 20 pour 20%, ou 0.2).
  * @return {number|Array<Array<number>>}           Le montant HT ou tableau de résultats.
  * @customfunction
  *

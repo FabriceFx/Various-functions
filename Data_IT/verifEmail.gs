@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Vérification d'adresse email — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -20,6 +18,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 // Regex robuste pour validation email (RFC 5322 simplifiée)
@@ -29,7 +28,7 @@ const REGEX_EMAIL_ = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9
  * Vérifie le format d'une adresse email.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} email  L'adresse email ou une plage de cellules.
+ * @param {string|Array<Array<string>>} email L'adresse email ou une plage de cellules.
  * @return {string|Array<Array<string>>}       "VALIDE", message d'erreur ou tableau de résultats.
  * @customfunction
  *
@@ -94,7 +93,7 @@ function verifEmail(email) {
  * Extrait la première adresse email trouvée dans un texte.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte ou une plage de cellules.
+ * @param {string|Array<Array<string>>} texte Le texte ou une plage de cellules.
  * @return {string|Array<Array<string>>}       L'adresse email trouvée ou tableau de résultats.
  * @customfunction
  *

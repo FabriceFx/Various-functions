@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Solde de Congés Payés — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,15 +16,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule le nombre de jours de congés acquis au prorata.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|string|Array<Array<any>>} dateEntree   Date de début ou plage.
- * @param {Date|string} [dateFin]                      Date de fin.
- * @param {number} [joursParMois=2.08]                 Jours acquis par mois.
+ * @param {Date|string|Array<Array<any>>} dateEntree Date de début ou plage.
+ * @param {Date|string} [dateFin] Date de fin.
+ * @param {number} [joursParMois=2.08] Jours acquis par mois.
  * @return {number|string|Array<Array<number|string>>} Nombre de jours ou tableau de résultats.
  * @customfunction
  *

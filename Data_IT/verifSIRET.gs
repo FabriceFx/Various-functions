@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Vérification de SIREN / SIRET — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,6 +17,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -26,7 +25,7 @@
  * Gère le cas particulier de La Poste (SIREN 356000000).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|number|Array<Array<any>>} numero  Le SIRET ou plage.
+ * @param {string|number|Array<Array<any>>} numero Le SIRET ou plage.
  * @return {string|Array<Array<string>>}           "VALIDE" ou message d'erreur.
  * @customfunction
  *
@@ -70,7 +69,7 @@ function verifSIRET(numero) {
  * Vérifie la validité d'un numéro SIREN (9 chiffres) via l'algorithme de Luhn.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|number|Array<Array<any>>} numero  Le SIREN ou plage.
+ * @param {string|number|Array<Array<any>>} numero Le SIREN ou plage.
  * @return {string|Array<Array<string>>}           "VALIDE" ou message d'erreur.
  * @customfunction
  *
@@ -104,7 +103,7 @@ function verifSIREN(numero) {
 /**
  * Vérifie une chaîne de chiffres selon l'algorithme de Luhn.
  *
- * @param {string} chaine  Chaîne composée uniquement de chiffres.
+ * @param {string} chaine Chaîne composée uniquement de chiffres.
  * @return {boolean}       true si la clé de Luhn est valide.
  * @private
  */

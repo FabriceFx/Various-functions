@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Couleur de cellule — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,13 +17,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Retourne le code couleur hexadécimal de l'arrière-plan d'une cellule.
  * Supporte le traitement par lot (plages de références).
  *
- * @param {string|Array<Array<string>>} referenceCellule  La référence A1 ou plage.
+ * @param {string|Array<Array<string>>} referenceCellule La référence A1 ou plage.
  * @return {string|Array<Array<string>>}                  Le code hexadécimal ou tableau.
  * @customfunction
  *

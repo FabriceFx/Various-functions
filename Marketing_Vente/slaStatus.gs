@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  SLA Status (Service Level Agreement) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,6 +16,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -25,7 +24,7 @@
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {Date|string|Array<Array<any>>} dateReception Date et heure ou plage.
- * @param {number} delaiMaxHeures                       Délai maximum en heures.
+ * @param {number} delaiMaxHeures Délai maximum en heures.
  * @return {string|Array<Array<string>>}                Statut ou tableau de résultats.
  * @customfunction
  *

@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Similarité Textuelle — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,14 +16,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule le pourcentage de similarité entre deux textes (0% à 100%).
  * Basé sur la distance de Levenshtein.
  *
- * @param {string} texte1           Première chaîne.
- * @param {string} texte2           Seconde chaîne.
+ * @param {string} texte1 Première chaîne.
+ * @param {string} texte2 Seconde chaîne.
  * @return {number}                 Taux de similarité (entre 0 et 1).
  * @customfunction
  *

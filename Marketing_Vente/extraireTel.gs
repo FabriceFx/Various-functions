@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Extraction de Numéro de Téléphone (FR) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,6 +16,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -25,8 +24,8 @@
  * Supporte les formats français par défaut et internationaux (E.164).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte ou une plage de cellules.
- * @param {string} [pays='FR']                 Code pays pour le formatage (ex: 'FR', 'US').
+ * @param {string|Array<Array<string>>} texte Le texte ou une plage de cellules.
+ * @param {string} [pays='FR'] Code pays pour le formatage (ex: 'FR', 'US').
  * @return {string|Array<Array<string>>}       Le numéro formaté ou tableau de résultats.
  * @customfunction
  *

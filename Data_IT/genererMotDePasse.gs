@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Générateur de mot de passe — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,15 +16,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Génère un mot de passe aléatoire.
  *
- * @param {number} [longueur=12]   La longueur du mot de passe.
+ * @param {number} [longueur=12] La longueur du mot de passe.
  * @param {boolean} [majuscules=true] Inclure des majuscules.
- * @param {boolean} [nombres=true]    Inclure des chiffres.
- * @param {boolean} [speciaux=true]   Inclure des caractères spéciaux.
+ * @param {boolean} [nombres=true] Inclure des chiffres.
+ * @param {boolean} [speciaux=true] Inclure des caractères spéciaux.
  * @return {string}                 Le mot de passe généré.
  * @customfunction
  *

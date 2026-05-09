@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Nettoyeur de balises HTML — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,13 +16,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Supprime les balises HTML d'un texte.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte HTML ou plage.
+ * @param {string|Array<Array<string>>} texte Le texte HTML ou plage.
  * @return {string|Array<Array<string>>}       Le texte brut nettoyé ou tableau de résultats.
  * @customfunction
  *

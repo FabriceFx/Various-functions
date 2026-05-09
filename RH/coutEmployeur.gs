@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Coût Employeur Estimé — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,6 +16,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -25,7 +24,7 @@
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {number|Array<Array<number>>} salaireBrut Le salaire Brut ou plage.
- * @param {string} [statut]    "Cadre", "Non-Cadre" (Défaut).
+ * @param {string} [statut] "Cadre", "Non-Cadre" (Défaut).
  * @return {number|Array<Array<number>>}            Le coût employeur ou tableau de résultats.
  * @customfunction
  *

@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Capitalisation de texte — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,6 +17,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -26,7 +25,7 @@
  * certaines particules sauf en début de phrase.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte ou une plage de cellules.
+ * @param {string|Array<Array<string>>} texte Le texte ou une plage de cellules.
  * @return {string|Array<Array<string>>}       Le texte capitalisé ou tableau de résultats.
  * @customfunction
  *

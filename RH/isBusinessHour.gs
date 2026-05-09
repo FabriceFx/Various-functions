@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Heures Ouvrées (Business Hours) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,6 +16,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -25,8 +24,8 @@
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {Date|string|Array<Array<any>>} dateTime Heure à vérifier ou plage.
- * @param {number} [heureDebut=9]  Heure de début (0-23).
- * @param {number} [heureFin=18]   Heure de fin (0-23).
+ * @param {number} [heureDebut=9] Heure de début (0-23).
+ * @param {number} [heureFin=18] Heure de fin (0-23).
  * @return {boolean|Array<Array<boolean>>} VRAI si c'est pendant les heures d'ouverture.
  * @customfunction
  *

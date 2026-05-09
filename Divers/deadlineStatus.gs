@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Statut de Deadline — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,6 +16,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -25,7 +24,7 @@
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {Date|string|Array<Array<any>>} dateEcheance Date limite ou plage.
- * @param {Date|string} [dateRef]                       Date de référence.
+ * @param {Date|string} [dateRef] Date de référence.
  * @return {string|Array<Array<string>>}                Statut ou tableau de résultats.
  * @customfunction
  *

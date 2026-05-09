@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Estimation Brut/Net (France) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,16 +17,17 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Estime le salaire Brut/Net.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} montant    Le salaire ou une plage de cellules.
- * @param {string} statut                          "Cadre", "Non-Cadre", "Fonctionnaire", "Stage", "Alternance".
- * @param {string} [sens="B2N"]                    "B2N" (Brut vers Net) ou "N2B" (Net vers Brut).
- * @param {number} [tauxPersonnalise]               Taux de charges forcé (ex: 0.22 pour 22%).
+ * @param {number|Array<Array<number>>} montant Le salaire ou une plage de cellules.
+ * @param {string} statut "Cadre", "Non-Cadre", "Fonctionnaire", "Stage", "Alternance".
+ * @param {string} [sens="B2N"] "B2N" (Brut vers Net) ou "N2B" (Net vers Brut).
+ * @param {number} [tauxPersonnalise] Taux de charges forcé (ex: 0.22 pour 22%).
  * @return {number|Array<Array<number>>}           Le salaire estimé ou tableau de résultats.
  * @customfunction
  *

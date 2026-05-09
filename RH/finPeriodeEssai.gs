@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Période d'Essai (CDI — Droit du Travail FR) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -30,6 +28,7 @@
  *  Référence légale : Code du Travail FR — Articles L.1221-19 à L.1221-26
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 // ─── Constantes ───────────────────────────────────────────────────────────────
@@ -130,9 +129,9 @@ function _findStatut(statutNormalise) {
  * Calcule la date de fin de période d'essai CDI (droit du travail français).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|number|string|Array<Array<any>>} dateEmbauche   Date de début ou plage.
- * @param {string}             statut         "Ouvrier", "Maitrise", "Cadre".
- * @param {boolean}            [renouvellement=false]  Si renouvelée.
+ * @param {Date|number|string|Array<Array<any>>} dateEmbauche Date de début ou plage.
+ * @param {string}             statut "Ouvrier", "Maitrise", "Cadre".
+ * @param {boolean}            [renouvellement=false] Si renouvelée.
  * @return {Date|string|Array<Array<any>>}    Date de fin ou tableau.
  * @customfunction
  *
@@ -165,8 +164,8 @@ function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement = false) {
  * Retourne la durée de la période d'essai en mois pour un statut donné.
  * Utile pour afficher la durée dans une cellule adjacente.
  *
- * @param {string}  statut                    "Ouvrier"/"Employé", "Maitrise"/"Technicien", "Cadre".
- * @param {boolean} [renouvellement=false]    VRAI si la PE est renouvelée.
+ * @param {string}  statut "Ouvrier"/"Employé", "Maitrise"/"Technicien", "Cadre".
+ * @param {boolean} [renouvellement=false] VRAI si la PE est renouvelée.
  * @return {string}  Durée formatée (ex : "4 mois" ou "8 mois (renouvelée)").
  * @customfunction
  *

@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Nettoyeur d'URL LinkedIn — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,13 +16,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Enlève les paramètres de tracking superflus d'une URL LinkedIn.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} url  L'URL LinkedIn brute ou plage.
+ * @param {string|Array<Array<string>>} url L'URL LinkedIn brute ou plage.
  * @return {string|Array<Array<string>>}     L'URL propre ou tableau de résultats.
  * @customfunction
  *

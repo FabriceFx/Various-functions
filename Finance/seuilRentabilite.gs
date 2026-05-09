@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Seuil de Rentabilité — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,15 +16,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule le point mort (seuil de rentabilité).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} chargesFixes    Le total des charges fixes ou plage.
- * @param {number} prixVenteUnit   Le prix de vente d'une unité.
- * @param {number} chargesVarUnit  Le coût variable d'une unité.
+ * @param {number|Array<Array<number>>} chargesFixes Le total des charges fixes ou plage.
+ * @param {number} prixVenteUnit Le prix de vente d'une unité.
+ * @param {number} chargesVarUnit Le coût variable d'une unité.
  * @param {string} [typeRetour="UNITE"] "UNITE" ou "CA".
  * @return {number|Array<Array<number>>}                Le seuil de rentabilité ou tableau de résultats.
  * @customfunction

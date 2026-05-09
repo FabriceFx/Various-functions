@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Formule de Wilson (EOQ) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,15 +17,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule la quantité économique de commande (Formule de Wilson).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} demandeAnnuelle  Volume de ventes ou plage.
- * @param {number} coutCommande                         Coût passation commande.
- * @param {number} coutStockageUnitaire                 Coût possession unitaire.
+ * @param {number|Array<Array<number>>} demandeAnnuelle Volume de ventes ou plage.
+ * @param {number} coutCommande Coût passation commande.
+ * @param {number} coutStockageUnitaire Coût possession unitaire.
  * @return {number|Array<Array<number>>}                La quantité optimale ou tableau.
  * @customfunction
  *

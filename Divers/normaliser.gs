@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Normalisation de texte — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -20,6 +18,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -27,7 +26,7 @@
  * et convertit en majuscules. Idéal pour dédoublonner.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte ou plage à normaliser.
+ * @param {string|Array<Array<string>>} texte Le texte ou plage à normaliser.
  * @return {string|Array<Array<string>>}       Le texte normalisé ou tableau de résultats.
  * @customfunction
  *
@@ -53,7 +52,7 @@ function normaliser(texte) {
  * Supprime les accents et diacritiques d'un texte sans changer la casse.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte ou plage à traiter.
+ * @param {string|Array<Array<string>>} texte Le texte ou plage à traiter.
  * @return {string|Array<Array<string>>}       Le texte sans accents ou tableau de résultats.
  * @customfunction
  *
@@ -76,7 +75,7 @@ function supprimerAccents(texte) {
  * Supprime les espaces multiples et trim le texte.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte ou plage à nettoyer.
+ * @param {string|Array<Array<string>>} texte Le texte ou plage à nettoyer.
  * @return {string|Array<Array<string>>}       Le texte nettoyé ou tableau de résultats.
  * @customfunction
  *

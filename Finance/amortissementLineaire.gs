@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Amortissement Linéaire — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,16 +16,17 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule la dotation aux amortissements d'une immobilisation pour une année donnée.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} valeur  Valeur d'achat ou plage.
- * @param {number} dureeAnnees                  Durée en années.
- * @param {Date|string} dateAchat                Date de mise en service.
- * @param {number} anneeExercice                Année de calcul.
+ * @param {number|Array<Array<number>>} valeur Valeur d'achat ou plage.
+ * @param {number} dureeAnnees Durée en années.
+ * @param {Date|string} dateAchat Date de mise en service.
+ * @param {number} anneeExercice Année de calcul.
  * @return {number|Array<Array<number>>}        Dotation ou tableau de résultats.
  * @customfunction
  *

@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Montant en lettres — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,6 +17,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 const LOCALES_CONFIG_ = {
@@ -42,10 +41,10 @@ const LOCALES_CONFIG_ = {
  * Convertit un nombre en toutes lettres (FR/EN).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|string|Array<Array<any>>} nombre   Le nombre ou une plage de cellules.
- * @param {string} [langue='FR']                     Langue : 'FR' ou 'EN'.
- * @param {string} [devise]                          Devise (ex: "euro", "dollar").
- * @param {string} [nomCentimes]                     Sous-devise (ex: "centime", "cent").
+ * @param {number|string|Array<Array<any>>} nombre Le nombre ou une plage de cellules.
+ * @param {string} [langue='FR'] Langue : 'FR' ou 'EN'.
+ * @param {string} [devise] Devise (ex: "euro", "dollar").
+ * @param {string} [nomCentimes] Sous-devise (ex: "centime", "cent").
  * @return {string|Array<Array<string>>}             Le montant en toutes lettres ou tableau de résultats.
  * @customfunction
  *

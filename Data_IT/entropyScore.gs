@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Score d'Entropie — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,6 +16,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -25,7 +24,7 @@
  * Plus le score est élevé, plus la chaîne est complexe/aléatoire.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  La chaîne ou plage à analyser.
+ * @param {string|Array<Array<string>>} texte La chaîne ou plage à analyser.
  * @return {number|Array<Array<number>>}       Le score d'entropie ou tableau de résultats.
  * @customfunction
  *

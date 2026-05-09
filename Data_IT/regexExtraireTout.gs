@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Extraction Multiple par Regex — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,14 +16,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Extrait toutes les correspondances d'une expression régulière dans un texte.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte source ou plage.
- * @param {string} expressionReguliere          L'expression régulière.
+ * @param {string|Array<Array<string>>} texte Le texte source ou plage.
+ * @param {string} expressionReguliere L'expression régulière.
  * @param {string} [separateur=", "]            Le séparateur.
  * @return {string|Array<Array<any>>}            Les éléments trouvés ou tableau.
  * @customfunction

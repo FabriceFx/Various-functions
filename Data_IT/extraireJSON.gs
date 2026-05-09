@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Extracteur JSON — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,14 +17,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Extrait une valeur d'une chaîne JSON formatée en utilisant un chemin.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} chaineJSON  Le texte JSON ou plage.
- * @param {string} chemin                           Le chemin de la valeur (ex: "user.nom").
+ * @param {string|Array<Array<string>>} chaineJSON Le texte JSON ou plage.
+ * @param {string} chemin Le chemin de la valeur (ex: "user.nom").
  * @return {any|Array<Array<any>>}                  La valeur extraite ou tableau de résultats.
  * @customfunction
  *

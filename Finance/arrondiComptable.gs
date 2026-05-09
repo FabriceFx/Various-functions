@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Arrondi Comptable — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,13 +17,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Arrondit un nombre selon la méthode comptable (arrondi au pair).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} nombre     Le nombre à arrondir ou plage.
+ * @param {number|Array<Array<number>>} nombre Le nombre à arrondir ou plage.
  * @param {number} [decimales] Le nombre de décimales (2 par défaut).
  * @return {number|Array<Array<number>>}           Le nombre arrondi ou tableau de résultats.
  * @customfunction

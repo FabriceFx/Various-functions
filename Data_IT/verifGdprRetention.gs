@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Vérification de Rétention RGPD — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,14 +16,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Indique si une donnée doit être purgée selon le RGPD.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|string|Array<Array<any>>} dateDonnee  Date ou plage.
- * @param {number} dureeMois                          Durée de rétention max en mois.
+ * @param {Date|string|Array<Array<any>>} dateDonnee Date ou plage.
+ * @param {number} dureeMois Durée de rétention max en mois.
  * @return {string|Array<Array<string>>}              Statut ou tableau de résultats.
  * @customfunction
  *

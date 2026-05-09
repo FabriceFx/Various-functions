@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Nettoyeur de Nom de Fichier — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,14 +17,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Sécurise un texte pour en faire un nom de fichier valide.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte brut ou plage.
- * @param {string} [remplacement="-"]           Le caractère de remplacement.
+ * @param {string|Array<Array<string>>} texte Le texte brut ou plage.
+ * @param {string} [remplacement="-"] Le caractère de remplacement.
  * @return {string|Array<Array<string>>}        Le nom de fichier propre ou tableau de résultats.
  * @customfunction
  *

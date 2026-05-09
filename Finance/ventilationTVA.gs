@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Ventilation de TVA — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,15 +16,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Ventile un montant TTC selon une catégorie.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} montantTTC  Le montant TTC ou plage.
- * @param {string} categorie                       Catégorie (STANDARD, REDUIT, etc.).
- * @param {string} [retour="TVA"]                  "TVA", "HT" ou "TOUT".
+ * @param {number|Array<Array<number>>} montantTTC Le montant TTC ou plage.
+ * @param {string} categorie Catégorie (STANDARD, REDUIT, etc.).
+ * @param {string} [retour="TVA"] "TVA", "HT" ou "TOUT".
  * @return {number|Array<Array<any>>}               Le montant calculé ou tableau de résultats.
  * @customfunction
  *

@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Pénalités de Retard B2B — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,16 +16,17 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule les intérêts de retard.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} montant  Montant ou plage.
- * @param {Date|string} dateEcheance              Date d'échéance.
- * @param {number} [tauxBCE=4.5]                  Le taux directeur BCE (%).
- * @param {number} [marge=10]                     La marge légale (points).
+ * @param {number|Array<Array<number>>} montant Montant ou plage.
+ * @param {Date|string} dateEcheance Date d'échéance.
+ * @param {number} [tauxBCE=4.5] Le taux directeur BCE (%).
+ * @param {number} [marge=10] La marge légale (points).
  * @return {number|Array<Array<number>>}          Le montant des pénalités ou tableau de résultats.
  * @customfunction
  *

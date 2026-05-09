@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Alerte Stock — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,14 +16,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Détermine le statut d'alerte du stock.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} stockActuel    La quantité en stock ou plage.
- * @param {number} seuilMini      Le seuil sous lequel il faut commander.
+ * @param {number|Array<Array<number>>} stockActuel La quantité en stock ou plage.
+ * @param {number} seuilMini Le seuil sous lequel il faut commander.
  * @param {number} [ventesParJour=0] Ventes moyennes par jour pour estimer la rupture.
  * @return {string|Array<Array<string>>}               Statut ou tableau de résultats.
  * @customfunction

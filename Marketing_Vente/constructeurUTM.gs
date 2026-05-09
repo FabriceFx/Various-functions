@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Constructeur UTM — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,17 +16,18 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Génère une URL avec des paramètres UTM d'Analytics.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} url  URL de destination ou plage.
- * @param {string} source    utm_source (ex: google, newsletter).
- * @param {string} support   utm_medium (ex: cpc, email).
- * @param {string} campagne  utm_campaign (ex: promo_ete).
- * @param {string} [terme]   utm_term (Optionnel).
+ * @param {string|Array<Array<string>>} url URL de destination ou plage.
+ * @param {string} source utm_source (ex: google, newsletter).
+ * @param {string} support utm_medium (ex: cpc, email).
+ * @param {string} campagne utm_campaign (ex: promo_ete).
+ * @param {string} [terme] utm_term (Optionnel).
  * @param {string} [contenu] utm_content (Optionnel).
  * @return {string|Array<Array<string>>}     URL complète ou tableau de résultats.
  * @customfunction

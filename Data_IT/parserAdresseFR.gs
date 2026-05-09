@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Analyseur d'Adresse Française — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,13 +17,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Découpe une adresse française en Numéro, Voie, Code Postal et Ville.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} adresse  L'adresse ou plage.
+ * @param {string|Array<Array<string>>} adresse L'adresse ou plage.
  * @return {Array<Array<string>>}                Tableau [Numéro, Voie, Code Postal, Ville].
  * @customfunction
  *
@@ -67,7 +66,7 @@ function parserAdresseFR(adresse) {
  * Normalise une adresse française via l'API officielle (adresse.data.gouv.fr).
  * Version "Premium" beaucoup plus robuste. Supporte le batching et le cache.
  *
- * @param {string|Array<Array<string>>} adresse  L'adresse ou une plage de cellules.
+ * @param {string|Array<Array<string>>} adresse L'adresse ou une plage de cellules.
  * @return {Array<Array<string>>}                Tableau de [Adresse complète, Score de confiance].
  * @customfunction
  *

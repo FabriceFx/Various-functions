@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Anonymisation de Données Personnelles (PII) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,13 +16,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Masque les données sensibles détectées dans un texte ou une plage.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<any>>} input  Le texte à anonymiser ou une plage.
+ * @param {string|Array<Array<any>>} input Le texte à anonymiser ou une plage.
  * @return {string|Array<Array<string>>}     Le texte masqué ou tableau de résultats.
  * @customfunction
  *

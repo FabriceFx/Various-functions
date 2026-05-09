@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Calcul de Volumétrie Transport — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,15 +16,16 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule le volume (en m3) ou le poids volumétrique.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} longueur   Longueur ou plage.
- * @param {number} largeur    Largeur.
- * @param {number} hauteur    Hauteur.
+ * @param {number|Array<Array<number>>} longueur Longueur ou plage.
+ * @param {number} largeur Largeur.
+ * @param {number} hauteur Hauteur.
  * @param {string} [unite="cm"] Unité de mesure ("cm" ou "m"). Par défaut "cm".
  * @param {boolean} [calculPoidsVol=false] Si VRAI, renvoie le poids volumétrique (base 5000).
  * @return {number|Array<Array<number>>}           Le résultat arrondi ou tableau de résultats.

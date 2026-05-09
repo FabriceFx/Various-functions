@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Estimateur de Livraison — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,14 +17,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Estime la date de livraison selon le code postal de destination.
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|string|Array<Array<any>>} dateDepart  Date d'expédition ou plage.
- * @param {string|number} codePostal                  Code postal du destinataire.
+ * @param {Date|string|Array<Array<any>>} dateDepart Date d'expédition ou plage.
+ * @param {string|number} codePostal Code postal du destinataire.
  * @return {Date|string|Array<Array<Date|string>>}    Date estimée ou tableau de résultats.
  * @customfunction
  *

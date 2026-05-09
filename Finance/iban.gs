@@ -109,7 +109,7 @@ function formatIBAN(iban) {
  * Calcule le modulo 97 d'un grand nombre représenté sous forme de chaîne.
  * Utilise un découpage par blocs pour éviter les dépassements d'entiers JS.
  *
- * @param {string} chaine  Chaîne de chiffres.
+ * @param {string} chaine Chaîne de chiffres.
  * @return {number}        Résultat du modulo 97.
  * @private
  */

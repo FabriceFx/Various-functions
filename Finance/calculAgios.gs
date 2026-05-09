@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Calcul d'Agios — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,6 +16,7 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
@@ -25,9 +24,9 @@
  * Formule : (Montant * Jours * Taux Annuel) / (365 * 100)
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} montant     Montant ou plage.
- * @param {number} tauxAnnuel  Taux d'intérêt annuel en % (ex: 8 pour 8%).
- * @param {number} nbJours     Nombre de jours de retard/découvert.
+ * @param {number|Array<Array<number>>} montant Montant ou plage.
+ * @param {number} tauxAnnuel Taux d'intérêt annuel en % (ex: 8 pour 8%).
+ * @param {number} nbJours Nombre de jours de retard/découvert.
  * @return {number|Array<Array<number>>}            Montant des agios ou tableau de résultats.
  * @customfunction
  *

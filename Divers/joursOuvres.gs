@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Jours ouvrés et fériés (France) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -20,14 +18,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Calcule le nombre de jours ouvrés entre deux dates (incluses).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|string|Array<Array<any>>} dateDebut  Date de début ou plage.
- * @param {Date|string} dateFin                      Date de fin.
+ * @param {Date|string|Array<Array<any>>} dateDebut Date de début ou plage.
+ * @param {Date|string} dateFin Date de fin.
  * @return {number|Array<Array<number>>}             Nombre de jours ouvrés ou tableau.
  * @customfunction
  *
@@ -79,7 +78,7 @@ function joursOuvres(dateDebut, dateFin) {
 /**
  * Indique si une date est un jour férié en France.
  *
- * @param {Date|string} date  Date à vérifier.
+ * @param {Date|string} date Date à vérifier.
  * @return {boolean|string}   VRAI si c'est un jour férié, ou message d'erreur.
  * @customfunction
  */
@@ -97,7 +96,7 @@ function estJourFerieFR(date) {
 /**
  * Calcule les jours fériés français pour une année donnée.
  *
- * @param {number} annee  L'année.
+ * @param {number} annee L'année.
  * @return {Date[]}       Tableau des dates des jours fériés.
  * @private
  */

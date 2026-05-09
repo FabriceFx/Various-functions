@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Vérification du NIR (n° de Sécurité Sociale) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,13 +17,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Vérifie la validité d'un NIR (n° de Sécurité Sociale français).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|number|Array<Array<any>>} nir  Le NIR ou plage.
+ * @param {string|number|Array<Array<any>>} nir Le NIR ou plage.
  * @return {string|Array<Array<string>>}        "VALIDE" ou message d'erreur.
  * @customfunction
  *

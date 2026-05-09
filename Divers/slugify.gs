@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Génération de Slug (URL) — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -19,13 +17,14 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Convertit une chaîne de caractères en slug (format URL).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {string|Array<Array<string>>} texte  Le texte ou plage à convertir.
+ * @param {string|Array<Array<string>>} texte Le texte ou plage à convertir.
  * @return {string|Array<Array<string>>}       Le slug généré ou tableau de résultats.
  * @customfunction
  *

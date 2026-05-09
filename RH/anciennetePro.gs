@@ -1,6 +1,4 @@
-/** @OnlyCurrentDoc */
-
-/**
+/*
  * ════════════════════════════════════════════════════════════════════════════
  *  Ancienneté Professionnelle — Google Apps Script
  * ────────────────────────────────────────────────────────────────────────────
@@ -18,14 +16,15 @@
  *
  *  Runtime : V8 (ES6+)
  * ════════════════════════════════════════════════════════════════════════════
+ * @OnlyCurrentDoc
  */
 
 /**
  * Retourne l'ancienneté sous forme textuelle ("X ans et Y mois").
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {Date|string|Array<Array<any>>} dateDebut  Date d'embauche ou plage.
- * @param {Date|string} [dateFin]                    Date de fin.
+ * @param {Date|string|Array<Array<any>>} dateDebut Date d'embauche ou plage.
+ * @param {Date|string} [dateFin] Date de fin.
  * @return {string|Array<Array<string>>}             L'ancienneté ou tableau de résultats.
  * @customfunction
  *
