@@ -61,6 +61,14 @@ const CONFIG = {
   // Configuration par défaut pour les emails
   DEFAULT_LOGO_URL: "https://www.gstatic.com/images/branding/product/2x/apps_script_64dp.png",
 
+  // Paramètres de Surveillance et Alertes
+  MONITORING: {
+    ADMIN_EMAIL: Session.getEffectiveUser().getEmail(),
+    ALERT_THRESHOLD: "ERROR", // INFO, WARN, ERROR, CRITICAL
+    LOG_SHEET_NAME: "LOGS_FF_LIBRARY",
+    AUTO_NOTIFY: true
+  },
+
   // Palettes de couleurs Material Design 3 (Emailing)
   COLORS_MD3: {
     INFO: {
