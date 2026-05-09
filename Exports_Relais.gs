@@ -71,20 +71,6 @@ function PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison) {
   return FF.PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison);
 }
 
-/** Message retourné à la cellule en cas de date invalide. */
-const ERR_DATE = "⚠️ Date invalide";
-
-/**
- * Noms des mois en français (index 0 = janvier).
- * Déclaré une seule fois, partagé par NOM_MOIS.
- */
-const NOMS_MOIS_FR = [
-  "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-  "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre",
-];
-
-// ─── Fonctions exposées ───────────────────────────────────────────────────────
-
 /**
  * Retourne le premier jour du mois correspondant à la date fournie.
  * Supporte le traitement par lot (plages de cellules).
@@ -248,62 +234,6 @@ function supprimerEspaces(texte) {
 function TEXT_SIMILARITY(texte1, texte2) {
   return FF.TEXT_SIMILARITY(texte1, texte2);
 }
-
-/**
- * Calcule le dimanche de Pâques selon l'algorithme de Meeus.
- */
-const calculerPaques = (annee) => {
-    const a = annee % 19;
-    const b = Math.floor(annee / 100);
-    const c = annee % 100;
-    const d = Math.floor(b / 4);
-    const e = b % 4;
-    const f = Math.floor((b + 8) / 25);
-    const g = Math.floor((b - f + 1) / 3);
-    const h = (19 * a + b - d - g + 15) % 30;
-    const i = Math.floor(c / 4);
-    const k = c % 4;
-    const l = (32 + 2 * e + 2 * i - h - k) % 7;
-    const m = Math.floor((a + 11 * h + 22 * l) / 451);
-    const n = h + l - 7 * m + 114;
-    const mois = Math.floor(n / 31);
-    const jour = (n % 31) + 1;
-    return new Date(annee, mois - 1, jour);
-};
-
-/**
- * Retourne une Map triée contenant tous les jours fériés pour une année donnée.
- */
-const obtenirFeries = (annee) => {
-    if (cacheFeries.has(annee)) return cacheFeries.get(annee);
-
-    const f = new Map();
-    const tz = Session.getScriptTimeZone();
-    const ajouter = (d, l) => f.set(Utilities.formatDate(d, tz, "yyyy-MM-dd"), l);
-
-    // Ajout des jours fixes avec la typographie française standard
-    ajouter(new Date(annee, 0, 1), "Jour de l'an");
-    ajouter(new Date(annee, 4, 1), "Fête du travail");
-    ajouter(new Date(annee, 4, 8), "Victoire 1945");
-    ajouter(new Date(annee, 6, 14), "Fête nationale");
-    ajouter(new Date(annee, 7, 15), "Assomption");
-    ajouter(new Date(annee, 10, 1), "Toussaint");
-    ajouter(new Date(annee, 10, 11), "Armistice 1918");
-    ajouter(new Date(annee, 11, 25), "Noël");
-
-    // Ajout des jours mobiles
-    const p = calculerPaques(annee);
-    const msJour = 86400000;
-    ajouter(new Date(p.getTime() + msJour), "Lundi de Pâques");
-    ajouter(new Date(p.getTime() + 39 * msJour), "Ascension");
-    ajouter(new Date(p.getTime() + 50 * msJour), "Lundi de Pentecôte");
-
-    // Tri par date croissante
-    const fTrie = new Map([...f.entries()].sort((a, b) => a[0].localeCompare(b[0])));
-
-    cacheFeries.set(annee, fTrie);
-    return fTrie;
-};
 
 /**
  * Affiche la liste des jours fériés d'une année sur 2 colonnes (Date | Nom).
