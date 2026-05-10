@@ -1,88 +1,84 @@
 /*
  * ════════════════════════════════════════════════════════════════════════════
- *  Extraction de Données Entreprises (Multi-API) — Google Apps Script
+ *  Extraction Entreprise — Version Production Optimisée
  * ────────────────────────────────────────────────────────────────────────────
- *  Auteur  : Fabrice Faucheux
- *  Version : 2.0 (Production Ready)
- *  Date    : 2026-05-10
- *  Licence : MIT
- *
- *  Description :
- *    Récupère les informations légales (SIRENE) via l'API Recherche Entreprises.
- *    Incorpore une validation de format, un cache performant et un fallback
- *    sur Opendatasoft en cas de panne des services de l'État.
- *
- *  Fonctions exposées :
- *    • EXTRAIRE_ENTREPRISE(identifiant, [info])
- *
- *  Runtime : V8 (ES6+)
+ *  Fusion de la logique de recherche exacte et de l'architecture de bibliothèque.
  * ════════════════════════════════════════════════════════════════════════════
- * @OnlyCurrentDoc
  */
 
 /**
- * Moteur d'extraction multi-sources avec fallback.
+ * Moteur de récupération multi-source (Gouv.fr + Fallback Opendatasoft)
  * @private
  */
 function _fetchCompanyData(id) {
   const cleanId = String(id).replace(/\D/g, "");
+  if (!cleanId) return null;
+
   const cacheKey = "CORP_DATA_" + cleanId;
   const cache = CacheService.getScriptCache();
-  
-  const cached = cache.get(cacheKey);
-  if (cached) return JSON.parse(cached);
 
-  // 1. Source Principale : Recherche Entreprises (Gouv.fr)
-  const urlGouv = `https://recherche-entreprises.api.gouv.fr/search?q=${cleanId}`;
   try {
-    const resp = UrlFetchApp.fetch(urlGouv, { 
-      muteHttpExceptions: true,
-      headers: { "User-Agent": "FF_Library/2.0 (Comptabilite)" }
-    });
-
-    if (resp.getResponseCode() === 200) {
-      const json = JSON.parse(resp.getContentText());
-      if (json.results && json.results.length > 0) {
-        const data = json.results[0];
-        // Normalisation minimale pour le switch final
-        const normalized = {
-          nom: data.nom_complet || data.nom_raison_sociale,
-          ape: data.activite_principale,
-          statut: data.etat_administratif === "A" ? "ACTIF" : "INACTIF",
-          cp: data.siege ? data.siege.code_postal : "N/A",
-          ville: data.siege ? data.siege.libelle_commune : "N/A",
-          adresse: data.siege ? data.siege.adresse : "N/A"
-        };
-        cache.put(cacheKey, JSON.stringify(normalized), CONFIG.CACHE_TTL);
-        return normalized;
-      }
-    }
+    const cached = cache.get(cacheKey);
+    if (cached) return JSON.parse(cached);
   } catch (e) {
-    console.warn("Échec Source Gouv: " + e.message);
+    console.warn("Erreur cache : " + e);
   }
 
-  // 2. Source de Secours : Opendatasoft (si Gouv est en panne)
-  const urlFallback = `https://data.opendatasoft.com/api/records/1.0/search/?dataset=sirene-v3@public&q=${cleanId}`;
+  // 1. Source Principale : Recherche Entreprises (Gouv.fr)
   try {
-    const resp = UrlFetchApp.fetch(urlFallback, { muteHttpExceptions: true });
-    if (resp.getResponseCode() === 200) {
-      const json = JSON.parse(resp.getContentText());
-      if (json.records && json.records.length > 0) {
-        const f = json.records[0].fields;
+    const url = "https://recherche-entreprises.api.gouv.fr/search?q=" + encodeURIComponent(cleanId);
+    const response = UrlFetchApp.fetch(url, { 
+      muteHttpExceptions: true,
+      headers: { "User-Agent": "FF_Library/2.0" }
+    });
+
+    if (response.getResponseCode() === 200) {
+      const json = JSON.parse(response.getContentText());
+      if (json.results && json.results.length > 0) {
+        // Recherche de correspondance exacte SIREN ou SIRET du siège
+        const company = json.results.find(r => r.siren === cleanId || r.siege?.siret === cleanId) || json.results[0];
+        const siege = company.siege || {};
+        const adr = [siege.numero_voie, siege.type_voie, siege.libelle_voie].filter(Boolean).join(" ");
+
         const normalized = {
-          nom: f.denominationunitelegale || f.nomunitelegale || f.nom_raison_sociale,
-          ape: f.activiteprincipaleunitelegale,
-          statut: f.etatadministratifunitelegale === "A" ? "ACTIF" : "INACTIF",
-          cp: f.codepostaletablissement,
-          ville: f.libellecommuneetablissement,
-          adresse: f.adresseetablissement || `${f.numerovoieetablissement || ""} ${f.typevoieetablissement || ""} ${f.libellevoieetablissement || ""}, ${f.codepostaletablissement} ${f.libellecommuneetablissement}`.trim()
+          nom: company.nom_complet || company.nom_raison_sociale || "Inconnu",
+          ape: company.activite_principale || "N/A",
+          statut: company.etat_administratif === "A" ? "ACTIF" : "INACTIF",
+          cp: siege.code_postal || "N/A",
+          ville: siege.libelle_commune || "N/A",
+          adresse: adr || "N/A"
         };
         cache.put(cacheKey, JSON.stringify(normalized), CONFIG.CACHE_TTL);
         return normalized;
       }
     }
   } catch (e) {
-    console.error("Échec Total API: " + e.message);
+    console.warn("Erreur API GOUV : " + e);
+  }
+
+  // 2. Source de Secours : Opendatasoft
+  try {
+    const url = `https://data.opendatasoft.com/api/records/1.0/search/?dataset=sirene-v3@public&q=${cleanId}`;
+    const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+    if (response.getResponseCode() === 200) {
+      const json = JSON.parse(response.getContentText());
+      if (json.records && json.records.length > 0) {
+        const f = json.records[0].fields;
+        const adr = [f.numerovoieetablissement, f.typevoieetablissement, f.libellevoieetablissement].filter(Boolean).join(" ");
+        const normalized = {
+          nom: f.denominationunitelegale || f.nomunitelegale || f.nom_raison_sociale || "Inconnu",
+          ape: f.activiteprincipaleunitelegale || "N/A",
+          statut: f.etatadministratifunitelegale === "A" ? "ACTIF" : "INACTIF",
+          cp: f.codepostaletablissement || "N/A",
+          ville: f.libellecommuneetablissement || "N/A",
+          adresse: adr || "N/A"
+        };
+        cache.put(cacheKey, JSON.stringify(normalized), CONFIG.CACHE_TTL);
+        return normalized;
+      }
+    }
+  } catch (e) {
+    console.error("Erreur fallback : " + e);
   }
 
   return null;
@@ -90,25 +86,25 @@ function _fetchCompanyData(id) {
 
 /**
  * Récupère les informations d'une entreprise via son SIREN ou SIRET.
- * Valide d'abord le format via l'algorithme de Luhn.
+ * Supporte le traitement par lot (plages de cellules).
  *
  * @param {string|number|Array<Array<any>>} identifiant SIREN ou SIRET.
  * @param {string} [info="NOM"] "NOM", "ADRESSE", "VILLE", "CP", "APE", "STATUT", "GLOBAL".
- * @return {string|Array<Array<string>>}        Information ou message d'erreur.
+ * @return {string|Array<Array<any>>} Information ou message d'erreur.
  * @customfunction
  */
 function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
-  const typeInfo = String(info).trim().toUpperCase();
+  const typeInfo = (info || "NOM").toString().trim().toUpperCase();
 
   return BATCH_PROCESS(identifiant, (val) => {
     if (val == null || String(val).trim() === "") return "";
 
-    // Validation préalable du format via notre module Finance
+    // Validation via le module Finance
     const check = VALIDER_ENTREPRISE(val);
-    if (String(check).startsWith("INVALIDE")) return "Erreur: " + check;
+    if (String(check).startsWith("INVALIDE")) return "Erreur : " + check;
 
     const data = _fetchCompanyData(val);
-    if (!data) return "Erreur: Non trouvé (API Indisponible)";
+    if (!data) return "Erreur : entreprise introuvable";
 
     switch (typeInfo) {
       case "NOM": return data.nom;

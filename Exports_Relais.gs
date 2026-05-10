@@ -1435,11 +1435,11 @@ function VENTILATION_TVA(montantTTC, categorie, retour = "TVA", dateFacture = nu
 
 /**
  * Récupère les informations d'une entreprise via son SIREN ou SIRET.
- * Valide d'abord le format via l'algorithme de Luhn.
+ * Supporte le traitement par lot (plages de cellules).
  *
  * @param {string|number|Array<Array<any>>} identifiant SIREN ou SIRET.
  * @param {string} [info="NOM"] "NOM", "ADRESSE", "VILLE", "CP", "APE", "STATUT", "GLOBAL".
- * @return {string|Array<Array<string>>}        Information ou message d'erreur.
+ * @return {string|Array<Array<any>>} Information ou message d'erreur.
  * @customfunction
  */
 function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
