@@ -1017,18 +1017,18 @@ function DETECT_OUTLIER(valeur, plageDonnees, seuilZ = 2.5) {
 }
 
 /**
- * Calcule les frais de notaire pour une transaction immobilière.
- * Version Expert avec cascade fiscale et émoluments réglementés.
+ * Calcule les frais de notaire avec une précision réglementaire.
  *
- * @param {number|Array<Array<number>>} prixAchat Le prix de vente net vendeur.
+ * @param {number|Array<Array<number>>} prixAchat Prix net vendeur.
  * @param {string} [typeBien="ANCIEN"] "ANCIEN" ou "NEUF".
- * @param {string|number} [departement="75"] Code du département (ex: "36", "75").
- * @return {number|Array<Array<number>>} Le montant total estimé des frais.
+ * @param {string|number} [departement="75"] Code département.
+ * @param {number} [annee=2025] Année du barème.
+ * @return {number|Array<Array<number>>} Total des frais.
  * @customfunction
  */
-function FRAIS_NOTAIRE(prixAchat, typeBien = "ANCIEN", departement = "75") {
+function FRAIS_NOTAIRE(prixAchat, typeBien = "ANCIEN", departement = "75", annee = 2025) {
   try {
-    return FF_LIB.FRAIS_NOTAIRE(prixAchat, typeBien, departement);
+    return FF_LIB.FRAIS_NOTAIRE(prixAchat, typeBien, departement, annee);
   } catch (e) {
     FF_LIB.LOG_ERREUR(e.message, 'Relais: FRAIS_NOTAIRE', 'ERROR');
     throw e;
