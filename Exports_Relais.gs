@@ -1517,6 +1517,29 @@ function CALCUL_AGIOS(montant, tauxAnnuel, nbJours) {
 }
 
 /**
+ * Convertit un montant entre deux devises.
+ * Supporte le traitement par lot (plages de cellules).
+ *
+ * @param {number|Array<Array<number>>} montant Le montant à convertir ou plage.
+ * @param {string} de Code devise de départ (ex: "USD").
+ * @param {string} vers Code devise d'arrivée (ex: "EUR").
+ * @param {Date|string} [date] Date du taux (optionnel, utilise aujourd'hui par défaut).
+ * @return {number|Array<Array<any>>} Le montant converti ou tableau de résultats.
+ * @customfunction
+ *
+ *   =CONVERSION_DEVISE(100; "USD"; "EUR")
+ *   =CONVERSION_DEVISE(A2:A100; "GBP"; "EUR"; "2024-01-01")
+ */
+function CONVERSION_DEVISE(montant, de, vers, date = null) {
+  try {
+    return FF_LIB.CONVERSION_DEVISE(montant, de, vers, date);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: CONVERSION_DEVISE', 'ERROR');
+    throw e;
+  }
+}
+
+/**
  * Vérifie la validité d'un IBAN (International Bank Account Number).
  *
  * @param {string|Array<Array<string>>} iban L'IBAN ou une plage de cellules.
