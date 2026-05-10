@@ -34,18 +34,19 @@ function _fetchSireneData(id) {
   const isSiret = cleanId.length === 14;
   const type = isSiret ? "siret" : "siren";
   
-  // Utilisation de l'API Sirene (V3 via Etalab proxy)
-  const url = `https://entreprise.data.gouv.fr/api/sirene/v3/${type}/${cleanId}`;
+  // Utilisation de l'API Recherche Entreprises (plus stable et moderne)
+  const url = `https://recherche-entreprises.api.gouv.fr/search?q=${cleanId}`;
   
   try {
     const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
     if (response.getResponseCode() === 200) {
       const data = JSON.parse(response.getContentText());
-      const result = isSiret ? data.etablissement : data.unite_legale;
-      
-      // On stocke en cache pour 6h
-      cache.put(cacheKey, JSON.stringify(result), CONFIG.CACHE_TTL);
-      return result;
+      if (data.results && data.results.length > 0) {
+        const result = data.results[0];
+        // On stocke en cache pour 6h
+        cache.put(cacheKey, JSON.stringify(result), CONFIG.CACHE_TTL);
+        return result;
+      }
     }
   } catch (e) {
     console.error("Erreur API Sirene: " + e.message);
@@ -74,19 +75,14 @@ function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
     const data = _fetchSireneData(val);
     if (!data) return "Erreur: Identifiant non trouvé";
 
-    const uniteLegale = data.unite_legale || data;
-    const etablissement = data.unite_legale ? data : null;
-
-    const nom = uniteLegale.denomination_unite_legale || uniteLegale.nom_raison_sociale || 
-                (uniteLegale.nom ? `${uniteLegale.nom} ${uniteLegale.prenom || ""}` : "Inconnu");
-    const ape = uniteLegale.activite_principale_unite_legale || uniteLegale.activite_principale || "N/A";
-    const statut = uniteLegale.etat_administratif_unite_legale === "A" ? "ACTIF" : "INACTIF";
+    const nom = data.nom_complet || "Inconnu";
+    const ape = data.activite_principale || "N/A";
+    const statut = data.etat_administratif === "A" ? "ACTIF" : "INACTIF";
     
-    const cp = etablissement ? etablissement.code_postal : "N/A";
-    const ville = etablissement ? etablissement.libelle_commune : "N/A";
-    const adresse = etablissement 
-      ? `${etablissement.numero_voie || ""} ${etablissement.type_voie || ""} ${etablissement.libelle_voie || ""}, ${etablissement.code_postal} ${etablissement.libelle_commune}`.trim()
-      : "N/A";
+    const siege = data.siege || {};
+    const cp = siege.code_postal || "N/A";
+    const ville = siege.libelle_commune || "N/A";
+    const adresse = siege.adresse || "N/A";
 
     switch (typeInfo) {
       case "NOM": return nom;
@@ -96,7 +92,6 @@ function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
       case "ADRESSE": return adresse;
       case "STATUT": return statut;
       case "GLOBAL":
-        // Renvoie une ligne complète sur 6 colonnes
         return [[nom, adresse, cp, ville, ape, statut]];
       default:
         return nom;
