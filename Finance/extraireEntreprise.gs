@@ -29,8 +29,8 @@ function _fetchCompanyData(id) {
 
   // 1. Source Principale : Recherche Entreprises (Gouv.fr)
   try {
-    // Paramètres optimisés : 1 seul résultat pour plus de rapidité
-    const url = `https://recherche-entreprises.api.gouv.fr/search?q=${cleanId}&page=1&per_page=1`;
+    // On retire per_page=1 pour être sûr de ne pas brider les données de matching
+    const url = `https://recherche-entreprises.api.gouv.fr/search?q=${cleanId}`;
     const response = UrlFetchApp.fetch(url, { 
       muteHttpExceptions: true,
       headers: { "User-Agent": "FF_Library/3.0" }
@@ -38,6 +38,7 @@ function _fetchCompanyData(id) {
 
     if (response.getResponseCode() === 200) {
       const json = JSON.parse(response.getContentText());
+      Logger.log("RÉPONSE BRUTE : " + JSON.stringify(json));
       
       if (json.results && json.results.length > 0) {
         const company = json.results[0];
