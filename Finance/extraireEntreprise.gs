@@ -1,9 +1,9 @@
 /*
  * ════════════════════════════════════════════════════════════════════════════
- *  Extraction Entreprise — Version 3.1 (Multi-Source Stabilisée)
+ *  Extraction Entreprise — Version 3.2 (Multi-Source Huwise)
  * ────────────────────────────────────────────────────────────────────────────
  *  - Source 1 : Recherche Entreprises (Gouv.fr)
- *  - Source 2 (Fallback) : Opendatasoft (economicref-france-sirene-v3)
+ *  - Source 2 (Fallback) : Opendatasoft via Huwise (economicref-france-sirene-v3)
  * ════════════════════════════════════════════════════════════════════════════
  */
 
@@ -30,7 +30,7 @@ function _fetchCompanyData(id) {
     const url = `https://recherche-entreprises.api.gouv.fr/search?q=${cleanId}`;
     const response = UrlFetchApp.fetch(url, { 
       muteHttpExceptions: true,
-      headers: { "User-Agent": "FF_Library/3.1" }
+      headers: { "User-Agent": "FF_Library/3.2" }
     });
 
     const code = response.getResponseCode();
@@ -64,9 +64,10 @@ function _fetchCompanyData(id) {
     Logger.log("Échec Source Gouv: " + e.message);
   }
 
-  // 2. SOURCE DE SECOURS : OPENDATASOFT (Corrected Dataset ID)
+  // 2. SOURCE DE SECOURS : HUWISE (Miroir Sirene V3)
   try {
-    const url = `https://data.opendatasoft.com/api/records/1.0/search/?dataset=economicref-france-sirene-v3&q=${cleanId}`;
+    // Utilisation du endpoint Huwise (Dataset identifié comme stable sur leur plateforme)
+    const url = `https://hub.huwise.com/api/records/1.0/search/?dataset=economicref-france-sirene-v3&q=${cleanId}`;
     const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
     const code = response.getResponseCode();
     Logger.log(`[Source Secours] Code: ${code}`);
@@ -76,20 +77,18 @@ function _fetchCompanyData(id) {
       if (json.records && json.records.length > 0) {
         const f = json.records[0].fields;
         
-        // Reconstitution du nom (gère les entreprises individuelles)
+        // Reconstitution du nom (Priorité : Dénomination > L1 Adressage > Nom Raison Sociale)
         const nom = f.denominationunitelegale || 
-                    (f.nomunitelegale ? `${f.nomunitelegale} ${f.prenom1unitelegale || ""}` : "") || 
+                    f.l1_adressage_unitelegale || 
                     f.nom_raison_sociale || "Inconnu";
-        
-        const adr = [f.numerovoieetablissement, f.typevoieetablissement, f.libellevoieetablissement].filter(Boolean).join(" ");
 
         const normalized = {
           nom: nom.trim(),
           ape: f.activiteprincipaleunitelegale || "N/A",
-          statut: f.etatadministratifunitelegale === "A" ? "ACTIF" : "INACTIF",
+          statut: (f.etatadministratifunitelegale || "").toLowerCase().startsWith("act") ? "ACTIF" : "INACTIF",
           cp: f.codepostaletablissement || "N/A",
           ville: f.libellecommuneetablissement || "N/A",
-          adresse: adr || f.adresseetablissement || "N/A"
+          adresse: f.adresseetablissement || "N/A"
         };
         cache.put(cacheKey, JSON.stringify(normalized), CONFIG.CACHE_TTL);
         return normalized;
@@ -135,7 +134,7 @@ function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
  */
 function TEST_ENTREPRISE_V3() {
   const siren = "552100554"; // Carrefour
-  Logger.log("--- Lancement du Test Multi-Source ---");
+  Logger.log("--- Lancement du Test Multi-Source (V3.2) ---");
   const res = _fetchCompanyData(siren);
   Logger.log("RÉSULTAT FINAL : " + JSON.stringify(res, null, 2));
 }
