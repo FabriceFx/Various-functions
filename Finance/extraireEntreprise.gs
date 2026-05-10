@@ -1,8 +1,9 @@
 /*
  * ════════════════════════════════════════════════════════════════════════════
- *  Extraction Entreprise — Version Production Optimisée
+ *  Extraction Entreprise — Version Finale Corrigée
  * ────────────────────────────────────────────────────────────────────────────
- *  Fusion de la logique de recherche exacte et de l'architecture de bibliothèque.
+ *  Correction du mapping des champs API (siege vs etablissement_siege)
+ *  et ajout des outils de diagnostic.
  * ════════════════════════════════════════════════════════════════════════════
  */
 
@@ -21,7 +22,7 @@ function _fetchCompanyData(id) {
     const cached = cache.get(cacheKey);
     if (cached) return JSON.parse(cached);
   } catch (e) {
-    console.warn("Erreur cache : " + e);
+    Logger.log("Erreur cache : " + e);
   }
 
   // 1. Source Principale : Recherche Entreprises (Gouv.fr)
@@ -34,26 +35,32 @@ function _fetchCompanyData(id) {
 
     if (response.getResponseCode() === 200) {
       const json = JSON.parse(response.getContentText());
+      
+      // LOG DE DIAGNOSTIC (Consulter : Exécutions > Logs)
+      Logger.log("RÉPONSE API GOUV : " + JSON.stringify(json));
+
       if (json.results && json.results.length > 0) {
-        // Recherche de correspondance exacte SIREN ou SIRET du siège
-        const company = json.results.find(r => r.siren === cleanId || r.siege?.siret === cleanId) || json.results[0];
-        const siege = company.siege || {};
-        const adr = [siege.numero_voie, siege.type_voie, siege.libelle_voie].filter(Boolean).join(" ");
+        const company = json.results[0];
+        
+        // Correction du mapping : siege ou etablissement_siege
+        const s = company.siege || company.etablissement_siege || {};
+        
+        const adr = [s.numero_voie, s.type_voie, s.libelle_voie].filter(Boolean).join(" ");
 
         const normalized = {
-          nom: company.nom_complet || company.nom_raison_sociale || "Inconnu",
-          ape: company.activite_principale || "N/A",
+          nom: company.nom_complet || company.nom_raison_sociale || "",
+          ape: company.activite_principale || "",
           statut: company.etat_administratif === "A" ? "ACTIF" : "INACTIF",
-          cp: siege.code_postal || "N/A",
-          ville: siege.libelle_commune || "N/A",
-          adresse: adr || "N/A"
+          cp: s.code_postal || "",
+          ville: s.libelle_commune || "",
+          adresse: adr || s.adresse || ""
         };
         cache.put(cacheKey, JSON.stringify(normalized), CONFIG.CACHE_TTL);
         return normalized;
       }
     }
   } catch (e) {
-    console.warn("Erreur API GOUV : " + e);
+    Logger.log("Erreur API GOUV : " + e);
   }
 
   // 2. Source de Secours : Opendatasoft
@@ -66,19 +73,19 @@ function _fetchCompanyData(id) {
         const f = json.records[0].fields;
         const adr = [f.numerovoieetablissement, f.typevoieetablissement, f.libellevoieetablissement].filter(Boolean).join(" ");
         const normalized = {
-          nom: f.denominationunitelegale || f.nomunitelegale || f.nom_raison_sociale || "Inconnu",
-          ape: f.activiteprincipaleunitelegale || "N/A",
+          nom: f.denominationunitelegale || f.nomunitelegale || f.nom_raison_sociale || "",
+          ape: f.activiteprincipaleunitelegale || "",
           statut: f.etatadministratifunitelegale === "A" ? "ACTIF" : "INACTIF",
-          cp: f.codepostaletablissement || "N/A",
-          ville: f.libellecommuneetablissement || "N/A",
-          adresse: adr || "N/A"
+          cp: f.codepostaletablissement || "",
+          ville: f.libellecommuneetablissement || "",
+          adresse: adr || f.adresseetablissement || ""
         };
         cache.put(cacheKey, JSON.stringify(normalized), CONFIG.CACHE_TTL);
         return normalized;
       }
     }
   } catch (e) {
-    console.error("Erreur fallback : " + e);
+    Logger.log("Erreur fallback : " + e);
   }
 
   return null;
@@ -117,4 +124,11 @@ function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
       default: return data.nom;
     }
   });
+}
+
+/**
+ * Fonction de test manuel (Consulter : Exécutions > Logs)
+ */
+function TEST_ENTREPRISE() {
+  Logger.log(JSON.stringify(_fetchCompanyData("552100554"), null, 2));
 }
