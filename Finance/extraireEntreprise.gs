@@ -31,34 +31,30 @@ function _fetchSireneData(id) {
   const cached = cache.get(cacheKey);
   if (cached) return JSON.parse(cached);
 
+  // Bascule sur le serveur miroir Etalab (souvent plus stable en cas de 502)
   const isSiret = cleanId.length === 14;
-  const type = isSiret ? "siret" : "siren";
-  
-  // Utilisation de l'API Recherche Entreprises (plus stable et moderne)
-  const url = `https://recherche-entreprises.api.gouv.fr/search?q=${cleanId}`;
+  const endpoint = isSiret ? "siret" : "siren";
+  const url = `https://entreprise.data.gouv.fr/api/sirene/v3/${endpoint}/${cleanId}`;
   
   try {
     const response = UrlFetchApp.fetch(url, { 
       muteHttpExceptions: true,
-      headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; FF_Library/2.0; +https://github.com/FabriceFx/Various-functions)"
-      }
+      headers: { "User-Agent": "FF_Library/2.0" }
     });
 
-    if (response.getResponseCode() === 200) {
+    const code = response.getResponseCode();
+    if (code === 200) {
       const data = JSON.parse(response.getContentText());
-      if (data.results && data.results.length > 0) {
-        const result = data.results[0];
+      const result = isSiret ? data.etablissement : data.unite_legale;
+      if (result) {
         cache.put(cacheKey, JSON.stringify(result), CONFIG.CACHE_TTL);
         return result;
-      } else {
-        console.warn(`Aucun résultat API pour : ${cleanId}`);
       }
     } else {
-      console.error(`Erreur HTTP ${response.getResponseCode()} sur ${url}`);
+      console.warn(`Serveur Sirene indisponible (Code ${code})`);
     }
   } catch (e) {
-    console.error(`Erreur réseau API Sirene: ${e.message}`);
+    console.error(`Erreur réseau : ${e.message}`);
   }
   return null;
 }
@@ -84,14 +80,20 @@ function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
     const data = _fetchSireneData(val);
     if (!data) return "Erreur: Identifiant non trouvé";
 
-    const nom = data.nom_complet || "Inconnu";
-    const ape = data.activite_principale || "N/A";
-    const statut = data.etat_administratif === "A" ? "ACTIF" : "INACTIF";
+    // Navigation dans la structure Sirene V3
+    const uniteLegale = data.unite_legale || data;
+    const etablissement = data.unite_legale ? data : null;
+
+    const nom = uniteLegale.denomination_unite_legale || uniteLegale.nom_raison_sociale || 
+                (uniteLegale.nom ? `${uniteLegale.nom} ${uniteLegale.prenom || ""}` : "Inconnu");
+    const ape = uniteLegale.activite_principale_unite_legale || uniteLegale.activite_principale || "N/A";
+    const statut = uniteLegale.etat_administratif_unite_legale === "A" ? "ACTIF" : "INACTIF";
     
-    const siege = data.siege || {};
-    const cp = siege.code_postal || "N/A";
-    const ville = siege.libelle_commune || "N/A";
-    const adresse = siege.adresse || "N/A";
+    const cp = etablissement ? etablissement.code_postal : "N/A";
+    const ville = etablissement ? etablissement.libelle_commune : "N/A";
+    const adresse = etablissement 
+      ? `${etablissement.numero_voie || ""} ${etablissement.type_voie || ""} ${etablissement.libelle_voie || ""}, ${etablissement.code_postal} ${etablissement.libelle_commune}`.trim()
+      : "N/A";
 
     switch (typeInfo) {
       case "NOM": return nom;
