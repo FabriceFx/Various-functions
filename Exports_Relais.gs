@@ -1415,9 +1415,9 @@ function MONTANT_EN_LETTRES(nombre, langue = "FR", devise, nomCentimes) {
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {number|Array<Array<number>>} montantTTC Le montant TTC ou plage.
- * @param {string} categorie Catégorie (STANDARD, REDUIT, INTERMEDIAIRE, RESTAURATION, PARTICULIER, PRESSE, EXONERE).
- * @param {string} [retour="TVA"] "TVA", "HT" ou "TOUT".
- * @param {Date|string} [dateFacture] Date pour recherche historique du taux.
+ * @param {string} categorie Catégorie (STANDARD, REDUIT, INTERMEDIAIRE, RESTAURATION, PARTICULIER, PRESSE, EXONERE) ou taux numérique (ex: 0.20).
+ * @param {string} [retour="TVA"] Type de résultat souhaité : "TVA" (montant de la taxe), "HT" (montant hors taxe) ou "TOUT" (affiche HT et TVA sur deux colonnes).
+ * @param {Date|string} [dateFacture] Date pour recherche historique du taux (optionnel, utilise la date du jour par défaut).
  * @return {number|Array<Array<any>>} Le montant calculé ou tableau de résultats.
  * @customfunction
  *
