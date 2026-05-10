@@ -31,30 +31,25 @@ function _fetchSireneData(id) {
   const cached = cache.get(cacheKey);
   if (cached) return JSON.parse(cached);
 
-  // Bascule sur le serveur miroir Etalab (souvent plus stable en cas de 502)
-  const isSiret = cleanId.length === 14;
-  const endpoint = isSiret ? "siret" : "siren";
-  const url = `https://entreprise.data.gouv.fr/api/sirene/v3/${endpoint}/${cleanId}`;
+  // Route de secours ultime via Opendatasoft (Miroir privé souvent disponible quand l'État est en panne)
+  const url = `https://data.opendatasoft.com/api/records/1.0/search/?dataset=sirene-v3@public&q=${cleanId}`;
   
   try {
-    const response = UrlFetchApp.fetch(url, { 
-      muteHttpExceptions: true,
-      headers: { "User-Agent": "FF_Library/2.0" }
-    });
-
+    const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
     const code = response.getResponseCode();
+    
     if (code === 200) {
       const data = JSON.parse(response.getContentText());
-      const result = isSiret ? data.etablissement : data.unite_legale;
-      if (result) {
+      if (data.records && data.records.length > 0) {
+        const result = data.records[0].fields;
         cache.put(cacheKey, JSON.stringify(result), CONFIG.CACHE_TTL);
         return result;
       }
     } else {
-      console.warn(`Serveur Sirene indisponible (Code ${code})`);
+      console.warn(`Serveur Opendatasoft indisponible (Code ${code})`);
     }
   } catch (e) {
-    console.error(`Erreur réseau : ${e.message}`);
+    console.error(`Erreur réseau (Opendatasoft) : ${e.message}`);
   }
   return null;
 }
@@ -80,20 +75,15 @@ function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
     const data = _fetchSireneData(val);
     if (!data) return "Erreur: Identifiant non trouvé";
 
-    // Navigation dans la structure Sirene V3
-    const uniteLegale = data.unite_legale || data;
-    const etablissement = data.unite_legale ? data : null;
-
-    const nom = uniteLegale.denomination_unite_legale || uniteLegale.nom_raison_sociale || 
-                (uniteLegale.nom ? `${uniteLegale.nom} ${uniteLegale.prenom || ""}` : "Inconnu");
-    const ape = uniteLegale.activite_principale_unite_legale || uniteLegale.activite_principale || "N/A";
-    const statut = uniteLegale.etat_administratif_unite_legale === "A" ? "ACTIF" : "INACTIF";
+    // Navigation dans la structure Opendatasoft (Champs aplatis)
+    const nom = data.denominationunitelegale || data.nomunitelegale || data.nom_raison_sociale || "Inconnu";
+    const ape = data.activiteprincipaleunitelegale || data.activite_principale || "N/A";
+    const statut = (data.etatadministratifunitelegale === "A" || data.etat_administratif === "A") ? "ACTIF" : "INACTIF";
     
-    const cp = etablissement ? etablissement.code_postal : "N/A";
-    const ville = etablissement ? etablissement.libelle_commune : "N/A";
-    const adresse = etablissement 
-      ? `${etablissement.numero_voie || ""} ${etablissement.type_voie || ""} ${etablissement.libelle_voie || ""}, ${etablissement.code_postal} ${etablissement.libelle_commune}`.trim()
-      : "N/A";
+    const cp = data.codepostaletablissement || "N/A";
+    const ville = data.libellecommuneetablissement || "N/A";
+    const adresse = data.adresseetablissement || 
+                    `${data.numerovoieetablissement || ""} ${data.typevoieetablissement || ""} ${data.libellevoieetablissement || ""}, ${cp} ${ville}`.trim();
 
     switch (typeInfo) {
       case "NOM": return nom;
