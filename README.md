@@ -1,8 +1,8 @@
 # Various-functions (Google Sheets Library)
 
-🇫🇷 **Boîte à outils de 78 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Marketing). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
+🇫🇷 **Boîte à outils de 85 fonctions personnalisées ("Custom Functions") pour Google Sheets.** Conçue pour répondre aux douleurs administratives des entreprises (Finance, RH, Logistique, Data, Immobilier). Plus besoin d'ERP complexes pour vos tâches quotidiennes !
 
-🇬🇧 **A toolkit of 78 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Marketing). No need for complex ERPs for your daily tasks!
+🇬🇧 **A toolkit of 85 custom functions for Google Sheets.** Designed to solve daily corporate administrative pains (Finance, HR, Logistics, Data, Real Estate). No need for complex ERPs for your daily tasks!
 
 ---
 
@@ -34,24 +34,28 @@
 | [`decodeSafeUrl.gs`](Data_IT/decodeSafeUrl.gs) | IT/Sec / IT/Sec | Nettoie les liens de sécurité (SafeLinks, Proofpoint) | Cleans security links (SafeLinks, Proofpoint) |
 | [`detectOutlier.gs`](Data_IT/detectOutlier.gs) | Stats / Stats | Détecte les anomalies (Z-Score) dans une plage de valeurs | Detects outliers (Z-Score) in a range of values |
 | [`detectPII.gs`](Data_IT/detectPII.gs) | Data Sec / Data Sec | Détecte la présence de données personnelles sensibles | Detects the presence of sensitive personal data (PII) |
+| [`diffTableaux.gs`](Divers/diffTableaux.gs) | Audit / Utilities | Compare deux plages et marque les changements (⚠️) | Compares two ranges and marks changes (⚠️) |
 | [`entropyScore.gs`](Data_IT/entropyScore.gs) | Data Sec / Data Sec | Calcule le score d'entropie (complexité) d'un mot de passe | Calculates the entropy score (complexity) of a password |
 | [`estimationBrutNet.gs`](RH/estimationBrutNet.gs) | RH / HR | Convertisseur indicatif Brut/Net selon le statut (FR) | Indicative Gross/Net salary converter (FR) |
 | [`estimerLecture.gs`](Marketing_Vente/estimerLecture.gs) | Marketing / Marketing | Calcule le temps de lecture estimé d'un texte | Calculates estimated reading time of a text |
 | [`estimerLivraison.gs`](Logistique/estimerLivraison.gs) | Logistique / Logistics | Estime la date de livraison selon le code postal | Estimates delivery date based on postal code |
 | [`extractTitleTag.gs`](Marketing_Vente/extractTitleTag.gs) | Web / Web | Extrait le <title> d'une URL (SEO Bot + Bypass Cache) | Extracts <title> from URL (SEO Bot + Bypass Cache) |
 | [`extraireDomaine.gs`](Divers/extraireDomaine.gs) | Utilitaires / Utilities | Extrait le domaine principal d'une URL | Extracts the main domain from a URL |
+| [`extraireEntreprise.gs`](Finance/extraireEntreprise.gs) | Finance / B2B | Données SIREN/SIRET multi-source (Gouv/Huwise) | Multi-source SIREN/SIRET company data |
 | [`extraireJoursFeries.gs`](Divers/extraireJoursFeries.gs) | Dates / Dates | Liste les jours fériés français (fixes et mobiles) | Lists French public holidays (fixed and mobile) |
 | [`extraireInitiales.gs`](Divers/extraireInitiales.gs) | Texte / Text | Extrait les initiales d'un nom ("Jean-Pierre" → "JP") | Extracts initials from a name |
 | [`extraireJSON.gs`](Data_IT/extraireJSON.gs) | Data / Data | Extrait une valeur d'un JSON via notation pointée | Extracts a value from JSON via dot notation |
 | [`extraireTel.gs`](Marketing_Vente/extraireTel.gs) | Vente / Sales | Isole et normalise un numéro de tel français | Isolates and normalizes a French phone number |
 | [`finPeriodeEssai.gs`](RH/finPeriodeEssai.gs) | Compliance / Compliance | Calcule la date exacte de fin de période d'essai (FR) | Calculates exact end date of probation period (FR) |
 | [`formuleWilson.gs`](Logistique/formuleWilson.gs) | Logistique / Logistics | Calcule la quantité économique de commande (EOQ) | Calculates Economic Order Quantity (EOQ / Wilson) |
+| [`fraisNotaire.gs`](Immobilier/fraisNotaire.gs) | Immobilier | Calcul expert frais de notaire (Taux 2025/Loi Macron) | Expert notary fee calculator (2025 Rates) |
 | [`frequenceMots.gs`](Data_IT/frequenceMots.gs) | Data / Data | Top des mots les plus fréquents d'une plage | Top most frequent words in a range |
 | [`genererMotDePasse.gs`](Data_IT/genererMotDePasse.gs) | Utilitaires / Utilities | Génère un mot de passe aléatoire sécurisé | Generates a secure random password |
 | [`htToTTC.gs`](Finance/htToTTC.gs) | Finance / Finance | Conversion HT ↔ TTC avec taux de TVA paramétrable | Pre-tax ↔ Post-tax conversion with custom VAT |
 | [`iban.gs`](Finance/iban.gs) | Finance / Finance | Vérification et formatage d'IBAN (ISO 13616) | IBAN verification and formatting (ISO 13616) |
 | [`isBusinessHour.gs`](RH/isBusinessHour.gs) | RH / HR | Vérifie si une date correspond aux horaires de bureau | Checks if a date falls within business hours |
 | [`joursOuvres.gs`](Divers/joursOuvres.gs) | Dates / Dates | Jours ouvrés entre 2 dates (hors week-ends et fériés FR) | Business days between 2 dates (excl. FR holidays) |
+| [`loyerRevision.gs`](Immobilier/loyerRevision.gs) | Immobilier | Révision de loyer via IRL (Bouclier Loyer inclus) | Rent revision via IRL (inc. Rent Shield) |
 | [`maskPII.gs`](Data_IT/maskPII.gs) | Compliance / Compliance | Anonymise les données sensibles (RGPD) | Anonymizes sensitive data (GDPR) |
 | [`montantEnLettres.gs`](Finance/montantEnLettres.gs) | Finance / Finance | Convertit un nombre en toutes lettres ("mille euros") | Converts a number to words (French) |
 | [`nomFichierPropre.gs`](Divers/nomFichierPropre.gs) | Utilitaires / Utilities | Nettoie une chaîne pour en faire un nom de fichier valide | Cleans a string to make it a valid filename |
@@ -106,16 +110,6 @@ Consultez le guide [LIBRARY_USAGE.md](LIBRARY_USAGE.md) pour plus de détails.
 7. Utilisez les fonctions directement dans les cellules, ex: `=verifSIRET("12345678900000")`
 
 > **Note :** Le runtime V8 (ES6+) doit être activé dans Apps Script (activé par défaut depuis 2020).
-
-## 🚀 Installation (EN)
-
-1. Open a Google Sheets file
-2. Go to **Extensions** → **Apps Script**
-3. Copy and paste the content of the desired `.gs` file
-4. Click **Save** (💾)
-5. Use the functions directly in cells, e.g.: `=verifSIRET("12345678900000")`
-
-> **Note:** The V8 runtime (ES6+) must be enabled in Apps Script (enabled by default since 2020).
 
 ---
 
