@@ -17,7 +17,7 @@ function _fetchCompanyData(id) {
   const cleanId = String(id).replace(/\D/g, "");
   if (!cleanId) return null;
 
-  const cacheKey = "CORP_DATA_" + cleanId;
+  const cacheKey = "DEBUG_CORP_" + cleanId; // On change la clé pour forcer le refresh
   const cache = CacheService.getScriptCache();
 
   try {
@@ -29,16 +29,17 @@ function _fetchCompanyData(id) {
 
   // 1. Source Principale : Recherche Entreprises (Gouv.fr)
   try {
-    // On retire per_page=1 pour être sûr de ne pas brider les données de matching
     const url = `https://recherche-entreprises.api.gouv.fr/search?q=${cleanId}`;
     const response = UrlFetchApp.fetch(url, { 
       muteHttpExceptions: true,
       headers: { "User-Agent": "FF_Library/3.0" }
     });
 
+    Logger.log("Code Réponse Gouv : " + response.getResponseCode());
+
     if (response.getResponseCode() === 200) {
       const json = JSON.parse(response.getContentText());
-      Logger.log("RÉPONSE BRUTE : " + JSON.stringify(json));
+      Logger.log("RÉPONSE BRUTE : " + JSON.stringify(json).substring(0, 500));
       
       if (json.results && json.results.length > 0) {
         const company = json.results[0];
