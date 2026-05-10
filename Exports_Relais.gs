@@ -343,6 +343,41 @@ function JOURS_FERIES_AVEC_JOUR(annee) {
 }
 
 /**
+ * Compare deux plages et retourne les lignes ajoutées, supprimées ou modifiées.
+ *
+ * La première ligne de chaque plage doit contenir les en-têtes de colonnes.
+ * Les deux plages doivent avoir le même nombre de colonnes.
+ *
+ * @param {Array<Array<any>>} plageA       Plage de référence (ancienne version), en-têtes inclus.
+ * @param {Array<Array<any>>} plageB       Plage courante (nouvelle version), en-têtes inclus.
+ * @param {number}            [colonnesCles=1]  Index (1-indexé) de la/des colonne(s) servant de clé unique.
+ *                                              Pour plusieurs clés, séparer par ";" (ex: "1;3").
+ * @param {boolean}           [afficherInchangees=false] Si VRAI, inclut aussi les lignes identiques.
+ * @return {Array<Array<any>>} Tableau différentiel avec en-tête et statut par ligne.
+ * @customfunction
+ *
+ * @example
+ * // Comparer deux versions d'un export clients (clé = colonne 1 = ID)
+ * =DIFF_TABLEAUX(Feuille1!A1:D100; Feuille2!A1:D200; 1; FAUX)
+ *
+ * @example
+ * // Clé composite : ID + Email (colonnes 1 et 2)
+ * =DIFF_TABLEAUX(A1:E50; G1:K80; "1;2"; FAUX)
+ *
+ * @example
+ * // Inclure les lignes inchangées pour un rapport complet
+ * =DIFF_TABLEAUX(A1:D100; F1:I150; 1; VRAI)
+ */
+function DIFF_TABLEAUX(plageA, plageB, colonnesCles = 1, afficherInchangees = false) {
+  try {
+    return FF_LIB.DIFF_TABLEAUX(plageA, plageB, colonnesCles, afficherInchangees);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: DIFF_TABLEAUX', 'ERROR');
+    throw e;
+  }
+}
+
+/**
  * Prédit la prochaine valeur basée sur un historique chronologique.
  *
  * @param {Array<Array<number>>} plageHistorique Les valeurs précédentes (chronologiques).
