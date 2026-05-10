@@ -1434,6 +1434,26 @@ function VENTILATION_TVA(montantTTC, categorie, retour = "TVA", dateFacture = nu
 }
 
 /**
+ * Valide et formate un numéro SIREN ou SIRET.
+ * Supporte le traitement par lot (plages de cellules).
+ *
+ * @param {string|number|Array<Array<any>>} input Le numéro à vérifier ou plage.
+ * @return {string|Array<Array<string>>}           Le numéro formaté ou message d'erreur.
+ * @customfunction
+ *
+ *   =VALIDER_ENTREPRISE("123456789")         → "123 456 789"
+ *   =VALIDER_ENTREPRISE(12345678900012)      → "123 456 789 00012"
+ */
+function VALIDER_ENTREPRISE(input) {
+  try {
+    return FF_LIB.VALIDER_ENTREPRISE(input);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: VALIDER_ENTREPRISE', 'ERROR');
+    throw e;
+  }
+}
+
+/**
  * Arrondit un nombre selon la méthode comptable (arrondi au pair).
  * Supporte le traitement par lot (plages de cellules).
  *
