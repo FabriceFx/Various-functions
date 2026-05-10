@@ -1036,6 +1036,61 @@ function FRAIS_NOTAIRE(prixAchat, typeBien = "ANCIEN", departement = "75", annee
 }
 
 /**
+ * Calcule le nouveau loyer après révision IRL simple.
+ * Formule : Loyer * (Indice_Nouveau / Indice_Ancien)
+ *
+ * @param {number} loyerBase Loyer actuel (hors charges).
+ * @param {number} irlReference Indice IRL de la date de signature ou dernière révision.
+ * @param {number} irlNouveau Indice IRL du trimestre de révision.
+ * @return {number} Le nouveau loyer révisé.
+ * @customfunction
+ */
+function REVISION_LOYER_IRL(loyerBase, irlReference, irlNouveau) {
+  try {
+    return FF_LIB.REVISION_LOYER_IRL(loyerBase, irlReference, irlNouveau);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: REVISION_LOYER_IRL', 'ERROR');
+    throw e;
+  }
+}
+
+/**
+ * Récupère la valeur de l'indice IRL pour un trimestre et une année donnés.
+ *
+ * @param {number} trimestre Numéro du trimestre (1, 2, 3 ou 4).
+ * @param {number} annee Année (ex: 2024).
+ * @return {number|string} La valeur de l'indice ou un message d'erreur.
+ * @customfunction
+ */
+function IRL_VALEUR(trimestre, annee) {
+  try {
+    return FF_LIB.IRL_VALEUR(trimestre, annee);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: IRL_VALEUR', 'ERROR');
+    throw e;
+  }
+}
+
+/**
+ * Effectue une révision complète de loyer à partir de la date de référence.
+ * Trouve automatiquement l'indice le plus récent disponible.
+ *
+ * @param {number} loyerBase Loyer actuel.
+ * @param {number} trimestreRef Trimestre de référence (contrat).
+ * @param {number} anneeRef Année de référence (contrat).
+ * @return {number} Nouveau loyer calculé.
+ * @customfunction
+ */
+function REVISION_LOYER_COMPLET(loyerBase, trimestreRef, anneeRef) {
+  try {
+    return FF_LIB.REVISION_LOYER_COMPLET(loyerBase, trimestreRef, anneeRef);
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: REVISION_LOYER_COMPLET', 'ERROR');
+    throw e;
+  }
+}
+
+/**
  * Calcule la durée du préavis de fin de contrat CDI (France).
  * Supporte le traitement par lot (plages de cellules).
  *
