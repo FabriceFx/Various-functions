@@ -1438,12 +1438,12 @@ function VENTILATION_TVA(montantTTC, categorie, retour = "TVA", dateFacture = nu
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {string|number|Array<Array<any>>} identifiant SIREN (9 chif.) ou SIRET (14 chif.).
- * @param {string} [info="NOM"] "NOM", "ADRESSE", "VILLE", "CP", "APE", "STATUT".
+ * @param {string} [info="NOM"] "NOM", "ADRESSE", "VILLE", "CP", "APE", "STATUT" ou "GLOBAL" (toutes les infos).
  * @return {string|Array<Array<string>>}        L'information demandée ou message d'erreur.
  * @customfunction
  *
  *   =EXTRAIRE_ENTREPRISE("123456789")             → "NOM DE L'ENTREPRISE"
- *   =EXTRAIRE_ENTREPRISE("12345678900012"; "VILLE") → "PARIS"
+ *   =EXTRAIRE_ENTREPRISE("12345678900012"; "GLOBAL") → [Nom | Adresse | CP | Ville | APE | Statut]
  */
 function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
   try {

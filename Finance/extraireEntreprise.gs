@@ -58,12 +58,12 @@ function _fetchSireneData(id) {
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {string|number|Array<Array<any>>} identifiant SIREN (9 chif.) ou SIRET (14 chif.).
- * @param {string} [info="NOM"] "NOM", "ADRESSE", "VILLE", "CP", "APE", "STATUT".
+ * @param {string} [info="NOM"] "NOM", "ADRESSE", "VILLE", "CP", "APE", "STATUT" ou "GLOBAL" (toutes les infos).
  * @return {string|Array<Array<string>>}        L'information demandée ou message d'erreur.
  * @customfunction
  *
  *   =EXTRAIRE_ENTREPRISE("123456789")             → "NOM DE L'ENTREPRISE"
- *   =EXTRAIRE_ENTREPRISE("12345678900012"; "VILLE") → "PARIS"
+ *   =EXTRAIRE_ENTREPRISE("12345678900012"; "GLOBAL") → [Nom | Adresse | CP | Ville | APE | Statut]
  */
 function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
   const typeInfo = String(info).trim().toUpperCase();
@@ -74,26 +74,30 @@ function EXTRAIRE_ENTREPRISE(identifiant, info = "NOM") {
     const data = _fetchSireneData(val);
     if (!data) return "Erreur: Identifiant non trouvé";
 
-    // Navigation dans la structure de l'API Sirene V3
-    // Note: La structure diffère légèrement entre SIREN et SIRET
     const uniteLegale = data.unite_legale || data;
     const etablissement = data.unite_legale ? data : null;
 
     const nom = uniteLegale.denomination_unite_legale || uniteLegale.nom_raison_sociale || 
                 (uniteLegale.nom ? `${uniteLegale.nom} ${uniteLegale.prenom || ""}` : "Inconnu");
+    const ape = uniteLegale.activite_principale_unite_legale || uniteLegale.activite_principale || "N/A";
+    const statut = uniteLegale.etat_administratif_unite_legale === "A" ? "ACTIF" : "INACTIF";
+    
+    const cp = etablissement ? etablissement.code_postal : "N/A";
+    const ville = etablissement ? etablissement.libelle_commune : "N/A";
+    const adresse = etablissement 
+      ? `${etablissement.numero_voie || ""} ${etablissement.type_voie || ""} ${etablissement.libelle_voie || ""}, ${etablissement.code_postal} ${etablissement.libelle_commune}`.trim()
+      : "N/A";
 
     switch (typeInfo) {
       case "NOM": return nom;
-      case "APE": return uniteLegale.activite_principale_unite_legale || uniteLegale.activite_principale || "N/A";
-      case "VILLE": 
-        return etablissement ? etablissement.libelle_commune : "N/A (Utilisez un SIRET)";
-      case "CP": 
-        return etablissement ? etablissement.code_postal : "N/A (Utilisez un SIRET)";
-      case "ADRESSE":
-        if (!etablissement) return "N/A (Utilisez un SIRET)";
-        return `${etablissement.numero_voie || ""} ${etablissement.type_voie || ""} ${etablissement.libelle_voie || ""}, ${etablissement.code_postal} ${etablissement.libelle_commune}`.trim();
-      case "STATUT":
-        return uniteLegale.etat_administratif_unite_legale === "A" ? "ACTIF" : "INACTIF";
+      case "APE": return ape;
+      case "VILLE": return ville;
+      case "CP": return cp;
+      case "ADRESSE": return adresse;
+      case "STATUT": return statut;
+      case "GLOBAL":
+        // Renvoie une ligne complète sur 6 colonnes
+        return [[nom, adresse, cp, ville, ape, statut]];
       default:
         return nom;
     }
