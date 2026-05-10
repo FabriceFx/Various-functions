@@ -82,7 +82,7 @@ function CAPITALISER(texte) {
  *   =PRIX_PSYCHOLOGIQUE(14.12; 99) → 14.99
  *   =PRIX_PSYCHOLOGIQUE(A2:A100; 95)
  */
-function PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison) {
+function PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison = 99) {
   try {
     return FF_LIB.PRIX_PSYCHOLOGIQUE(prixCalcule, terminaison);
   } catch (e) {
@@ -353,7 +353,7 @@ function JOURS_FERIES_AVEC_JOUR(annee) {
  *
  *   =PREVISION_LISSAGE(B2:B12; 0.6)
  */
-function PREVISION_LISSAGE(plageHistorique, alpha) {
+function PREVISION_LISSAGE(plageHistorique, alpha = 0.5) {
   try {
     return FF_LIB.PREVISION_LISSAGE(plageHistorique, alpha);
   } catch (e) {
@@ -375,7 +375,7 @@ function PREVISION_LISSAGE(plageHistorique, alpha) {
  *   =EXTRAIRE_INITIALES("Jean-Pierre Dupont")                → "JPD"
  *   =EXTRAIRE_INITIALES(A2:A50; FAUX)                        → [Tableau de résultats]
  */
-function EXTRAIRE_INITIALES(texte, avecParticules) {
+function EXTRAIRE_INITIALES(texte, avecParticules = false) {
   try {
     return FF_LIB.EXTRAIRE_INITIALES(texte, avecParticules);
   } catch (e) {
@@ -397,7 +397,7 @@ function EXTRAIRE_INITIALES(texte, avecParticules) {
  *   =IMAGE(QR_CODE_WIFI("Livebox-1234"; "MonMotDePasse"))
  *   =IMAGE(QR_CODE_WIFI(A2:A100; "MotDePasseUnique"))
  */
-function QR_CODE_WIFI(ssid, motDePasse, securite) {
+function QR_CODE_WIFI(ssid, motDePasse, securite = "WPA") {
   try {
     return FF_LIB.QR_CODE_WIFI(ssid, motDePasse, securite);
   } catch (e) {
@@ -490,7 +490,7 @@ function FF_VERSION() {
  *   =CENSURE_MOTS("C'est vraiment un gros connard."; "gros,moche")
  *   =CENSURE_MOTS(A2:A100; "urgent")
  */
-function CENSURE_MOTS(texte, motsSupplementaires) {
+function CENSURE_MOTS(texte, motsSupplementaires = "") {
   try {
     return FF_LIB.CENSURE_MOTS(texte, motsSupplementaires);
   } catch (e) {
@@ -511,7 +511,7 @@ function CENSURE_MOTS(texte, motsSupplementaires) {
  *   =NOM_FICHIER_PROPRE("Facture_N°123/2026") → "Facture_N-123-2026"
  *   =NOM_FICHIER_PROPRE(A2:A100)
  */
-function NOM_FICHIER_PROPRE(texte, remplacement) {
+function NOM_FICHIER_PROPRE(texte, remplacement = "-") {
   try {
     return FF_LIB.NOM_FICHIER_PROPRE(texte, remplacement);
   } catch (e) {
@@ -552,7 +552,7 @@ function PROCHAIN_FERIE(dateRef) {
  *
  *   =FREQUENCE_MOTS(A2:A100; VRAI; 20)
  */
-function FREQUENCE_MOTS(plage, exclureLiaison, topN) {
+function FREQUENCE_MOTS(plage, exclureLiaison = true, topN = 10) {
   try {
     return FF_LIB.FREQUENCE_MOTS(plage, exclureLiaison, topN);
   } catch (e) {
@@ -672,7 +672,7 @@ function MASK_PII(input) {
  *
  *   =GENERER_MOT_DE_PASSE(16; VRAI; VRAI; FAUX)
  */
-function GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux) {
+function GENERER_MOT_DE_PASSE(longueur = 12, majuscules = true, nombres = true, speciaux = true) {
   try {
     return FF_LIB.GENERER_MOT_DE_PASSE(longueur, majuscules, nombres, speciaux);
   } catch (e) {
@@ -715,7 +715,7 @@ function VERIF_NIR(nir) {
  *   =RECHERCHEV_MULTI("123"; A2:B100; 2)
  *   =RECHERCHEV_MULTI(F2:F10; A2:B100; 2)
  */
-function RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur) {
+function RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur = ", ") {
   try {
     return FF_LIB.RECHERCHEV_MULTI(valeurRecherchee, plage, indexColonne, separateur);
   } catch (e) {
@@ -758,7 +758,7 @@ function CLEAN_HTML(texte) {
  *   =REGEX_EXTRAIRE_TOUT(A2; "\d+ €")
  *   =REGEX_EXTRAIRE_TOUT(A2:A100; "#[a-zA-Z0-9]+")
  */
-function REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur) {
+function REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur = ", ") {
   try {
     return FF_LIB.REGEX_EXTRAIRE_TOUT(texte, expressionReguliere, separateur);
   } catch (e) {
@@ -892,7 +892,7 @@ function WORKSPACE_USER_HEALTH(email) {
  *   =RECHERCHE_V_FLOUE("Societe Generale"; A2:C100; 3)
  *   =RECHERCHE_V_FLOUE(D2:D100; A2:C100; 2)
  */
-function RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil) {
+function RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne = 2, seuil = 0.7) {
   try {
     return FF_LIB.RECHERCHE_V_FLOUE(valeurRecherchee, plage, indexColonne, seuil);
   } catch (e) {
@@ -1007,7 +1007,7 @@ function ENTROPY_SCORE(texte) {
  *   =DETECT_OUTLIER(C2; C$2:C$100)
  *   =DETECT_OUTLIER(C2:C10; C$2:C$100)
  */
-function DETECT_OUTLIER(valeur, plageDonnees, seuilZ) {
+function DETECT_OUTLIER(valeur, plageDonnees, seuilZ = 2.5) {
   try {
     return FF_LIB.DETECT_OUTLIER(valeur, plageDonnees, seuilZ);
   } catch (e) {
@@ -1030,7 +1030,7 @@ function DETECT_OUTLIER(valeur, plageDonnees, seuilZ) {
  *   =PREAVIS_CONTRAT("2020-01-01"; "2026-05-09"; "Cadre"; "Démission") → "3 mois"
  *   =PREAVIS_CONTRAT(A2:A100; ; "Employé"; "Licenciement")
  */
-function PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type) {
+function PREAVIS_CONTRAT(dateDebut, dateRupture, statut = "Cadre", type = "Démission") {
   try {
     return FF_LIB.PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type);
   } catch (e) {
@@ -1052,7 +1052,7 @@ function PREAVIS_CONTRAT(dateDebut, dateRupture, statut, type) {
  *   =SOLDE_CONGES("2025-01-01"; "2025-06-30"; 2.5)
  *   =SOLDE_CONGES(A2:A100)
  */
-function SOLDE_CONGES(dateEntree, dateFin, joursParMois) {
+function SOLDE_CONGES(dateEntree, dateFin, joursParMois = 2.08) {
   try {
     return FF_LIB.SOLDE_CONGES(dateEntree, dateFin, joursParMois);
   } catch (e) {
@@ -1074,7 +1074,7 @@ function SOLDE_CONGES(dateEntree, dateFin, joursParMois) {
  *   =FIN_PERIODE_ESSAI("2026-01-01"; "Cadre")
  *   =FIN_PERIODE_ESSAI(A2:A100; "Ouvrier")
  */
-function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement) {
+function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement = false) {
   try {
     return FF_LIB.FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement);
   } catch (e) {
@@ -1096,7 +1096,7 @@ function FIN_PERIODE_ESSAI(dateEmbauche, statut, renouvellement) {
  *   =DUREE_PERIODE_ESSAI("Cadre"; VRAI)  → "8 mois (renouvelée)"
  *   =DUREE_PERIODE_ESSAI("Ouvrier")      → "2 mois"
  */
-function DUREE_PERIODE_ESSAI(statut, renouvellement) {
+function DUREE_PERIODE_ESSAI(statut, renouvellement = false) {
   try {
     return FF_LIB.DUREE_PERIODE_ESSAI(statut, renouvellement);
   } catch (e) {
@@ -1119,7 +1119,7 @@ function DUREE_PERIODE_ESSAI(statut, renouvellement) {
  *   =ESTIMATION_BRUT_NET(3000; "Cadre"; "B2N")
  *   =ESTIMATION_BRUT_NET(A2:A50; "Non-Cadre")
  */
-function ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise) {
+function ESTIMATION_BRUT_NET(montant, statut, sens = "B2N", tauxPersonnalise) {
   try {
     return FF_LIB.ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise);
   } catch (e) {
@@ -1140,7 +1140,7 @@ function ESTIMATION_BRUT_NET(montant, statut, sens, tauxPersonnalise) {
  *   =COUT_EMPLOYEUR(3000; "Cadre")
  *   =COUT_EMPLOYEUR(A2:A100)
  */
-function COUT_EMPLOYEUR(salaireBrut, statut) {
+function COUT_EMPLOYEUR(salaireBrut, statut = "Non-Cadre") {
   try {
     return FF_LIB.COUT_EMPLOYEUR(salaireBrut, statut);
   } catch (e) {
@@ -1180,7 +1180,7 @@ function AGE_EXACT(dateNaissance, dateRef) {
  *   =IS_BUSINESS_HOUR(A2; 9; 18)
  *   =IS_BUSINESS_HOUR(A2:A50)
  */
-function IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin) {
+function IS_BUSINESS_HOUR(dateTime, heureDebut = 9, heureFin = 18) {
   try {
     return FF_LIB.IS_BUSINESS_HOUR(dateTime, heureDebut, heureFin);
   } catch (e) {
@@ -1244,7 +1244,7 @@ function PRORATA_SALAIRE(salaireMensuel, dateDebut, dateFin) {
  *   =DELAI_PREVENANCE("2026-01-01"; "2026-02-15")  → "2 semaines"
  *   =DELAI_PREVENANCE(A2:A100)
  */
-function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur) {
+function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur = true) {
   try {
     return FF_LIB.DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur);
   } catch (e) {
@@ -1262,7 +1262,7 @@ function DELAI_PREVENANCE(dateDebut, dateRupture, coteEmployeur) {
  * @return {string}           Statut de l'enregistrement.
  * @customfunction
  */
-function LOG_ERREUR(message, contexte, gravite) {
+function LOG_ERREUR(message, contexte = "Général", gravite = "ERROR") {
   return FF_LIB.LOG_ERREUR(message, contexte, gravite);
 }
 
@@ -1355,7 +1355,7 @@ function VERIF_TVA(numero) {
  *   =SEUIL_RENTABILITE(10000; 50; 20)
  *   =SEUIL_RENTABILITE(A2:A100; 50; 20)
  */
-function SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour) {
+function SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour = "UNITE") {
   try {
     return FF_LIB.SEUIL_RENTABILITE(chargesFixes, prixVenteUnit, chargesVarUnit, typeRetour);
   } catch (e) {
@@ -1401,7 +1401,7 @@ function AMORTISSEMENT_LINEAIRE(valeur, dureeAnnees, dateAchat, anneeExercice) {
  *   =MONTANT_EN_LETTRES(1234.56; "FR") → "mille deux cent trente-quatre euros et cinquante-six centimes"
  *   =MONTANT_EN_LETTRES(1234.56; "EN") → "one thousand two hundred thirty-four dollars and fifty-six cents"
  */
-function MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes) {
+function MONTANT_EN_LETTRES(nombre, langue = "FR", devise, nomCentimes) {
   try {
     return FF_LIB.MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes);
   } catch (e) {
@@ -1424,7 +1424,7 @@ function MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes) {
  *   =VENTILATION_TVA(120; "STANDARD")
  *   =VENTILATION_TVA(110; "RESTAURATION"; "HT"; "2023-01-01")
  */
-function VENTILATION_TVA(montantTTC, categorie, retour, dateFacture) {
+function VENTILATION_TVA(montantTTC, categorie, retour = "TVA", dateFacture = null) {
   try {
     return FF_LIB.VENTILATION_TVA(montantTTC, categorie, retour, dateFacture);
   } catch (e) {
@@ -1445,7 +1445,7 @@ function VENTILATION_TVA(montantTTC, categorie, retour, dateFacture) {
  *   =ARRONDI_COMPTABLE(2.5; 0)  → 2
  *   =ARRONDI_COMPTABLE(A2:A100; 2)
  */
-function ARRONDI_COMPTABLE(nombre, decimales) {
+function ARRONDI_COMPTABLE(nombre, decimales = 2) {
   try {
     return FF_LIB.ARRONDI_COMPTABLE(nombre, decimales);
   } catch (e) {
@@ -1484,7 +1484,7 @@ function TAUX_BCE() {
  *   =PENALITES_RETARD(5000; "2024-01-01")
  *   =PENALITES_RETARD(A2:A100; "2024-01-01"; ; 10)
  */
-function PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge) {
+function PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge = 10) {
   try {
     return FF_LIB.PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge);
   } catch (e) {
@@ -1641,7 +1641,7 @@ function CO2_FLIGHT_ESTIMATOR(codeDep, codeArr) {
  *   =CALCUL_VOLUMETRIE(50; 40; 30; "cm"; FAUX)  → 0.06 (m3)
  *   =CALCUL_VOLUMETRIE(A2:A100; 40; 30)
  */
-function CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol) {
+function CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite = "cm", calculPoidsVol = false) {
   try {
     return FF_LIB.CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol);
   } catch (e) {
@@ -1663,7 +1663,7 @@ function CALCUL_VOLUMETRIE(longueur, largeur, hauteur, unite, calculPoidsVol) {
  *   =ALERTE_STOCK(15; 20; 2)
  *   =ALERTE_STOCK(A2:A100; 10)
  */
-function ALERTE_STOCK(stockActuel, seuilMini, ventesParJour) {
+function ALERTE_STOCK(stockActuel, seuilMini, ventesParJour = 0) {
   try {
     return FF_LIB.ALERTE_STOCK(stockActuel, seuilMini, ventesParJour);
   } catch (e) {
@@ -1727,7 +1727,7 @@ function ANALYSE_SENTIMENT(texte) {
  *   =EXTRAIRE_TEL("Call +33612345678"; "FR") → "06 12 34 56 78"
  *   =EXTRAIRE_TEL(A2:A50)                    → [Tableau de résultats]
  */
-function EXTRAIRE_TEL(texte, pays) {
+function EXTRAIRE_TEL(texte, pays = 'FR') {
   try {
     return FF_LIB.EXTRAIRE_TEL(texte, pays);
   } catch (e) {
@@ -1748,7 +1748,7 @@ function EXTRAIRE_TEL(texte, pays) {
  *   =ESTIMER_LECTURE(A2)
  *   =ESTIMER_LECTURE(A2:A100)
  */
-function ESTIMER_LECTURE(texte, motsParMinute) {
+function ESTIMER_LECTURE(texte, motsParMinute = 250) {
   try {
     return FF_LIB.ESTIMER_LECTURE(texte, motsParMinute);
   } catch (e) {
@@ -1769,7 +1769,7 @@ function ESTIMER_LECTURE(texte, motsParMinute) {
  *   =IMAGE(QR_CODE_URL("https://faucheux.bzh"))
  *   =IMAGE(QR_CODE_URL(A2:A100))
  */
-function QR_CODE_URL(texte, taille) {
+function QR_CODE_URL(texte, taille = 200) {
   try {
     return FF_LIB.QR_CODE_URL(texte, taille);
   } catch (e) {
@@ -1881,7 +1881,7 @@ function GEO_SCHEMA_DETECTOR(url) {
  *   =CONSTRUCTEUR_UTM("https://faucheux.bzh"; "linkedin"; "social"; "lancement")
  *   =CONSTRUCTEUR_UTM(A2:A100; "google"; "cpc"; "soldes")
  */
-function CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu) {
+function CONSTRUCTEUR_UTM(url, source, support, campagne, terme = "", contenu = "") {
   try {
     return FF_LIB.CONSTRUCTEUR_UTM(url, source, support, campagne, terme, contenu);
   } catch (e) {
@@ -1945,7 +1945,7 @@ function SCORE_LEAD(budget, secteur, source) {
  *   =EXTRACT_TITLE_TAG("https://faucheux.bzh")
  *   =EXTRACT_TITLE_TAG(A2:A50; VRAI) // Force le rafraîchissement
  */
-function EXTRACT_TITLE_TAG(url, bypassCache) {
+function EXTRACT_TITLE_TAG(url, bypassCache = false) {
   try {
     return FF_LIB.EXTRACT_TITLE_TAG(url, bypassCache);
   } catch (e) {
@@ -1972,7 +1972,7 @@ function EXTRACT_TITLE_TAG(url, bypassCache) {
  * @return {string}                    Message de confirmation ou d'erreur.
  * @customfunction
  */
-function ENVOYER_EMAIL(to, subject, body, options) {
+function ENVOYER_EMAIL(to, subject, body, options = {}) {
   try {
     return FF_LIB.ENVOYER_EMAIL(to, subject, body, options);
   } catch (e) {
