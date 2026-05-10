@@ -1454,18 +1454,34 @@ function ARRONDI_COMPTABLE(nombre, decimales) {
 }
 
 /**
- * Calcule les intérêts de retard.
+ * Récupère le dernier taux de refinancement (MRO) de la BCE via leur API.
+ * Utilisable directement dans une cellule Sheets.
+ *
+ * @return {number} Le taux en pourcentage (ex: 4.5).
+ * @customfunction
+ */
+function TAUX_BCE() {
+  try {
+    return FF_LIB.TAUX_BCE();
+  } catch (e) {
+    FF_LIB.LOG_ERREUR(e.message, 'Relais: TAUX_BCE', 'ERROR');
+    throw e;
+  }
+}
+
+/**
+ * Calcule les intérêts de retard B2B (France).
  * Supporte le traitement par lot (plages de cellules).
  *
- * @param {number|Array<Array<number>>} montant Montant ou plage.
+ * @param {number|Array<Array<number>>} montant Montant de la facture ou plage.
  * @param {Date|string} dateEcheance Date d'échéance.
- * @param {number} [tauxBCE=4.5] Le taux directeur BCE (%).
- * @param {number} [marge=10] La marge légale (points).
- * @return {number|Array<Array<number>>}          Le montant des pénalités ou tableau de résultats.
+ * @param {number} [tauxBCE] (Optionnel) Le taux directeur BCE (%). Si vide, interroge l'API.
+ * @param {number} [marge=10] (Optionnel) La marge légale (points). 10 points par défaut.
+ * @return {number|Array<Array<number>>} Le montant des pénalités ou tableau de résultats.
  * @customfunction
  *
- *   =PENALITES_RETARD(5000; "2024-01-01"; 4.5; 10)
- *   =PENALITES_RETARD(A2:A100; "2024-01-01")
+ *   =PENALITES_RETARD(5000; "2024-01-01")
+ *   =PENALITES_RETARD(A2:A100; "2024-01-01"; ; 10)
  */
 function PENALITES_RETARD(montant, dateEcheance, tauxBCE, marge) {
   try {
