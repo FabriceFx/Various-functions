@@ -1018,16 +1018,13 @@ function DETECT_OUTLIER(valeur, plageDonnees, seuilZ = 2.5) {
 
 /**
  * Calcule les frais de notaire pour une transaction immobilière.
- * Supporte le traitement par lot (plages de cellules).
+ * Version Expert avec cascade fiscale et émoluments réglementés.
  *
  * @param {number|Array<Array<number>>} prixAchat Le prix de vente net vendeur.
  * @param {string} [typeBien="ANCIEN"] "ANCIEN" ou "NEUF".
- * @param {string|number} [departement="75"] Code du département (ex: "36", "75", 56).
+ * @param {string|number} [departement="75"] Code du département (ex: "36", "75").
  * @return {number|Array<Array<number>>} Le montant total estimé des frais.
  * @customfunction
- *
- *   =FRAIS_NOTAIRE(250000; "ANCIEN"; "75")
- *   =FRAIS_NOTAIRE(300000; "NEUF")
  */
 function FRAIS_NOTAIRE(prixAchat, typeBien = "ANCIEN", departement = "75") {
   try {
