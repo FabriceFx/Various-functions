@@ -75,7 +75,9 @@ function _fetchCompanyData(id) {
     if (code === 200) {
       const json = JSON.parse(response.getContentText());
       if (json.records && json.records.length > 0) {
-        const f = json.records[0].fields;
+        // Priorité au siège social
+        const record = json.records.find(r => r.fields.etablissementsiege === "true" || r.fields.etablissementsiege === true) || json.records[0];
+        const f = record.fields;
         
         // Reconstitution du nom (Priorité : Dénomination > L1 Adressage > Nom Raison Sociale)
         const nom = f.denominationunitelegale || 
