@@ -38,18 +38,27 @@ function _fetchSireneData(id) {
   const url = `https://recherche-entreprises.api.gouv.fr/search?q=${cleanId}`;
   
   try {
-    const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+    const response = UrlFetchApp.fetch(url, { 
+      muteHttpExceptions: true,
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; FF_Library/2.0; +https://github.com/FabriceFx/Various-functions)"
+      }
+    });
+
     if (response.getResponseCode() === 200) {
       const data = JSON.parse(response.getContentText());
       if (data.results && data.results.length > 0) {
         const result = data.results[0];
-        // On stocke en cache pour 6h
         cache.put(cacheKey, JSON.stringify(result), CONFIG.CACHE_TTL);
         return result;
+      } else {
+        console.warn(`Aucun résultat API pour : ${cleanId}`);
       }
+    } else {
+      console.error(`Erreur HTTP ${response.getResponseCode()} sur ${url}`);
     }
   } catch (e) {
-    console.error("Erreur API Sirene: " + e.message);
+    console.error(`Erreur réseau API Sirene: ${e.message}`);
   }
   return null;
 }
