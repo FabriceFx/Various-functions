@@ -1411,21 +1411,22 @@ function MONTANT_EN_LETTRES(nombre, langue, devise, nomCentimes) {
 }
 
 /**
- * Ventile un montant TTC selon une catégorie.
+ * Ventile un montant TTC selon une catégorie et une date (optionnelle).
  * Supporte le traitement par lot (plages de cellules).
  *
  * @param {number|Array<Array<number>>} montantTTC Le montant TTC ou plage.
- * @param {string} categorie Catégorie (STANDARD, REDUIT, etc.).
+ * @param {string} categorie Catégorie (STANDARD, REDUIT, INTERMEDIAIRE, RESTAURATION, PARTICULIER, PRESSE, EXONERE).
  * @param {string} [retour="TVA"] "TVA", "HT" ou "TOUT".
- * @return {number|Array<Array<any>>}               Le montant calculé ou tableau de résultats.
+ * @param {Date|string} [dateFacture] Date pour recherche historique du taux.
+ * @return {number|Array<Array<any>>} Le montant calculé ou tableau de résultats.
  * @customfunction
  *
  *   =VENTILATION_TVA(120; "STANDARD")
- *   =VENTILATION_TVA(A2:A100; "REDUIT")
+ *   =VENTILATION_TVA(110; "RESTAURATION"; "HT"; "2023-01-01")
  */
-function VENTILATION_TVA(montantTTC, categorie, retour) {
+function VENTILATION_TVA(montantTTC, categorie, retour, dateFacture) {
   try {
-    return FF_LIB.VENTILATION_TVA(montantTTC, categorie, retour);
+    return FF_LIB.VENTILATION_TVA(montantTTC, categorie, retour, dateFacture);
   } catch (e) {
     FF_LIB.LOG_ERREUR(e.message, 'Relais: VENTILATION_TVA', 'ERROR');
     throw e;
